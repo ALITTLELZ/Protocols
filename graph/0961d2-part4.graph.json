@@ -1,0 +1,195 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Filter Tip Rack 200 \u00b5L on 1",
+            "parent": "deck",
+            "slot_on_deck": 1,
+            "class_name": "opentrons_96_filtertiprack_200ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Plate on 3",
+            "parent": "deck",
+            "slot_on_deck": 3,
+            "class_name": "biorad_96_wellplate_200ul_pcr",
+            "liquid_type": [
+                "src[0]",
+                "src[1]",
+                "src[2]",
+                "src[3]",
+                "src[4]",
+                "src[5]",
+                "src[6]",
+                "src[7]"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A4",
+                "B4",
+                "C4",
+                "D4",
+                "E4",
+                "F4",
+                "G4",
+                "H4"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Tube Rack on 6",
+            "parent": "deck",
+            "slot_on_deck": 6,
+            "class_name": "opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap",
+            "liquid_type": [
+                "tubes[0]",
+                "tubes[1]",
+                "tubes[2]",
+                "tubes[3]"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A1",
+                "B1",
+                "C1",
+                "D1"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A1",
+                "A1",
+                "B1",
+                "A2",
+                "B1",
+                "B1",
+                "B2",
+                "A3",
+                "C1",
+                "C1",
+                "B3",
+                "A4",
+                "D1",
+                "D1",
+                "B4"
+            ],
+            "targets": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "B1",
+                "B1",
+                "B1",
+                "B1",
+                "C1",
+                "C1",
+                "C1",
+                "C1",
+                "D1",
+                "D1",
+                "D1",
+                "D1"
+            ],
+            "tip_racks": [
+                "A1",
+                "B1",
+                "C1",
+                "D1"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                110.0,
+                110.0,
+                110.0,
+                110.0
+            ],
+            "asp_flow_rates": [
+                46.43,
+                46.43,
+                46.43,
+                46.43
+            ],
+            "disp_vols": [
+                110.0,
+                110.0,
+                110.0,
+                110.0
+            ],
+            "dis_flow_rates": [
+                46.43,
+                46.43,
+                46.43,
+                46.43
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "both",
+            "mix_times": [
+                2
+            ],
+            "mix_vol": 100.0,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null,
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 200 \u00b5L on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "Plate on 3",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "Tube Rack on 6",
+            "target": "step_1"
+        }
+    ]
+}

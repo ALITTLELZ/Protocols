@@ -1,0 +1,221 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "source plate (NEST) on 1",
+            "parent": "deck",
+            "slot_on_deck": 1,
+            "class_name": "nest_96_wellplate_100ul_pcr_full_skirt",
+            "liquid_type": [
+                "s"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A12"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "destination plate (QIAcuity) on 2",
+            "parent": "deck",
+            "slot_on_deck": 2,
+            "class_name": "qiacuity_96_wellplate_200ul",
+            "liquid_type": [
+                "d"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A12"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+            "parent": "deck",
+            "slot_on_deck": 4,
+            "class_name": "opentrons_96_filtertiprack_20ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ],
+            "targets": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ],
+            "tip_racks": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0
+            ],
+            "asp_flow_rates": [
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0
+            ],
+            "disp_vols": [
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0,
+                10.0
+            ],
+            "dis_flow_rates": [
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0,
+                5.0
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "source plate (NEST) on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "destination plate (QIAcuity) on 2",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+            "target": "step_1"
+        }
+    ]
+}

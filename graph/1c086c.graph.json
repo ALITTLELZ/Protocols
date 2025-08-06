@@ -1,0 +1,146 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "Plate 1 on 1",
+            "parent": "deck",
+            "slot_on_deck": 1,
+            "class_name": "corning_6_wellplate_16.8ml_flat",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Plate 2 on 2",
+            "parent": "deck",
+            "slot_on_deck": 2,
+            "class_name": "corning_24_wellplate_3.4ml_flat",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Trash Plate on 3",
+            "parent": "deck",
+            "slot_on_deck": 3,
+            "class_name": "agilent_1_reservoir_290ml",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Tip Rack 300 \u00b5L on 4",
+            "parent": "deck",
+            "slot_on_deck": 4,
+            "class_name": "opentrons_96_tiprack_300ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A1",
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A1",
+                "A1",
+                "A5",
+                "A6"
+            ],
+            "targets": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A1",
+                "A5",
+                "A6",
+                "A1"
+            ],
+            "tip_racks": [
+                "A1"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                10.0,
+                10.0
+            ],
+            "asp_flow_rates": [
+                92.86,
+                92.86
+            ],
+            "disp_vols": [
+                300.0,
+                300.0
+            ],
+            "dis_flow_rates": [
+                92.86,
+                92.86
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "Plate 1 on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "Plate 2 on 2",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Tip Rack 300 \u00b5L on 4",
+            "target": "step_1"
+        }
+    ]
+}

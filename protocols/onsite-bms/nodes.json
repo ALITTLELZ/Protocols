@@ -1,0 +1,206 @@
+{
+    "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2 on 1": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2 on 1",
+        "params": {
+            "default": {
+                "id": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2 on 1",
+                "parent": "deck",
+                "slot_on_deck": 1,
+                "class_name": "thermofisher_40_tuberack_2000ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "NEST 96 Well Plate 200 \u00b5L Flat on 2": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "NEST 96 Well Plate 200 \u00b5L Flat on 2",
+        "params": {
+            "default": {
+                "id": "NEST 96 Well Plate 200 \u00b5L Flat on 2",
+                "parent": "deck",
+                "slot_on_deck": 2,
+                "class_name": "nest_96_wellplate_200ul_flat",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 4": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 4",
+        "params": {
+            "default": {
+                "id": "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 4",
+                "parent": "deck",
+                "slot_on_deck": 4,
+                "class_name": "opentrons_6_tuberack_falcon_50ml_conical",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Tip Rack 20 \u00b5L on 5": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Tip Rack 20 \u00b5L on 5",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Tip Rack 20 \u00b5L on 5",
+                "parent": "deck",
+                "slot_on_deck": 5,
+                "class_name": "opentrons_96_tiprack_20ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "GEB 96 Tip Rack 1000 \u00b5L on 6": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "GEB 96 Tip Rack 1000 \u00b5L on 6",
+        "params": {
+            "default": {
+                "id": "GEB 96 Tip Rack 1000 \u00b5L on 6",
+                "parent": "deck",
+                "slot_on_deck": 6,
+                "class_name": "geb_96_tiprack_1000ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons Fixed Trash on 12": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons Fixed Trash on 12",
+        "params": {
+            "default": {
+                "id": "Opentrons Fixed Trash on 12",
+                "parent": "deck",
+                "slot_on_deck": 12,
+                "class_name": "opentrons_1_trash_1100ml_fixed",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "step_1": {
+        "template": "liquid_handler-transfer_with_temperature",
+        "id": "step_1",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "A1"
+                ],
+                "use_channels": null,
+                "asp_vols": 1000.0,
+                "asp_flow_rates": [
+                    274.7
+                ],
+                "disp_vols": 1000.0,
+                "dis_flow_rates": [
+                    274.7
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    100.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": [
+                    2
+                ],
+                "temperature_target": 4.0,
+                "temperature_deactivate": false,
+                "id": "step_1"
+            }
+        },
+        "handles": {
+            "targets": [
+                "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2 on 1"
+            ],
+            "sources": [
+                "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 4"
+            ],
+            "tip_racks": [
+                "GEB 96 Tip Rack 1000 \u00b5L on 6"
+            ]
+        }
+    },
+    "step_2": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_2",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "A1"
+                ],
+                "use_channels": null,
+                "asp_vols": 20.0,
+                "asp_flow_rates": [
+                    7.56
+                ],
+                "disp_vols": 20.0,
+                "dis_flow_rates": [
+                    7.56
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": [
+                    2
+                ],
+                "mix_vol": 20.0,
+                "mix_rate": 15.12,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_2"
+            }
+        },
+        "handles": {
+            "sources": [
+                "NEST 96 Well Plate 200 \u00b5L Flat on 2"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Tip Rack 20 \u00b5L on 5"
+            ],
+            "targets": [
+                "step_1"
+            ]
+        }
+    }
+}

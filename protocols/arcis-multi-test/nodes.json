@@ -1,0 +1,605 @@
+{
+    "Corning Plate on 1": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Corning Plate on 1",
+        "params": {
+            "default": {
+                "id": "Corning Plate on 1",
+                "parent": "deck",
+                "slot_on_deck": 1,
+                "class_name": "corning_96_wellplate_360ul_flat",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Bioplastics Plate 1 on 2": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Bioplastics Plate 1 on 2",
+        "params": {
+            "default": {
+                "id": "Bioplastics Plate 1 on 2",
+                "parent": "deck",
+                "slot_on_deck": 2,
+                "class_name": "bioplastics_96_wellplate_100ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Bioplastics Plate 2 on 3": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Bioplastics Plate 2 on 3",
+        "params": {
+            "default": {
+                "id": "Bioplastics Plate 2 on 3",
+                "parent": "deck",
+                "slot_on_deck": 3,
+                "class_name": "bioplastics_96_wellplate_100ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Reservoir on 4": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Reservoir on 4",
+        "params": {
+            "default": {
+                "id": "Reservoir on 4",
+                "parent": "deck",
+                "slot_on_deck": 4,
+                "class_name": "usascientific_12_reservoir_22ml",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Tips on 5": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Tips on 5",
+        "params": {
+            "default": {
+                "id": "Tips on 5",
+                "parent": "deck",
+                "slot_on_deck": 5,
+                "class_name": "opentrons_96_tiprack_300ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Tips on 6": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Tips on 6",
+        "params": {
+            "default": {
+                "id": "Tips on 6",
+                "parent": "deck",
+                "slot_on_deck": 6,
+                "class_name": "opentrons_96_tiprack_300ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons Fixed Trash on 12": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons Fixed Trash on 12",
+        "params": {
+            "default": {
+                "id": "Opentrons Fixed Trash on 12",
+                "parent": "deck",
+                "slot_on_deck": 12,
+                "class_name": "opentrons_1_trash_1100ml_fixed",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "step_1": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_1",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1",
+                    "A1",
+                    "A1",
+                    "A1",
+                    "A1",
+                    "A1"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "tip_racks": [
+                    "A1"
+                ],
+                "use_channels": null,
+                "asp_vols": 150.0,
+                "asp_flow_rates": [
+                    150.0
+                ],
+                "disp_vols": 150.0,
+                "dis_flow_rates": [
+                    300.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_1"
+            }
+        },
+        "handles": {
+            "targets": [
+                "Corning Plate on 1"
+            ],
+            "sources": [
+                "Reservoir on 4"
+            ],
+            "tip_racks": [
+                "Tips on 5"
+            ]
+        }
+    },
+    "step_2": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_2",
+        "params": {
+            "default": {
+                "sources": [
+                    "A2",
+                    "A2",
+                    "A2",
+                    "A2",
+                    "A2",
+                    "A2"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "tip_racks": [
+                    "A2"
+                ],
+                "use_channels": null,
+                "asp_vols": 20.0,
+                "asp_flow_rates": [
+                    25.0
+                ],
+                "disp_vols": 20.0,
+                "dis_flow_rates": [
+                    50.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_2"
+            }
+        },
+        "handles": {
+            "targets": [
+                "Bioplastics Plate 1 on 2"
+            ],
+            "tip_racks": [
+                "Tips on 5"
+            ],
+            "sources": [
+                "step_1"
+            ]
+        }
+    },
+    "step_3": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_3",
+        "params": {
+            "default": {
+                "sources": [
+                    "A4",
+                    "A4",
+                    "A4",
+                    "A4",
+                    "A4",
+                    "A4"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "tip_racks": [
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6",
+                    "A7",
+                    "A8"
+                ],
+                "use_channels": null,
+                "asp_vols": [
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0
+                ],
+                "asp_flow_rates": [
+                    150.0,
+                    150.0,
+                    150.0,
+                    150.0,
+                    150.0,
+                    150.0
+                ],
+                "disp_vols": [
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0,
+                    30.0
+                ],
+                "dis_flow_rates": [
+                    300.0,
+                    300.0,
+                    300.0,
+                    300.0,
+                    300.0,
+                    300.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ],
+                "id": "step_3"
+            }
+        },
+        "handles": {
+            "tip_racks": [
+                "Tips on 5"
+            ],
+            "targets": [
+                "step_1"
+            ],
+            "sources": [
+                "step_2"
+            ]
+        }
+    },
+    "step_4": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_4",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "tip_racks": [
+                    "A9",
+                    "A10",
+                    "A11",
+                    "A12",
+                    "A1",
+                    "A2"
+                ],
+                "use_channels": null,
+                "asp_vols": [
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0
+                ],
+                "asp_flow_rates": [
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0
+                ],
+                "disp_vols": [
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0
+                ],
+                "dis_flow_rates": [
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ],
+                "id": "step_4"
+            }
+        },
+        "handles": {
+            "tip_racks": [
+                "Tips on 5"
+            ],
+            "targets": [
+                "step_2"
+            ],
+            "sources": [
+                "step_3"
+            ]
+        }
+    },
+    "step_5": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_5",
+        "params": {
+            "default": {
+                "sources": [
+                    "A3",
+                    "A3",
+                    "A3",
+                    "A3",
+                    "A3",
+                    "A3",
+                    "A3"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6",
+                    "A12"
+                ],
+                "tip_racks": [
+                    "A3"
+                ],
+                "use_channels": null,
+                "asp_vols": 20.0,
+                "asp_flow_rates": [
+                    25.0
+                ],
+                "disp_vols": 20.0,
+                "dis_flow_rates": [
+                    50.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_5"
+            }
+        },
+        "handles": {
+            "targets": [
+                "Bioplastics Plate 2 on 3"
+            ],
+            "tip_racks": [
+                "Tips on 6"
+            ],
+            "sources": [
+                "step_3"
+            ]
+        }
+    },
+    "step_6": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_6",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "targets": [
+                    "A1",
+                    "A2",
+                    "A3",
+                    "A4",
+                    "A5",
+                    "A6"
+                ],
+                "tip_racks": [
+                    "A4",
+                    "A5",
+                    "A6",
+                    "A7",
+                    "A8",
+                    "A9"
+                ],
+                "use_channels": null,
+                "asp_vols": [
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0
+                ],
+                "asp_flow_rates": [
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0,
+                    25.0
+                ],
+                "disp_vols": [
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0,
+                    5.0
+                ],
+                "dis_flow_rates": [
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0,
+                    50.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": [
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                ],
+                "id": "step_6"
+            }
+        },
+        "handles": {
+            "tip_racks": [
+                "Tips on 6"
+            ],
+            "sources": [
+                "step_4"
+            ],
+            "targets": [
+                "step_5"
+            ]
+        }
+    }
+}

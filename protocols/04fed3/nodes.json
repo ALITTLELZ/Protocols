@@ -1,0 +1,342 @@
+{
+    "Sample Rack in Slot 1 on 1": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Sample Rack in Slot 1 on 1",
+        "params": {
+            "default": {
+                "id": "Sample Rack in Slot 1 on 1",
+                "parent": "deck",
+                "slot_on_deck": 1,
+                "class_name": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Sample Rack in Slot 4 on 4": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Sample Rack in Slot 4 on 4",
+        "params": {
+            "default": {
+                "id": "Sample Rack in Slot 4 on 4",
+                "parent": "deck",
+                "slot_on_deck": 4,
+                "class_name": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Diluent on 5": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Diluent on 5",
+        "params": {
+            "default": {
+                "id": "Diluent on 5",
+                "parent": "deck",
+                "slot_on_deck": 5,
+                "class_name": "nest_1_reservoir_195ml",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Destination Plate on 6": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Destination Plate on 6",
+        "params": {
+            "default": {
+                "id": "Destination Plate on 6",
+                "parent": "deck",
+                "slot_on_deck": 6,
+                "class_name": "genesee25221_96_wellplate_300ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Sample Rack in Slot 7 on 7": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Sample Rack in Slot 7 on 7",
+        "params": {
+            "default": {
+                "id": "Sample Rack in Slot 7 on 7",
+                "parent": "deck",
+                "slot_on_deck": 7,
+                "class_name": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Tip Rack 20 \u00b5L on 10": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Tip Rack 20 \u00b5L on 10",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Tip Rack 20 \u00b5L on 10",
+                "parent": "deck",
+                "slot_on_deck": 10,
+                "class_name": "opentrons_96_tiprack_20ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Tip Rack 300 \u00b5L on 11": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Tip Rack 300 \u00b5L on 11",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Tip Rack 300 \u00b5L on 11",
+                "parent": "deck",
+                "slot_on_deck": 11,
+                "class_name": "opentrons_96_tiprack_300ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons Fixed Trash on 12": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons Fixed Trash on 12",
+        "params": {
+            "default": {
+                "id": "Opentrons Fixed Trash on 12",
+                "parent": "deck",
+                "slot_on_deck": 12,
+                "class_name": "opentrons_1_trash_1100ml_fixed",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "step_1": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_1",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "H1"
+                ],
+                "use_channels": null,
+                "asp_vols": 197.65,
+                "asp_flow_rates": [
+                    94.0
+                ],
+                "disp_vols": 197.65,
+                "dis_flow_rates": [
+                    94.0
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": [
+                    10
+                ],
+                "id": "step_1"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Diluent on 5"
+            ],
+            "targets": [
+                "Destination Plate on 6"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Tip Rack 300 \u00b5L on 11"
+            ]
+        }
+    },
+    "step_2": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_2",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "A1"
+                ],
+                "use_channels": null,
+                "asp_vols": 2.35,
+                "asp_flow_rates": [
+                    7.56
+                ],
+                "disp_vols": 2.35,
+                "dis_flow_rates": [
+                    7.56
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": [
+                    3
+                ],
+                "mix_vol": 20.0,
+                "mix_rate": 7.56,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_2"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Sample Rack in Slot 1 on 1"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Tip Rack 20 \u00b5L on 10"
+            ],
+            "targets": [
+                "step_1"
+            ]
+        }
+    },
+    "step_3": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_3",
+        "params": {
+            "default": {
+                "sources": [
+                    "A2"
+                ],
+                "targets": [
+                    "A2"
+                ],
+                "tip_racks": [
+                    "B1"
+                ],
+                "use_channels": null,
+                "asp_vols": 13.27,
+                "asp_flow_rates": [
+                    7.56
+                ],
+                "disp_vols": 13.27,
+                "dis_flow_rates": [
+                    7.56
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": [
+                    3
+                ],
+                "mix_vol": 20.0,
+                "mix_rate": 7.56,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_3"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Sample Rack in Slot 4 on 4"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Tip Rack 20 \u00b5L on 10"
+            ],
+            "targets": [
+                "step_2"
+            ]
+        }
+    },
+    "step_4": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_4",
+        "params": {
+            "default": {
+                "sources": [
+                    "A3"
+                ],
+                "targets": [
+                    "A3"
+                ],
+                "tip_racks": [
+                    "C1"
+                ],
+                "use_channels": null,
+                "asp_vols": 15.0,
+                "asp_flow_rates": [
+                    7.56
+                ],
+                "disp_vols": 15.0,
+                "dis_flow_rates": [
+                    7.56
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": [
+                    3
+                ],
+                "mix_vol": 20.0,
+                "mix_rate": 7.56,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_4"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Sample Rack in Slot 7 on 7"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Tip Rack 20 \u00b5L on 10"
+            ],
+            "targets": [
+                "step_3"
+            ]
+        }
+    }
+}

@@ -1,0 +1,273 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "Corning 96 Well Plate 360 \u00b5L Flat on 2",
+            "parent": "deck",
+            "slot_on_deck": 2,
+            "class_name": "corning_96_wellplate_360ul_flat",
+            "liquid_type": [
+                "samples[0]",
+                "samples[1]",
+                "samples[2]",
+                "samples[3]",
+                "samples[4]",
+                "samples[5]",
+                "samples[6]",
+                "samples[7]",
+                "samples[8]",
+                "samples[9]",
+                "samples[10]",
+                "samples[11]"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+            "parent": "deck",
+            "slot_on_deck": 3,
+            "class_name": "opentrons_96_tiprack_300ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "WISTD on 5",
+            "parent": "deck",
+            "slot_on_deck": 5,
+            "class_name": "reagent_1_reservoir_130000ul",
+            "liquid_type": [
+                "wistd"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A1"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "water on 6",
+            "parent": "deck",
+            "slot_on_deck": 6,
+            "class_name": "reagent_1_reservoir_130000ul",
+            "liquid_type": [
+                "water",
+                "reagent"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A1",
+                "A1"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1"
+            ],
+            "targets": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ],
+            "tip_racks": [
+                "A1"
+            ],
+            "use_channels": null,
+            "asp_vols": 250.0,
+            "asp_flow_rates": [
+                94.0
+            ],
+            "disp_vols": 250.0,
+            "dis_flow_rates": [
+                94.0
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "before",
+            "mix_times": [
+                3
+            ],
+            "mix_vol": 250.0,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": null,
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A1"
+            ],
+            "targets": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "A2",
+                "A3",
+                "A4",
+                "A5",
+                "A6",
+                "A7",
+                "A8",
+                "A9",
+                "A10",
+                "A11",
+                "A12"
+            ],
+            "tip_racks": [
+                "A2"
+            ],
+            "use_channels": null,
+            "asp_vols": 250.0,
+            "asp_flow_rates": [
+                94.0
+            ],
+            "disp_vols": 250.0,
+            "dis_flow_rates": [
+                94.0
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "before",
+            "mix_times": [
+                3
+            ],
+            "mix_vol": 250.0,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": null,
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_2"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+            "target": "step_2"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "WISTD on 5",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "water on 6",
+            "target": "step_2"
+        },
+        {
+            "source_port": "targets_out",
+            "target_port": "targets",
+            "source": "step_1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "targets_out",
+            "target_port": "targets",
+            "source": "step_2",
+            "target": "step_2"
+        }
+    ]
+}

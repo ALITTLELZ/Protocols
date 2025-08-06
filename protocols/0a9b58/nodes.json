@@ -1,0 +1,216 @@
+{
+    "Agilent 1 Well Reservoir 290 mL on 1": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Agilent 1 Well Reservoir 290 mL on 1",
+        "params": {
+            "default": {
+                "id": "Agilent 1 Well Reservoir 290 mL on 1",
+                "parent": "deck",
+                "slot_on_deck": 1,
+                "class_name": "agilent_1_reservoir_290ml",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 2": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 2",
+        "params": {
+            "default": {
+                "id": "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 2",
+                "parent": "deck",
+                "slot_on_deck": 2,
+                "class_name": "biorad_96_wellplate_200ul_pcr",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 3": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 3",
+        "params": {
+            "default": {
+                "id": "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 3",
+                "parent": "deck",
+                "slot_on_deck": 3,
+                "class_name": "biorad_96_wellplate_200ul_pcr",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+                "parent": "deck",
+                "slot_on_deck": 4,
+                "class_name": "opentrons_96_filtertiprack_20ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Filter Tip Rack 20 \u00b5L on 5": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 5",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 5",
+                "parent": "deck",
+                "slot_on_deck": 5,
+                "class_name": "opentrons_96_filtertiprack_20ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons 96 Filter Tip Rack 200 \u00b5L on 6": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons 96 Filter Tip Rack 200 \u00b5L on 6",
+        "params": {
+            "default": {
+                "id": "Opentrons 96 Filter Tip Rack 200 \u00b5L on 6",
+                "parent": "deck",
+                "slot_on_deck": 6,
+                "class_name": "opentrons_96_filtertiprack_200ul",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "Opentrons Fixed Trash on 12": {
+        "template": "host_node-add_resource_from_outer_easy",
+        "id": "Opentrons Fixed Trash on 12",
+        "params": {
+            "default": {
+                "id": "Opentrons Fixed Trash on 12",
+                "parent": "deck",
+                "slot_on_deck": 12,
+                "class_name": "opentrons_1_trash_1100ml_fixed",
+                "liquid_type": [],
+                "liquid_volume": [],
+                "liquid_input_wells": []
+            }
+        },
+        "handles": {}
+    },
+    "step_1": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_1",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "A1"
+                ],
+                "use_channels": null,
+                "asp_vols": 21.5,
+                "asp_flow_rates": [
+                    92.86
+                ],
+                "disp_vols": 21.5,
+                "dis_flow_rates": [
+                    92.86
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_1"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Agilent 1 Well Reservoir 290 mL on 1"
+            ],
+            "targets": [
+                "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 3"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Filter Tip Rack 200 \u00b5L on 6"
+            ]
+        }
+    },
+    "step_2": {
+        "template": "liquid_handler-transfer_liquid",
+        "id": "step_2",
+        "params": {
+            "default": {
+                "sources": [
+                    "A1"
+                ],
+                "targets": [
+                    "A1"
+                ],
+                "tip_racks": [
+                    "B1"
+                ],
+                "use_channels": null,
+                "asp_vols": 10.5,
+                "asp_flow_rates": [
+                    92.86
+                ],
+                "disp_vols": 10.5,
+                "dis_flow_rates": [
+                    92.86
+                ],
+                "offsets": null,
+                "touch_tip": false,
+                "liquid_height": null,
+                "blow_out_air_volume": [
+                    0.0
+                ],
+                "is_96_well": false,
+                "mix_stage": "none",
+                "mix_times": 0,
+                "mix_vol": null,
+                "mix_rate": null,
+                "mix_liquid_height": null,
+                "delays": null,
+                "id": "step_2"
+            }
+        },
+        "handles": {
+            "sources": [
+                "Bio-Rad 96 Well Plate 200 \u00b5L PCR on 2"
+            ],
+            "tip_racks": [
+                "Opentrons 96 Filter Tip Rack 200 \u00b5L on 6"
+            ],
+            "targets": [
+                "step_1"
+            ]
+        }
+    }
+}

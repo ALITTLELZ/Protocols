@@ -1,0 +1,284 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "tuberack 1 on 1",
+            "parent": "deck",
+            "slot_on_deck": 1,
+            "class_name": "opentrons_24_tuberack_nest_0.5ml_screwcap",
+            "liquid_type": [
+                "source[0]"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A5"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "tuberack 2 on 2",
+            "parent": "deck",
+            "slot_on_deck": 2,
+            "class_name": "opentrons_24_tuberack_nest_0.5ml_screwcap",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "12-channel reservoir on 3",
+            "parent": "deck",
+            "slot_on_deck": 3,
+            "class_name": "usascientific_12_reservoir_22ml",
+            "liquid_type": [
+                "mastermix_dest"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "A1"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Filter Tip Rack 1000 \u00b5L on 5",
+            "parent": "deck",
+            "slot_on_deck": 5,
+            "class_name": "opentrons_96_filtertiprack_1000ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons 96 Filter Tip Rack 1000 \u00b5L on 6",
+            "parent": "deck",
+            "slot_on_deck": 6,
+            "class_name": "opentrons_96_filtertiprack_1000ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A3"
+            ],
+            "targets": [
+                "A1"
+            ],
+            "tip_racks": [
+                "A1"
+            ],
+            "use_channels": null,
+            "asp_vols": 40.0,
+            "asp_flow_rates": [
+                137.35
+            ],
+            "disp_vols": 40.0,
+            "dis_flow_rates": [
+                137.35
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": null,
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A2",
+                "A3"
+            ],
+            "targets": [
+                "A1",
+                "A1"
+            ],
+            "tip_racks": [
+                "B1",
+                "C1"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                90.0,
+                248.0
+            ],
+            "asp_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "disp_vols": [
+                90.0,
+                248.0
+            ],
+            "dis_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_2"
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A4",
+                "A5"
+            ],
+            "targets": [
+                "A1",
+                "A1"
+            ],
+            "tip_racks": [
+                "D1",
+                "E1"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                25.0,
+                25.0
+            ],
+            "asp_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "disp_vols": [
+                25.0,
+                25.0
+            ],
+            "dis_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_3"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "tuberack 1 on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "tuberack 2 on 2",
+            "target": "step_2"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "12-channel reservoir on 3",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 1000 \u00b5L on 5",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 1000 \u00b5L on 5",
+            "target": "step_2"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 1000 \u00b5L on 5",
+            "target": "step_3"
+        },
+        {
+            "source_port": "targets_out",
+            "target_port": "targets",
+            "source": "step_1",
+            "target": "step_2"
+        },
+        {
+            "source_port": "sources_out",
+            "target_port": "sources",
+            "source": "step_1",
+            "target": "step_3"
+        },
+        {
+            "source_port": "targets_out",
+            "target_port": "targets",
+            "source": "step_2",
+            "target": "step_3"
+        }
+    ]
+}

@@ -1,6 +1,8 @@
 # flake8: noqa
 from opentrons.types import Point
 
+# from Protocols.protocol_converter import p300_mount
+
 metadata = {
     'protocolName': 'Luciferase Reporter Assay for NF-kB Activation - Protocol 4: Luciferase Activity Measurement',
     'author': 'Boren Lin, Opentrons',
@@ -12,8 +14,9 @@ metadata = {
 
 def run(ctx):
 
-    [p300_mount] = get_values(  # noqa: F821
-        "p300_mount")
+    # [p300_mount] = get_values(  # noqa: F821
+    #     "p300_mount")
+    p300_mount = 'left'
 
     TOTAL_COl = 12
 
@@ -46,7 +49,7 @@ def run(ctx):
         p300.move_to(final.top(z=-0.2))
         p300.aspirate(MEDIUM_VOL*1.2, final.bottom(z=0.2).move(Point(x=-2.5)), rate = 0.2)
         p300.dispense(MEDIUM_VOL*1.2, waste.top(z=-5), rate = 3)
-        p300.blow_out
+        p300.blow_out()
         p300.drop_tip()
 
     p300.pick_up_tip()
@@ -65,7 +68,7 @@ def run(ctx):
         p300.move_to(final.top(z=-0.2))
         p300.aspirate(PBS_VOL*1.5, final.bottom(z=0.2).move(Point(x=-2.5)), rate = 0.2)
         p300.dispense(PBS_VOL*1.5, waste.top(z=-5), rate = 3)
-        p300.blow_out
+        p300.blow_out()
         p300.drop_tip()
 
     ctx.comment('\n\n\n~~~~~~~~ADD LYSIS BUFFER~~~~~~~~\n')

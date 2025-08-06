@@ -1,0 +1,165 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "create_resource",
+            "id": "15ml tuberack on 1",
+            "parent": "deck",
+            "slot_on_deck": 1,
+            "class_name": "opentrons_15_tuberack_falcon_15ml_conical",
+            "liquid_type": [
+                "s"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "B1"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "2ml tuberack on 2",
+            "parent": "deck",
+            "slot_on_deck": 2,
+            "class_name": "opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap",
+            "liquid_type": [
+                "dest_set[0]",
+                "dest_set[1]",
+                "dest_set[2]",
+                "dest_set[3]",
+                "dest_set[4]",
+                "dest_set[5]",
+                "dest_set[6]",
+                "dest_set[7]",
+                "dest_set[8]",
+                "dest_set[9]",
+                "dest_set[10]",
+                "dest_set[11]"
+            ],
+            "liquid_volume": [],
+            "liquid_input_wells": [
+                "C1",
+                "C2",
+                "C3",
+                "C4",
+                "C5",
+                "C6",
+                "D1",
+                "D2",
+                "D3",
+                "D4",
+                "D5",
+                "D6"
+            ]
+        },
+        {
+            "template": "create_resource",
+            "id": "1000ul tiprack on 4",
+            "parent": "deck",
+            "slot_on_deck": 4,
+            "class_name": "opentrons_96_tiprack_1000ul",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "create_resource",
+            "id": "Opentrons Fixed Trash on 12",
+            "parent": "deck",
+            "slot_on_deck": 12,
+            "class_name": "opentrons_1_trash_1100ml_fixed",
+            "liquid_type": [],
+            "liquid_volume": [],
+            "liquid_input_wells": []
+        },
+        {
+            "template": "transfer",
+            "sources": [
+                "A1",
+                "A1",
+                "A1",
+                "A1",
+                "B1",
+                "B1",
+                "B1",
+                "B1"
+            ],
+            "targets": [
+                "A1",
+                "A4",
+                "B1",
+                "B4",
+                "C1",
+                "C4",
+                "D1",
+                "D4"
+            ],
+            "tip_racks": [
+                "A1",
+                "B1"
+            ],
+            "use_channels": null,
+            "asp_vols": [
+                1000.0,
+                1000.0
+            ],
+            "asp_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "disp_vols": [
+                600.0,
+                600.0
+            ],
+            "dis_flow_rates": [
+                137.35,
+                137.35
+            ],
+            "offsets": null,
+            "touch_tip": false,
+            "liquid_height": null,
+            "blow_out_air_volume": [
+                0.0,
+                0.0
+            ],
+            "is_96_well": false,
+            "mix_stage": "none",
+            "mix_times": 0,
+            "mix_vol": null,
+            "mix_rate": null,
+            "mix_liquid_height": null,
+            "delays": [
+                null,
+                null
+            ],
+            "top": [],
+            "bottom": [],
+            "move": [],
+            "center": [],
+            "move_to": [],
+            "mix_detail": [],
+            "id": "step_1"
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "15ml tuberack on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "2ml tuberack on 2",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "1000ul tiprack on 4",
+            "target": "step_1"
+        }
+    ]
+}

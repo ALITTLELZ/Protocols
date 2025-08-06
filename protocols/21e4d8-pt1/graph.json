@@ -1,0 +1,213 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 1",
+            "params": {
+                "default": {
+                    "id": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 1",
+                    "parent": "deck",
+                    "slot_on_deck": 1,
+                    "class_name": "nest_96_wellplate_100ul_pcr_full_skirt",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 2",
+            "params": {
+                "default": {
+                    "id": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 2",
+                    "parent": "deck",
+                    "slot_on_deck": 2,
+                    "class_name": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+            "params": {
+                "default": {
+                    "id": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+                    "parent": "deck",
+                    "slot_on_deck": 3,
+                    "class_name": "opentrons_96_tiprack_300ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 96 Tip Rack 20 \u00b5L on 6",
+            "params": {
+                "default": {
+                    "id": "Opentrons 96 Tip Rack 20 \u00b5L on 6",
+                    "parent": "deck",
+                    "slot_on_deck": 6,
+                    "class_name": "opentrons_96_tiprack_20ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 7",
+            "params": {
+                "default": {
+                    "id": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 7",
+                    "parent": "deck",
+                    "slot_on_deck": 7,
+                    "class_name": "nest_96_wellplate_100ul_pcr_full_skirt",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons Fixed Trash on 12",
+            "params": {
+                "default": {
+                    "id": "Opentrons Fixed Trash on 12",
+                    "parent": "deck",
+                    "slot_on_deck": 12,
+                    "class_name": "opentrons_1_trash_1100ml_fixed",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "liquid_handler-transfer_liquid",
+            "id": "step_1",
+            "params": {
+                "default": {
+                    "sources": [
+                        "A1"
+                    ],
+                    "targets": [
+                        "A1"
+                    ],
+                    "tip_racks": [
+                        "A1"
+                    ],
+                    "use_channels": null,
+                    "asp_vols": null,
+                    "asp_flow_rates": null,
+                    "disp_vols": null,
+                    "dis_flow_rates": null,
+                    "offsets": null,
+                    "touch_tip": false,
+                    "liquid_height": null,
+                    "blow_out_air_volume": [
+                        0.0
+                    ],
+                    "is_96_well": false,
+                    "mix_stage": "none",
+                    "mix_times": 0,
+                    "mix_vol": null,
+                    "mix_rate": null,
+                    "mix_liquid_height": null,
+                    "delays": null,
+                    "id": "step_1"
+                }
+            }
+        },
+        {
+            "template": "liquid_handler-transfer_liquid",
+            "id": "step_2",
+            "params": {
+                "default": {
+                    "sources": [
+                        "A1"
+                    ],
+                    "targets": [
+                        "A1"
+                    ],
+                    "tip_racks": [
+                        "A1"
+                    ],
+                    "use_channels": null,
+                    "asp_vols": 10.0,
+                    "asp_flow_rates": [
+                        7.6
+                    ],
+                    "disp_vols": 10.0,
+                    "dis_flow_rates": [
+                        7.6
+                    ],
+                    "offsets": null,
+                    "touch_tip": false,
+                    "liquid_height": null,
+                    "blow_out_air_volume": [
+                        0.0
+                    ],
+                    "is_96_well": false,
+                    "mix_stage": "after",
+                    "mix_times": [
+                        5
+                    ],
+                    "mix_vol": 20.0,
+                    "mix_rate": 7.6,
+                    "mix_liquid_height": null,
+                    "delays": null,
+                    "id": "step_2"
+                }
+            }
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 1",
+            "target": "step_2"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 2",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Tip Rack 300 \u00b5L on 3",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Tip Rack 20 \u00b5L on 6",
+            "target": "step_2"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "NEST 96 Well Plate 100 \u00b5L PCR Full Skirt on 7",
+            "target": "step_1"
+        },
+        {
+            "source_port": "targets_out",
+            "target_port": "targets",
+            "source": "step_1",
+            "target": "step_2"
+        }
+    ]
+}

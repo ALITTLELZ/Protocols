@@ -9,8 +9,9 @@ metadata = {
 
 
 def run(protocol):
-    [num_samps, spike_in, return_tips] = get_values(  # noqa: F821
-        'num_samps', 'spike_in', 'return_tips')
+    # [num_samps, spike_in, return_tips] = get_values(  # noqa: F821
+    #     'num_samps', 'spike_in', 'return_tips')
+    num_samps, spike_in, return_tips = 6, 0, 'yes'
 
     samps = int(num_samps)
 

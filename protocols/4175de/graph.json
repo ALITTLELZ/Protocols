@@ -1,0 +1,155 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 1",
+            "params": {
+                "default": {
+                    "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 1",
+                    "parent": "deck",
+                    "slot_on_deck": 1,
+                    "class_name": "opentrons_96_filtertiprack_20ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 24 Tube Rack with Generic 2 mL Screwcap on 2",
+            "params": {
+                "default": {
+                    "id": "Opentrons 24 Tube Rack with Generic 2 mL Screwcap on 2",
+                    "parent": "deck",
+                    "slot_on_deck": 2,
+                    "class_name": "opentrons_24_tuberack_generic_2ml_screwcap",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Applied Biosystems 96 Well Plate 100 \u00b5L on Temperature Module GEN2 on 3",
+            "params": {
+                "default": {
+                    "id": "Applied Biosystems 96 Well Plate 100 \u00b5L on Temperature Module GEN2 on 3",
+                    "parent": "deck",
+                    "slot_on_deck": 3,
+                    "class_name": "appliedbiosystems_96_wellplate_100ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+            "params": {
+                "default": {
+                    "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 4",
+                    "parent": "deck",
+                    "slot_on_deck": 4,
+                    "class_name": "opentrons_96_filtertiprack_20ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 7",
+            "params": {
+                "default": {
+                    "id": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 7",
+                    "parent": "deck",
+                    "slot_on_deck": 7,
+                    "class_name": "opentrons_96_filtertiprack_20ul",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "host_node-add_resource_from_outer_easy",
+            "id": "Opentrons Fixed Trash on 12",
+            "params": {
+                "default": {
+                    "id": "Opentrons Fixed Trash on 12",
+                    "parent": "deck",
+                    "slot_on_deck": 12,
+                    "class_name": "opentrons_1_trash_1100ml_fixed",
+                    "liquid_type": [],
+                    "liquid_volume": [],
+                    "liquid_input_wells": []
+                }
+            }
+        },
+        {
+            "template": "liquid_handler-transfer_with_temperature",
+            "id": "step_1",
+            "params": {
+                "default": {
+                    "sources": [
+                        "A6"
+                    ],
+                    "targets": [
+                        "A1"
+                    ],
+                    "tip_racks": [
+                        "A1"
+                    ],
+                    "use_channels": null,
+                    "asp_vols": null,
+                    "asp_flow_rates": null,
+                    "disp_vols": null,
+                    "dis_flow_rates": null,
+                    "offsets": null,
+                    "touch_tip": false,
+                    "liquid_height": null,
+                    "blow_out_air_volume": [
+                        0.0
+                    ],
+                    "is_96_well": false,
+                    "mix_stage": "none",
+                    "mix_times": 0,
+                    "mix_vol": null,
+                    "mix_rate": null,
+                    "mix_liquid_height": null,
+                    "delays": null,
+                    "temperature_target": 4.0,
+                    "temperature_deactivate": false,
+                    "id": "step_1"
+                }
+            }
+        }
+    ],
+    "links": [
+        {
+            "source_port": "labware",
+            "target_port": "tip_racks",
+            "source": "Opentrons 96 Filter Tip Rack 20 \u00b5L on 1",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "sources",
+            "source": "Opentrons 24 Tube Rack with Generic 2 mL Screwcap on 2",
+            "target": "step_1"
+        },
+        {
+            "source_port": "labware",
+            "target_port": "targets",
+            "source": "Applied Biosystems 96 Well Plate 100 \u00b5L on Temperature Module GEN2 on 3",
+            "target": "step_1"
+        }
+    ]
+}

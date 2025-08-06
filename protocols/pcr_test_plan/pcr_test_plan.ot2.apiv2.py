@@ -7,8 +7,9 @@ metadata = {
 
 
 def run(protocol_context):
-    [dna_volume, primer_volume, master_mix_volume] = get_values(  # noqa: F821
-        'dna_volume', 'primer_volume', 'master_mix_volume')
+    # [dna_volume, primer_volume, master_mix_volume] = get_values(  # noqa: F821
+    #     'dna_volume', 'primer_volume', 'master_mix_volume')
+    [dna_volume, primer_volume, master_mix_volume] = 1.0, 2.0, 20.0
 
     # labware setup
     total_volume = dna_volume + 2*primer_volume + master_mix_volume
