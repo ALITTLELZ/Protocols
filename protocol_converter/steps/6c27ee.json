@@ -1,0 +1,67 @@
+[
+    [
+        {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "slot": 4
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 30.0,
+            "source": {
+                "well": "A4",
+                "labware": "Corning 96 Well Plate 360 uL Flat",
+                "slot": 10
+            },
+            "flow_rate": 150.0
+        },
+        {
+            "action": "dispense",
+            "vol": 30.0,
+            "target": {
+                "well": "A1",
+                "labware": "Corning 96 Well Plate 360 uL Flat",
+                "slot": 11
+            },
+            "flow_rate": 300.0
+        },
+        {
+            "action": "mix",
+            "vol": [
+                30.0,
+                30.0
+            ],
+            "position": {
+                "well": "A1",
+                "labware": "Corning 96 Well Plate 360 uL Flat",
+                "slot": 11
+            },
+            "flow_rate": [
+                150.0,
+                300.0
+            ],
+            "mix_time": 10
+        },
+        {
+            "action": "dispense",
+            "vol": -1,
+            "flow_rate": 100,
+            "target": {
+                "well": "A1",
+                "labware": "Corning 96 Well Plate 360 uL Flat",
+                "slot": 11
+            }
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
+        }
+    ]
+]
