@@ -1,252 +1,352 @@
-# Opentrons Protocol Library
+# Protocol Simulation → Structured Steps → Transfer Export
 
-This is where Opentrons protocols are stored for everyone to use.
+This repository implements a four‑stage pipeline that **injects runtime hooks into Opentrons protocols**, **simulates** them to collect logs, **converts** those logs into structured steps, and **exports** a **transfer‑oriented workflow + reagent map**.
 
-The `master` branch populates http://protocols.opentrons.com/, our Protocol Library. Please let us know if you would like to contribute your protocols, or just submit a pull request. We would love to add your Opentrons protocols to the Library!
+> **Note on current version**  
+> The final exported workflow intentionally omits granular runtime details. Those details are preserved (when available) in `detailed_action_json/<protocol>.json` for future use.
 
-All the best,
+---
 
-Will Canine
-Co-Founder, Opentrons
-will@opentrons.com
+## Table of Contents
 
-# Contributing
+- [Overview](#overview)
+- [Repository Layout](#repository-layout)
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Stage 1 — Code Injection (`modified_code.py`)](#stage-1--code-injection-modified_codepy)
+- [Stage 2 — Simulation (`detailed_info_extract.py`)](#stage-2--simulation-detailed_info_extractpy)
+- [Stage 3 — Log → Structured Steps (`prcxi_protocol_converter.py`)](#stage-3--log--structured-steps-prcxi_protocol_converterpy)
+- [Stage 4 — Steps → Transfer + Reagents (`change_to_transfer_group.py`)](#stage-4--steps--transfer--reagents-change_to_transfer_grouppy)
+- [Data Formats](#data-formats)
+- [Troubleshooting](#troubleshooting)
+- [Notes & Limitations](#notes--limitations)
 
-## `develop` staging branch
+---
 
-The `develop` branch populates the staging version of the Opentrons Protocol Library at http://develop.protocols.opentrons.com/. Pull requests should be made to `develop` to be staged, and we will merge the changes into `master` as a second step.
+## Overview
 
-# Formatting protocols
+**Pipeline stages**
 
-Every protocol needs its own folder. In that folder, there needs to be:
+1. **Code Injection — `modified_code.py`**  
+   Injects an introspection block inside each protocol’s `def run(...)`, so that **liquid locations** and (if used) **event logs** can be written into `detailed_action_json/` at runtime.
 
-- A single `README.md` readme file
-- A single `.py` [Opentrons protocol](http://docs.opentrons.com) file
-- Optional "dot files" (see below)
+2. **Simulation — `detailed_info_extract.py`**  
+   Runs Opentrons **simulation** for all protocols in `original copy/`. Produces human‑readable run logs in `log/`.
 
-## README file format
+3. **Structured Conversion — `prcxi_protocol_converter.py`**  
+   Parses the run logs into **phases** and **actions**, merges compatible phases (e.g., same source→dest route), and writes `steps/<protocol>.json`.
 
-Every protocol should have a README file in its folder, with the file name `README.md`. It is a [Markdown](https://daringfireball.net/projects/markdown/syntax) file, with a specific format. See `template/README.md` for an example.
+4. **Transfer Export — `change_to_transfer_group.py`**  
+   Aggregates per‑phase actions into **transfer_liquid** items and builds a **reagent** map from the protocol JSON in `protoBuilds/`. Exports `<protocol>_transfer_actions.json` or batch outputs under `transfer_actions/`.
 
-## "Dot files"
+---
 
-"Dot files" are files inside a protocol folder which start with a dot (`.`).
+## Repository Layout
 
-These files are usually blank text files. They have special names that indicate specific properties for that protocol:
+```
+project-root/
+├─ original copy/
+│  └─ <PROTOCOL_NAME>/
+│     ├─ *.py                 # Opentrons protocols (must define def run(ctx))
+│     ├─ fields.json          # Parameter config consumed by get_values()
+│     └─ labware/             # Optional custom labware JSONs
+├─ protoBuilds/
+│  └─ <PROTOCOL_NAME>/
+│     └─ *.json               # e.g., <PROTOCOL_NAME>.ot2.apiv2.py.json
+├─ detailed_action_json/
+│  └─ <PROTOCOL_NAME>.json    # (injected) event_logs + liquid_locations
+├─ log/
+│  ├─ <PROTOCOL_NAME>.log     # Simulation logs (human-readable)
+│  ├─ error.txt
+│  └─ error_converting.txt
+├─ steps/
+│  └─ <PROTOCOL_NAME>.json    # Structured phases/actions
+└─ transfer_actions/
+   └─ <PROTOCOL_NAME>.json    # Final transfer workflow + reagents
+```
 
-- `.feature` - The protocol will be listed under "Featured Protocols" on the website.
-- `.ignore` - The protocol will not be shown on the Opentrons Protocol Library, even if you search for it.
-- `.notests` - The protocol will not be tested by continuous integration. This is intended only for ignored protocols.
-- `.embedded` - This is for "embedded apps" that generate a protocol and are designed to be shown in the Protocol Library in an iframe. This file should not be blank, it should contain a URL to the web app that will be embedded in the iframe.
-- `.hide-from-search` - do not show this protocol in any search results. The protocol page should only be accessible from direct URL.
+> Some script paths are **hard‑coded**. If you move the project/machine, update those paths in the scripts (see notes below).
 
-# Writing Custom Protocols
+---
 
-## NOTE
+## Prerequisites
 
-Custom protocols is an early-stage feature, under active development. They are subject to change.
+- Python environment with the **Opentrons API** available.
 
-## Part 1: Set up basic protocol
+- Update the **hard‑coded local Opentrons paths** in `detailed_info_extract.py` (two `sys.path.insert(...)` lines) to point to your environment:
 
-In the Protocol APIv2 `def run(context):` function, use `context` to load your pipettes, labware, and modules. Proceed with the protocol steps.
+  ```python
+  sys.path.insert(0, '/path/to/opentrons/api/src')
+  sys.path.insert(0, '/path/to/opentrons/shared-data/python')
+  ```
 
-For some protocols, you might want "number of destination plates" to be a variable. However, the deck map on the website is currently not dynamic - it will only show containers loaded at the top of the file. For this reason, you should load all the containers you might need in the first lines of the `run` function body, and then only use what you need during the actual execution.
+- Protocol folders under `original copy/<PROTOCOL_NAME>/` should contain:
 
-**PLEASE NOTE!** The convention for APIv2 protocol file names is `protocols/{NAME}/{NAME}.ot2.apiv2.py`. The "{NAME}" should match the name of the folder in protocols. Eg in the folder `protocols/my_cool_protocol/` the Python file should be called `my_cool_protocol.ot2.apiv2.py`.
+  - a Python protocol implementing `def run(ctx): ...`
+  - a `fields.json` file (see example below)
+  - optionally, a `labware/` directory with custom labware JSON(s)
 
-## Part 2: Set your customizable arguments
+---
 
-To make a protocol customizable, write a `fields.json` file and save it in the protocol folder, as a sibling of the `.ot2.apiv2.py` file. Eg `protocols/my_cool_protocol/fields.json`.
+## Quickstart
 
-The information in the `fields.json` file will be used to create input forms on the Protocol Library website page for your protocol, which get passed into the protocol.
+From the repository root:
 
-The `fields.json` file should be an array of field objects. Here's an example:
+```bash
+# 1) Inject runtime hooks into each protocol's run()
+python modified_code.py
+
+# 2) Simulate all protocols and write logs to log/<name>.log
+python detailed_info_extract.py
+
+# 3) Convert simulation logs into structured steps (steps/<name>.json)
+python prcxi_protocol_converter.py
+
+# 4a) Export a single protocol’s transfer + reagent JSON (example name is set in the script)
+python change_to_transfer_group.py
+
+# 4b) Batch export: generate all transfer JSONs into transfer_actions/
+python change_to_transfer_group.py batch
+```
+
+> Check `log/error.txt` and `log/error_converting.txt` if any run fails.
+
+---
+
+## Stage 1 — Code Injection (`modified_code.py`)
+
+**What it does**
+
+- Walks `original copy/` and opens every `*.py` protocol.
+
+- Locates `def run(...)` and injects an introspection block that inspects **local variables** for `Well` and `list[Well]` objects:
+
+  - Parses each `Well.display_name` to extract **well position** (e.g., `A1`) and **slot** (deck position).
+  - Builds `liquid_locations` mapping variable names (including indexed list entries like `wells[0]`) to `{ "well": "A1", "slot": "1" }`.
+
+- Writes `detailed_action_json/<FOLDERNAME>.json` at runtime containing:
+
+  ```json
+  {
+    "event_logs": builtins.event_logs,
+    "liquid_locations": { "...": { "well": "...", "slot": "..." } }
+  }
+  ```
+
+**Additional behavior**
+
+- If the protocol file doesn’t already define it, the injector **prepends**:
+
+  ```python
+  import builtins
+  builtins.event_logs = []
+  __protocol_file__ = r"/absolute/path/to/the/protocol.py"
+  ```
+
+  so later stages can resolve `fields.json` and (if used by your protocol) append to `builtins.event_logs`.
+
+**Run**
+
+```bash
+python modified_code.py
+```
+
+---
+
+## Stage 2 — Simulation (`detailed_info_extract.py`)
+
+**What it does**
+
+- Adds your local Opentrons paths to `sys.path`.
+
+- Defines `get_values(*names)` and sets `builtins.get_values = get_values` so protocols read parameters from the colocated `fields.json` (next to the original protocol file identified by `__protocol_file__`).
+
+- Simulates each protocol under `original copy/` via:
+
+  ```python
+  runlog, bundled = simulate(
+      protocol_file=open(file, "r"),
+      custom_labware_paths=[str(labware_dir)] if labware_dir.exists() else []
+  )
+  ```
+
+- Writes `log/<FOLDERNAME>.log` and appends errors to `log/error.txt`.
+
+**Minimal `fields.json` example**
 
 ```json
 [
-  {
-    "type": "float",
-    "label": "Master Mix Volume (uL)",
-    "name": "master_mix_volume",
-    "default": 20
-  },
-  {
-    "type": "int",
-    "label": "Integer example",
-    "name": "integer_example",
-    "default": 10
-  },
-  {
-    "type": "dropDown",
-    "label": "Example Dropdown",
-    "name": "example_dropdown",
-    "options": [
-      { "label": "Something here", "value": "aaa" },
-      { "label": "Other thing", "value": "bbb" }
-    ]
-  },
-  {
-    "type": "textFile",
-    "label": "Example file",
-    "name": "example_file",
-    "default": "1,2,3"
-  }
+  { "name": "aspirate_volume", "default": 10 },
+  { "name": "dispense_volume", "default": 10 }
 ]
 ```
 
-### Get values in the Python protocol with `get_values`
+**Run**
 
-To allow you to get the parametric values inside the protocol, a function `def get_values(*names)` will be injected into the Python protocol when a user downloads the protocol from the site. It returns an **array** of values for each of the field names you give it as arguments.
-
-```py
-import opentrons
-
-def run(context):
-    [example_dropdown, integer_example, float_example, example_file] = get_values(  # noqa: F821
-        'example_dropdown', 'integer_example', 'float_example', 'example_file')
-
-    # ... do stuff with those values
+```bash
+python detailed_info_extract.py
 ```
 
-#### Linting error?
+---
 
-You should expect to get a linting error: `[F821] undefined name 'get_values'`. That's OK, because the special `get_values` fn will be injected into the
-protocol at download time.
+## Stage 3 — Log → Structured Steps (`prcxi_protocol_converter.py`)
 
-To avoid this linting error from failing the build in CI, make sure to add `# noqa: F821` inline with all calls to `get_values`
+**What it does**
 
-### `name`
+- Reads each protocol’s log from `log/<name>.log`.
+- Splits the log into **phases** and parses **actions** using pattern matching/regex.
+- **Merges** phases when they share compatible routes (e.g., same `(src_slot → dst_slot)`), and prepends aspirate‑only phases to the subsequent dispense phase where applicable.
+- Writes **high‑level steps** to `steps/<name>.json`.
 
-This field is used as an ID for accessing a field. If you have a field with `"name": example_field"` in `fields.json`, in the Python protocol you use that same name to get the value `get_values('example_field')`
+**Recognized operations (examples)**
 
-Each field must have a unique `name`, otherwise unexpected behavior may occur.
+- Liquid handling:
+  - `aspirate` → `{ "action": "aspirate", "vol": 10.0, "source": { "well": "A1", "labware": "Plate", "slot": 1 }, "flow_rate": 1.0 }`
+  - `dispense` → `{ "action": "dispense", "vol": 10.0, "target": { "well": "B1", "labware": "Plate", "slot": 2 }, "flow_rate": 1.0 }`
+  - `air_gap`, `blow_out`, `touch_tip`, `delay`
+- Modules:
+  - `heater_shaker` aggregate: target temperature, wait flag, shake speed, duration, deactivation flags
+  - `magnet` engage/disengage, `temperature` set/off
 
-### `type`
+**Run**
 
-The `type` field specifies what kind of input field you want. The options are `float`, `int`, `str`, `dropDown`, or `textFile`.
-
-### `label`
-
-This is the human-readable label shown on the website describing what the user should enter in the field.
-
-### `float` & `int` type
-
-An `int` will not allow floating-point values to be entered from the website. A `float` will allow any number of decimal places.
-
-```js
-// float example:
-{
-    "type": "float",
-    "label": "Master Mix Volume (uL)",
-    "name": "master_mix_volume",
-    "default": 20
-}
-
-// int example:
-{
-    "type": "int",
-    "label": "Integer example",
-    "name": "integer_example",
-    "default": 10
-}
+```bash
+python prcxi_protocol_converter.py
 ```
 
-### `str` type
+This will create `steps/<name>.json` for each protocol found.
 
-A field that lets users type in arbitrary text, read into the Python protocol as a string. Useful for things like entering a single well eg `"B2"`.
+---
+
+## Stage 4 — Steps → Transfer + Reagents (`change_to_transfer_group.py`)
+
+**What it does**
+
+- Loads `steps/<name>.json` and the matching protocol JSON from `protoBuilds/<name>/*.json`.
+- Extracts/compacts **labware** slots (keeping original numbering if ≥ 12; otherwise compacts distinct slots into `1..total_slots` with order preserved; default `total_slots=12`).
+- Aggregates each phase into a single action summary with:
+  - sets of **aspirate** wells and **dispense** wells (as `(slot, well)` pairs)
+  - **average volumes** and **average flow rates** for aspirate/dispense across that phase
+- Assigns **liquid names** per phase:
+  - All **aspirate** wells in one phase share the same **source liquid** name.
+  - All **dispense** wells in one phase share the same **target liquid** name.
+  - If a well was assigned earlier, its **existing liquid name** is reused.
+- Produces:
+  - A list of `"transfer_liquid"` actions for phases that have **both** aspirate and dispense.
+  - A **reagent** map: liquid name → `{slot, wells[], labware}`.
+
+**Single file export (script default example uses a hardcoded protocol name)**
+
+```bash
+python change_to_transfer_group.py
+# prints a summary and writes: <protocol>_transfer_actions.json
+```
+
+**Batch export**
+
+```bash
+python change_to_transfer_group.py batch
+# writes: transfer_actions/<protocol>.json and transfer_actions/batch_summary.json
+```
+
+---
+
+## Data Formats
+
+### `detailed_action_json/<name>.json` (written by injected code during run)
 
 ```json
 {
-  "type": "str",
-  "label": "Example String",
-  "name": "example_string",
-  "default": "blah"
+  "event_logs": [],               // from builtins.event_logs (if your protocol populates it)
+  "liquid_locations": {
+    "wells[0]": { "well": "A1", "slot": "1" },
+    "sample_A1": { "well": "A1", "slot": "1" }
+  }
 }
 ```
 
-### `dropDown` type
+> `event_logs` exists to preserve raw runtime details if your protocol appends to `builtins.event_logs`.
 
-A `dropDown` will make a dropdown (aka `select`) UI widget.
+### `log/<name>.log` (simulation output)
 
-Describe the `options` that are available in the dropdown by specifying the `label` (the text that the user sees) and the `value` (the text that `get_values('example_dropdown')` uses)
+Human‑readable Opentrons simulate log used by the converter.
+
+### `steps/<name>.json` (structured phases/actions)
+
+A JSON list of **phases**, where each phase is a list of **actions**. Example (single phase):
 
 ```json
-{
-  "type": "dropDown",
-  "label": "Example Dropdown",
-  "name": "example_dropdown",
-  "options": [
-    { "label": "Something here", "value": "aaa" },
-    { "label": "Other thing", "value": "bbb" }
+[
+  [
+    {
+      "action": "aspirate",
+      "vol": 10.0,
+      "source": { "well": "A1", "labware": "96 Well Plate", "slot": 1 },
+      "flow_rate": 1.0
+    },
+    {
+      "action": "dispense",
+      "vol": 10.0,
+      "target": { "well": "B1", "labware": "96 Well Plate", "slot": 2 },
+      "flow_rate": 1.0
+    }
   ]
-}
+]
 ```
 
-If the user selects "Other thing", `[x] = get_values('example_dropdown')` will give you `x === "bbb"`.
+Other actions that may appear in phases: `air_gap`, `blow_out`, `touch_tip`, `delay`, `mix`, `heater_shaker`, `magnet`, `temperature`, `raw`.
 
-Note that unlike other field types, `dropDown` has no `default`. Instead, it will always default to the first option.
-
-### `textFile` type
-
-This creates a file upload widget.
-
-It's important for PL that you specify a working `default` value so that the protocol can be simulated using that default value.
+### `<protocol>_transfer_actions.json` (final export)
 
 ```json
 {
-  "type": "textFile",
-  "label": "Example file",
-  "name": "example_file",
-  "default": "1,2,3"
+  "workflow": [
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_1"             // or ["Liquid_1", "Liquid_2"]
+        ,
+        "targets": "Liquid_2"             // or ["Liquid_3", ...]
+        ,
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 1.0,
+        "dis_flow_rate": 1.0
+      }
+    }
+  ],
+  "reagent": {
+    "Liquid_1": { "slot": 1, "well": ["A1","A2"], "labware": "..." },
+    "Liquid_2": { "slot": 2, "well": ["B1"],      "labware": "..." }
+  }
 }
 ```
 
-##### Common Use Case: CSV file upload
+> Liquid names are automatically generated as `Liquid_<n>` and reused if a well was assigned earlier in the run.
 
-Here's a useful function for working with CSV files. Remember, the file will just be read as a string. It's up
-to your protocol to parse that string into a useful data format.
+---
 
-```python
-def well_csv_to_list(csv_string):
-    """
-    Takes a csv string and flattens it to a list, re-ordering to match
-    Opentrons API well order convention (A1, B1, C1, ..., A2, B2, B2, ...).
+## Troubleshooting
 
-    The orientation of the CSV cells should match the "landscape" orientation
-    of plates on the OT-2: well A1 should be on the top left cell. Example:
+- **No `steps/*.json` produced**  
+  Check `log/<name>.log` exists and make sure `prcxi_protocol_converter.py` ran without exceptions (see `log/error_converting.txt`).
 
-    A1, B1, C1, ...
-    A2, B2, C2, ...
-    A3, B3, C3, ...
+- **Simulation import errors**  
+  Update the two `sys.path.insert(...)` lines in `detailed_info_extract.py` to your local Opentrons paths.
 
-    Returns a list: [A1, B1, C1, ..., A2, B2, C3, ...]
-    where each CSV cell is a string in the list.
-    """
-    return [
-        well for row in csv_string.split('\n') if row
-        for well in row.split(',') if well]
+- **Custom labware not found**  
+  Put JSONs under `original copy/<name>/labware/`. The simulator is invoked with `custom_labware_paths=[that_folder]` if it exists.
 
-def run(context):
-    [example_file] = get_values('example_file')
-    # pass the file contents string into this utility fn
-    well_list = well_csv_to_list(example_file)
-```
+- **Slot compaction mismatch**  
+  `extract_labware_info_from_json(..., total_slots=12)` keeps original slots if `total_slots >= 12`. If you reduce the deck size, ensure the number of distinct slots in the protocol does not exceed the limit.
 
-### Validation? Nope
+- **Empty `event_logs` in `detailed_action_json`**  
+  The injected file writes `builtins.event_logs`. If your protocol does not append to it, this array will be empty; that’s expected in the current version.
 
-Basic validation exists for `int` and `float` types, though it's possible to get the string `'NaN'`.
+---
 
-Field/form validation, such as setting min and max values, is not currently supported.
+## Notes & Limitations
 
-If any validation is necessary, add it in the protocol itself, eg:
-
-```python
-def run(context):
-    [some_field, other_field] = get_values(  # noqa: F821
-        'some_fields', 'other_field')
-    assert some_field > 0
-    assert other_field + some_field <= 96
-    # et cetera
-
-    # ... do stuff here ...
-```
+- Absolute paths are present in the scripts (e.g., local Opentrons repo locations). Adjust them for your environment.
+- Phase merging heuristics are åconservative: aspirate‑only segments may be prepended to the next phase; adjacent compatible routes are merged to reduce fragmentation.
+- The exported transfer workflow focuses on **aspirate+dispense** phases. Phases without both are omitted from the final `"workflow"` list.
