@@ -1,241 +1,302 @@
-# PRCXI Protocol Conversion Pipeline
+# Protocol Simulation → Structured Steps → Transfer Export
 
-This repository provides a **three-stage pipeline** that converts **Opentrons protocol execution logs** and **labware configuration data** into a standardized **workflow + reagent JSON** format compatible with **PRCXI / TransferGroup**.
+This repository implements a four‑stage pipeline that **injects runtime hooks into Opentrons protocols**, **simulates** them to collect logs, **converts** those logs into structured steps, and **exports** a **transfer‑oriented workflow + reagent map**.
 
-The recommended execution order is:
-
-> **`modified_code.py` → `prcxi_protocol_converter.py` → `change_to_transfer_group.py`**
+> **Note on current version**  
+> The final exported workflow intentionally omits granular runtime details. Those details are preserved (when available) in `detailed_action_json/<protocol>.json` for future use.
 
 ---
 
-## 📘 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
-- [Directory Structure](#directory-structure)
-- [Environment & Dependencies](#environment--dependencies)
-- [Step 1 · modified_code.py — Instrumentation](#step-1--modified_codepy--instrumentation)
-- [Step 2 · prcxi_protocol_converter.py — Log Parsing](#step-2--prcxi_protocol_converterpy--log-parsing)
-- [Step 3 · change_to_transfer_group.py — TransferGroup Generation](#step-3--change_to_transfer_grouppy--transfergroup-generation)
-- [Quick Start](#quick-start)
-- [Output Data Formats](#output-data-formats)
-- [Common Issues](#common-issues)
-- [Developer Notes](#developer-notes)
+- [Repository Layout](#repository-layout)
+- [Prerequisites](#prerequisites)
+- [Quickstart](#quickstart)
+- [Stage 1 — Code Injection (`modified_code.py`)](#stage-1--code-injection-modified_codepy)
+- [Stage 2 — Simulation (`detailed_info_extract.py`)](#stage-2--simulation-detailed_info_extractpy)
+- [Stage 3 — Log → Structured Steps (`prcxi_protocol_converter.py`)](#stage-3--log--structured-steps-prcxi_protocol_converterpy)
+- [Stage 4 — Steps → Transfer + Reagents (`change_to_transfer_group.py`)](#stage-4--steps--transfer--reagents-change_to_transfer_grouppy)
+- [Data Formats](#data-formats)
+- [Troubleshooting](#troubleshooting)
+- [Notes & Limitations](#notes--limitations)
 
 ---
 
-## 🧭 Overview
+## Overview
 
-```
-┌─────────────────────────┐     Run protocol (simulation or real)     ┌────────────────────────┐
-│  Step 1: modified_code  │  ───────────────────────────────────────▶  │ detailed_action_json   │
-│  Inject tracking logic   │                                           │ event_logs + locations │
-└─────────────────────────┘                                           └────────────────────────┘
-                                                                         │
-                                                                         ▼
-                                                         ┌────────────────────────────┐
-                                                         │ opentrons log (.log file)  │
-                                                         │ protocols/log/{name}.log    │
-                                                         └────────────────────────────┘
-                                                                         │
-                                                                         ▼
-┌─────────────────────────────────┐     Parse / merge / summarize      ┌────────────────────┐
-│  Step 2: prcxi_protocol_converter │  ─────────────────────────────▶  │ steps/{name}.json  │
-│  Convert raw log → structured steps │                                 │ structured phases  │
-└─────────────────────────────────┘                                   └────────────────────┘
-                                                                         │
-                                                                         ▼
-┌────────────────────────────────────┐   Assemble workflow + reagents   ┌──────────────────────────────┐
-│  Step 3: change_to_transfer_group  │  ─────────────────────────────▶  │ {name}_transfer_actions.json │
-│  Generate TransferGroup JSON       │                                 │ workflow + reagent mapping   │
-└────────────────────────────────────┘                                 └──────────────────────────────┘
-```
+**Pipeline stages**
+
+1. **Code Injection — `modified_code.py`**  
+   Injects an introspection block inside each protocol’s `def run(...)`, so that **liquid locations** and (if used) **event logs** can be written into `detailed_action_json/` at runtime.
+
+2. **Simulation — `detailed_info_extract.py`**  
+   Runs Opentrons **simulation** for all protocols in `original copy/`. Produces human‑readable run logs in `log/`.
+
+3. **Structured Conversion — `prcxi_protocol_converter.py`**  
+   Parses the run logs into **phases** and **actions**, merges compatible phases (e.g., same source→dest route), and writes `steps/<protocol>.json`.
+
+4. **Transfer Export — `change_to_transfer_group.py`**  
+   Aggregates per‑phase actions into **transfer_liquid** items and builds a **reagent** map from the protocol JSON in `protoBuilds/`. Exports `<protocol>_transfer_actions.json` or batch outputs under `transfer_actions/`.
 
 ---
 
-## 📁 Directory Structure
-
-Recommended layout (adjust paths as needed):
+## Repository Layout
 
 ```
-repo-root/
-├─ protocols/
-│  ├─ original/                   # Original Opentrons .py protocols
-│  └─ detailed_action_json/       # Generated by Step 1
-│     └─ ProtA.json
-├─ opentrons/convert/protocols/
-│  └─ log/                        # Execution logs (.log)
-│     └─ ProtA.log
-├─ Protocols/
-│  └─ protoBuilds/
-│     └─ ProtA/
-│        └─ ProtA.ot2.apiv2.py.json   # Labware layout JSON
-├─ steps/                         # Step 2 output (intermediate data)
-│  └─ ProtA.json
-├─ transfer_actions/              # Step 3 outputs 
-├─ modified_code.py
-├─ prcxi_protocol_converter.py
-└─ change_to_transfer_group.py
+project-root/
+├─ original copy/
+│  └─ <PROTOCOL_NAME>/
+│     ├─ *.py                 # Opentrons protocols (must define def run(ctx))
+│     ├─ fields.json          # Parameter config consumed by get_values()
+│     └─ labware/             # Optional custom labware JSONs
+├─ protoBuilds/
+│  └─ <PROTOCOL_NAME>/
+│     └─ *.json               # e.g., <PROTOCOL_NAME>.ot2.apiv2.py.json
+├─ detailed_action_json/
+│  └─ <PROTOCOL_NAME>.json    # (injected) event_logs + liquid_locations
+├─ log/
+│  ├─ <PROTOCOL_NAME>.log     # Simulation logs (human-readable)
+│  ├─ error.txt
+│  └─ error_converting.txt
+├─ steps/
+│  └─ <PROTOCOL_NAME>.json    # Structured phases/actions
+└─ transfer_actions/
+   └─ <PROTOCOL_NAME>.json    # Final transfer workflow + reagents
 ```
+
+> Some script paths are **hard‑coded**. If you move the project/machine, update those paths in the scripts (see notes below).
 
 ---
 
-## ⚙️ Environment & Dependencies
+## Prerequisites
 
-- Python ≥ 3.9 (recommended 3.10–3.11)
-- Required libraries:
-  - `pandas`
-  - `pylabrobot` (for Opentrons labware matching)
-  - `opentrons` SDK
+- Python environment with the **Opentrons API** available.
 
-Install via pip:
+- Update the **hard‑coded local Opentrons paths** in `detailed_info_extract.py` (two `sys.path.insert(...)` lines) to point to your environment:
+
+  ```python
+  sys.path.insert(0, '/path/to/opentrons/api/src')
+  sys.path.insert(0, '/path/to/opentrons/shared-data/python')
+  ```
+
+- Protocol folders under `original copy/<PROTOCOL_NAME>/` should contain:
+
+  - a Python protocol implementing `def run(ctx): ...`
+  - a `fields.json` file (see example below)
+  - optionally, a `labware/` directory with custom labware JSON(s)
+
+---
+
+## Quickstart
+
+From the repository root:
 
 ```bash
-pip install pandas pylabrobot opentrons
+# 1) Inject runtime hooks into each protocol's run()
+python modified_code.py
+
+# 2) Simulate all protocols and write logs to log/<name>.log
+python detailed_info_extract.py
+
+# 3) Convert simulation logs into structured steps (steps/<name>.json)
+python prcxi_protocol_converter.py
+
+# 4a) Export a single protocol’s transfer + reagent JSON (example name is set in the script)
+python change_to_transfer_group.py
+
+# 4b) Batch export: generate all transfer JSONs into transfer_actions/
+python change_to_transfer_group.py batch
 ```
+
+> Check `log/error.txt` and `log/error_converting.txt` if any run fails.
 
 ---
 
-## Step 1 · `modified_code.py` — Instrumentation
+## Stage 1 — Code Injection (`modified_code.py`)
 
-**Goal:** Inject logging code into Opentrons protocol scripts so that when a protocol is executed (simulation or live), it outputs detailed runtime information including:
+**What it does**
 
-- `event_logs`: recorded pipetting or module actions  
-- `liquid_locations`: mapping of wells and slots containing liquid
+- Walks `original copy/` and opens every `*.py` protocol.
 
-### How it works
+- Locates `def run(...)` and injects an introspection block that inspects **local variables** for `Well` and `list[Well]` objects:
 
-- Scans `protocols/original/` for `.py` protocols.
-- Inserts initialization `builtins.event_logs = []` if missing.
-- Locates the `def run(...)` function and injects code before it returns.
-- Uses `opentrons.protocol_api.labware.Well` to identify well objects.
-- Writes outputs to `protocols/detailed_action_json/{protocol_name}.json`.
+  - Parses each `Well.display_name` to extract **well position** (e.g., `A1`) and **slot** (deck position).
+  - Builds `liquid_locations` mapping variable names (including indexed list entries like `wells[0]`) to `{ "well": "A1", "slot": "1" }`.
 
-### Run
+- Writes `detailed_action_json/<FOLDERNAME>.json` at runtime containing:
+
+  ```json
+  {
+    "event_logs": builtins.event_logs,
+    "liquid_locations": { "...": { "well": "...", "slot": "..." } }
+  }
+  ```
+
+**Additional behavior**
+
+- If the protocol file doesn’t already define it, the injector **prepends**:
+
+  ```python
+  import builtins
+  builtins.event_logs = []
+  __protocol_file__ = r"/absolute/path/to/the/protocol.py"
+  ```
+
+  so later stages can resolve `fields.json` and (if used by your protocol) append to `builtins.event_logs`.
+
+**Run**
 
 ```bash
 python modified_code.py
 ```
 
-After injection, re-run each protocol in the Opentrons app or simulator. This will generate the JSON and `.log` files.
+---
+
+## Stage 2 — Simulation (`detailed_info_extract.py`)
+
+**What it does**
+
+- Adds your local Opentrons paths to `sys.path`.
+
+- Defines `get_values(*names)` and sets `builtins.get_values = get_values` so protocols read parameters from the colocated `fields.json` (next to the original protocol file identified by `__protocol_file__`).
+
+- Simulates each protocol under `original copy/` via:
+
+  ```python
+  runlog, bundled = simulate(
+      protocol_file=open(file, "r"),
+      custom_labware_paths=[str(labware_dir)] if labware_dir.exists() else []
+  )
+  ```
+
+- Writes `log/<FOLDERNAME>.log` and appends errors to `log/error.txt`.
+
+**Minimal `fields.json` example**
+
+```json
+[
+  { "name": "aspirate_volume", "default": 10 },
+  { "name": "dispense_volume", "default": 10 }
+]
+```
+
+**Run**
+
+```bash
+python detailed_info_extract.py
+```
 
 ---
 
-## Step 2 · `prcxi_protocol_converter.py` — Log Parsing
+## Stage 3 — Log → Structured Steps (`prcxi_protocol_converter.py`)
 
-**Goal:** Parse Opentrons `.log` files into structured, machine-readable phases.
+**What it does**
 
-### Features
+- Reads each protocol’s log from `log/<name>.log`.
+- Splits the log into **phases** and parses **actions** using pattern matching/regex.
+- **Merges** phases when they share compatible routes (e.g., same `(src_slot → dst_slot)`), and prepends aspirate‑only phases to the subsequent dispense phase where applicable.
+- Writes **high‑level steps** to `steps/<name>.json`.
 
-- Extracts all liquid-handling actions (aspirate, dispense, pick_tip, drop_tip, etc.).
-- Groups related steps into logical phases.
-- Collapses repetitive aspirate/dispense pairs into “mix” operations.
-- Merges adjacent compatible transfers.
-- Matches labware by well count and volume heuristics.
-- Outputs to `steps/{protocol_name}.json`.
+**Recognized operations (examples)**
 
-### Run
+- Liquid handling:
+  - `aspirate` → `{ "action": "aspirate", "vol": 10.0, "source": { "well": "A1", "labware": "Plate", "slot": 1 }, "flow_rate": 1.0 }`
+  - `dispense` → `{ "action": "dispense", "vol": 10.0, "target": { "well": "B1", "labware": "Plate", "slot": 2 }, "flow_rate": 1.0 }`
+  - `air_gap`, `blow_out`, `touch_tip`, `delay`
+- Modules:
+  - `heater_shaker` aggregate: target temperature, wait flag, shake speed, duration, deactivation flags
+  - `magnet` engage/disengage, `temperature` set/off
+
+**Run**
 
 ```bash
 python prcxi_protocol_converter.py
 ```
 
-or within Python:
-
-```python
-from prcxi_protocol_converter import process_liquid_handler_log
-steps = process_liquid_handler_log("opentrons/convert/protocols/log/ProtA.log", name="ProtA")
-```
-
-> The `parse_protocol()` function contains absolute paths — update them if you move the project.
+This will create `steps/<name>.json` for each protocol found.
 
 ---
 
-## Step 3 · `change_to_transfer_group.py` — TransferGroup Generation
+## Stage 4 — Steps → Transfer + Reagents (`change_to_transfer_group.py`)
 
-**Goal:** Convert the structured phase data into a standardized JSON describing:
+**What it does**
 
-- **workflow**: list of actions in PRCXI-compatible “transfer_liquid” format  
-- **reagent**: mapping of all source and target liquids, slots, and wells
+- Loads `steps/<name>.json` and the matching protocol JSON from `protoBuilds/<name>/*.json`.
+- Extracts/compacts **labware** slots (keeping original numbering if ≥ 12; otherwise compacts distinct slots into `1..total_slots` with order preserved; default `total_slots=12`).
+- Aggregates each phase into a single action summary with:
+  - sets of **aspirate** wells and **dispense** wells (as `(slot, well)` pairs)
+  - **average volumes** and **average flow rates** for aspirate/dispense across that phase
+- Assigns **liquid names** per phase:
+  - All **aspirate** wells in one phase share the same **source liquid** name.
+  - All **dispense** wells in one phase share the same **target liquid** name.
+  - If a well was assigned earlier, its **existing liquid name** is reused.
+- Produces:
+  - A list of `"transfer_liquid"` actions for phases that have **both** aspirate and dispense.
+  - A **reagent** map: liquid name → `{slot, wells[], labware}`.
 
-### Key Functions
-
-- `get_action_list(steps_file)`: Extracts aspirate/dispense pairs and averages their parameters.
-- `set_liquid_info(...)`: Assigns consistent liquid names across phases.
-- `generate_transfer_actions(...)`: Creates each `transfer_liquid` entry.
-- `export_transfer_actions(protocol_name, output_file=None)`: Writes `{name}_transfer_actions.json`.
-- `batch_generate_transfer_actions(output_dir="transfer_actions")`: Processes all available steps.
-
-### Run
+**Single file export (script default example uses a hardcoded protocol name)**
 
 ```bash
-python -c "from change_to_transfer_group import export_transfer_actions; export_transfer_actions('ProtA')"
-# or batch
-python -c "from change_to_transfer_group import batch_generate_transfer_actions; batch_generate_transfer_actions('transfer_actions')"
+python change_to_transfer_group.py
+# prints a summary and writes: <protocol>_transfer_actions.json
+```
+
+**Batch export**
+
+```bash
+python change_to_transfer_group.py batch
+# writes: transfer_actions/<protocol>.json and transfer_actions/batch_summary.json
 ```
 
 ---
 
-## 🚀 Quick Start
+## Data Formats
 
-1. **Prepare data**
-
-   - Place protocols in `protocols/original/`.
-   - Ensure labware definitions exist under `Protocols/protoBuilds/{name}/`.
-
-2. **Inject tracking code**
-
-   ```bash
-   python modified_code.py
-   ```
-
-3. **Execute the protocols**  
-   (simulation or live) to generate `.log` and JSON files.
-
-4. **Parse logs into structured steps**
-
-   ```bash
-   python prcxi_protocol_converter.py
-   ```
-
-5. **Generate the final TransferGroup JSON**
-
-   ```bash
-   python -c "from change_to_transfer_group import export_transfer_actions; export_transfer_actions('ProtA')"
-   ```
-
----
-
-## 🧩 Output Data Formats
-
-### 1. `protocols/detailed_action_json/{name}.json`
+### `detailed_action_json/<name>.json` (written by injected code during run)
 
 ```json
 {
-  "event_logs": [...],
+  "event_logs": [],               // from builtins.event_logs (if your protocol populates it)
   "liquid_locations": {
-    "var1": {"well": "A1", "slot": "3"},
-    "var2": {"well": "B2", "slot": "5"}
+    "wells[0]": { "well": "A1", "slot": "1" },
+    "sample_A1": { "well": "A1", "slot": "1" }
   }
 }
 ```
 
-### 2. `steps/{name}.json`
+> `event_logs` exists to preserve raw runtime details if your protocol appends to `builtins.event_logs`.
 
-A list of structured actions (phases):
+### `log/<name>.log` (simulation output)
+
+Human‑readable Opentrons simulate log used by the converter.
+
+### `steps/<name>.json` (structured phases/actions)
+
+A JSON list of **phases**, where each phase is a list of **actions**. Example (single phase):
 
 ```json
 [
-  {
-    "action": "aspirate",
-    "source": {"well": "A1", "slot": 3, "labware": "plate"},
-    "vol": 50.0,
-    "flow_rate": 300.0
-  },
-  ...
+  [
+    {
+      "action": "aspirate",
+      "vol": 10.0,
+      "source": { "well": "A1", "labware": "96 Well Plate", "slot": 1 },
+      "flow_rate": 1.0
+    },
+    {
+      "action": "dispense",
+      "vol": 10.0,
+      "target": { "well": "B1", "labware": "96 Well Plate", "slot": 2 },
+      "flow_rate": 1.0
+    }
+  ]
 ]
 ```
 
-### 3. `{name}_transfer_actions.json`
+Other actions that may appear in phases: `air_gap`, `blow_out`, `touch_tip`, `delay`, `mix`, `heater_shaker`, `magnet`, `temperature`, `raw`.
+
+### `<protocol>_transfer_actions.json` (final export)
 
 ```json
 {
@@ -243,39 +304,49 @@ A list of structured actions (phases):
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
-        "asp_vol": 30.0,
-        "dis_vol": 30.0,
-        "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "sources": "Liquid_1"             // or ["Liquid_1", "Liquid_2"]
+        ,
+        "targets": "Liquid_2"             // or ["Liquid_3", ...]
+        ,
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 1.0,
+        "dis_flow_rate": 1.0
       }
     }
   ],
   "reagent": {
-    "Liquid_1": {"slot": 3, "well": ["A1"], "labware": "Reservoir"},
-    "Liquid_2": {"slot": 5, "well": ["B1"], "labware": "96 Well Plate"}
+    "Liquid_1": { "slot": 1, "well": ["A1","A2"], "labware": "..." },
+    "Liquid_2": { "slot": 2, "well": ["B1"],      "labware": "..." }
   }
 }
 ```
 
+> Liquid names are automatically generated as `Liquid_<n>` and reused if a well was assigned earlier in the run.
+
 ---
 
-## ⚠️ Common Issues
+## Troubleshooting
 
-1. **Hardcoded Paths**  
-   The converter script uses absolute paths (e.g., `/Deep_Potential/...`). Update these before running or call functions directly.
+- **No `steps/*.json` produced**  
+  Check `log/<name>.log` exists and make sure `prcxi_protocol_converter.py` ran without exceptions (see `log/error_converting.txt`).
 
-2. **Missing `event_logs`**  
-   The injected code initializes `builtins.event_logs` but assumes your environment logs pipetting events. Without it, you’ll only have location data (the rest still works).
+- **Simulation import errors**  
+  Update the two `sys.path.insert(...)` lines in `detailed_info_extract.py` to your local Opentrons paths.
 
-3. **Labware Matching**  
-   Uses simple heuristics (well count and capacity). Unknown classes will trigger a warning but still proceed.
+- **Custom labware not found**  
+  Put JSONs under `original copy/<name>/labware/`. The simulator is invoked with `custom_labware_paths=[that_folder]` if it exists.
 
-4. **Unicode Micro Symbols**  
-   µ / μ → automatically normalized to `u`.
+- **Slot compaction mismatch**  
+  `extract_labware_info_from_json(..., total_slots=12)` keeps original slots if `total_slots >= 12`. If you reduce the deck size, ensure the number of distinct slots in the protocol does not exceed the limit.
 
-5. **Batch Processing**  
-   `batch_generate_transfer_actions()` will process all `.json` files in the `steps/` folder automatically.
+- **Empty `event_logs` in `detailed_action_json`**  
+  The injected file writes `builtins.event_logs`. If your protocol does not append to it, this array will be empty; that’s expected in the current version.
 
-> ✅ **Tip:** Start with a small protocol first to verify outputs in `steps/{name}.json` and `{name}_transfer_actions.json` before processing all protocols.
+---
+
+## Notes & Limitations
+
+- Absolute paths are present in the scripts (e.g., local Opentrons repo locations). Adjust them for your environment.
+- Phase merging heuristics are åconservative: aspirate‑only segments may be prepended to the next phase; adjacent compatible routes are merged to reduce fragmentation.
+- The exported transfer workflow focuses on **aspirate+dispense** phases. Phases without both are omitted from the final `"workflow"` list.
