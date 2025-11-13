@@ -1,0 +1,90 @@
+{
+  "workflow": [
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "preampMix",
+        "targets": "preampMix",
+        "asp_vol": 20.0,
+        "dis_vol": 4.0,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_1",
+        "targets": "preampMix",
+        "asp_vol": 2.5,
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "oaMix",
+        "targets": "Liquid_2",
+        "asp_vol": 15.0,
+        "dis_vol": 3.75,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "oaMix",
+        "targets": "oaMix",
+        "asp_vol": 15.0,
+        "dis_vol": 3.0,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "preampMix",
+        "targets": "Liquid_2",
+        "asp_vol": 1.25,
+        "dis_vol": 1.25,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    }
+  ],
+  "reagent": {
+    "Liquid_1": {
+      "slot": 1,
+      "well": [
+        "D1"
+      ],
+      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+    },
+    "preampMix": {
+      "slot": 2,
+      "well": [
+        "A1"
+      ],
+      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+    },
+    "Liquid_2": {
+      "slot": 3,
+      "well": [
+        "C1"
+      ],
+      "labware": "Corning 384 Well Plate 112 µL Flat"
+    },
+    "oaMix": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "D6"
+      ],
+      "labware": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap"
+    }
+  }
+}
