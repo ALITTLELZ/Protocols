@@ -1,0 +1,49 @@
+{
+  "workflow": [
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source_wells",
+        "targets": "hs_wells",
+        "asp_vol": 100.0,
+        "dis_vol": 100.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "hs_wells",
+        "targets": "selection",
+        "asp_vol": 80.0,
+        "dis_vol": 80.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0
+      }
+    }
+  ],
+  "reagent": {
+    "hs_wells": {
+      "slot": 1,
+      "well": [
+        "A7"
+      ],
+      "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1"
+    },
+    "source_wells": {
+      "slot": 3,
+      "well": [
+        "A1"
+      ],
+      "labware": "source"
+    },
+    "selection": {
+      "slot": 6,
+      "well": [
+        "A1"
+      ],
+      "labware": "destination"
+    }
+  }
+}

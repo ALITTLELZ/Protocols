@@ -1,0 +1,69 @@
+{
+  "workflow": [
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "adaptors",
+        "targets": "pcr_plate_deck_wells",
+        "asp_vol": 5.0,
+        "dis_vol": 5.0,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "samples_plate_wells",
+        "targets": "pcr_plate_deck_wells",
+        "asp_vol": 50.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "ligation_mix",
+        "targets": "pcr_plate_deck_wells",
+        "asp_vol": 45.0,
+        "dis_vol": 45.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    }
+  ],
+  "reagent": {
+    "samples_plate_wells": {
+      "slot": 2,
+      "well": [
+        "A1"
+      ],
+      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+    },
+    "adaptors": {
+      "slot": 3,
+      "well": [
+        "G1",
+        "A6"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "ligation_mix": {
+      "slot": 3,
+      "well": [
+        "G1",
+        "A6"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "pcr_plate_deck_wells": {
+      "slot": 5,
+      "well": [
+        "H1"
+      ],
+      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+    }
+  }
+}
