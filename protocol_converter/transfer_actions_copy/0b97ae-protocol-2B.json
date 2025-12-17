@@ -1,0 +1,96 @@
+{
+  "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "water",
+        "targets": "col",
+        "asp_vol": 2.5,
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.6,
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Diluted RNA plate on Temperature Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mm",
+        "targets": "col",
+        "asp_vol": 2.5,
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.6,
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "raw",
+      "text": "Process Complete. Remove Plate from Position 7 and incubate according"
+    },
+    {
+      "action": "raw",
+      "text": "to FastSelect 5/16/23S, Table 3"
+    }
+  ],
+  "reagent": {
+    "water": {
+      "slot": 2,
+      "well": [
+        "A1"
+      ],
+      "labware": "Water reservoir"
+    },
+    "col": {
+      "slot": 7,
+      "well": [
+        "A1"
+      ],
+      "labware": "Diluted RNA plate on Temperature Module GEN2"
+    },
+    "mm": {
+      "slot": 10,
+      "well": [
+        "A1"
+      ],
+      "labware": "MasterMix plate on Temperature Module GEN2"
+    }
+  }
+}

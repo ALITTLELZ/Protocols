@@ -1,0 +1,53 @@
+{
+  "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        32.0,
+        32.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Agilent 96 Well Plate 500 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source_well",
+        "targets": "dest_well",
+        "asp_vol": 50.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
+      }
+    }
+  ],
+  "reagent": {
+    "source_well": {
+      "slot": 2,
+      "well": [
+        "A1"
+      ],
+      "labware": "Agilent 96 Well Plate 500 µL"
+    },
+    "dest_well": {
+      "slot": 3,
+      "well": [
+        "A1"
+      ],
+      "labware": "Agilent 96 Well Plate 1400 µL"
+    }
+  }
+}

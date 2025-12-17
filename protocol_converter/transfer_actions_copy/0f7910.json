@@ -1,0 +1,87 @@
+{
+  "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        12.4,
+        12.4
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Corning 96 Well Plate 360 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        1.0,
+        2.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.4,
+        12.4
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Corning 96 Well Plate 360 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        1.0,
+        2.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source",
+        "targets": "dest",
+        "asp_vol": 12.4,
+        "dis_vol": 12.4,
+        "asp_flow_rate": 1.0,
+        "dis_flow_rate": 2.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          }
+        ]
+      }
+    }
+  ],
+  "reagent": {
+    "dest": {
+      "slot": 1,
+      "well": [
+        "B1"
+      ],
+      "labware": "Corning 96 Well Plate 360 µL Flat"
+    },
+    "source": {
+      "slot": 3,
+      "well": [
+        "A1"
+      ],
+      "labware": "Corning 96 Well Plate 360 µL Flat"
+    }
+  }
+}

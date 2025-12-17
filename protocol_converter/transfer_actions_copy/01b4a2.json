@@ -1,0 +1,69 @@
+{
+  "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bricklabware_type2_rack_short 24 Well Plate 2000 uL",
+        "slot": 9
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "buff",
+        "targets": "source_well",
+        "asp_vol": 1000.0,
+        "dis_vol": 1000.0,
+        "asp_flow_rate": 274.7,
+        "dis_flow_rate": 274.7,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source_well",
+        "targets": "source_well",
+        "asp_vol": 270.0,
+        "dis_vol": 30.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
+      }
+    }
+  ],
+  "reagent": {
+    "source_well": {
+      "slot": 6,
+      "well": [
+        "E1"
+      ],
+      "labware": "Micronic M96-4 1.4 96 Well Plate 1400 µL"
+    },
+    "buff": {
+      "slot": 8,
+      "well": [
+        "A1"
+      ],
+      "labware": "Opentrons 6 Tube Rack with VWR 50 mL"
+    }
+  }
+}
