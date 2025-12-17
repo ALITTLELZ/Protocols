@@ -1,0 +1,134 @@
+{
+  "workflow": [
+    {
+      "action": "raw",
+      "text": "Beginning media transfer"
+    },
+    {
+      "action": "raw",
+      "text": "Beginning antibiotic transfers"
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "medias",
+        "targets": "all_wells",
+        "asp_vol": 206.66666666666666,
+        "dis_vol": 85.83333333333333,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 1000.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "drugs",
+        "targets": "all_wells",
+        "asp_vol": 20.0,
+        "dis_vol": 6.25,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 1000.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "drugs_2",
+        "targets": "all_wells",
+        "asp_vol": 20.0,
+        "dis_vol": 7.5,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 1000.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "drugs_3",
+        "targets": "all_wells",
+        "asp_vol": 20.0,
+        "dis_vol": 16.666666666666668,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 1000.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "G1"
+        }
+      }
+    }
+  ],
+  "reagent": {
+    "all_wells": {
+      "slot": 1,
+      "well": [
+        "E1"
+      ],
+      "labware": "NUNC 96 Well Plate 400 µL"
+    },
+    "drugs_2": {
+      "slot": 7,
+      "well": [
+        "B1"
+      ],
+      "labware": "Opentrons 15 Tube Rack with NEST 15 mL Conical"
+    },
+    "medias": {
+      "slot": 8,
+      "well": [
+        "A3",
+        "A1"
+      ],
+      "labware": "Opentrons 10 Tube Rack with NEST 4x50 mL, 6x15 mL Conical"
+    },
+    "drugs_3": {
+      "slot": 8,
+      "well": [
+        "A3",
+        "A1"
+      ],
+      "labware": "Opentrons 10 Tube Rack with NEST 4x50 mL, 6x15 mL Conical"
+    },
+    "drugs": {
+      "slot": 9,
+      "well": [
+        "B5"
+      ],
+      "labware": "Opentrons 15 Tube Rack with NEST 15 mL Conical"
+    }
+  }
+}

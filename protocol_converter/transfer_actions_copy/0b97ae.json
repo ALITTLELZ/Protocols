@@ -1,0 +1,73 @@
+{
+  "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution plate on Temperature Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source_well",
+        "targets": "destination_well",
+        "asp_vol": 5.7,
+        "dis_vol": 5.7,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
+      }
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "raw",
+      "text": "Process Complete."
+    }
+  ],
+  "reagent": {
+    "destination_well": {
+      "slot": 7,
+      "well": [
+        "A1"
+      ],
+      "labware": "Dilution plate on Temperature Module GEN2"
+    },
+    "source_well": {
+      "slot": 10,
+      "well": [
+        "A1"
+      ],
+      "labware": "source RNA plate on Temperature Module GEN2"
+    }
+  }
+}

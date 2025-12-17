@@ -1,0 +1,58 @@
+{
+  "workflow": [
+    {
+      "action": "raw",
+      "text": "Adding differentiation media to plate 1..."
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "wells",
+        "targets": "Liquid_1",
+        "asp_vol": 120.0,
+        "dis_vol": 120.0,
+        "asp_flow_rate": 40.0,
+        "dis_flow_rate": 40.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "media1",
+        "targets": "wells",
+        "asp_vol": 140.0,
+        "dis_vol": 140.0,
+        "asp_flow_rate": 40.0,
+        "dis_flow_rate": 40.0
+      }
+    }
+  ],
+  "reagent": {
+    "wells": {
+      "slot": 2,
+      "well": [
+        "A1"
+      ],
+      "labware": "Eppendorf 96 Well Plate 200 µL"
+    },
+    "media1": {
+      "slot": 10,
+      "well": [
+        "A1"
+      ],
+      "labware": "NEST 12 Well Reservoir 15 mL"
+    },
+    "Liquid_1": {
+      "slot": 11,
+      "well": [
+        "A1"
+      ],
+      "labware": "Liquid Waste"
+    }
+  }
+}
