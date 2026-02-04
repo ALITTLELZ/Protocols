@@ -3,11 +3,11 @@ import os
 from pathlib import Path
 from pprint import pprint
 import re
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional, Tuple
 
 _DEF_WELL_COUNTS = (384, 96, 48, 24)
 
-def _parse_well_count(name: str) -> int | None:
+def _parse_well_count(name: str) -> Optional[int]:
     s = name.lower()
     for k in _DEF_WELL_COUNTS:
         # 匹配独立数字（避免把 96 匹配到 196 等）
@@ -15,7 +15,7 @@ def _parse_well_count(name: str) -> int | None:
             return k
     return None
 
-def _parse_capacity_ul(name: str) -> float | None:
+def _parse_capacity_ul(name: str) -> Optional[float]:
     s = name.lower()
     m = re.search(r'(\d+(?:\.\d+)?)(\s*(?:u?l|[µμ]l|ml))', s, re.IGNORECASE)
     if not m:
@@ -51,36 +51,96 @@ def get_action_list(steps_file):
                 if 'flow_rate' in step:
                     aspirate_flow_rates.append(step['flow_rate'])
             elif step['action'] == "dispense":
-                dispense_wells.add((step['target']['slot'], step['target']['well']))
-                # 提取体积信息
-                if 'vol' in step:
-                    dispense_vols.append(step['vol'])
-                # 提取流速信息
-                if 'flow_rate' in step:
-                    dispense_flow_rates.append(step['flow_rate'])
+                # 跳过 blow_out 操作（体积为 -1 或目标是 trash）
+                # blow_out 是排空枪头中的残留液体，不是真正的移液操作，不应该被识别为 dispense
+                vol = step.get('vol', 0)
+                target = step.get('target', {})
+                labware = target.get('labware', '').lower() if target else ''
+                
+                # 检查是否是 blow_out 操作（排空枪头）
+                is_blowout = (
+                    vol == -1 or  # 体积为 -1 表示 blow_out（排空枪头）
+                    'trash' in labware or  # 目标是 trash（通常用于排空枪头）
+                    target.get('slot') == 12  # Opentrons Fixed Trash 通常在 slot 12
+                )
+                
+                if not is_blowout:
+                    dispense_wells.add((step['target']['slot'], step['target']['well']))
+                    # 提取体积信息
+                    if 'vol' in step:
+                        dispense_vols.append(step['vol'])
+                    # 提取流速信息
+                    if 'flow_rate' in step:
+                        dispense_flow_rates.append(step['flow_rate'])
         
-        # 计算平均体积
+        # 计算平均体积（用于向后兼容）
         avg_asp_vol = sum(aspirate_vols) / len(aspirate_vols) if aspirate_vols else 0
         avg_dis_vol = sum(dispense_vols) / len(dispense_vols) if dispense_vols else 0
         
-        # 计算平均流速
+        # 计算平均流速（用于向后兼容）
         avg_asp_flow_rate = sum(aspirate_flow_rates) / len(aspirate_flow_rates) if aspirate_flow_rates else 0
         avg_dis_flow_rate = sum(dispense_flow_rates) / len(dispense_flow_rates) if dispense_flow_rates else 0
         
+        # 生成数组格式的体积和流速（与sources数量一致）
+        aspirate_wells_list = list(aspirate_wells)
+        num_sources = len(aspirate_wells_list)
+        
+        # 为每个source生成体积和流速数组
+        # 如果数组长度不够，用平均值填充
+        asp_vols_array = []
+        asp_flow_rates_array = []
+        dis_vols_array = []
+        dis_flow_rates_array = []
+        
+        for i in range(num_sources):
+            # 如果有对应的值，使用实际值；否则使用平均值
+            if i < len(aspirate_vols):
+                asp_vols_array.append(aspirate_vols[i])
+            else:
+                asp_vols_array.append(avg_asp_vol)
+            
+            if i < len(aspirate_flow_rates):
+                asp_flow_rates_array.append(aspirate_flow_rates[i])
+            else:
+                asp_flow_rates_array.append(avg_asp_flow_rate)
+            
+            # dispense的体积和流速：如果有对应的值就使用，否则使用平均值
+            # 注意：dispense的数量可能与aspirate不同，但通常应该相同
+            if i < len(dispense_vols):
+                dis_vols_array.append(dispense_vols[i])
+            else:
+                dis_vols_array.append(avg_dis_vol)
+            
+            if i < len(dispense_flow_rates):
+                dis_flow_rates_array.append(dispense_flow_rates[i])
+            else:
+                dis_flow_rates_array.append(avg_dis_flow_rate)
+        
+        # 如果没有数据，至少生成一个元素
+        if not asp_vols_array:
+            asp_vols_array = [0]
+            asp_flow_rates_array = [0]
+            dis_vols_array = [0]
+            dis_flow_rates_array = [0]
+        
         action_list.append({
             "phase": phase_idx,  # 这里使用正确的phase索引
-            "aspirate": list(aspirate_wells),
+            "aspirate": aspirate_wells_list,
             "dispense": list(dispense_wells),
-            "asp_vol": avg_asp_vol,
-            "dis_vol": avg_dis_vol,
-            "asp_flow_rate": avg_asp_flow_rate,
-            "dis_flow_rate": avg_dis_flow_rate
+            "asp_vol": avg_asp_vol,  # 保留用于向后兼容
+            "dis_vol": avg_dis_vol,  # 保留用于向后兼容
+            "asp_flow_rate": avg_asp_flow_rate,  # 保留用于向后兼容
+            "dis_flow_rate": avg_dis_flow_rate,  # 保留用于向后兼容
+            "asp_vols": asp_vols_array,  # 新增：数组格式
+            "dis_vols": dis_vols_array,  # 新增：数组格式
+            "asp_flow_rates": asp_flow_rates_array,  # 新增：数组格式
+            "dis_flow_rates": dis_flow_rates_array  # 新增：数组格式
         })
     
     return action_list
 
 
-def extract_labware_info_from_json(json_data: dict, total_slots: int) -> tuple[list, dict]:
+def extract_labware_info_from_json(json_data: dict, total_slots: int) -> Tuple[list, dict]:
     """
     从 Opentrons JSON 配置中提取板位信息，并根据 `total_slots` 进行槽位映射：
       - 若 total_slots >= 12：不映射，保留原始 slot。
@@ -113,7 +173,7 @@ def extract_labware_info_from_json(json_data: dict, total_slots: int) -> tuple[l
             orig_slots_in_order.append(s_int)
 
     # 2) 计算映射表 replace_map
-    replace_map: dict[int, int] = {}
+    replace_map: Dict[int, int] = {}
 
     if total_slots >= 12:
         # 不映射：保留原始 slot
@@ -198,7 +258,9 @@ def extract_labware_info_from_json(json_data: dict, total_slots: int) -> tuple[l
 
 def get_labware_data(protocol_name):
     """获取protocol的labware数据"""
-    base_dir = "/Users/guangxinzhang/Documents/Deep_Potential/published_protocol/Protocols/protoBuilds"
+    # 使用相对路径，从当前脚本所在目录找protoBuilds
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    base_dir = os.path.join(os.path.dirname(current_dir), "protoBuilds")
     
     # 先试标准命名
     standard_file = f"{base_dir}/{protocol_name}/{protocol_name}.ot2.apiv2.py.json"
@@ -217,6 +279,37 @@ def get_labware_data(protocol_name):
                 return json.load(f)
     
     raise FileNotFoundError(f"No protocol json found in {proto_dir}")
+
+
+def load_liquid_locations(protocol_name):
+    """加载原始的liquid_locations映射"""
+    detailed_action_file = f"./detailed_action_json/{protocol_name}.json"
+    
+    if not os.path.exists(detailed_action_file):
+        print(f"  ⚠️  未找到 {detailed_action_file}，将使用自动生成的液体名称")
+        return {}
+    
+    try:
+        with open(detailed_action_file, "r") as f:
+            data = json.load(f)
+            liquid_locs = data.get("liquid_locations", {})
+            
+            # 构建从 (slot, well) 到变量名的映射
+            well_to_varname = {}
+            for var_name, loc_info in liquid_locs.items():
+                slot = int(loc_info.get("slot", 0))
+                well = loc_info.get("well", "")
+                if slot and well:
+                    # 清理变量名：去掉数组索引 [0], [1] 等
+                    clean_name = re.sub(r'\[\d+\]$', '', var_name)
+                    well_to_varname[(slot, well)] = clean_name
+            
+            print(f"  ✅ 加载了 {len(well_to_varname)} 个原始试剂位置映射")
+            return well_to_varname
+            
+    except Exception as e:
+        print(f"  ⚠️  加载 liquid_locations 失败: {e}，将使用自动生成的液体名称")
+        return {}
 
 
 def process_protocol(protocol_name):
@@ -258,7 +351,7 @@ def process_protocol(protocol_name):
     return action_list, labware_info
 
 
-def set_liquid_info(results):
+def set_liquid_info(results, well_to_varname=None):
     """
     设置液体信息：为每个protocol的每个phase分配液体名称
     
@@ -267,7 +360,11 @@ def set_liquid_info(results):
     2. 同一个phase中所有被dispense的孔位 = 同一种液体
     3. 如果孔位已经在之前的phase中分配过液体，使用已有的液体名称
     4. 更新labware_info中的liquid_type和liquid_input_wells
+    5. 优先使用原始的变量名（从well_to_varname映射），如果没有则使用Liquid_N格式
     """
+    
+    if well_to_varname is None:
+        well_to_varname = {}
     
     for protocol_name, (action_list, labware_info) in results.items():
         print(f"处理 {protocol_name} 的液体信息...")
@@ -277,6 +374,40 @@ def set_liquid_info(results):
         
         # 液体计数器，用于生成唯一的液体名称
         liquid_counter = 1
+        # 已使用的液体名称（用于避免重复）
+        used_liquid_names = set()
+        
+        def get_liquid_name_for_well(slot, well):
+            """为孔位获取液体名称，优先使用原始变量名"""
+            well_key = (slot, well)
+            
+            # 如果已经分配过，直接返回
+            if well_key in well_to_liquid:
+                return well_to_liquid[well_key]
+            
+            # 尝试使用原始变量名
+            if well_key in well_to_varname:
+                original_name = well_to_varname[well_key]
+                # 如果原始名称未被使用，直接用
+                if original_name not in used_liquid_names:
+                    used_liquid_names.add(original_name)
+                    return original_name
+                # 如果已被使用，添加后缀
+                counter = 2
+                while f"{original_name}_{counter}" in used_liquid_names:
+                    counter += 1
+                new_name = f"{original_name}_{counter}"
+                used_liquid_names.add(new_name)
+                return new_name
+            
+            # 没有原始名称，生成 Liquid_N 格式
+            nonlocal liquid_counter
+            while f"Liquid_{liquid_counter}" in used_liquid_names:
+                liquid_counter += 1
+            liquid_name = f"Liquid_{liquid_counter}"
+            liquid_counter += 1
+            used_liquid_names.add(liquid_name)
+            return liquid_name
         
         # 遍历每个phase
         for phase_idx, action in enumerate(action_list):
@@ -292,8 +423,9 @@ def set_liquid_info(results):
                 
                 # 如果没有已知液体，创建新的
                 if existing_aspirate_liquid is None:
-                    aspirate_liquid_name = f"Liquid_{liquid_counter}"
-                    liquid_counter += 1
+                    # 使用第一个孔位来决定液体名称
+                    first_slot, first_well = action["aspirate"][0]
+                    aspirate_liquid_name = get_liquid_name_for_well(first_slot, first_well)
                     print(f"  新源液体: {aspirate_liquid_name} (Phase {phase_idx} aspirate)")
                 else:
                     aspirate_liquid_name = existing_aspirate_liquid
@@ -320,8 +452,9 @@ def set_liquid_info(results):
                 
                 # 如果没有已知液体，创建新的
                 if existing_dispense_liquid is None:
-                    dispense_liquid_name = f"Liquid_{liquid_counter}"
-                    liquid_counter += 1
+                    # 使用第一个孔位来决定液体名称
+                    first_slot, first_well = action["dispense"][0]
+                    dispense_liquid_name = get_liquid_name_for_well(first_slot, first_well)
                     print(f"  新目标液体: {dispense_liquid_name} (Phase {phase_idx} dispense)")
                 else:
                     dispense_liquid_name = existing_dispense_liquid
@@ -357,7 +490,7 @@ def set_liquid_info(results):
             if slot_liquids:
                 print(f"  Labware {labware['id']}: {len(slot_liquids)} 种液体在 {slot_wells}")
         
-        print(f"  {protocol_name}: 总共识别了 {liquid_counter-1} 种液体")
+        print(f"  {protocol_name}: 总共识别了 {len(used_liquid_names)} 种液体")
     
     return results
 
@@ -407,12 +540,15 @@ def generate_transfer_actions(protocol_name):
         action_list, labware_info = process_protocol(protocol_name)
         results = {protocol_name: (action_list, labware_info)}
         
+        # 加载原始试剂名称映射
+        well_to_varname = load_liquid_locations(protocol_name)
+        
         # 设置液体信息（静默处理）
         import sys
         from io import StringIO
         old_stdout = sys.stdout
         sys.stdout = StringIO()
-        results = set_liquid_info(results)
+        results = set_liquid_info(results, well_to_varname)
         sys.stdout = old_stdout
         
         updated_action_list, updated_labware_info = results[protocol_name]
@@ -429,15 +565,21 @@ def generate_transfer_actions(protocol_name):
             if not phase['source_liquids'] or not phase['target_liquids']:
                 continue
             
+            # 使用数组格式的体积和流速（标准格式要求）
+            asp_vols = phase.get('asp_vols', [phase.get('asp_vol', 0)])
+            dis_vols = phase.get('dis_vols', [phase.get('dis_vol', 0)])
+            asp_flow_rates = phase.get('asp_flow_rates', [phase.get('asp_flow_rate', 0)])
+            dis_flow_rates = phase.get('dis_flow_rates', [phase.get('dis_flow_rate', 0)])
+            
             action = {
                 "action": "transfer_liquid",
                 "action_args": {
                     "sources": phase['source_liquids'][0] if len(phase['source_liquids']) == 1 else phase['source_liquids'],
                     "targets": phase['target_liquids'][0] if len(phase['target_liquids']) == 1 else phase['target_liquids'],
-                    "asp_vol": phase.get('asp_vol', 0),
-                    "dis_vol": phase.get('dis_vol', 0),
-                    "asp_flow_rate": phase.get('asp_flow_rate', 0),
-                    "dis_flow_rate": phase.get('dis_flow_rate', 0)
+                    "asp_vols": asp_vols,
+                    "dis_vols": dis_vols,
+                    "asp_flow_rates": asp_flow_rates,
+                    "dis_flow_rates": dis_flow_rates
                 }
             }
             
@@ -446,7 +588,7 @@ def generate_transfer_actions(protocol_name):
         return transfer_actions, updated_labware_info
         
     except Exception as e:
-        print(f"❌ 생성 transfer actions 실패: {e}")
+        print(f"❌ 生成 transfer actions 失败: {e}")
         return [], []
 
 
@@ -471,10 +613,10 @@ def print_transfer_actions(protocol_name):
         print(f"    \"action_args\": {{")
         print(f"      \"sources\": \"{action['action_args']['sources']}\",")
         print(f"      \"targets\": \"{action['action_args']['targets']}\",")
-        print(f"      \"asp_vol\": {action['action_args']['asp_vol']},")
-        print(f"      \"dis_vol\": {action['action_args']['dis_vol']},")
-        print(f"      \"asp_flow_rate\": {action['action_args']['asp_flow_rate']},")
-        print(f"      \"dis_flow_rate\": {action['action_args']['dis_flow_rate']}")
+        print(f"      \"asp_vols\": {action['action_args']['asp_vols']},")
+        print(f"      \"dis_vols\": {action['action_args']['dis_vols']},")
+        print(f"      \"asp_flow_rates\": {action['action_args']['asp_flow_rates']},")
+        print(f"      \"dis_flow_rates\": {action['action_args']['dis_flow_rates']}")
         print(f"    }}")
         print(f"  }}")
     
@@ -631,8 +773,9 @@ if __name__ == "__main__":
     import sys
     
     if len(sys.argv) > 1 and sys.argv[1] == "batch":
-        # 批量模式
-        batch_generate_transfer_actions()
+        # 批量模式 - 支持自定义输出目录
+        output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions"
+        batch_generate_transfer_actions(output_dir)
     else:
         # 示例模式
         protocol_name = "00c517-pt2"
