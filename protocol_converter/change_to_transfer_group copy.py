@@ -362,7 +362,7 @@ def load_labware_from_protobuild(protocol_name):
         # 只保留有用字段: name, slot, type（type 加上 lab_ 前缀）
         result = []
         for lw in labware_list:
-            raw_type = lw.get("type", "")
+            raw_type = lw.get("type", "").replace(".", "point").replace("-", "_")
             prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
             result.append({
                 "name": lw.get("name", ""),
