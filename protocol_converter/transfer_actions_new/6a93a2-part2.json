@@ -1,14 +1,194 @@
 {
+  "description": "This protocol is part two of a five-part series to perform Swift Biosciences Rapid NGS Library Prep kit. The protocol is split in such a way so as to allow for the option to run between the Rapid and Standard versions of the kit. Please find all linked parts of the protocol below:\nLinks:\n Swift NGS Part 1 - Reverse Transcription and SPRI Cleanup\n Swift Rapid NGS Part 3 - Extension, SPRI, and Ligation\n Swift Rapid NGS Part 4 - SPRI Clean\n Swift Rapid NGS Part 5 - Indexing and SPRI Clean\nPart two of this protocol is divided into the following methods for 8, 16, or 24 samples:\n\nMake Adaptase Mastermix\nRun Thermocycler Profile\nAdd Adaptase Mastermix\n\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples that will be processed.\n Adaptase Mastermix Overage Percent (0-10%): Specify the percent overage of Reverse Transcription Mastermix to make and ultimately add to samples.\n Opentrons 96 Tip Rack 20ul Tip Type: Specify whether filter or non-filter 20ul tips will be employed.\n P300 Multi GEN2 Mount: Specify which mount (left or right) to load the P300 multi channel pipette.\n* P20 Single GEN2 Mount: Specify which mount (left or right) to load the P20 single channel pipette.",
+  "tags": [
+    "6a93a2-part2.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Swift Rapid RNA Library Kit"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "raw",
+      "text": "After placing mix tube back, thermocycler will warm up."
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 105.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 95.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Please add the sample plate to the thermocycler."
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler will close lid automatically."
+    },
+    {
+      "action": "raw",
+      "text": "Be ready to take samples and put on ice"
+    },
+    {
+      "action": "raw",
+      "text": "immediately after the 2 minute cycle has completed."
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 95, 'hold_time_minutes': 2}]"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "After, put the plate back on the Thermocycler for the Adaptase Mastermix"
+    },
+    {
+      "action": "raw",
+      "text": "to be added."
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "raw",
+      "text": "Solutions have been pipette-mixed 15 times."
+    },
+    {
+      "action": "raw",
+      "text": "Spin samples, seal,  and place back on thermocycler for another"
+    },
+    {
+      "action": "raw",
+      "text": "thermocycler profile."
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 37, 'hold_time_minutes': 15}, {'temperature': 95, 'hold_time_minutes': 2}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 4.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "reagents",
         "targets": "reagents",
-        "asp_vol": 12.286666666666667,
-        "dis_vol": 11.45625,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 13.3375
+        "asp_vol": 12.286666666666664,
+        "dis_vol": 12.286666666666664,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],
@@ -16,7 +196,7 @@
     "reagents": {
       "slot": 3,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
     }

@@ -1,5 +1,32 @@
 {
+  "description": "Your OT-2 can fully automate the entire Mag-Bind® Blood & Tissue DNA HDQ 96 Kit.\nResults of the Opentrons Science team's internal testing of this protocol on the OT-2 are shown below:\n\nExplanation of complex parameters below:\n Number of samples: Specify the number of samples this run (1-96 and divisible by 8, i.e. whole columns at a time).\n Deepwell type: Specify which well plate will be mounted on the magnetic module.\n Reservoir Type: Specify which reservoir will be employed.\n Starting Volume: Specify starting volume of sample (ul).\n Binding Buffer Volume: Specify the volume of binding buffer to use (ul).\n Elution Volume: Specify elution volume (ul).\n Park Tips: Specify whether to park tips or drop tips.\n P300 Multi Channel Pipette Mount: Specify whether the P300 multi channel pipette will be on the left or right mount.",
+  "tags": [
+    "onsite_galatea_mag_bind.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "DNA Extraction"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +35,12 @@
         "asp_vol": 102.5,
         "dis_vol": 205.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -23,15 +55,46 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell plate on Magnetic Module GEN2",
+        "slot": 6
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
         "targets": "mag_samples_m",
         "asp_vol": 102.5,
-        "dis_vol": 102.0,
+        "dis_vol": 205.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -39,9 +102,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 80.0,
-        "dis_vol": 109.5,
+        "dis_vol": 220.0,
         "asp_flow_rate": 36.666666666666664,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
       }
     },
     {
@@ -61,9 +129,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 110.0,
-        "dis_vol": 109.5,
+        "dis_vol": 220.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -83,9 +151,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 110.0,
-        "dis_vol": 109.5,
+        "dis_vol": 220.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -105,10 +173,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 110.0,
-        "dis_vol": 109.5,
+        "dis_vol": 220.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -118,7 +190,12 @@
         "asp_vol": 68.88888888888889,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
       }
     },
     {
@@ -155,15 +232,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        162.0,
+        162.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell plate on Magnetic Module GEN2",
+        "slot": 6
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 16
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "mag_samples_m",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -171,9 +274,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 68.88888888888889,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
       }
     },
     {
@@ -193,9 +301,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
     },
     {
@@ -215,10 +323,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -228,7 +340,12 @@
         "asp_vol": 68.88888888888889,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
       }
     },
     {
@@ -265,15 +382,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        162.0,
+        162.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell plate on Magnetic Module GEN2",
+        "slot": 6
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 16
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "mag_samples_m",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -281,9 +424,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 68.88888888888889,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
       }
     },
     {
@@ -303,9 +451,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
     },
     {
@@ -325,10 +473,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -338,7 +490,12 @@
         "asp_vol": 68.88888888888889,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
       }
     },
     {
@@ -375,15 +532,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        162.0,
+        162.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell plate on Magnetic Module GEN2",
+        "slot": 6
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 16
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "mag_samples_m",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -391,9 +574,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 68.88888888888889,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
       }
     },
     {
@@ -413,9 +601,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
     },
     {
@@ -435,10 +623,15 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
-        "dis_vol": 92.83333333333333,
+        "dis_vol": 186.66666666666666,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -448,18 +641,59 @@
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 90.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell plate on Magnetic Module GEN2",
+        "slot": 6
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
+        "targets": "elution_samples_m",
         "asp_vol": 30.0,
-        "dis_vol": 22.666666666666668,
+        "dis_vol": 70.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 166.66666666666666
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
       }
     }
   ],
@@ -480,12 +714,19 @@
       ],
       "labware": "reagent reservoir 1"
     },
-    "mag_samples_m": {
+    "elution_samples_m": {
       "slot": 3,
       "well": [
         "A1"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL"
+    },
+    "mag_samples_m": {
+      "slot": 6,
+      "well": [
+        "A1"
+      ],
+      "labware": "deepwell plate on Magnetic Module GEN2"
     }
   }
 }

@@ -1,4 +1,10 @@
 {
+  "description": "This protocol reformats 10ul of saliva samples from tubes to a 96 well plate. Tube racks should be placed in order of the slot numbers on the deck, (1, 2, 3,...,7). The pipette will access each tube rack in this order beginning from tube rack 1 on slot 1. The pipettes will access each tuberack by column (A1, B1, C1, A2, B2, C2...), meaning a 94 sample run would have all tube racks in slots 1-6 filled, with 4 tubes in A1, B1, C1, A2 of slot 7.\n\nExplanation of complex parameters below:\n Number of Samples (1-96): Specify the number of samples for this run (1-96).\n Reaction plate: Specify whether using the non-skirted or half-skirted reaction plate on slot 9. Slot 8 should always use a non-skirted plate.\n* P20 Pipette Mount: Specify which mount (left or right) to host the P20 Single-Channel Pipette.",
+  "tags": [
+    "onsite_atila_saliva384_pt1.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,86 @@
         "sources": "all_sample_tubes",
         "targets": "Liquid_1",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G2"
+          }
+        ]
       }
     },
     {
@@ -17,9 +100,86 @@
         "sources": "all_sample_tubes_2",
         "targets": "Liquid_2",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H2"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F4"
+          }
+        ]
       }
     },
     {
@@ -28,9 +188,86 @@
         "sources": "all_sample_tubes_3",
         "targets": "Liquid_3",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E6"
+          }
+        ]
       }
     },
     {
@@ -39,9 +276,86 @@
         "sources": "all_sample_tubes_4",
         "targets": "Liquid_4",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D8"
+          }
+        ]
       }
     },
     {
@@ -50,9 +364,86 @@
         "sources": "all_sample_tubes_5",
         "targets": "Liquid_5",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C10"
+          }
+        ]
       }
     },
     {
@@ -61,9 +452,86 @@
         "sources": "all_sample_tubes_6",
         "targets": "Liquid_6",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "G11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "H11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "B12"
+          }
+        ]
       }
     },
     {
@@ -72,9 +540,31 @@
         "sources": "all_sample_tubes_7",
         "targets": "Liquid_7",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
+        "dis_vol": 10.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "C12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "D12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "E12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "F12"
+          }
+        ]
       }
     }
   ],
@@ -89,54 +579,54 @@
     "all_sample_tubes_2": {
       "slot": 2,
       "well": [
-        "A1"
+        "B1"
       ],
       "labware": "the SAMPLE RACK"
     },
     "all_sample_tubes_3": {
       "slot": 3,
       "well": [
-        "A4"
+        "B1"
       ],
       "labware": "the SAMPLE RACK"
     },
     "all_sample_tubes_4": {
       "slot": 4,
       "well": [
-        "B1"
+        "A5"
       ],
       "labware": "the SAMPLE RACK"
     },
     "all_sample_tubes_5": {
       "slot": 5,
       "well": [
-        "A4"
+        "B2"
       ],
       "labware": "the SAMPLE RACK"
     },
     "all_sample_tubes_6": {
       "slot": 6,
       "well": [
-        "C1"
+        "A3"
       ],
       "labware": "the SAMPLE RACK"
     },
     "all_sample_tubes_7": {
       "slot": 7,
       "well": [
-        "B1"
+        "A2"
       ],
       "labware": "the SAMPLE RACK"
     },
     "Liquid_1": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -144,12 +634,12 @@
     "Liquid_2": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -157,12 +647,12 @@
     "Liquid_3": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -170,12 +660,12 @@
     "Liquid_4": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -183,12 +673,12 @@
     "Liquid_5": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -196,12 +686,12 @@
     "Liquid_6": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"
@@ -209,12 +699,12 @@
     "Liquid_7": {
       "slot": 9,
       "well": [
-        "E2",
-        "A4",
-        "B5",
-        "F6",
-        "G9",
-        "F10",
+        "C1",
+        "H2",
+        "A5",
+        "H6",
+        "D9",
+        "G10",
         "C12"
       ],
       "labware": "the PCR PLATE"

@@ -1,58 +1,375 @@
 {
+  "description": "This protocol now utilizes the P20 8-Channel Pipette (GEN2) (instead of the P300), uses additional plates, and has modified liquid handling. The steps of this updated version can be found below.\nUpdated Sept 29, 2021\nThis protocol has been updated based on feedback from the user. User can now select None when selecting a \"Number of Destination Plates\" (skipping the aliquoting step). Additionally, this update fixes an issue with the way tips are handled when using less than 8 tips with the multi-channel pipette.\nPart 1: Small Molecule Library Prep\nPart 2: Seed Cells\nPart 3: Transfer Small Molecules\nPart 4: Transfer Small Molecules - CSV Input\nPart 5: Custom Supernatant Removal\nPart 6: ProcartaPlex Protocol-1\nPart 7: ProcartaPlex Protocol-2\nExplanation of complex parameters below:\n P20-Multi Mount: Select which mount the P20-Multi Pipette is attached to.\n Number of Destination Plates: Select the number of destination plates.\n Destination plate PBS volume (µl): Specify the volume of PBS to transfer to Destination plate (step 1).\n Destination plate 66% DMSO volume (µl): Specify the volume of 66% DMSO to transfer to Destination plate (step 2).\n Source plate volume for dilution (µl): Specify the volume for first dilution transfer (step 3).\n Destination plate volume for dilution (µl): Specify the volume for second dilution transfer (step 5).\n* Library aliquot volume (µl): Specify the volume for the library aliquot (step 7).",
+  "tags": [
+    "1adec6.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "Assay"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "dmso",
-        "targets": "Liquid_1",
+        "sources": "pbs",
+        "targets": "dest",
         "asp_vol": 15.0,
         "dis_vol": 15.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D8"
+          }
+        ]
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "dest",
+        "targets": "dest",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6,
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "dest",
         "targets": "Liquid_1",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A7"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "Liquid_2": {
-      "slot": 1,
-      "well": [
-        "A9"
-      ],
-      "labware": "Thermo-Fast 96, Skirted PCR Plate"
-    },
     "Liquid_1": {
-      "slot": 4,
+      "slot": 1,
       "well": [
         "A3"
       ],
       "labware": "Thermo-Fast 96, Skirted PCR Plate"
     },
-    "dmso": {
+    "dest": {
+      "slot": 4,
+      "well": [
+        "A5"
+      ],
+      "labware": "Thermo-Fast 96, Skirted PCR Plate"
+    },
+    "pbs": {
       "slot": 6,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     }

@@ -1,4 +1,10 @@
 {
+  "description": "Part 1 of 6: Distribution of Sample Lysis Buffer\nLinks:\n Distribution of Sample Lysis Buffer\n Distribution of Prot K (Apostle)\n Transfer of DNA Template\n Distribution of Master Mix\n Distribution of Elution Buffer\n Distribution of Prot K (Qiagen)\nThis protocol is a translation of the attached json protocol json protocol to python with a couple additional features for control of the blow out location in order to place it near the bottom of the well: 10 ul sample lysis buffer is distributed from a reservoir to the columns of a 96 deep-well plate with a blow out occurring after each dispense in a location close to the bottom of the well.\nThe deck layout can be displayed by uploading the attached json protocol to the Opentrons Protocol Designer web page.",
+  "tags": [
+    "6bc986.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,71 @@
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
+        "dis_vol": 10.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 75.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -23,7 +91,7 @@
     "Liquid_2": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL"
     }

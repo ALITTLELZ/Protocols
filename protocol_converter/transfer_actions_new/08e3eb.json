@@ -1,4 +1,10 @@
 {
+  "description": "This protocol automates the distribution of assays from a 48-well reservoir to 9, 96-well plates.\n\nUsing the customizable parameters below, you can specify which column to start picking up tips from and how many \"runs\" to perform. During each run, all 9 plates will be filled with assay from the reservoir. At the conclusion of filling the 9 plates, the OT-2 will flash, pause, and prompt the user to replace the plates on the deck.\n\nThis protocol uses custom labware definitions for the 48-well reservoir (Agilent) and 96-well plate (MicroAmp Endura). When downloading the protocol, the labware definitions (a JSON file) will be included for use with this protocol. For more information on using custom labware on the OT-2, please see this article: Using labware in your protocols\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.19.0 or later)\nOpentrons P50 Multi-Channel Pipette\nOpentrons 50/300µL Tips\nAgilent 48-Well Reservoir\nMicroAmp Endura 96-Well Plate\nReagents\n\n\n\nSlot 1: MicroAmp Endura 96-Well Plate\nSlot 2: MicroAmp Endura 96-Well Plate\nSlot 3: MicroAmp Endura 96-Well Plate\nSlot 4: MicroAmp Endura 96-Well Plate\nSlot 5: MicroAmp Endura 96-Well Plate\nSlot 6: MicroAmp Endura 96-Well Plate\nSlot 7: MicroAmp Endura 96-Well Plate\nSlot 8: MicroAmp Endura 96-Well Plate\nSlot 9: MicroAmp Endura 96-Well Plate\nSlot 10: Opentrons 50/300µL Tips\nSlot 11: Agilent 48-Well Reservoir with Reagents\n\n\nUsing the customizations field (below), set up your protocol.\n Starting Tip Column: Specify which column of tips to begin drawing from. Over the course of the protocol, the multi-channel pipette will pick up tips from\n P300-Multi Mount: Select which mount (left or right) the P300-Multi is attached to.",
+  "tags": [
+    "08e3eb.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -39,18 +45,7 @@
         "sources": "sources",
         "targets": "sources",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_2",
-        "targets": "sources_2",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -83,9 +78,20 @@
         "sources": "sources_2",
         "targets": "sources_2",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_2",
+        "targets": "sources_2",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     },
     {
@@ -127,18 +133,7 @@
         "sources": "sources_3",
         "targets": "sources_3",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_4",
-        "targets": "sources_4",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -171,9 +166,50 @@
         "sources": "sources_4",
         "targets": "sources_4",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_4",
+        "targets": "sources_4",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     },
     {
@@ -215,18 +251,7 @@
         "sources": "sources",
         "targets": "sources",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_2",
-        "targets": "sources_2",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -259,9 +284,20 @@
         "sources": "sources_2",
         "targets": "sources_2",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_2",
+        "targets": "sources_2",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     },
     {
@@ -303,18 +339,7 @@
         "sources": "sources_3",
         "targets": "sources_3",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_4",
-        "targets": "sources_4",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -347,9 +372,50 @@
         "sources": "sources_4",
         "targets": "sources_4",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_4",
+        "targets": "sources_4",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     },
     {
@@ -391,18 +457,7 @@
         "sources": "sources",
         "targets": "sources",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_2",
-        "targets": "sources_2",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -435,9 +490,20 @@
         "sources": "sources_2",
         "targets": "sources_2",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_2",
+        "targets": "sources_2",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     },
     {
@@ -479,18 +545,7 @@
         "sources": "sources_3",
         "targets": "sources_3",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
-        "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sources_4",
-        "targets": "sources_4",
-        "asp_vol": 50.0,
-        "dis_vol": 6.25,
+        "dis_vol": 7.142857142857143,
         "asp_flow_rate": 25.0,
         "dis_flow_rate": 50.0
       }
@@ -523,9 +578,50 @@
         "sources": "sources_4",
         "targets": "sources_4",
         "asp_vol": 50.0,
-        "dis_vol": 6.125,
+        "dis_vol": 6.25,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 56.25
+        "dis_flow_rate": 50.0
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sources_4",
+        "targets": "sources_4",
+        "asp_vol": 50.0,
+        "dis_vol": 7.142857142857143,
+        "asp_flow_rate": 25.0,
+        "dis_flow_rate": 50.0
       }
     }
   ],
@@ -533,40 +629,40 @@
     "sources": {
       "slot": 1,
       "well": [
-        "A9",
+        "A5",
         "A10",
-        "A7",
-        "A8"
+        "A11",
+        "A4"
       ],
       "labware": "MicroAmp EnduraPlate Optical 96-Well Fast Clear Reaction Plate With Barcode 96 Well Plate 200 µL"
     },
     "sources_2": {
       "slot": 1,
       "well": [
-        "A9",
+        "A5",
         "A10",
-        "A7",
-        "A8"
+        "A11",
+        "A4"
       ],
       "labware": "MicroAmp EnduraPlate Optical 96-Well Fast Clear Reaction Plate With Barcode 96 Well Plate 200 µL"
     },
     "sources_3": {
       "slot": 1,
       "well": [
-        "A9",
+        "A5",
         "A10",
-        "A7",
-        "A8"
+        "A11",
+        "A4"
       ],
       "labware": "MicroAmp EnduraPlate Optical 96-Well Fast Clear Reaction Plate With Barcode 96 Well Plate 200 µL"
     },
     "sources_4": {
       "slot": 1,
       "well": [
-        "A9",
+        "A5",
         "A10",
-        "A7",
-        "A8"
+        "A11",
+        "A4"
       ],
       "labware": "MicroAmp EnduraPlate Optical 96-Well Fast Clear Reaction Plate With Barcode 96 Well Plate 200 µL"
     }

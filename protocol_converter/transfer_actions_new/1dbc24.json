@@ -1,15 +1,60 @@
 {
+  "description": "This protocol performs a simple reagent addition for WISTD and water to up to 96 samples in a 96-flat well plate.",
+  "tags": [
+    "sample_prep.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "WISTD",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wistd",
         "targets": "samples",
         "asp_vol": 250.0,
-        "dis_vol": 124.5,
+        "dis_vol": 250.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "water",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -17,9 +62,14 @@
         "sources": "reagent",
         "targets": "samples",
         "asp_vol": 250.0,
-        "dis_vol": 124.5,
+        "dis_vol": 250.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     }
   ],
@@ -27,7 +77,7 @@
     "samples": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Corning 96 Well Plate 360 µL Flat"
     },

@@ -1,5 +1,16 @@
 {
+  "description": "This protocol uses a single tip on the p300 multi-channel pipette to distribute custom volumes of buffer (150-300 uL) from a 195 mL reservoir to specified wells of a 96-well destination plate followed by transfer of custom volumes of sample (2-15 uL) from up to three 24-tube racks to specified wells in the destination plate (volumes, rack locations and well locations are specified in a csv file uploaded at the time of protocol download).\nLinks:\n* example input csv",
+  "tags": [
+    "04fed3.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +19,47 @@
         "asp_vol": 189.79333333333332,
         "dis_vol": 189.79333333333332,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Sample Rack in Slot 1",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Sample Rack in Slot 1",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +69,47 @@
         "asp_vol": 2.35,
         "dis_vol": 2.35,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Sample Rack in Slot 4",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Sample Rack in Slot 4",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +119,47 @@
         "asp_vol": 13.27,
         "dis_vol": 13.27,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Sample Rack in Slot 7",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Sample Rack in Slot 7",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -41,7 +169,12 @@
         "asp_vol": 15.0,
         "dis_vol": 15.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
     }
   ],

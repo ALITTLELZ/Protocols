@@ -1,5 +1,71 @@
 {
+  "description": "This protocol performs the post RC-PCR pooling of the Nimagen SARS CoV-2 Library Prep. It has the option to pool samples from a variety of 384 well plates. The 384 well plate is divided into four quadrants and each quadrant can have up to 12 columns of samples, yielding a total of 48 columns worth of samples on a full plate.\n\nNote: The diagram above color coordinates the four quadrant positions. Each quadrant can take up to 12 columns worth of samples. The diagram above shows 1 column worth of samples.\n\n\n\nOpentrons 200uL Filter Tips\nOpentrons 20uL Filter Tips\n4-titude FrameStar 384 Well Plate\nBIOplastics 384 Well Plate\nEppendorf Twin.tec LoBind 384 Well\nEppendorf Twin.tec LoBind 96 Well\nP300 Single Channel GEN2\nP20 Multichannel GEN2\n\nFor more detailed information on compatible labware, please visit our Labware Library.\n\n\nDeck Setup\n\nNote: Slots 9, 10, 11 contain empty tip racks for the Opentrons 20 uL tips.\nProtocol Steps\n\nMix column in the 384 well donor plate, then transfer sample to the first column of the 96 well recipient plate. This step should proceed for all available columns in all four quadrants.\nMix well A1 and then transfer the total volume of samples in A1 of the 96 well recipient plate to the 1.5 mL Eppendorf tube in position A1 of the tube rack. This step should proceed for all wells in column 1 (A1-H1).",
+  "tags": [
+    "2bdff3.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -10,6 +76,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -23,6 +149,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad1_dests_3",
@@ -32,6 +218,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -45,6 +291,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad1_dests_5",
@@ -54,6 +360,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -67,6 +433,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad1_dests_7",
@@ -76,6 +502,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -89,6 +575,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad1_dests_9",
@@ -98,6 +644,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -111,6 +717,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad2_dests",
@@ -120,6 +786,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -133,6 +859,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad2_dests_3",
@@ -142,6 +928,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -155,6 +1001,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad2_dests_5",
@@ -164,6 +1070,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -177,6 +1143,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad2_dests_7",
@@ -186,6 +1212,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -199,6 +1285,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad2_dests_9",
@@ -208,6 +1354,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A22",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A22",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -221,6 +1427,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad3_dests",
@@ -230,6 +1496,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -243,6 +1569,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad3_dests_3",
@@ -252,6 +1638,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -265,6 +1711,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad3_dests_5",
@@ -274,6 +1780,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B13",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B13",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -287,6 +1853,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B15",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B15",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad3_dests_7",
@@ -296,6 +1922,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B17",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B17",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -309,6 +1995,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B19",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B19",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad3_dests_9",
@@ -318,6 +2064,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B21",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B21",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -331,6 +2137,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad",
@@ -340,6 +2206,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -353,6 +2279,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad_3",
@@ -362,6 +2348,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -375,6 +2421,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad_5",
@@ -384,6 +2490,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B14",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B14",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -397,6 +2563,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B16",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B16",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad_7",
@@ -406,6 +2632,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B18",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B18",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -419,6 +2705,66 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B20",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B20",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "quad_9",
@@ -428,6 +2774,66 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 3.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Pre-Wetting the tip"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "B22",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B22",
+        "labware": "4-titude FrameStar 384 Well Plate 55 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        3.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Starting transfer to recipient plate."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after aspirating."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -441,6 +2847,45 @@
       }
     },
     {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_wells",
@@ -450,6 +2895,62 @@
         "asp_flow_rate": 46.0,
         "dis_flow_rate": 46.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -463,6 +2964,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_wells_3",
@@ -472,6 +3029,62 @@
         "asp_flow_rate": 46.0,
         "dis_flow_rate": 46.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -485,6 +3098,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_wells_5",
@@ -494,6 +3163,62 @@
         "asp_flow_rate": 46.0,
         "dis_flow_rate": 46.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",
@@ -507,6 +3232,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_wells_7",
@@ -516,6 +3297,62 @@
         "asp_flow_rate": 46.0,
         "dis_flow_rate": 46.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "The max well volume is 320"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "Eppendorf Twin.tec 96 Well Plate 150 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        46.0,
+        46.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "second delay after dispensing."
     },
     {
       "action": "transfer_liquid",

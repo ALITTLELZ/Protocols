@@ -1,5 +1,91 @@
 {
+  "description": "This protocol is equipped to perform any of 4x cleanups for the Paragon NGS prep protocol.",
+  "tags": [
+    "cleanup.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Cleanup"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        76.80000000000001,
+        76.80000000000001
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        76.80000000000001,
+        76.80000000000001
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,133 +94,343 @@
         "asp_vol": 66.0,
         "dis_vol": 66.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        120.0,
+        120.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        376.0,
+        376.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
-        "asp_vol": 58.0,
-        "dis_vol": 96.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_4",
+        "sources": "Liquid_3",
         "targets": "Liquid_2",
         "asp_vol": 85.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_4",
-        "targets": "Liquid_2",
-        "asp_vol": 63.333333333333336,
-        "dis_vol": 170.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "Liquid_3",
-        "asp_vol": 72.0,
-        "dis_vol": 150.0,
+        "targets": "Liquid_2",
+        "asp_vol": 63.333333333333336,
+        "dis_vol": 170.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        120.0,
+        120.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        376.0,
+        376.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 45.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        120.0,
+        120.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        376.0,
+        376.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
+        "sources": "Liquid_2",
         "targets": "Liquid_2",
         "asp_vol": 85.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
+        "asp_vol": 63.333333333333336,
+        "dis_vol": 170.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        120.0,
+        120.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        376.0,
+        376.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 45.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.8,
+        8.8
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        30.4,
+        30.4
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "Liquid_2",
-        "asp_vol": 63.333333333333336,
-        "dis_vol": 170.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
-        "asp_vol": 72.0,
-        "dis_vol": 150.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
-        "asp_vol": 20.0,
-        "dis_vol": 20.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_5",
         "targets": "Liquid_2",
         "asp_vol": 6.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_5",
-        "targets": "Liquid_2",
-        "asp_vol": 10.666666666666666,
-        "dis_vol": 12.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.6
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "Liquid_6",
+        "targets": "Liquid_2",
+        "asp_vol": 10.666666666666666,
+        "dis_vol": 12.0,
+        "asp_flow_rate": 7.599999999999999,
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.8,
+        8.8
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "TAG1 plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        30.4,
+        30.4
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_2",
+        "targets": "Liquid_5",
         "asp_vol": 12.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
-    "Liquid_6": {
+    "Liquid_5": {
       "slot": 1,
       "well": [
         "A1"
@@ -145,42 +441,17 @@
       "slot": 2,
       "well": [
         "A1",
-        "A2",
-        "A4"
-      ],
-      "labware": "reagent reservoir"
-    },
-    "Liquid_4": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A2",
-        "A4"
-      ],
-      "labware": "reagent reservoir"
-    },
-    "Liquid_5": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A2",
-        "A4"
+        "A2"
       ],
       "labware": "reagent reservoir"
     },
     "Liquid_2": {
-      "slot": 4,
+      "slot": 2,
       "well": [
+        "A1",
         "A2"
       ],
-      "labware": "TAG1 plate on Magnetic Module GEN2"
-    },
-    "Liquid_3": {
-      "slot": 12,
-      "well": [
-        "A1"
-      ],
-      "labware": "Opentrons Fixed Trash"
+      "labware": "reagent reservoir"
     }
   }
 }

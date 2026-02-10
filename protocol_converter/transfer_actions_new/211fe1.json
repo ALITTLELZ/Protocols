@@ -1,29 +1,467 @@
 {
+  "description": "This protocol performs mass spec sample prep on up to 96 samples using an Opentrons thermocycler for incubation steps. Samples should be specified as comma-separated values on the first line of a .csv file, as in the following example:\nA1,B1,C1,D1,E1,G1,B2\nThe samples are filled according to the order of the .csv, and invalid wells are ignored (valid wells must be A1-H12)\n\n\n\nNEST 96-well PCR plate 100µL #402501 mounted in Opentrons Thermocycler\nNEST 1.5ml snapcap microcentrifuge tubes (or equivalent) mounted in Opentrons 4-in-1 tuberack with 4x6 insert\nOpentrons P20 GEN2 electronic pipette\nOpentrons 10/20ul tiprack\n\n\n\nOpentrons 4-in-1 tuberack with 4x6 1.5ml tube insert\n tube A1: enzyme\n tube B1: reagent 1\n* tube C1: reagent 2",
+  "tags": [
+    "mass_spec_sample_prep.ot2.apiv2.py",
+    "Sample Prep",
+    "Mass Spec"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 37.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 37.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "delay",
+      "minutes": 60,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "delay",
+      "minutes": 30,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "reagents",
+        "sources": "enzyme",
         "targets": "samples",
         "asp_vol": 6.666666666666667,
-        "dis_vol": 2.8333333333333335,
+        "dis_vol": 6.666666666666667,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 75.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "B1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "C1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "D1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "E1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "F1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "G1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "H1"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "B2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "C2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "D2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "E2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "F2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "G2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "H2"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "A3"
+          },
+          {
+            "slot": 2,
+            "type": "300ul tiprack",
+            "well": "B3"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "reagents": {
+    "enzyme": {
       "slot": 1,
       "well": [
-        "C1"
+        "A1"
       ],
       "labware": "reagent tuberack"
     },
     "samples": {
       "slot": 7,
       "well": [
-        "B1"
+        "E1"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
     }

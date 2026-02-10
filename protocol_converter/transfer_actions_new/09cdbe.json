@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs a sample consolidation from .csv file. The file should be organized in the following way including header line:\nPlate Position,Source Well ID,Destination Tube ID,Volume,,\n1,A1,A1,3.0,,\n1,B1,A1,4.0,,\n1,C1,B1,5.0,,\n1,D1,A1,3.0,,\n...\nEmpty lines are ignored. You can download a template file here.\nThe destination tube for all sources will be a specified location (A1-D6) of the custom tuberack in slot 9.\n\n\n\nAbgene 96-Well Microplates 330µl (ThermoFisher #AB0796)\nAxygen™ 96-well PCR Microplates, barcoded 200µl #14-222-327\nAbgene™ 96 Well 2.2mL Polypropylene Deepwell Storage Plate\nOpentrons P20 GEN2 single-channel electronic pipette\nOpentrons 20µl tipracks\nVWR 5ml tubes seated in Opentrons 3x5 tuberack",
+  "tags": [
+    "cherrypick.ot2.apiv2.py",
+    "Sample Prep",
+    "Consolidation"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,31 @@
         "sources": "Liquid_1",
         "targets": "destination_tube",
         "asp_vol": 6.666666666666667,
-        "dis_vol": 9.5,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 51.89
+        "dis_vol": 20.0,
+        "asp_flow_rate": 3.7800000000000007,
+        "dis_flow_rate": 3.78,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "C1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "D1"
+          }
+        ]
       }
     }
   ],
@@ -16,7 +44,7 @@
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1"
+        "B1"
       ],
       "labware": "plate 1"
     },

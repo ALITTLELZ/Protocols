@@ -1,4 +1,10 @@
 {
+  "description": "This protocol automates the addition of three different reagents to 96-well plate(s) with the p20 8-channel pipette.\n\nFirst, 10µL of Reagent 1 (Polymixin B 256) will be added to columns 1-6 of each plate. Next, 10µL of Reagent 2 (Polymixin B 128) will be added to columns 6-12 of each plate. Finally, 10µL of Reagent 3 (Growth Media Gamma) will be added to all of the wells.\n\n\nIf you have any questions about this protocol, please email our Applications Engineering team at protocols@opentrons.com.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.21.0 or later)\nOpentrons p20 8-Channel Pipette (on the right mount)\nOpentrons 20µL Filter Tips\nNEST 96-Well Deep Well Plate\nHiMic 96-Well Plates, 400µL\nReagents\n\n\n\nDeck Layout\n\nSlot 11: NEST 96-Well Deep Well Plate\nA1: Reagent 1 (Polymixin B 256)\nA2: Reagent 2 (Polymixin B 128)\nA3: Reagent 3 (Growth Media Gamma)\n\nSlot 10: Opentrons 20µL Filter Tips\n\nSlots 1-9: HiMic 96-Well Plates, 400µL\n\nUsing the customizations field (below), set up your protocol.\n* Number of Plates: Specify the number of plates to fill during the protocol.",
+  "tags": [
+    "1d37e5.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -7,14 +13,227 @@
         "targets": "Liquid_1",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pb256",
+        "targets": "Liquid_2",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_3",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_4",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_5",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_6",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_7",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_8",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb256",
+        "targets": "Liquid_9",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_10",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_11",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_12",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_13",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_14",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_15",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_16",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_17",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pb128",
+        "targets": "Liquid_18",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "gmg",
+        "targets": "Liquid_10",
+        "asp_vol": 10.0,
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.599999999999999,
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "gmg",
         "targets": "Liquid_2",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -25,7 +244,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
+        "sources": "gmg",
         "targets": "Liquid_3",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -36,7 +255,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
+        "sources": "gmg",
         "targets": "Liquid_4",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -47,8 +266,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
-        "targets": "Liquid_5",
+        "sources": "gmg",
+        "targets": "Liquid_14",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.599999999999999,
@@ -58,8 +277,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
-        "targets": "Liquid_6",
+        "sources": "gmg",
+        "targets": "Liquid_15",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.599999999999999,
@@ -69,7 +288,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
+        "sources": "gmg",
         "targets": "Liquid_7",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -80,7 +299,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
+        "sources": "gmg",
         "targets": "Liquid_8",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -91,206 +310,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pb256",
+        "sources": "gmg",
         "targets": "Liquid_9",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_10",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_11",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_12",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_13",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_14",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_15",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_16",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "Liquid_17",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pb128",
-        "targets": "dest",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_10",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_2",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_12",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_4",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_14",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_15",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_7",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "Liquid_8",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "gmg",
-        "targets": "dest",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.599999999999999,
@@ -302,28 +323,28 @@
     "Liquid_10": {
       "slot": 1,
       "well": [
-        "A4"
+        "A3"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
     "Liquid_2": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
-    "Liquid_12": {
+    "Liquid_3": {
       "slot": 3,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
     "Liquid_4": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
@@ -337,28 +358,28 @@
     "Liquid_15": {
       "slot": 6,
       "well": [
-        "A4"
+        "A3"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
     "Liquid_7": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
     "Liquid_8": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },
-    "dest": {
+    "Liquid_9": {
       "slot": 9,
       "well": [
-        "A6"
+        "A5"
       ],
       "labware": "HiMic 96 Well Plate 400 µL"
     },

@@ -1,58 +1,568 @@
 {
+  "description": "This protocol performs a custom NGS library prep cleanup using Ampure XP beads in a variable ratio with samples. The samples are mounted on an Opentrons magnetic module, and the final elute is transferred to a fresh PCR plate.\nExplanation of complex parameters below:\n park tips: If set to yes (recommended), the protocol will conserve tips between reagent addition and removal. Tips will be stored in the wells of an empty rack corresponding to the well of the sample that they access (tip parked in A1 of the empty rack will only be used for sample A1, tip parked in B1 only used for sample B1, etc.). If set to no, tips will always be used only once, and the user will be prompted to manually refill tipracks mid-protocol for high throughput runs.\n track tips across protocol runs: If set to yes, tip racks will be assumed to be in the same state that they were in the previous run. For example, if one completed protocol run accessed tips through column 5 of the 3rd tiprack, the next run will access tips starting at column 6 of the 3rd tiprack. If set to no, tips will be picked up from column 1 of the 1st tiprack.\n\n\n\nOpentrons Magnetic Module (GEN2)\nNEST 96 Deepwell Plate 2mL\nP300 multi-channel electronic pipette (GEN2)\nOpentrons 200ul filtertipracks\n\n\n\n96-deepwell plate (slot 7)\n column 1: Ampure XP beads\n column 2: 80% ethanol\n column 3: EB buffer\n columns 10-12: liquid waste (loaded empty at start)",
+  "tags": [
+    "ngs_cleanup.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Ampure XP"
+  ],
   "workflow": [
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "beads",
-        "targets": "beads",
-        "asp_vol": 50.0,
-        "dis_vol": 11.75,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "beads",
+        "targets": "sample_set",
+        "asp_vol": 50.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 200.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A3"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A4"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A5"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A6"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A7"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A8"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A9"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A10"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A11"
+          },
+          {
+            "slot": 5,
+            "type": "tiprack for parking",
+            "well": "A12"
+          }
+        ]
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sample_set",
         "targets": "Liquid_1",
         "asp_vol": 70.0,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "sample_set",
         "targets": "Liquid_2",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "sample_set",
         "targets": "Liquid_3",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "sample_set",
         "targets": "Liquid_4",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
@@ -61,42 +571,62 @@
         "sources": "Liquid_4",
         "targets": "Liquid_5",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "Liquid_5",
         "targets": "Liquid_6",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "sample_set",
         "targets": "Liquid_7",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "sample_set",
         "targets": "Liquid_8",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -105,9 +635,14 @@
         "sources": "Liquid_8",
         "targets": "Liquid_9",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -116,9 +651,14 @@
         "sources": "Liquid_9",
         "targets": "Liquid_10",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -127,130 +667,185 @@
         "sources": "Liquid_10",
         "targets": "Liquid_11",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "sample_set",
         "targets": "Liquid_12",
         "asp_vol": 53.333333333333336,
-        "dis_vol": 69.5,
+        "dis_vol": 140.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_12",
-        "targets": "Liquid_12",
+        "targets": "sample_set",
         "asp_vol": 70.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 200.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_12",
-        "targets": "Liquid_8",
+        "targets": "Liquid_10",
         "asp_vol": 120.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 200.0
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_12",
-        "targets": "beads",
+        "sources": "sample_set",
+        "targets": "sample_set",
         "asp_vol": 60.0,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_2",
+        "sources": "Liquid_10",
+        "targets": "sample_set",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "Liquid_10",
+        "targets": "sample_set",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "Liquid_10",
         "targets": "Liquid_4",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "beads",
+        "targets": "Liquid_5",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "beads",
+        "sources": "Liquid_5",
+        "targets": "sample_set",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_7",
+        "sources": "Liquid_10",
+        "targets": "sample_set",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "Liquid_10",
         "targets": "Liquid_8",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -259,9 +854,14 @@
         "sources": "Liquid_8",
         "targets": "Liquid_9",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -270,163 +870,185 @@
         "sources": "Liquid_9",
         "targets": "Liquid_10",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_10",
-        "targets": "beads",
+        "targets": "sample_set",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
+        "sources": "Liquid_10",
         "targets": "Liquid_12",
         "asp_vol": 46.666666666666664,
-        "dis_vol": 59.5,
+        "dis_vol": 120.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
+        "sources": "Liquid_12",
+        "targets": "sample_set",
         "asp_vol": 70.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 200.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
+        "sources": "Liquid_12",
+        "targets": "Liquid_10",
         "asp_vol": 120.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 200.0
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
+        "sources": "sample_set",
+        "targets": "Liquid_10",
         "asp_vol": 52.5,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_2",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "Liquid_10",
         "targets": "Liquid_4",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "Liquid_8",
+        "targets": "Liquid_5",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
-        "asp_vol": 41.666666666666664,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_7",
-        "asp_vol": 41.666666666666664,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_8",
-        "asp_vol": 41.666666666666664,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_9",
-        "asp_vol": 41.666666666666664,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_5",
         "targets": "Liquid_10",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
+        "asp_vol": 41.666666666666664,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -437,63 +1059,146 @@
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "Liquid_8",
+        "targets": "Liquid_9",
         "asp_vol": 41.666666666666664,
         "dis_vol": 105.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
+        "sources": "Liquid_9",
+        "targets": "Liquid_10",
+        "asp_vol": 41.666666666666664,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
+        "asp_vol": 41.666666666666664,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "Liquid_12",
+        "asp_vol": 41.666666666666664,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sample_set",
+        "targets": "Liquid_10",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_2",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "Liquid_10",
         "targets": "Liquid_4",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -503,6 +1208,39 @@
         "asp_vol": 20.0,
         "dis_vol": 0.0,
         "asp_flow_rate": 20.0,
+        "dis_flow_rate": 200.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "eb_buff",
+        "targets": "Liquid_10",
+        "asp_vol": 120.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 100.0,
         "dis_flow_rate": 200.0
       }
     },
@@ -510,99 +1248,48 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "eb_buff",
-        "targets": "eb_buff",
-        "asp_vol": 120.0,
-        "dis_vol": 33.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 166.66666666666666
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "eb_buff",
-        "targets": "Liquid_8",
+        "targets": "Liquid_5",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_8",
-        "asp_vol": 20.0,
-        "dis_vol": 19.5,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_7",
-        "asp_vol": 20.0,
-        "dis_vol": 19.5,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_8",
-        "asp_vol": 20.0,
-        "dis_vol": 19.5,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_8",
-        "targets": "eb_buff",
-        "asp_vol": 20.0,
-        "dis_vol": 0.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 200.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "eb_buff",
-        "targets": "Liquid_7",
-        "asp_vol": 120.0,
-        "dis_vol": 33.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 166.66666666666666
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_9",
-        "asp_vol": 20.0,
-        "dis_vol": 19.5,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 120.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_5",
         "targets": "Liquid_10",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
+        "asp_vol": 20.0,
+        "dis_vol": 40.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -611,120 +1298,543 @@
         "sources": "Liquid_10",
         "targets": "Liquid_8",
         "asp_vol": 20.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "Liquid_8",
-        "asp_vol": 20.0,
-        "dis_vol": 19.5,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 120.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_7",
+        "targets": "eb_buff",
         "asp_vol": 20.0,
         "dis_vol": 0.0,
         "asp_flow_rate": 20.0,
+        "dis_flow_rate": 200.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "eb_buff",
+        "targets": "Liquid_10",
+        "asp_vol": 120.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 100.0,
         "dis_flow_rate": 200.0
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 120.0,
-        "dis_vol": 33.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 166.66666666666666
+        "sources": "eb_buff",
+        "targets": "Liquid_9",
+        "asp_vol": 20.0,
+        "dis_vol": 40.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "Liquid_9",
+        "targets": "Liquid_10",
+        "asp_vol": 20.0,
+        "dis_vol": 40.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
+        "asp_vol": 20.0,
+        "dis_vol": 40.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
+        "targets": "sample_set",
+        "asp_vol": 20.0,
+        "dis_vol": 40.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 140.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "sample_set",
+        "targets": "eb_buff",
+        "asp_vol": 20.0,
+        "dis_vol": 0.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 200.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent deepwell plate",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "eb_buff",
+        "targets": "Liquid_10",
+        "asp_vol": 120.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 200.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 9
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "magnetic plate on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        100.0,
+        200.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_10",
         "targets": "elution_samples",
         "asp_vol": 40.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 200.0,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
-    "Liquid_7": {
+    "Liquid_10": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "magnetic plate on Magnetic Module GEN2"
     },
     "elution_samples": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "elution plate"
-    },
-    "Liquid_8": {
-      "slot": 4,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A7",
-        "A9",
-        "A10"
-      ],
-      "labware": "waste deepwell plate"
-    },
-    "Liquid_2": {
-      "slot": 4,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A7",
-        "A9",
-        "A10"
-      ],
-      "labware": "waste deepwell plate"
-    },
-    "Liquid_3": {
-      "slot": 4,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A7",
-        "A9",
-        "A10"
-      ],
-      "labware": "waste deepwell plate"
     },
     "Liquid_4": {
       "slot": 4,
       "well": [
         "A1",
-        "A2",
-        "A3",
         "A4",
-        "A7",
+        "A5",
+        "A8",
         "A9",
-        "A10"
+        "A12"
+      ],
+      "labware": "waste deepwell plate"
+    },
+    "Liquid_5": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A12"
+      ],
+      "labware": "waste deepwell plate"
+    },
+    "Liquid_8": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A12"
       ],
       "labware": "waste deepwell plate"
     },
@@ -732,29 +1842,45 @@
       "slot": 4,
       "well": [
         "A1",
-        "A2",
-        "A3",
         "A4",
-        "A7",
+        "A5",
+        "A8",
         "A9",
-        "A10"
+        "A12"
       ],
       "labware": "waste deepwell plate"
     },
-    "Liquid_10": {
+    "sample_set": {
       "slot": 4,
       "well": [
         "A1",
-        "A2",
-        "A3",
         "A4",
-        "A7",
+        "A5",
+        "A8",
         "A9",
-        "A10"
+        "A12"
       ],
       "labware": "waste deepwell plate"
     },
     "beads": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "labware": "reagent deepwell plate"
+    },
+    "Liquid_12": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "labware": "reagent deepwell plate"
+    },
+    "eb_buff": {
       "slot": 7,
       "well": [
         "A1",

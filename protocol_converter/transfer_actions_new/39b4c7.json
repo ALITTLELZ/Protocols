@@ -1,5 +1,19 @@
 {
+  "description": "Reformat up to four 96 well plates into a 384 well PCR plate for downstream qPCR. This protocol will also add mastermix to the necessary wells and then transfer patient samples to the corresponding wells.\n\n\n\n\nOpentrons 20uL Tips\nOpentrons 20uL Filter Tips\nKingFisher 96 Deep Well Plate 2mL\nMicroAmp™ Optical 384-Well Reaction Plate with Barcode\nOpentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap\nP20 Single Channel GEN2\n\nFor more detailed information on compatible labware, please visit our Labware Library.\n\n\nDeck Setup\n\nNote: A full run with 4 plates with a master mix transfer volume of 10 uL will require 3,760 uL of master mix. This is divided into 3 tubes in the picture above. There is a parameter below that asks for the Master Mix Volume per Tube. By default this is set to 1400 uL (Recommendation: Always add more than 1400 uL to prevent aspirating air) in order to account for dead volume. You can adjust this as needed and the protocol will automatically determine how many tubes it needs. \nFor Example: If the Master Mix Volume per Tube is set to 1000 uL the protocol will determine 4 tubes are needed (A1, B1, C1, D1) with at least 1000 uL in each tube for a run with four full plates. The last tube does not require a full 1000 uL volume; it would need a bit more than the difference (~760 uL). \nProtocol Steps\n\nTransfer 10 uL of Master Mix from A1 of the Tube Rack to A1 of the 384 well plate.\nStep 1 will repeat for all samples into the corresponding wells using the same tip.\nTransfer 10 uL of patient sample from A1 of Plate 1 to A1 of the 384 Well PCR plate.\nStep 2 will repeat for all patient samples into the corresponding wells using a new tip each time.",
+  "tags": [
+    "39b4c7.ot2.apiv2.py",
+    "PCR",
+    "qPCR setup"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "raw",
+      "text": "reagents in the correct positions."
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,8 +21,485 @@
         "targets": "quad_wells",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5599999999999845,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G12"
+          }
+        ]
       }
     },
     {
@@ -18,8 +509,485 @@
         "targets": "quad_wells_2",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5599999999999845,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F12"
+          }
+        ]
       }
     },
     {
@@ -29,8 +997,485 @@
         "targets": "quad_wells_3",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5599999999999845,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E12"
+          }
+        ]
       }
     },
     {
@@ -40,8 +1485,485 @@
         "targets": "quad_wells_4",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5599999999999845,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D12"
+          }
+        ]
       }
     }
   ],
@@ -49,68 +1971,68 @@
     "quad_wells": {
       "slot": 1,
       "well": [
-        "C5",
-        "F17",
-        "L2",
-        "M18"
+        "D2",
+        "C22",
+        "K5",
+        "J13"
       ],
       "labware": "384 Well PCR Plate"
     },
     "quad_wells_2": {
       "slot": 1,
       "well": [
-        "C5",
-        "F17",
-        "L2",
-        "M18"
+        "D2",
+        "C22",
+        "K5",
+        "J13"
       ],
       "labware": "384 Well PCR Plate"
     },
     "quad_wells_3": {
       "slot": 1,
       "well": [
-        "C5",
-        "F17",
-        "L2",
-        "M18"
+        "D2",
+        "C22",
+        "K5",
+        "J13"
       ],
       "labware": "384 Well PCR Plate"
     },
     "quad_wells_4": {
       "slot": 1,
       "well": [
-        "C5",
-        "F17",
-        "L2",
-        "M18"
+        "D2",
+        "C22",
+        "K5",
+        "J13"
       ],
       "labware": "384 Well PCR Plate"
     },
     "sample_wells_3": {
       "slot": 2,
       "well": [
-        "D1"
+        "F7"
       ],
       "labware": "Plate 3"
     },
     "sample_wells_4": {
       "slot": 3,
       "well": [
-        "F3"
+        "D12"
       ],
       "labware": "Plate 4"
     },
     "sample_wells": {
       "slot": 5,
       "well": [
-        "A9"
+        "E2"
       ],
       "labware": "Plate 1"
     },
     "sample_wells_2": {
       "slot": 6,
       "well": [
-        "C1"
+        "E11"
       ],
       "labware": "Plate 2"
     }

@@ -1,5 +1,19 @@
 {
+  "description": "Water is filled into all 108 columns in all 9 plates from a reservoir. Multi-dispensing is installed to pipette's maximum volume.",
+  "tags": [
+    "quintara_onsite_part4.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Ensure that there is a Opentrons OT-2 96 Filter Tip Rack 200 uL on 10."
+    },
+    {
+      "action": "raw",
+      "text": "Select \"Resume\" on the Opentrons app."
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +22,12 @@
         "asp_vol": 200.0,
         "dis_vol": 33.333333333333336,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -247,7 +266,7 @@
     "source": {
       "slot": 1,
       "well": [
-        "A1"
+        "A3"
       ],
       "labware": "Double Pcr 96 Well Plate 300 µL"
     }

@@ -1,5 +1,15 @@
 {
+  "description": "This protocol automates the ThermoFischer MagMAX Plant DNA Isolation Kit on up to 96 samples. The entire workflow is broken into 2 different protocols. This is part 2, DNA purification.\n\nIn this protocol, 25µL of magnetic beads plus 400µL of ethanol is added to 400µL of sample (from part 1). After off-deck mixing, the plate is returned to the OT-2 for supernatant removal. This process continues with wash buffer 1, wash buffer 2, and the elution buffer. However, the supernatant of the elution buffer is preserved in a 96-well PCR plate and can be used for further downstream application.\n\n\nUpdate April 26, 2021: The addition of magnetic beads has been made optional.\n\nUpdate May 3, 2021: A second wash step has been added and heights of aspiration adjusted.\n\nUpdate June 8, 2021: Added the ability to park tips. This will cut down on tip usage when using 48+ samples.\n\nIf you have any questions about this protocol, please email our Applications Engineering team at protocols@opentrons.com.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.21.0 or later)\nOpentrons Magnetic Module, GEN2\nOpentrons p300 Multi-Channel Pipette (attached to right mount)\nOpentrons 200µL Filter Tip Rack\nNEST 1-Well Reservoir, 195mL\nNEST 12-Well Reservoir, 15mL\nNEST 96-Well Deep Well Plate\nNEST 96-Well PCR Plate\nMagMAX™ Plant DNA Isolation Kit\nSamples\n\n\n\nDeck Layout\n\nSlot 11: NEST 1-Well Reservoir, 195mL (for liquid waste)\n\nSlot 4: NEST 12-Well Reservoir, 15mL\n A1: Magnetic Beads (see note 1 below)\n A2: Ethanol (Samples 1-32)\n A3: Ethanol (Samples 33-64)\n A4: Ethanol (Samples 65-96)\n A5: empty\n A6: empty\n A7: empty\n A8: empty\n A9: empty\n A10: Wash Buffer 1 (Samples 1-32)\n A11: Wash Buffer 1 (Samples 33-64)\n A12: Wash Buffer 1 (Samples 65-96)\nSlot 5: NEST 12-Well Reservoir, 15mL\n A1: Wash Buffer 2 (Samples 1-32)\n A2: Wash Buffer 2 (Samples 33-64)\n A3: Wash Buffer 2 (Samples 65-96)\n A4: Wash Buffer 2 (Samples 1-32)\n A5: Wash Buffer 2 (Samples 33-64)\n A6: Wash Buffer 2 (Samples 65-96)\n A7: empty\n A8: empty\n A9: empty\n A10: empty\n A11: Elution Buffer (Samples 1-48)\n A12: Elution Buffer (Samples 49-96)\nSlot 10: Labware Containing Magnetic Beads (see note 1 below)\n\nSlot 7: Opentrons Magnetic Module, GEN2 with NEST 96-Well Deep Well Plate containing Samples\n\nSlot 1: NEST 96-Well PCR Plate\n\nSlot 8: Opentrons 200µL Filter Tip Rack (see note 2 below)\n\nSlot 9: Opentrons 200µL Filter Tip Rack (see note 2 below)\n\nSlot 6: Opentrons 200µL Filter Tip Rack (see note 2 below)\n\nSlot 3: Opentrons 200µL Filter Tip Rack (see note 2 below)\n\n\nSlot 2: Opentrons 200µL Filter Tip Rack (see note 2 below)\n\n\nNote 1: If using, the Magnetic Beads can be placed in well 1 of the NEST 12-Well Reservoir (in slot 4) or in column 1 of a different piece of labware (in slot 10)\nNote 2: Ten (10) columns of tips are needed per column of sample and will be accessed in the following order: slot 8, 9, 6, 3, 2. In the case that more than 48 samples are used, the user will be prompted midway through the protocol to replace the tips.\n\nUsing the customization fields below, set up your protocol.\n Number of Samples: specify the number of samples (1-96)\n Deep Well Plate Type: select the type of deep well plate used (holding samples)\n Automate Bead Addition: select whether or not to automate the addition of magnetic beads\n Location of Magnetic Beads: select the location of the magnetic beads (labware; deck slot: well)\n* Park Tips: Select Yes or No. If Yes is selected, one tiprack (in slot 2) will be used for all mixing and supernatant removals; the other tips should be placed in slot 3 and 6.",
+  "tags": [
+    "49de51-pt2.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Plant DNA"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Adding 400uL of Ethanol to samples..."
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +18,12 @@
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -21,6 +36,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -28,9 +60,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -43,6 +80,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -50,9 +104,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -65,6 +124,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -72,9 +148,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -87,6 +168,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -94,9 +192,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -109,6 +212,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -116,9 +236,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -131,6 +256,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -138,9 +280,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -153,6 +300,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -160,9 +324,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -175,6 +344,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -182,9 +368,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -197,6 +388,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -204,9 +412,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -219,6 +432,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -226,9 +456,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -241,6 +476,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -248,9 +500,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -263,6 +520,53 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -270,10 +574,23 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Engaging Magdeck for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -283,62 +600,12 @@
         "asp_vol": 105.0,
         "dis_vol": 210.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
-        "asp_vol": 17.5,
-        "dis_vol": 17.5,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -393,7 +660,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -448,7 +720,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -503,7 +780,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -558,7 +840,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -613,7 +900,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -668,7 +960,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -723,7 +1020,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -778,7 +1080,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -833,7 +1140,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -888,7 +1200,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -939,308 +1256,16 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "Liquid_1",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 20.0,
-        "dis_vol": 9.5,
-        "asp_flow_rate": 100.0,
-        "dis_flow_rate": 125.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -1249,29 +1274,7 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
@@ -1281,19 +1284,8 @@
       "action_args": {
         "sources": "etoh",
         "targets": "etoh",
-        "asp_vol": 73.33333333333333,
+        "asp_vol": 105.0,
         "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
@@ -1303,19 +1295,8 @@
       "action_args": {
         "sources": "etoh",
         "targets": "etoh",
-        "asp_vol": 73.33333333333333,
+        "asp_vol": 105.0,
         "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
@@ -1325,154 +1306,19 @@
       "action_args": {
         "sources": "etoh",
         "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
+        "asp_vol": 17.5,
+        "dis_vol": 17.5,
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
+      "action": "magnet",
+      "state": "disengage"
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 73.33333333333333,
-        "dis_vol": 210.0,
-        "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
+      "action": "raw",
+      "text": "Adding 400uL of Wash Buffer 1 to samples..."
     },
     {
       "action": "transfer_liquid",
@@ -1482,7 +1328,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1495,6 +1346,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1502,9 +1370,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -1517,6 +1390,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1524,9 +1414,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -1539,6 +1434,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1546,9 +1458,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -1561,6 +1478,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1568,9 +1502,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -1583,6 +1522,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1590,9 +1546,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -1605,6 +1566,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1612,9 +1590,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -1627,6 +1610,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1634,9 +1634,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -1649,6 +1654,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1656,9 +1678,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -1671,6 +1698,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1678,9 +1722,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -1693,6 +1742,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1700,9 +1766,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -1715,6 +1786,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -1722,9 +1810,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -1737,6 +1830,53 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -1744,10 +1884,23 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Engaging Magdeck for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -1757,7 +1910,12 @@
         "asp_vol": 105.0,
         "dis_vol": 210.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1779,7 +1937,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -1801,7 +1964,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -1823,7 +1991,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -1845,7 +2018,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -1867,7 +2045,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -1889,7 +2072,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -1911,7 +2099,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -1933,7 +2126,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -1955,7 +2153,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -1977,7 +2180,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -1999,7 +2207,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -2012,6 +2225,14 @@
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Adding 400uL of Wash Buffer 2 to samples..."
     },
     {
       "action": "transfer_liquid",
@@ -2021,7 +2242,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2034,6 +2260,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2041,9 +2284,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2056,6 +2304,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2063,9 +2328,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -2078,6 +2348,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2085,9 +2372,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -2100,6 +2392,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2107,9 +2416,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2122,6 +2436,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2129,9 +2460,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -2144,6 +2480,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2151,9 +2504,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -2166,6 +2524,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2173,9 +2548,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2188,6 +2568,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2195,9 +2592,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2210,6 +2612,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2217,9 +2636,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2232,6 +2656,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2239,9 +2680,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -2254,6 +2700,23 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
@@ -2261,9 +2724,14 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -2276,6 +2744,53 @@
         "asp_flow_rate": 100.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -2283,10 +2798,23 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Engaging Magdeck for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -2296,7 +2824,12 @@
         "asp_vol": 105.0,
         "dis_vol": 210.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2318,7 +2851,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2340,7 +2878,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
       }
     },
     {
@@ -2362,7 +2905,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
       }
     },
     {
@@ -2384,7 +2932,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2406,7 +2959,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
       }
     },
     {
@@ -2428,7 +2986,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
       }
     },
     {
@@ -2450,7 +3013,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2472,7 +3040,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2494,7 +3067,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2516,7 +3094,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
       }
     },
     {
@@ -2538,7 +3121,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 210.0,
         "asp_flow_rate": 46.666666666666664,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
       }
     },
     {
@@ -2551,6 +3139,924 @@
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Adding 400uL of Wash Buffer 2 to samples..."
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 20.0,
+        "dis_vol": 20.0,
+        "asp_flow_rate": 100.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Engaging Magdeck for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A7"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A9"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 73.33333333333333,
+        "dis_vol": 210.0,
+        "asp_flow_rate": 46.666666666666664,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "etoh",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -2560,8 +4066,221 @@
         "asp_vol": 92.5,
         "dis_vol": 175.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons 200uL Filter Tips",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        160.0,
+        160.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        100.0,
+        150.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Please replace empty tips with clean tips in  slot 2 as well."
     },
     {
       "action": "transfer_liquid",
@@ -2569,10 +4288,80 @@
         "sources": "etoh",
         "targets": "etoh",
         "asp_vol": 175.0,
-        "dis_vol": 83.17391304347827,
+        "dis_vol": 175.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 123.91304347826087
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Engaging Magdeck for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -2580,17 +4369,83 @@
         "sources": "etoh",
         "targets": "pcrsamps",
         "asp_vol": 175.0,
-        "dis_vol": 87.0,
+        "dis_vol": 175.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons 200uL Filter Tips",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
     "pcrsamps": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
     },

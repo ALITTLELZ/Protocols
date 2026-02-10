@@ -1,14 +1,46 @@
 {
+  "description": "This protocol automates the setup of a qPCR reaction using the Opentrons robots. It scales with quantity of samples, but has a practical lower limit of 24 samples. This is a pythonized version of a Protocol Designer protocol.\n\n\n\nOpentrons P300-single channel electronic pipettes (GEN2)\nOpentrons P20-multi channel electronic pipettes (GEN2)\nOpentrons 20ul Filter Tips\nOpentrons 200ul Filter Tips\nOpentrons Aluminum Block Set",
+  "tags": [
+    "0a23c6.ot2.apiv2.py",
+    "PCR",
+    "qPCR setup"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "n2",
+        "sources": "n1",
         "targets": "Liquid_1",
         "asp_vol": 47.5,
         "dis_vol": 47.5,
         "asp_flow_rate": 46.43,
-        "dis_flow_rate": 46.43
+        "dis_flow_rate": 46.43,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D1"
+          }
+        ]
       }
     },
     {
@@ -18,19 +50,203 @@
         "targets": "Liquid_1",
         "asp_vol": 3.25,
         "dis_vol": 3.25,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tp_cols",
-        "targets": "target",
+        "targets": "Liquid_2",
         "asp_vol": 8.5,
         "dis_vol": 8.5,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -38,28 +254,28 @@
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "C1"
+        "G3"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with Generic PCR Strip 200 µL"
     },
-    "n2": {
+    "n1": {
       "slot": 7,
       "well": [
-        "A3"
+        "A2"
       ],
       "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
     },
-    "target": {
+    "Liquid_2": {
       "slot": 8,
       "well": [
-        "A4"
+        "A3"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with Generic PCR Strip 200 µL"
     },
     "tp_cols": {
       "slot": 9,
       "well": [
-        "A12"
+        "A5"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
     }

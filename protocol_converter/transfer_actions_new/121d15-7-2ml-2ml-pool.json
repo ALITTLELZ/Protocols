@@ -1,15 +1,118 @@
 {
+  "description": "Links:\n Manual Cleave\n\n\n Manual Cleave Elution (Off-deck Vacuum)\n\n\n Manual Cleave, ACN + Elution (Off-deck Vacuum)\n\n\n Manual Cleave, ACN + Elution (On-deck Vacuum)\n\n\n HPLC Picking\n\n\n Redo Replacement Picking (Greiner MASTERBLOCK 96 Well Plate 500 µL)\n\n\n Redo Replacement Picking (Greiner MASTERBLOCK 96 Well Plate 1000 µL)\n\n\n Redo Replacement Picking (Irish Life Sciences 96 Well Plate 2200 µL)\n\n\n Redo Replacement Picking (Greiner Masterblock 384 Well Plate 225 µL)\n\n\n Aliquoting - 2ml Tuberack to 2ml Tuberack\n\n\n Aliquoting - 15ml Tuberack to 2ml Tuberack\n\n\n Pooling - 2ml Tuberack to 2ml Tuberack\n\n\n* Pooling - 2ml Tuberack to 15ml Tuberack\n\n\nThis protocol performs a custom pooling protocol from a worklist. The worklist should be specified as follows:\nNumber\n8\npos TB_RCK_1,pos MTP_1,transfer_vol\nTUBE BAR 1,TUBE BAR 1\n1,1,200\n2,35,200\n3,2,150\n4,90,100\n5,84\n6,62\n7,42\n8,18\n...",
+  "tags": [
+    "pooling.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tubes2_1_ordered",
         "targets": "tubes15_1_ordered",
         "asp_vol": 110.0,
-        "dis_vol": 109.5,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 142.86
+        "dis_vol": 220.0,
+        "asp_flow_rate": 92.85999999999997,
+        "dis_flow_rate": 185.72,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -17,9 +120,26 @@
         "sources": "source_tubes",
         "targets": "destination_tubes",
         "asp_vol": 110.0,
-        "dis_vol": 109.5,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 142.86
+        "dis_vol": 220.0,
+        "asp_flow_rate": 92.85999999999997,
+        "dis_flow_rate": 185.72,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F1"
+          }
+        ]
       }
     }
   ],
@@ -27,30 +147,30 @@
     "destination_tubes": {
       "slot": 1,
       "well": [
-        "C1"
+        "A1"
       ],
       "labware": "15ml tuberack 2"
     },
     "tubes2_1_ordered": {
       "slot": 2,
       "well": [
-        "A1",
-        "L1"
+        "B1",
+        "J1"
       ],
       "labware": "2ml tuberack"
     },
     "source_tubes": {
       "slot": 2,
       "well": [
-        "A1",
-        "L1"
+        "B1",
+        "J1"
       ],
       "labware": "2ml tuberack"
     },
     "tubes15_1_ordered": {
       "slot": 4,
       "well": [
-        "B1"
+        "A1"
       ],
       "labware": "15ml tuberack 1"
     }

@@ -1,15 +1,60 @@
 {
+  "description": "This protocol performs a custom sample preparation through pooling up to 3 samples in primary racks into secondary racks.\n\n\n\nOpentrons P1000 GEN2 single-channel pipette\nOpentrons 1000ul tipracks\nMercedes Scientific Tubes Flat Base 7ml #60550050\nMercedes Scientific Tubes 5ml round base #GLO110470\nCustom Alphaqua racks\n\n\n\nTransfer Scheme\n\nTransfer Order",
+  "tags": [
+    "pooling.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "dests",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -28,10 +73,27 @@
         "sources": "Liquid_2",
         "targets": "dests",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -45,15 +107,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
         "targets": "dests",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +174,27 @@
         "sources": "Liquid_4",
         "targets": "dests_2",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +213,27 @@
         "sources": "Liquid_5",
         "targets": "dests_2",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -100,15 +247,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_6",
         "targets": "dests_2",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +314,27 @@
         "sources": "Liquid_7",
         "targets": "dests_3",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +353,27 @@
         "sources": "Liquid_8",
         "targets": "dests_3",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -155,15 +387,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_9",
         "targets": "dests_3",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -171,10 +454,27 @@
         "sources": "Liquid_10",
         "targets": "dests_4",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -193,10 +493,27 @@
         "sources": "Liquid_11",
         "targets": "dests_4",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -210,15 +527,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_12",
         "targets": "dests_4",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -226,10 +594,27 @@
         "sources": "Liquid_13",
         "targets": "dests_5",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -248,10 +633,27 @@
         "sources": "Liquid_14",
         "targets": "dests_5",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -265,15 +667,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_15",
         "targets": "dests_5",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -281,10 +734,27 @@
         "sources": "Liquid_16",
         "targets": "dests_6",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -303,10 +773,27 @@
         "sources": "Liquid_17",
         "targets": "dests_6",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -320,15 +807,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_18",
         "targets": "dests_6",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -336,10 +874,27 @@
         "sources": "Liquid_19",
         "targets": "dests_7",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -358,10 +913,27 @@
         "sources": "Liquid_20",
         "targets": "dests_7",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -375,15 +947,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_21",
         "targets": "dests_7",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -391,10 +1014,27 @@
         "sources": "Liquid_22",
         "targets": "dests_8",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -413,10 +1053,27 @@
         "sources": "Liquid_23",
         "targets": "dests_8",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -430,15 +1087,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_24",
         "targets": "dests_8",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -446,10 +1154,27 @@
         "sources": "Liquid_25",
         "targets": "dests_9",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -468,10 +1193,27 @@
         "sources": "Liquid_26",
         "targets": "dests_9",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -485,15 +1227,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_27",
         "targets": "dests_9",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -501,10 +1294,27 @@
         "sources": "Liquid_28",
         "targets": "dests_10",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -523,10 +1333,27 @@
         "sources": "Liquid_29",
         "targets": "dests_10",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -540,15 +1367,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_30",
         "targets": "dests_10",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -556,10 +1434,27 @@
         "sources": "Liquid_31",
         "targets": "dests_11",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -578,10 +1473,27 @@
         "sources": "Liquid_32",
         "targets": "dests_11",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -595,15 +1507,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_33",
         "targets": "dests_11",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -611,10 +1574,27 @@
         "sources": "Liquid_34",
         "targets": "dests_12",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -633,10 +1613,27 @@
         "sources": "Liquid_35",
         "targets": "dests_12",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -650,15 +1647,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_36",
         "targets": "dests_12",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -666,10 +1714,27 @@
         "sources": "Liquid_37",
         "targets": "dests_13",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -688,10 +1753,27 @@
         "sources": "Liquid_38",
         "targets": "dests_13",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -705,15 +1787,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_39",
         "targets": "dests_13",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -721,10 +1854,27 @@
         "sources": "Liquid_40",
         "targets": "dests_14",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -743,10 +1893,27 @@
         "sources": "Liquid_41",
         "targets": "dests_14",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -760,15 +1927,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_42",
         "targets": "dests_14",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -776,10 +1994,27 @@
         "sources": "Liquid_43",
         "targets": "dests_15",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -798,10 +2033,27 @@
         "sources": "Liquid_44",
         "targets": "dests_15",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -815,15 +2067,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_45",
         "targets": "dests_15",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -831,10 +2134,27 @@
         "sources": "Liquid_46",
         "targets": "dests_16",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -853,10 +2173,27 @@
         "sources": "Liquid_47",
         "targets": "dests_16",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 2",
+        "slot": 7
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -870,15 +2207,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_48",
         "targets": "dests_16",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -886,10 +2274,27 @@
         "sources": "Liquid_49",
         "targets": "dests_17",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -908,10 +2313,27 @@
         "sources": "Liquid_50",
         "targets": "dests_17",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -925,15 +2347,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_51",
         "targets": "dests_17",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -941,10 +2414,27 @@
         "sources": "Liquid_52",
         "targets": "dests_18",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -963,10 +2453,27 @@
         "sources": "Liquid_53",
         "targets": "dests_18",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -980,15 +2487,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_54",
         "targets": "dests_18",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -996,10 +2554,27 @@
         "sources": "Liquid_55",
         "targets": "dests_19",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1018,10 +2593,27 @@
         "sources": "Liquid_56",
         "targets": "dests_19",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1035,15 +2627,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_57",
         "targets": "dests_19",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1051,10 +2694,27 @@
         "sources": "Liquid_58",
         "targets": "dests_20",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1073,10 +2733,27 @@
         "sources": "Liquid_59",
         "targets": "dests_20",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1090,15 +2767,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_60",
         "targets": "dests_20",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1106,10 +2834,27 @@
         "sources": "Liquid_61",
         "targets": "dests_21",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1128,10 +2873,27 @@
         "sources": "Liquid_62",
         "targets": "dests_21",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1145,15 +2907,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_63",
         "targets": "dests_21",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1161,10 +2974,27 @@
         "sources": "Liquid_64",
         "targets": "dests_22",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1183,10 +3013,27 @@
         "sources": "Liquid_65",
         "targets": "dests_22",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1200,15 +3047,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_66",
         "targets": "dests_22",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1216,10 +3114,27 @@
         "sources": "Liquid_67",
         "targets": "dests_23",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1238,10 +3153,27 @@
         "sources": "Liquid_68",
         "targets": "dests_23",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1255,15 +3187,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_69",
         "targets": "dests_23",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1271,10 +3254,27 @@
         "sources": "Liquid_70",
         "targets": "dests_24",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1293,10 +3293,27 @@
         "sources": "Liquid_71",
         "targets": "dests_24",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 3",
+        "slot": 10
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1310,15 +3327,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "secondary rack 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_72",
         "targets": "dests_24",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1326,10 +3394,27 @@
         "sources": "Liquid_73",
         "targets": "dests_25",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1348,10 +3433,27 @@
         "sources": "Liquid_74",
         "targets": "dests_25",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1365,15 +3467,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_75",
         "targets": "dests_25",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1381,10 +3534,27 @@
         "sources": "Liquid_76",
         "targets": "dests_26",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1403,10 +3573,27 @@
         "sources": "Liquid_77",
         "targets": "dests_26",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1420,15 +3607,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_78",
         "targets": "dests_26",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1436,10 +3674,27 @@
         "sources": "Liquid_79",
         "targets": "dests_27",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1458,10 +3713,27 @@
         "sources": "Liquid_80",
         "targets": "dests_27",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1475,15 +3747,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_81",
         "targets": "dests_27",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1491,10 +3814,27 @@
         "sources": "Liquid_82",
         "targets": "dests_28",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1513,10 +3853,27 @@
         "sources": "Liquid_83",
         "targets": "dests_28",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1530,15 +3887,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_84",
         "targets": "dests_28",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1546,10 +3954,27 @@
         "sources": "Liquid_85",
         "targets": "dests_29",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1568,10 +3993,27 @@
         "sources": "Liquid_86",
         "targets": "dests_29",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1585,15 +4027,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_87",
         "targets": "dests_29",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1601,10 +4094,27 @@
         "sources": "Liquid_88",
         "targets": "dests_30",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1623,10 +4133,27 @@
         "sources": "Liquid_89",
         "targets": "dests_30",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1640,15 +4167,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_90",
         "targets": "dests_30",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1656,10 +4234,27 @@
         "sources": "Liquid_91",
         "targets": "dests_31",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1678,10 +4273,27 @@
         "sources": "Liquid_92",
         "targets": "dests_31",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1695,15 +4307,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_93",
         "targets": "dests_31",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1711,10 +4374,27 @@
         "sources": "Liquid_94",
         "targets": "dests_32",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1733,10 +4413,27 @@
         "sources": "Liquid_95",
         "targets": "dests_32",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 4",
+        "slot": 5
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1750,15 +4447,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_96",
         "targets": "dests_32",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1766,10 +4514,27 @@
         "sources": "Liquid_97",
         "targets": "dests_33",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1788,10 +4553,27 @@
         "sources": "Liquid_98",
         "targets": "dests_33",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1805,15 +4587,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_99",
         "targets": "dests_33",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1821,10 +4654,27 @@
         "sources": "Liquid_100",
         "targets": "dests_34",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1843,10 +4693,27 @@
         "sources": "Liquid_101",
         "targets": "dests_34",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1860,15 +4727,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_102",
         "targets": "dests_34",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1876,10 +4794,27 @@
         "sources": "Liquid_103",
         "targets": "dests_35",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1898,10 +4833,27 @@
         "sources": "Liquid_104",
         "targets": "dests_35",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1915,15 +4867,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_105",
         "targets": "dests_35",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1931,10 +4934,27 @@
         "sources": "Liquid_106",
         "targets": "dests_36",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1953,10 +4973,27 @@
         "sources": "Liquid_107",
         "targets": "dests_36",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -1970,15 +5007,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_108",
         "targets": "dests_36",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -1986,10 +5074,27 @@
         "sources": "Liquid_109",
         "targets": "dests_37",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2008,10 +5113,27 @@
         "sources": "Liquid_110",
         "targets": "dests_37",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2025,15 +5147,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_111",
         "targets": "dests_37",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2041,10 +5214,27 @@
         "sources": "Liquid_112",
         "targets": "dests_38",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2063,10 +5253,27 @@
         "sources": "Liquid_113",
         "targets": "dests_38",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2080,15 +5287,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_114",
         "targets": "dests_38",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2096,10 +5354,27 @@
         "sources": "Liquid_115",
         "targets": "dests_39",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2118,10 +5393,27 @@
         "sources": "Liquid_116",
         "targets": "dests_39",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2135,15 +5427,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_117",
         "targets": "dests_39",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2151,10 +5494,27 @@
         "sources": "Liquid_118",
         "targets": "dests_40",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2173,10 +5533,27 @@
         "sources": "Liquid_119",
         "targets": "dests_40",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 5",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2190,15 +5567,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_120",
         "targets": "dests_40",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2206,10 +5634,27 @@
         "sources": "Liquid_121",
         "targets": "dests_41",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2228,10 +5673,27 @@
         "sources": "Liquid_122",
         "targets": "dests_41",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2245,15 +5707,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_123",
         "targets": "dests_41",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2261,10 +5774,27 @@
         "sources": "Liquid_124",
         "targets": "dests_42",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2283,10 +5813,27 @@
         "sources": "Liquid_125",
         "targets": "dests_42",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2300,15 +5847,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_126",
         "targets": "dests_42",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2316,10 +5914,27 @@
         "sources": "Liquid_127",
         "targets": "dests_43",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2338,10 +5953,27 @@
         "sources": "Liquid_128",
         "targets": "dests_43",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2355,15 +5987,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_129",
         "targets": "dests_43",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2371,10 +6054,27 @@
         "sources": "Liquid_130",
         "targets": "dests_44",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2393,10 +6093,27 @@
         "sources": "Liquid_131",
         "targets": "dests_44",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2410,15 +6127,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_132",
         "targets": "dests_44",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2426,10 +6194,27 @@
         "sources": "Liquid_133",
         "targets": "dests_45",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2448,10 +6233,27 @@
         "sources": "Liquid_134",
         "targets": "dests_45",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2465,15 +6267,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_135",
         "targets": "dests_45",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2481,10 +6334,27 @@
         "sources": "Liquid_136",
         "targets": "dests_46",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2503,10 +6373,27 @@
         "sources": "Liquid_137",
         "targets": "dests_46",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2520,15 +6407,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_138",
         "targets": "dests_46",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2536,10 +6474,27 @@
         "sources": "Liquid_139",
         "targets": "dests_47",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2558,10 +6513,27 @@
         "sources": "Liquid_140",
         "targets": "dests_47",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2575,15 +6547,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_141",
         "targets": "dests_47",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -2591,10 +6614,27 @@
         "sources": "source_set",
         "targets": "dests_48",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2613,10 +6653,27 @@
         "sources": "source_set_2",
         "targets": "dests_48",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "primary rack 6",
+        "slot": 11
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -2630,14 +6687,31 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "secondary rack 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_set_3",
         "targets": "dests_48",
         "asp_vol": 135.0,
-        "dis_vol": 134.5,
+        "dis_vol": 270.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7
       }
     }
   ],

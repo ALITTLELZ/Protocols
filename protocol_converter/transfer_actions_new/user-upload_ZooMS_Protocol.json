@@ -1,4 +1,10 @@
 {
+  "description": "A start to finish protocol for preparation of archaeological bone samples for analysis by MALDI-TOF.\nCurrently configured for 12 or 24 samples, depending on the amount of eppendorf racks available.\nProtocol can be adjusted for non-destructive analysis, and for NaOH wash to remove humic acids.\nSamples are to be laid out left to right (A1 to A12), top to bottom (then B1 to B12).\nThe protocol is split into 5 main steps, with the first two being optional:\n\nHydrochloric acid demineralisation (optional)\nSodium hydroxide wash (optional)\nGelatine extraction\nTrypsin digestion\nPeptide extraction",
+  "tags": [
+    "ZooMS_Protocol.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 500.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 1000.0
+        "dis_flow_rate": 1000.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,19 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C1"
+          }
+        ]
       }
     },
     {
@@ -28,9 +51,14 @@
         "sources": "NaOH",
         "targets": "wells_in_use",
         "asp_vol": 600.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "D1"
+        }
       }
     },
     {
@@ -41,7 +69,19 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F1"
+          }
+        ]
       }
     },
     {
@@ -52,7 +92,12 @@
         "asp_vol": 200.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "G1"
+        }
       }
     },
     {
@@ -63,7 +108,19 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -74,7 +131,12 @@
         "asp_vol": 200.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "B2"
+        }
       }
     },
     {
@@ -85,7 +147,19 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D2"
+          }
+        ]
       }
     },
     {
@@ -96,7 +170,12 @@
         "asp_vol": 200.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "E2"
+        }
       }
     },
     {
@@ -107,8 +186,88 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 1000.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G2"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +277,62 @@
         "asp_vol": 71.42857142857143,
         "dis_vol": 62.5,
         "asp_flow_rate": 271.42857142857144,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F3"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -129,7 +342,24 @@
         "asp_vol": 600.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
     },
     {
@@ -144,6 +374,57 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 2
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "conditioning_wells",
@@ -151,8 +432,47 @@
         "asp_vol": 60.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        10.0,
+        10.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -170,7 +490,7 @@
     "conditioning_wells": {
       "slot": 2,
       "well": [
-        "A1",
+        "A2",
         "C1"
       ],
       "labware": "NEST 96 Well Plate 200 µL Flat"
@@ -178,7 +498,7 @@
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1",
+        "A2",
         "C1"
       ],
       "labware": "NEST 96 Well Plate 200 µL Flat"
@@ -186,7 +506,7 @@
     "wells_in_use": {
       "slot": 8,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
     },

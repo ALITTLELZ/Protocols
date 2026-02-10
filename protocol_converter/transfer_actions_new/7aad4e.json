@@ -1,5 +1,28 @@
 {
+  "description": "This protocol preps up to two 96 well plates with cell culture media from up to 6 source 384 well plates. The protocol will automatically parse through the csv to determine how many plates are on the deck, giving the user the ability to have flexibility in run size, however plates should still be placed in order of the deck slot numbers. Culture is pre-mixed with an airgap before transfer.\nExplanation of complex parameters below:\n .CSV File: Here, you should upload a .csv file formatted in the following way, being sure to include the header line (do NOT have \"0\" in between well names i.e. \"A01\", it should be \"A1\")\n\n P300 Mount: Specify which mount (left or right) to host the P300 pipette.",
+  "tags": [
+    "7aad4e.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherry Picking"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Perkin Elmer 384 Well Plate 110 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +31,12 @@
         "asp_vol": 30.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     }
   ],

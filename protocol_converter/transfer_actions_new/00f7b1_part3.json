@@ -1,5 +1,32 @@
 {
+  "description": "This protocol is part 3 of a 10 part series. Please look at deck map and liquid legend below. This protocol adds the required reagents for the cDNA first strand synthesis",
+  "tags": [
+    "00f7b1_part3.ot2.apiv2.py",
+    "NGS Library Prep",
+    "NEBNext® Ultra™ II Directional RNA Library Prep"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 6
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +35,19 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 4.75,
-        "dis_flow_rate": 4.75
+        "dis_flow_rate": 4.75,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          }
+        ]
       }
     }
   ],

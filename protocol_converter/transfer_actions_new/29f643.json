@@ -1,5 +1,32 @@
 {
+  "description": "This protocol automates the Alpco Insulin ELISA protocol. The protocol begins by transferring aliquots of samples, standards, and controls. The rest of the protocol can be automated or include manual interventions (for wash steps and off-deck incubations). Please note this protocol is currently being optimized.\n\nUpdate: This protocol was updated on September 8, 2022\n\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples\n P300 Multi-Channel Mount: Select which mount the P300 Multi-Channel Pipette is attached to (the Single-Channel Pipette should be attached to the opposite mount)",
+  "tags": [
+    "29f643.ot2.apiv2.py",
+    "Sample Prep",
+    "ELISA"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Adding 25ul of standards and controls"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -10,6 +37,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -23,6 +67,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
@@ -32,6 +93,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -45,6 +123,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
@@ -54,6 +149,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -67,6 +179,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
@@ -76,6 +205,27 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Adding 25ul of sample in duplicate"
     },
     {
       "action": "transfer_liquid",
@@ -89,6 +239,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes",
@@ -98,6 +265,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -111,6 +295,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_3",
@@ -120,6 +321,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -133,6 +351,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_5",
@@ -142,6 +377,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -155,6 +407,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_7",
@@ -164,6 +433,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -177,6 +463,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_9",
@@ -186,6 +489,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -199,6 +519,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_11",
@@ -208,6 +545,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -221,6 +575,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_13",
@@ -230,6 +601,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -243,6 +631,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_15",
@@ -252,6 +657,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -265,6 +687,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_17",
@@ -274,6 +713,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -287,6 +743,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_19",
@@ -296,6 +769,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -309,6 +799,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_21",
@@ -318,6 +825,23 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -331,6 +855,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samp_tubes_23",
@@ -340,6 +881,27 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "raw",
+      "text": "Adding 100uL Dettection Antibody from A1 of 12-Well Reservoir"
     },
     {
       "action": "transfer_liquid",
@@ -353,48 +915,81 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Addition of Detection Antibody complete. Please cover plate  and place on shaker for 1 hour at room temperature. When ready         for next steps, replace plate and click RESUME."
+    },
+    {
+      "action": "raw",
+      "text": "Adding 100uL of TMB Substrate"
+    },
+    {
+      "action": "raw",
+      "text": "Please place plate on shaker for 15 minutes.  When ready, replace plate and click RESUME"
+    },
+    {
+      "action": "raw",
+      "text": "Adding 100uL of Stop Solution"
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "stop_sol",
-        "targets": "samp_tubes_17",
+        "sources": "tmb",
+        "targets": "samp_tubes",
         "asp_vol": 200.0,
-        "dis_vol": 66.33333333333333,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "samp_tubes_17": {
+    "samp_tubes": {
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -404,32 +999,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -439,32 +1034,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -474,32 +1069,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -509,32 +1104,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -544,32 +1139,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -579,32 +1174,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -614,32 +1209,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -649,32 +1244,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -684,32 +1279,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -719,32 +1314,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -754,32 +1349,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -789,32 +1384,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -824,32 +1419,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -859,32 +1454,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -894,32 +1489,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -929,32 +1524,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -964,32 +1559,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -999,32 +1594,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1034,32 +1629,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1069,32 +1664,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1104,32 +1699,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1139,32 +1734,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1174,32 +1769,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1209,32 +1804,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1244,32 +1839,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1279,32 +1874,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1314,32 +1909,32 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
@@ -1349,68 +1944,38 @@
       "slot": 1,
       "well": [
         "A1",
-        "B1",
+        "B2",
         "C1",
-        "D2",
-        "E2",
-        "F1",
-        "G1",
+        "D1",
+        "E1",
+        "F2",
+        "G2",
         "H1",
         "B4",
-        "C3",
+        "C4",
         "D3",
-        "E4",
+        "E3",
         "F3",
         "G4",
-        "H4",
-        "B6",
-        "C5",
-        "D5",
+        "H3",
+        "B5",
+        "C6",
+        "D6",
         "E5",
-        "F6",
+        "F5",
         "G5",
         "H6",
-        "B8",
-        "C8",
+        "B7",
+        "C7",
         "D8",
         "E8",
-        "F7",
+        "F8",
         "G8",
         "H8"
       ],
       "labware": "Nunc MaxiSorp 96 Well Plate 250ul"
     },
     "Liquid_1": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
-    },
-    "samp_tubes": {
       "slot": 2,
       "well": [
         "A1",
@@ -1470,10 +2035,24 @@
       ],
       "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
     },
-    "stop_sol": {
+    "samp_tubes_17": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2"
+      ],
+      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
+    },
+    "tmb": {
       "slot": 7,
       "well": [
-        "A7"
+        "A4"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     }

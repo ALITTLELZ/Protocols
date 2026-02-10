@@ -1,14 +1,63 @@
 {
+  "description": "This protocol performs PCR preparation on a custom 3x8 membrane chip on 6 PCR strips. Ensure that the chip is seated so that the wells of the second (middle) row are slightly offset to the top of the first and third rows as shown in 'Additional Notes' below. Please calibrate the custom chip so that the pipette tip lands lands just barely above the membrane-- this will ensure accurate liquid transfer without disturbing the eggs or crashing into the chip. For reagent setup, see 'Additional Notes' below.\n\n\n\nP10 Multi-channel electronic pipette\n10µl Pipette tips\nP50 Single-channel electronic pipette\n300µl Pipette tips\nOpentrons 4-in-1 tube rack set\nTempassure 200ml PCR strips (seated)\n1.7ml Eppendorf tubes\nCustom 3x8 offset membrane chip on shaker (mounted on OT-2 deck)\n\n\n\n4x6 tuberack for 2ml Eppendorf tubes:\n tube A1: nanopure H2O\n tube B1: reaction buffer\n tube C1: primer\n tube D1: DNA polymerase\n* tube A2: mastermix tube (loaded empty)\nSeated PCR strips:\n* strip column 12: nanopure H2O (for additions with P10-multi channel pipette)",
+  "tags": [
+    "custom_chip_PCR_prep.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 105.0 °C"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "2ml Eppendorf snapcap reagent tubes on Temperature Module GEN1",
+        "slot": 6
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 10
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "dna_pol",
+        "sources": "h2o",
         "targets": "mix_tube",
         "asp_vol": 23.8125,
         "dis_vol": 47.625,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 50.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "300ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "300ul tiprack",
+            "well": "B1"
+          },
+          {
+            "slot": 5,
+            "type": "300ul tiprack",
+            "well": "C1"
+          },
+          {
+            "slot": 5,
+            "type": "300ul tiprack",
+            "well": "D1"
+          }
+        ]
       }
     },
     {
@@ -19,7 +68,12 @@
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 2.0,
-        "dis_flow_rate": 2.0
+        "dis_flow_rate": 2.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "10ul tiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -41,7 +95,12 @@
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 2.0,
-        "dis_flow_rate": 2.0
+        "dis_flow_rate": 2.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "10ul tiprack",
+          "well": "A2"
+        }
       }
     },
     {
@@ -63,7 +122,12 @@
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 2.0,
-        "dis_flow_rate": 2.0
+        "dis_flow_rate": 2.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "10ul tiprack",
+          "well": "A3"
+        }
       }
     },
     {
@@ -78,15 +142,120 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        9.0,
+        9.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR strips",
+        "slot": 2
+      },
+      "flow_rate": [
+        5.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        9.0,
+        9.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR strips",
+        "slot": 2
+      },
+      "flow_rate": [
+        5.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        9.0,
+        9.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR strips",
+        "slot": 2
+      },
+      "flow_rate": [
+        5.0,
+        10.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "sample_strips",
+        "sources": "mix_tube",
         "targets": "mix_strips",
         "asp_vol": 19.666666666666668,
         "dis_vol": 19.666666666666668,
         "asp_flow_rate": 22.77777777777778,
-        "dis_flow_rate": 45.55555555555556
+        "dis_flow_rate": 45.55555555555556,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "300ul tiprack",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 95.0 °C with a hold time of 5.0 minutes and 0 seconds"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 40 repetitions of cycle composed of the following steps: [{'temperature': 95, 'hold_time_minutes': 1}, {'temperature': 58, 'hold_time_seconds': 30}, {'temperature': 72, 'hold_time_seconds': 30}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 72.0 °C with a hold time of 5.0 minutes and 0 seconds"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 12.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Deactivating Thermocycler lid heating"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler holding block temperature at 12˚C. Manually  deactivate in the Opentrons App when ready."
     },
     {
       "action": "transfer_liquid",
@@ -96,7 +265,24 @@
         "asp_vol": 8.333333333333334,
         "dis_vol": 8.333333333333334,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "10ul tiprack",
+            "well": "A9"
+          }
+        ]
       }
     }
   ],
@@ -128,12 +314,12 @@
       ],
       "labware": "custom chip on shaker"
     },
-    "sample_strips": {
+    "mix_tube": {
       "slot": 2,
       "well": [
         "A1",
         "A12",
-        "A5"
+        "A4"
       ],
       "labware": "PCR strips"
     },
@@ -142,7 +328,7 @@
       "well": [
         "A1",
         "A12",
-        "A5"
+        "A4"
       ],
       "labware": "PCR strips"
     },
@@ -151,14 +337,14 @@
       "well": [
         "A1",
         "A12",
-        "A5"
+        "A4"
       ],
       "labware": "PCR strips"
     },
-    "dna_pol": {
+    "h2o": {
       "slot": 6,
       "well": [
-        "D1",
+        "A1",
         "A2"
       ],
       "labware": "2ml Eppendorf snapcap reagent tubes on Temperature Module GEN1"
@@ -166,7 +352,7 @@
     "tc_dests": {
       "slot": 7,
       "well": [
-        "A3"
+        "A2"
       ],
       "labware": "thermocycler plate on Thermocycler Module"
     }

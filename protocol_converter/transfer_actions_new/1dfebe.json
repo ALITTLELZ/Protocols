@@ -1,5 +1,15 @@
 {
+  "description": "This protocol preps a 96 well plate with urine and enzyme hydrolysis, as well as trichloroacetic acid and dilution buffer. The urine samples in the 4 tube racks exactly mimic the 96 well plate with 15 controls already put in by column. The sample pick-off begins from D2 in the tuberack on slot one, corresponding to H2 of the well plate in slot 3 for dispensing. Delays and pauses are included in the protocol to allow for incubation periods and mix steps.\nExplanation of complex parameters below:\n Use csv for this run?: Specify whether a csv file will be uploaded for this run. If not, nothing in .CSV File below will be referenced.\n .CSV File: Upload the csv file for this run. The csv file will map which samples the pipette will visit the bottom of the tube. Wells marked with X will be aspirated from the Sample Aspiration Height parameter (see below). Otherwise, wells marked with O (capital letter O, not zero) will be aspirated from the bottom of the tube. Refer to the csv sample below.\n\n Number of Samples: Specify the number of samples (1-81) for this run.\n Tip Withdrawal Speed: Specify the tip withdrawal speed for the tip to leave the urine samples.\n Sample Aspiration Height (mm):  Specify the sample aspiration height (in mm) from the bottom of the urine samples to aspirate from. Any well marked X in the csv, if uploaded will use this height. If the csv is not uploaded, all urine samples will use this height.\n Sample Aspiration Height (mm): Specify the dispense height from the bottom of the 96 well plate to dispense sample. \n* P300 Multi-Channel Mount: Specify which mount (left or right) to host the P300 single channel pipette.",
+  "tags": [
+    "1dfebe.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Moving urine to plate"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +18,12 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +34,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E1"
+          }
+        ]
       }
     },
     {
@@ -30,7 +67,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -41,7 +100,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E2"
+          }
+        ]
       }
     },
     {
@@ -52,7 +133,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          }
+        ]
       }
     },
     {
@@ -63,7 +166,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E3"
+          }
+        ]
       }
     },
     {
@@ -74,7 +199,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          }
+        ]
       }
     },
     {
@@ -85,7 +232,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E4"
+          }
+        ]
       }
     },
     {
@@ -96,7 +265,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          }
+        ]
       }
     },
     {
@@ -107,7 +298,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E5"
+          }
+        ]
       }
     },
     {
@@ -118,7 +331,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          }
+        ]
       }
     },
     {
@@ -129,7 +364,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E6"
+          }
+        ]
       }
     },
     {
@@ -140,7 +397,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          }
+        ]
       }
     },
     {
@@ -151,7 +430,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E7"
+          }
+        ]
       }
     },
     {
@@ -162,7 +463,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          }
+        ]
       }
     },
     {
@@ -173,7 +496,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E8"
+          }
+        ]
       }
     },
     {
@@ -184,7 +529,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          }
+        ]
       }
     },
     {
@@ -195,7 +562,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E9"
+          }
+        ]
       }
     },
     {
@@ -206,7 +595,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          }
+        ]
       }
     },
     {
@@ -217,7 +628,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E10"
+          }
+        ]
       }
     },
     {
@@ -228,7 +661,29 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          }
+        ]
       }
     }
   ],
@@ -237,10 +692,10 @@
       "slot": 1,
       "well": [
         "D2",
-        "D3",
-        "B4",
-        "C5",
-        "A6"
+        "B3",
+        "A4",
+        "B5",
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
@@ -248,10 +703,10 @@
       "slot": 1,
       "well": [
         "D2",
-        "D3",
-        "B4",
-        "C5",
-        "A6"
+        "B3",
+        "A4",
+        "B5",
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
@@ -259,10 +714,10 @@
       "slot": 1,
       "well": [
         "D2",
-        "D3",
-        "B4",
-        "C5",
-        "A6"
+        "B3",
+        "A4",
+        "B5",
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
@@ -270,10 +725,10 @@
       "slot": 1,
       "well": [
         "D2",
-        "D3",
-        "B4",
-        "C5",
-        "A6"
+        "B3",
+        "A4",
+        "B5",
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
@@ -281,82 +736,82 @@
       "slot": 1,
       "well": [
         "D2",
-        "D3",
-        "B4",
-        "C5",
-        "A6"
+        "B3",
+        "A4",
+        "B5",
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_11": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_13": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_15": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_17": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_19": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_21": {
       "slot": 2,
       "well": [
-        "A1",
+        "B1",
         "B2",
-        "A3",
+        "C3",
         "C4",
-        "D5",
-        "D6"
+        "A5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
@@ -365,25 +820,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -392,25 +847,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -419,25 +874,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -446,25 +901,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -473,25 +928,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -500,25 +955,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -527,25 +982,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -554,25 +1009,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -581,25 +1036,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -608,25 +1063,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -635,25 +1090,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -662,25 +1117,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -689,25 +1144,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -716,25 +1171,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -743,25 +1198,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -770,25 +1225,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -797,25 +1252,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -824,25 +1279,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -851,25 +1306,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -878,25 +1333,25 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
@@ -905,137 +1360,137 @@
       "well": [
         "H2",
         "B3",
-        "F3",
+        "E3",
         "D4",
-        "H4",
+        "G4",
         "D5",
-        "E5",
+        "G5",
         "A6",
-        "H6",
-        "C7",
-        "G7",
-        "B8",
-        "H8",
-        "D9",
-        "E9",
-        "A10",
-        "H10",
-        "B11",
-        "E11",
+        "G6",
+        "A7",
+        "F7",
+        "C8",
+        "E8",
+        "B9",
+        "G9",
+        "D10",
+        "F10",
+        "C11",
+        "H11",
         "A12",
-        "E12"
+        "H12"
       ],
       "labware": "NEST 96 Well Plate 1000 µL"
     },
     "tube_map_2": {
       "slot": 4,
       "well": [
-        "A3",
+        "C3",
         "B4",
         "D5",
-        "D6"
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_4": {
       "slot": 4,
       "well": [
-        "A3",
+        "C3",
         "B4",
         "D5",
-        "D6"
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_6": {
       "slot": 4,
       "well": [
-        "A3",
+        "C3",
         "B4",
         "D5",
-        "D6"
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_8": {
       "slot": 4,
       "well": [
-        "A3",
+        "C3",
         "B4",
         "D5",
-        "D6"
+        "C6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_10": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_12": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_14": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_16": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_18": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     },
     "tube_map_20": {
       "slot": 5,
       "well": [
-        "A1",
-        "A2",
-        "A3",
-        "C4",
-        "D5",
-        "D6"
+        "B1",
+        "B2",
+        "C3",
+        "D4",
+        "C5",
+        "B6"
       ],
       "labware": "SAMPLE RACK"
     }

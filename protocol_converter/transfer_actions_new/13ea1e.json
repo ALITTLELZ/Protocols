@@ -1,4 +1,10 @@
 {
+  "description": "This protocol preps a sample plate as well as an ethanol, NPW3, NPW4, and elution buffer plate for further use in a Kingfisher Flex Extractor. Samples are pre-loaded onto the sample plate before the protocol begins. Mag beads are then added to sample, and after an incubation step, all other reagent plates are prepped.  \nThe protocol is broken down into 3 main parts:\n Controls are added to sample plate\n Proteinase K is added to samples\n Magnetic Beads are added, incubate\n Sample blocks made\nNote: For all transfers between reservoirs/tubes to well plate, transfers will always iterate over all wells in the source. For example, magnetic beads will be transferred from A1 to plate, A2 to plate, A3 to plate, A4 to plate, A1 to plate, etc. Consequently, all reaction volumes should be split equally into respective wells as seen in the deck layout.\nExplanation of complex parameters below:\n Number of samples: Specify the number of populated wells (1-96, include controls) that the sample block, elution buffer block, ethanol block, NPW3 block, and NPW4 block will be filled.\n Mix repetitions to resuspend beads: Specify the amount of mix steps to re-suspend beads each time the pipette returns to the reservoir.\n P1000 Single Channel Mount (GEN2): Specify which mount the P1000 Single Channel pipette will be mounted.\n P300 Multi Channel Mount (GEN2): Specify which mount the P300 Multi Channel pipette will be mounted.",
+  "tags": [
+    "13ea1e.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,26 @@
         "sources": "hsc",
         "targets": "Liquid_1",
         "asp_vol": 26.653061224489797,
-        "dis_vol": 26.153061224489797,
+        "dis_vol": 53.30612244897959,
         "asp_flow_rate": 97.68775510204081,
-        "dis_flow_rate": 98.84387755102041
+        "dis_flow_rate": 97.68775510204081,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H1"
+          }
+        ]
       }
     },
     {
@@ -17,9 +40,14 @@
         "sources": "ethanol",
         "targets": "Liquid_2",
         "asp_vol": 310.0,
-        "dis_vol": 309.5,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_vol": 620.0,
+        "asp_flow_rate": 274.6999999999992,
+        "dis_flow_rate": 274.70000000000044,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "C1"
+        }
       }
     },
     {
@@ -28,9 +56,14 @@
         "sources": "npw3",
         "targets": "Liquid_3",
         "asp_vol": 310.0,
-        "dis_vol": 309.5,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_vol": 620.0,
+        "asp_flow_rate": 274.6999999999992,
+        "dis_flow_rate": 274.70000000000044,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "D1"
+        }
       }
     },
     {
@@ -39,9 +72,14 @@
         "sources": "npw4",
         "targets": "Liquid_4",
         "asp_vol": 310.0,
-        "dis_vol": 309.5,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_vol": 620.0,
+        "asp_flow_rate": 274.6999999999992,
+        "dis_flow_rate": 274.70000000000044,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "E1"
+        }
       }
     },
     {
@@ -50,10 +88,1647 @@
         "sources": "elution_buffer",
         "targets": "Liquid_5",
         "asp_vol": 37.5,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "H2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 1
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -61,9 +1736,14 @@
         "sources": "mag_beads",
         "targets": "Liquid_1",
         "asp_vol": 347.5,
-        "dis_vol": 347.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_vol": 695.0,
+        "asp_flow_rate": 274.6999999999992,
+        "dis_flow_rate": 274.70000000000044,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "F1"
+        }
       }
     }
   ],
@@ -71,8 +1751,8 @@
     "ethanol": {
       "slot": 1,
       "well": [
-        "A7",
-        "A10",
+        "A8",
+        "A11",
         "A4"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
@@ -80,8 +1760,8 @@
     "npw3": {
       "slot": 1,
       "well": [
-        "A7",
-        "A10",
+        "A8",
+        "A11",
         "A4"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
@@ -89,8 +1769,8 @@
     "mag_beads": {
       "slot": 1,
       "well": [
-        "A7",
-        "A10",
+        "A8",
+        "A11",
         "A4"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
@@ -98,42 +1778,42 @@
     "npw4": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     },
     "Liquid_4": {
       "slot": 3,
       "well": [
-        "F3"
+        "D12"
       ],
       "labware": "Nest 96 Well Plate 2200 µL"
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "H4"
+        "G1"
       ],
       "labware": "Nest 96 Well Plate 2200 µL"
     },
     "Liquid_5": {
       "slot": 5,
       "well": [
-        "A9"
+        "E2"
       ],
       "labware": "Nest 96 Well Plate 2200 µL"
     },
     "Liquid_2": {
       "slot": 6,
       "well": [
-        "C1"
+        "E11"
       ],
       "labware": "Nest 96 Well Plate 2200 µL"
     },
     "Liquid_3": {
       "slot": 7,
       "well": [
-        "F9"
+        "E7"
       ],
       "labware": "Nest 96 Well Plate 2200 µL"
     },
@@ -141,7 +1821,7 @@
       "slot": 11,
       "well": [
         "C1",
-        "D4"
+        "D3"
       ],
       "labware": "Opentrons 24 Tube Rack 1500 µL"
     },
@@ -149,7 +1829,7 @@
       "slot": 11,
       "well": [
         "C1",
-        "D4"
+        "D3"
       ],
       "labware": "Opentrons 24 Tube Rack 1500 µL"
     }

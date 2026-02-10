@@ -1,5 +1,28 @@
 {
+  "description": "This protocol performs a custom mass spectrometry sample prep for peptides up to 48 samples.\n\n\n\nOpentrons Magnetic Module\nNEST 96-well PCR plate 100µl full skirt\nOpentrons 20µl tiprack\nOpentrons 300µl tiprack\nOpentrons P20 and P300 GEN2 multi-channel electronic pipette\n\n\n\nDeck Setup\n Nunc 96-well polystyrene V-bottom microwell plate (Slot 1)\n NEST 0.1 mL 96-Well PCR Plate, Full Skirt (Slot 2)\n NEST 12-well reservoir, 15 mL,Opentrons (Slot 3)\n Opentrons Magnetic Module GEN2 (Slot 4)\n Stellar Scientific Cluster Tubes Racked, 1.2 mL (Slot 4, On Magnetic Module)\n Opentrons 300 uL Tip Rack (Slot 5, Slot 8)\n* Opentrons 20 uL Tip Rack (Slot 6, Slot 9)\nNOTE: Switch the Cluster Tubes Plate with the NEST PCR Plate on the Magnetic Module once the Pause step is reached.\nMagnetic Module Engage Height from Well Bottom (mm) refers to the height the magnet will move to from the bottom of the well. A value of 13.5 mm will move the tops of the magnets to level with that height value.",
+  "tags": [
+    "701319.ot2.apiv2.py",
+    "Sample Prep",
+    "Mass Spec"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Stellar Scientific 96 Cluster Tubes 1200uL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +31,42 @@
         "asp_vol": 6.0,
         "dis_vol": 6.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Stellar Scientific 96 Cluster Tubes 1200uL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -19,41 +76,33 @@
         "asp_vol": 237.5,
         "dis_vol": 237.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          }
+        ]
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sample_wells",
-        "targets": "trash",
-        "asp_vol": 250.0,
-        "dis_vol": 250.0,
-        "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "magnet",
+      "state": "engage"
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mecn_set2",
-        "targets": "sample_wells",
-        "asp_vol": 250.0,
-        "dis_vol": 250.0,
-        "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sample_wells",
-        "targets": "trash",
-        "asp_vol": 250.0,
-        "dis_vol": 250.0,
-        "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -63,19 +112,72 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "sample_wells",
-        "targets": "trash",
+        "sources": "mecn_set2",
+        "targets": "sample_wells",
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Stellar Scientific 96 Cluster Tubes 1200uL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 25
     },
     {
       "action": "transfer_liquid",
@@ -85,19 +187,38 @@
         "asp_vol": 19.5,
         "dis_vol": 19.5,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          }
+        ]
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "sample_wells_reloaded",
-        "targets": "trash",
-        "asp_vol": 39.0,
-        "dis_vol": 39.0,
-        "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -107,7 +228,12 @@
         "asp_vol": 39.0,
         "dis_vol": 39.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -118,7 +244,19 @@
         "asp_vol": 1.75,
         "dis_vol": 1.75,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          }
+        ]
       }
     }
   ],
@@ -188,13 +326,6 @@
         "A2"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
-    },
-    "trash": {
-      "slot": 12,
-      "well": [
-        "A1"
-      ],
-      "labware": "Opentrons Fixed Trash"
     }
   }
 }

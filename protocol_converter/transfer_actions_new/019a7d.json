@@ -1,5 +1,19 @@
 {
+  "description": "This is part 1 of a 2 part protocol for prepping then loading nucleic acid onto agar plates. It requires both a multichannel and single channel 20ul pipette.\nPart two can be found here\nExplanation of complex parameters below:\n* Number of Samples: Specify a number of samples. Can be any number from 1 to 96",
+  "tags": [
+    "019a7d.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Gibson Prep"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +22,12 @@
         "asp_vol": 9.0,
         "dis_vol": 9.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,8 +38,433 @@
         "asp_vol": 1.0,
         "dis_vol": 1.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "Azenta Life Sciences 96 Aluminum Block 200 uL on Temperature Module GEN1",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -29,8 +473,130 @@
         "targets": "sample_dests_m",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          }
+        ]
       }
     }
   ],
@@ -45,7 +611,7 @@
     "fragments": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Azenta Life Sciences 96 Well Plate 200 µL"
     },

@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs a custom sample normalization from a source PCR plate to a second PCR plate and a third norm plate. Transfer take place from multiple locations specified below based on the volumes described in the example CSV below:\nPlate LC (Source),Source Well #,ID ,concentration (ug/ml),yield (ug),Destination 1 volume (ul),Destination 1 (Dil),Destination 1 (Dil Plate) Well,concentration dil (ug/ml),yield (ug),Destination 2 volume (ul),Destination 2 (final norm plate),Destination 2 (well #)\nLC 96-well plate,A1,pET4286,3000.00,6.00,10,LC Dil Plate,A1,300.00,6.00,20.00,Norm Plate,A1\nLC 96-well plate,G3,pET4016,3000,6.00,10,LC Dil Plate,G3,300.00,6.00,20.00,Norm Plate,G3\nLC 96-well plate,H3,pET4017,3300,6.00,10,LC Dil Plate,H3,330.00,6.00,18.18,Norm Plate,H3\nHC 96-well plate,F3,pET4308,3000,6.00,10,HC Dil Plate,F3,300,6.00,20.00,Norm Plate,F3\nHC 96-well plate,G3,pET4308,3000,6.00,10,HC Dil Plate,G3,300,6.00,20.00,Norm Plate,G3\nHC 96-well plate,H3,pET4308,3000,6.00,10,HC Dil Plate,H3,300,6.00,20.00,Norm Plate,H3\nwater,F3,,,,,,,,,81.82,Norm Plate,F3\nwater,G3,,,,,,,,,80.00,Norm Plate,G3\nwater,H3,,,,,,,,,81.82,Norm Plate,H3\nNote: Save any .xlsx files as a .csv",
+  "tags": [
+    "5654c0.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -7,8 +13,13 @@
         "targets": "Liquid_2",
         "asp_vol": 90.0,
         "dis_vol": 90.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.85999999999991,
+        "dis_flow_rate": 92.85999999999991,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -18,8 +29,8 @@
         "targets": "Liquid_3",
         "asp_vol": 90.0,
         "dis_vol": 90.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.85999999999991,
+        "dis_flow_rate": 92.85999999999991
       }
     },
     {
@@ -30,7 +41,24 @@
         "asp_vol": 81.21333333333332,
         "dis_vol": 81.21333333333332,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          }
+        ]
       }
     },
     {
@@ -41,7 +69,24 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          }
+        ]
       }
     },
     {
@@ -52,7 +97,24 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          }
+        ]
       }
     },
     {
@@ -63,7 +125,24 @@
         "asp_vol": 19.393333333333334,
         "dis_vol": 19.393333333333334,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -74,7 +153,24 @@
         "asp_vol": 19.393333333333334,
         "dis_vol": 19.393333333333334,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          }
+        ]
       }
     },
     {
@@ -85,7 +181,24 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          }
+        ]
       }
     },
     {
@@ -96,7 +209,24 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          }
+        ]
       }
     }
   ],
@@ -104,7 +234,7 @@
     "Liquid_5": {
       "slot": 5,
       "well": [
-        "A1"
+        "H3"
       ],
       "labware": "LC 96-well plate"
     },
@@ -125,14 +255,14 @@
     "Liquid_2": {
       "slot": 8,
       "well": [
-        "D5"
+        "C11"
       ],
       "labware": "LC Dil Plate"
     },
     "Liquid_3": {
       "slot": 9,
       "well": [
-        "A2"
+        "H2"
       ],
       "labware": "HC Dil Plate"
     },

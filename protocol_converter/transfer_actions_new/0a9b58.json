@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs a pooling or normalization protocol depending on the user's selection. Please format the csv to the examples below (two header rows before the transfer information). The normalization csv should include \"normalization\", and the pooling csv should include the word \"pooling\" in the top row.  Volumes must be over 1.0ul for all transfers. Volumes should be \"0\" if they are to be skipped for a well.\n\nNormalization CSV Example\nPooling CSV Example",
+  "tags": [
+    "0a9b58.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 21.5,
         "dis_vol": 21.5,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 10.5,
         "dis_vol": 10.5,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "B1"
+        }
       }
     }
   ],

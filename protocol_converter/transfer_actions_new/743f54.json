@@ -1,4 +1,10 @@
 {
+  "description": "This protocol automates preparation of plates that will be used in the Magnetic Particle Processing protocol on the KingFisher Flex.\nThis protocol is still a work in progress and will be updated.\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples to be run (1-96).\n Pipette Mount: Select which mount the P300 Single-Channel Pipette (GEN2) is attached to.",
+  "tags": [
+    "743f54.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -7,8 +13,13 @@
         "targets": "Liquid_1",
         "asp_vol": 166.66666666666666,
         "dis_vol": 166.66666666666666,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.86000000000035,
+        "dis_flow_rate": 92.86000000000035,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -18,8 +29,13 @@
         "targets": "Liquid_2",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.86000000000044,
+        "dis_flow_rate": 92.86000000000044,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -29,8 +45,13 @@
         "targets": "Liquid_3",
         "asp_vol": 200.0,
         "dis_vol": 50.0,
-        "asp_flow_rate": 92.86000000000001,
-        "dis_flow_rate": 92.86000000000001
+        "asp_flow_rate": 92.85999999999994,
+        "dis_flow_rate": 92.85999999999989,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "C1"
+        }
       }
     },
     {
@@ -52,40 +73,40 @@
         "asp_vol": 140.0,
         "dis_vol": 5.6,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.85999999999996
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "protK_2",
-        "asp_vol": 140.0,
-        "dis_vol": 5.6,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "protK_2",
-        "targets": "protK_3",
-        "asp_vol": 140.0,
-        "dis_vol": 5.6,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "protK_3",
         "targets": "Liquid_5",
+        "asp_vol": 140.0,
+        "dis_vol": 5.6,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.85999999999996
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_5",
+        "targets": "Liquid_6",
+        "asp_vol": 140.0,
+        "dis_vol": 5.6,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.85999999999996
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_6",
+        "targets": "Liquid_7",
         "asp_vol": 140.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.85999999999996
       }
     }
   ],
@@ -93,70 +114,70 @@
     "Liquid_2": {
       "slot": 1,
       "well": [
-        "C5"
+        "D2"
       ],
       "labware": "KF Deepwell-96 Wash 2"
     },
     "Liquid_3": {
       "slot": 2,
       "well": [
-        "D1",
-        "E12"
+        "F7",
+        "F12"
       ],
       "labware": "KF Deepwell-96 Elution"
     },
     "elution": {
       "slot": 2,
       "well": [
-        "D1",
-        "E12"
+        "F7",
+        "F12"
       ],
       "labware": "KF Deepwell-96 Elution"
     },
     "Liquid_4": {
       "slot": 3,
       "well": [
-        "G3",
-        "C4",
-        "H8",
-        "B10"
-      ],
-      "labware": "KF-96 microplate PK plate"
-    },
-    "protK_2": {
-      "slot": 3,
-      "well": [
-        "G3",
-        "C4",
-        "H8",
-        "B10"
-      ],
-      "labware": "KF-96 microplate PK plate"
-    },
-    "protK_3": {
-      "slot": 3,
-      "well": [
-        "G3",
-        "C4",
-        "H8",
-        "B10"
+        "B1",
+        "G5",
+        "D7",
+        "B12"
       ],
       "labware": "KF-96 microplate PK plate"
     },
     "Liquid_5": {
       "slot": 3,
       "well": [
-        "G3",
-        "C4",
-        "H8",
-        "B10"
+        "B1",
+        "G5",
+        "D7",
+        "B12"
+      ],
+      "labware": "KF-96 microplate PK plate"
+    },
+    "Liquid_6": {
+      "slot": 3,
+      "well": [
+        "B1",
+        "G5",
+        "D7",
+        "B12"
+      ],
+      "labware": "KF-96 microplate PK plate"
+    },
+    "Liquid_7": {
+      "slot": 3,
+      "well": [
+        "B1",
+        "G5",
+        "D7",
+        "B12"
       ],
       "labware": "KF-96 microplate PK plate"
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "H4"
+        "G1"
       ],
       "labware": "KF Deepwell-96 Wash 1"
     },

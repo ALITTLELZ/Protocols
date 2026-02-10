@@ -1,5 +1,32 @@
 {
+  "description": "This protocol performs a Ribrogreen assay - for detailed protocol steps, please see below. There is the option to perform duplicate/triplicate plating. The csv for sample input should include source slot, source well, destination well in the header.",
+  "tags": [
+    "010d6c.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Latching labware on Heater-Shaker"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Corning 12 Reservoir 2000 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,9 +34,48 @@
         "targets": "diluent_buff_col",
         "asp_vol": 253.8095238095238,
         "dis_vol": 253.8095238095238,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.85999999999996,
+        "dis_flow_rate": 92.85999999999996,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 15 Tube Rack with eppendorf 5 mL",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Pyramid 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -18,15 +84,27 @@
         "targets": "diluent_buff_col",
         "asp_vol": 205.3846153846154,
         "dis_vol": 205.3846153846154,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.85999999999999,
+        "dis_flow_rate": 92.85999999999999,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "diluent_buff_col",
-        "targets": "wells",
+        "targets": "Liquid_1",
         "asp_vol": 200.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -34,26 +112,387 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "source_well",
-        "targets": "Liquid_1",
-        "asp_vol": 200.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24 Tube Rack with NEST 2 mL Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "triton",
+        "sources": "source_well",
+        "targets": "Liquid_2",
+        "asp_vol": 200.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "C1"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Corning 12 Reservoir 2000 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        200.032,
+        200.032
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Corning 12 Reservoir 2000 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        200.032,
+        200.032
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "te",
         "targets": "Liquid_1",
         "asp_vol": 300.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 200.032,
-        "dis_flow_rate": 200.032
+        "dis_flow_rate": 200.032,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": 37.0,
+      "wait_for_temp": true,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": false,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": null,
+      "wait_for_temp": false,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": true,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Corning 12 Reservoir 2000 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        200.032,
+        200.032
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Plate is ready! Please remove, seal, and transport to the plate reader for"
+    },
+    {
+      "action": "raw",
+      "text": "analysis. Please remember to tidy the robot deck and dispose of any waste."
     },
     {
       "action": "transfer_liquid",
@@ -63,7 +502,12 @@
         "asp_vol": 300.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 200.032,
-        "dis_flow_rate": 200.032
+        "dis_flow_rate": 200.032,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     }
   ],
@@ -72,16 +516,16 @@
       "slot": 2,
       "well": [
         "A1",
-        "A3",
+        "A5",
         "A7"
       ],
       "labware": "Corning 12 Reservoir 2000 µL"
     },
-    "triton": {
+    "te": {
       "slot": 2,
       "well": [
         "A1",
-        "A3",
+        "A5",
         "A7"
       ],
       "labware": "Corning 12 Reservoir 2000 µL"
@@ -90,7 +534,7 @@
       "slot": 2,
       "well": [
         "A1",
-        "A3",
+        "A5",
         "A7"
       ],
       "labware": "Corning 12 Reservoir 2000 µL"
@@ -98,14 +542,14 @@
     "diluent_buff_col": {
       "slot": 4,
       "well": [
-        "B1"
+        "C1"
       ],
       "labware": "Pyramid 96 Well Plate 2000 µL"
     },
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "A12"
+        "A1"
       ],
       "labware": "Nunc 96 Well Plate 400 µL"
     },

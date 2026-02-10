@@ -1,4 +1,10 @@
 {
+  "description": "Links:\n Part 1\n\n Part 2\n\n Part 3\n\n Part 4\n\n* Part 5\nThis custom PCR1 Setup protocol is part 1/5 of the Verogen ForenSeq DNA Signature Prep kit. In this protocol, mastermix is pre-added to a clean PCR plate. Then, samples from up to 4 source plates specified in the .csv file are transferred to the plate containing mastermix and mixed (optionally).\nThe .csv file should be formatted as shown below (including header line):\nvolume,source plate # (1-4),source column (1-12),destination column(1-12)\n8,1,2,1\n8,2,3,2\n8,2,12,3",
+  "tags": [
+    "pcr1_setup.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Verogen ForenSeq DNA Signature Prep Kit"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,8 +14,30 @@
         "asp_vol": 7.0,
         "dis_vol": 7.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "destination plate",
+        "slot": 9
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +47,47 @@
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "destination plate",
+        "slot": 9
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.0,
+        8.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "destination plate",
+        "slot": 9
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -30,7 +97,19 @@
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          }
+        ]
       }
     }
   ],
@@ -52,7 +131,7 @@
     "mm_dests": {
       "slot": 9,
       "well": [
-        "A2"
+        "A1"
       ],
       "labware": "destination plate"
     },

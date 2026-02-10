@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs cherrypicking from source to target plates as specified in an input CSV file. The protocol parses the CSV for slots to load the source and target plates. Only non-zero volume transfers are carried out for efficiency, and the user is prompted to refill tipracks if necessary.\n\nThis protocol is an update of this APIv1 protocol.\n\nYou will need:\n P10 Single-channel electronic pipette\n P50 Single-channel electronic pipette\n P300 Single-channel electronic pipette\n 10µl Pipette tips\n 300µl Pipette tips\n Biorad Hard-Shell 96-Well PCR Plates # HSP9601\n* Opentrons 4-in-1 Tube Rack Set",
+  "tags": [
+    "44981c.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherrypicking"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,39 +12,121 @@
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 10.0,
-        "dis_vol": 4.5,
+        "dis_vol": 10.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 55.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 10 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons Fixed Trash",
+        "slot": 12
+      },
+      "flow_rate": [
+        5.0,
+        10.0
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
-        "targets": "Liquid_2",
+        "targets": "Liquid_4",
         "asp_vol": 40.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 75.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons Fixed Trash",
+        "slot": 12
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
-        "targets": "Liquid_2",
+        "sources": "Liquid_5",
+        "targets": "Liquid_6",
         "asp_vol": 35.0,
-        "dis_vol": 17.0,
+        "dis_vol": 35.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 75.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons Fixed Trash",
+        "slot": 12
+      },
+      "flow_rate": [
+        25.0,
+        50.0
+      ],
+      "mix_time": 3
     }
   ],
   "reagent": {
     "Liquid_2": {
       "slot": 1,
       "well": [
-        "A12"
+        "A12",
+        "D12"
+      ],
+      "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
+    },
+    "Liquid_4": {
+      "slot": 1,
+      "well": [
+        "A12",
+        "D12"
+      ],
+      "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
+    },
+    "Liquid_6": {
+      "slot": 2,
+      "well": [
+        "G8"
       ],
       "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
     },
@@ -56,7 +144,7 @@
       ],
       "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
     },
-    "Liquid_4": {
+    "Liquid_5": {
       "slot": 6,
       "well": [
         "C3"

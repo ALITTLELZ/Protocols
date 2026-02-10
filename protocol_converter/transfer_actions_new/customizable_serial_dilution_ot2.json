@@ -1,5 +1,1235 @@
 {
+  "description": "With this protocol, you can do a simple serial dilution across a 96-well plate using either a single-channel or 8-channel pipette. This can be useful for everything from creating a simple standard curve to a concentration-limiting dilution. For more information (including data from the Opentrons Lab and other considerations), please see our Technical Note.\n\n\n\nExample Setup\nThis protocol uses the inputs you define for \"Dilution Factor\" and \"Total Mixing Volume\" to automatically infer the necessary transfer volume for each dilution across your plate. For a 1 in 3 dilution series across an entire plate, as seen above:\n-- Start with your samples/reagents in Column 1 of your plate. In this example, you would pre-add 150 uL of concentrated sample to the first column of your 96-well plate.\n-- Define a Total Mixing Volume of 150uL, a Dilution Factor of 3, and set Number of Dilutions = 11.\n-- Your OT-2 will add 100uL of diluent to each empty well in your plate. Then it will transfer 50uL from Column 1 between each well/column in the plate.\n-- \"Total mixing volume\" = transfer volume + diluent volume.\n\n\n\n-- Opentrons OT-2\n-- Opentrons OT-2 Run App (Version 3.19 or later)\n-- Opentrons Tips for selected Opentrons Pipette\n-- 12-Row, Automation-Friendly Trough\n-- 96-Well Plate (found in our Labware Library)\n-- Diluent (Pre-loaded in row 1 of trough)\n-- Samples/Standards (Pre-loaded in Column 1 of a standard 96-well plate)",
+  "tags": [
+    "customizable_serial_dilution.ot2.apiv2.py",
+    "Featured",
+    "Serial Dilution"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H4",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H5",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H6",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H7",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H8",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H9",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        75.0,
+        75.0
+      ],
+      "position": {
+        "well": "H10",
+        "labware": "NEST 96 Well Plate 200 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,8 +1237,25 @@
         "targets": "all_diluent_destinations",
         "asp_vol": 43.1578947368421,
         "dis_vol": 86.3157894736842,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.86000000000037,
+        "dis_flow_rate": 92.86000000000017,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          }
+        ]
       }
     }
   ],

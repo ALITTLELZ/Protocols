@@ -1,5 +1,45 @@
 {
+  "description": "This protocol (Plate Prep) performs pipetting to transfer reagents (equilibration buffer, wash buffer 1, wash buffer 2 and elution buffer) from a 12-well reagent stock reservoir to 96-well V-bottom plates (the reagent plates) on the OT-2. These reagent plates are used for the protein purification protocol of Phytip® Protein A, ProPlus or ProPlus LX Columns.\nThe protocol is developed to prepare sufficient reagents to process up to 96 samples (a full 96-well plate).",
+  "tags": [
+    "sci-phytip-plate-prep.ot2.apiv2.py",
+    "Protein Purification",
+    "Protein A, Pro Plus, Pro Plus LX Columns"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagents",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagents",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +48,30 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 47.0
+        "dis_flow_rate": 47.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "reagents",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -21,6 +83,23 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 47.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "reagents",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -49,14 +128,14 @@
     "wash1": {
       "slot": 5,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "wash plate 1"
     },
     "wash2": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "wash plate 2"
     },
@@ -103,14 +182,14 @@
     "eql": {
       "slot": 9,
       "well": [
-        "A12"
+        "A5"
       ],
       "labware": "equilibration plate"
     },
     "eln": {
       "slot": 11,
       "well": [
-        "A12"
+        "A2"
       ],
       "labware": "elute plate"
     }

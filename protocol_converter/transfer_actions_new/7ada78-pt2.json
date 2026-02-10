@@ -1,5 +1,56 @@
 {
+  "description": "This protocol preps and runs a PCR on the Opentrons thermocycler using a .csv input. RNA and NF water are added to the PCR plate, and mastermix is then added to the resulting solution and mixed. A pause is included after the RNA is added to the water in the thermocycler plate, and the user is prompted to replace the water plate with the same 96 well plate, but with mastermix in column 1. If the protocol runs out of tips, it will automatically stop and the user is prompted to replace tips. For csv information and formatting notes, see below.\nExplanation of complex parameters below:\n Number of columns: Specify the number of columns in the thermocycler plate to dispense mastermix into. Mastermix will always come from column 1 of the 96 well plate on slot 3. The mastermix plate will replace with water plate on slot 3 after an automatic pause in the protocol.\n .CSV File: Here, you should upload a .csv file formatted in the following way, being sure to include the header line\n(use slot 7 for the thermocycler slot, and input an \"x\" for values that are not needed in that row):\n\n* Pipette Mount: Specify which mount (left or right) to host the P20 Single, and Multi-channel pipettes, respectively.",
+  "tags": [
+    "7ada78-pt2.ot2.apiv2.py",
+    "PCR",
+    "Complete PCR Workflow"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "PRE-COOL THERMOCYC"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 4.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 105.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "MOVING WATER TO PLATE"
+    },
+    {
+      "action": "raw",
+      "text": "PRE-WET"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        11.0,
+        11.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Abgene Plate",
+        "slot": 3
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "DONE PRE-WET"
+    },
+    {
+      "action": "raw",
+      "text": "MOVING RNA TO PLATE"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -12,6 +63,271 @@
       }
     },
     {
+      "action": "raw",
+      "text": "PRE-WET"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        19.0,
+        19.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Abgene Plate",
+        "slot": 3
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "DONE PRE-WET"
+    },
+    {
+      "action": "raw",
+      "text": "RNA and water on Thermocycler Plate."
+    },
+    {
+      "action": "raw",
+      "text": "Replace the 96 well plate containing water on Slot 3 with"
+    },
+    {
+      "action": "raw",
+      "text": "the exact same 96 well plate with cold mastermix in Column 1."
+    },
+    {
+      "action": "raw",
+      "text": "Select \"Resume\" on the Opentron App to continue."
+    },
+    {
+      "action": "raw",
+      "text": "MOVING MASTERMIX TO PLATE"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        12.0,
+        12.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.8,
+        3.8
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "raw",
+      "text": "RUN THERMOCYCLER PROFILE"
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 25, 'hold_time_seconds': 10}, {'temperature': 50, 'hold_time_seconds': 10}, {'temperature': 85, 'hold_time_seconds': 5}]"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mmx",
@@ -19,7 +335,69 @@
         "asp_vol": 5.153846153846154,
         "dis_vol": 5.153846153846154,
         "asp_flow_rate": 4.089230769230769,
-        "dis_flow_rate": 4.089230769230769
+        "dis_flow_rate": 4.089230769230769,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],

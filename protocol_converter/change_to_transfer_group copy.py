@@ -297,6 +297,68 @@ def load_liquid_locations(protocol_name):
         return {}
 
 
+def load_protocol_metadata(protocol_name):
+    """从 protoBuilds/{name}/ 读取 metadata.json 和 README.json，提取 description 和 tags。
+
+    tags 来源：
+      1. metadata.json -> files["OT 2 protocol"] 列表中的每个文件名
+      2. README.json   -> categories 字典的 key 及 value（list 中每个 str）
+
+    description 来源：
+      README.json -> description 字段（纯文本）
+
+    Returns:
+        (description: str, tags: list[str])
+    """
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    proto_build_dir = os.path.join(os.path.dirname(current_dir), "protoBuilds", protocol_name)
+
+    description = ""
+    tags = []
+
+    # --- 读取 metadata.json ---
+    metadata_file = os.path.join(proto_build_dir, "metadata.json")
+    if os.path.exists(metadata_file):
+        try:
+            with open(metadata_file, "r", encoding="utf-8") as f:
+                metadata = json.load(f)
+            ot2_protocols = metadata.get("files", {}).get("OT 2 protocol", [])
+            if isinstance(ot2_protocols, list):
+                tags.extend(ot2_protocols)
+        except Exception as e:
+            print(f"  ⚠️  读取 metadata.json 失败: {e}")
+
+    # --- 读取 README.json ---
+    readme_file = os.path.join(proto_build_dir, "README.json")
+    if os.path.exists(readme_file):
+        try:
+            with open(readme_file, "r", encoding="utf-8") as f:
+                readme = json.load(f)
+
+            # 提取 description
+            description = readme.get("description", "").strip()
+
+            # 提取 categories 的 key 和 value 作为 tags
+            categories = readme.get("categories", {})
+            if isinstance(categories, dict):
+                for cat_key, cat_values in categories.items():
+                    tags.append(cat_key)
+                    if isinstance(cat_values, list):
+                        tags.extend(str(v) for v in cat_values)
+        except Exception as e:
+            print(f"  ⚠️  读取 README.json 失败: {e}")
+
+    # 去重并保持顺序
+    seen = set()
+    unique_tags = []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            unique_tags.append(t)
+
+    return description, unique_tags
+
+
 def process_protocol(protocol_name):
     """处理单个protocol，返回action_list和labware_data"""
     print(f"Processing {protocol_name}...")
@@ -714,7 +776,12 @@ def export_transfer_actions(protocol_name, output_file=None):
                         "labware": labware_name
                     }
     
+    # 加载 description 和 tags
+    description, tags = load_protocol_metadata(protocol_name)
+
     output_data = {
+        "description": description,
+        "tags": tags,
         "workflow": transfer_actions,
         "reagent": reagents
     }
@@ -812,8 +879,8 @@ def batch_generate_transfer_actions(output_dir="transfer_actions_copy"):
             print(f"  ❌ 失败: {e}")
             continue
     
-    # 生成总览文件
-    summary_file = os.path.join(output_dir, "batch_summary.json")
+    # 生成总览文件（放在输出目录的上一级，即 protocol_converter/ 下）
+    summary_file = os.path.join(os.path.dirname(output_dir), "batch_summary.json")
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump({
             "total_protocols": len(protocols),

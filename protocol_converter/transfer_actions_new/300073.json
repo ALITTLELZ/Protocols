@@ -1,5 +1,26 @@
 {
+  "description": "This protocol transfers saliva samples from 25 mL tubes to a 96 well plate. The samples are located in 6 4-in-4 tube racks on the left side of the deck. Optionally a second set of tube racks can replace the first one if more than 45 samples need to be distributed. Optionally the target plate can be placed on a temperature module with an aluminum block.\nThe destination plate is divided into four quadrants and the samples are distributed in a zig zag pattern from top left - top right - bottom left - bottom right (see below). Samples are not transferred to the three first wells of the target plate because they contain control samples, symmetrically the first 3 tube slots in Sample set 1:Tuberack quadrant 1 contain no sample tubes.\nThe tubes in the tuberacks in slot 10, 11, 7 and 8 constitute the 1st tuberack quadrant, and should be regarded as a single unit (Tuberack quadrant 1) consisting of 4 rows of tubes with 12 columns. Samples are transferred in row order to quadrant 1 of the target plate for Sample set 1, and to quadrant 3 for Sample set 2.\nSimilarly the tuberacks in slot 4, 5, 1 and 2 constitute Tuberack quadrant 2. Samples from Sample set 1 in Tuberack quadrant 2 are transferred to Target quadrant 2, and samples from Sample set 2 are transferred to Target quadrant 4.\n96 well-plate layout\n```\nTarget quadrant 1 (top left)\nA1-D1 to A6-D6 (A1-A3 are unused)\nTarget quadrant 2 (top right)\nA7-D7 to A12-D12\nTarget quadrant 3 (bottom left)\nE1-H1 to E6-H6\nTarget quadrant 4 (bottom right)\nE7-H7 to E12-H12\n```\nExplanation of parameters below:\n Is there a first set of tubes?: Is there a first set of tubes? (Sometimes the user may have already transferred the first set of tubes and wants the protocol to run from the second set of tuberack samples)\n Number of tubes/samples in the first set of tubes: How many tubes there are in the first set of tube racks. These samples will be transferred to quadrant 1 (and 2) of the destination plate\n Is there a second set of tubes?: Whether to pause the protocol so that a second set of tube racks can be loaded onto the deck\n Number of tubes/samples in the second set of tubes: How many samples there are in the second set of tuberacks (Only needs to be set if a second set of tube racks is loaded)\n Sample volume (µL) to aspirate: Volume of sample to transfer (5 or 50 µL). This parameter controls which pipette and tiprack is used: 5 uL means that the 20 uL pipette will be used in in the right mount, and that the pipette tips should be filtered 20 uL tips. 50 uL means that the 300 uL pipette will be used in the left mount along with 200 uL filter tips.\n Aspiration flow rate (µL/s): rate of aspiration in microliters per second\n Dispension flow rate (µL/s): rate of dispension in microliters per second\n Aspiration height from the bottom of the tubes (mm): Height from the bottom of the tubes to aspirate from in mm\n Dispension height from the bottom of the tubes (mm): Height from the bottom of the plate wells to dispense from in mm\n (Optional) Temperature module with aluminum block: Parameter to indicate whether you are using a temperature module with an aluminum block to put your target plate on\n Set temperature of the temperature module: Temperature to set on the temperature module in degrees C\n Amount of time to keep the pipette in the tube after aspiration (s): How many seconds to wait before withdrawing the pipette from the tube after aspiration",
+  "tags": [
+    "300073.ot2.apiv2.py",
+    "Sample Prep",
+    "PCR prep"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +29,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +72,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +115,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -41,8 +158,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D2"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +201,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G2"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +244,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B3"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +287,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E3"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +330,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H3"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +373,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C4"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -107,8 +416,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F4"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +459,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -129,8 +502,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D5"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +545,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G5"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -151,8 +588,44 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B6"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "raw",
+      "text": "Remove the 1st set of tuberacks and insert the 2nd set"
     },
     {
       "action": "transfer_liquid",
@@ -162,8 +635,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E6"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -173,8 +678,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H6"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -184,8 +721,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C7"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -195,8 +764,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F7"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -206,8 +807,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -217,8 +850,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D8"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -228,8 +893,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G8"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -239,8 +936,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B9"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -250,8 +979,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E9"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -261,8 +1022,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H9"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -272,8 +1065,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C10"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -283,8 +1108,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F10"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -294,8 +1151,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -305,8 +1194,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D11"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -316,8 +1237,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G11"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -327,8 +1280,40 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B12"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 5.0
     },
     {
       "action": "transfer_liquid",
@@ -338,7 +1323,24 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E12"
+          }
+        ]
       }
     }
   ],
@@ -362,7 +1364,7 @@
     "tuberack_quad_2_map_6": {
       "slot": 2,
       "well": [
-        "A1",
+        "A2",
         "B1"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
@@ -370,7 +1372,7 @@
     "tuberack_quad_2_map_8": {
       "slot": 2,
       "well": [
-        "A1",
+        "A2",
         "B1"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
@@ -380,35 +1382,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -417,35 +1419,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -454,35 +1456,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -491,35 +1493,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -528,35 +1530,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -565,35 +1567,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -602,35 +1604,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -639,35 +1641,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -676,35 +1678,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -713,35 +1715,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -750,35 +1752,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -787,35 +1789,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -824,35 +1826,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -861,35 +1863,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -898,35 +1900,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -935,35 +1937,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -972,35 +1974,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1009,35 +2011,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1046,35 +2048,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1083,35 +2085,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1120,35 +2122,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1157,35 +2159,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1194,35 +2196,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1231,35 +2233,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1268,35 +2270,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1305,35 +2307,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1342,35 +2344,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1379,35 +2381,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1416,35 +2418,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1453,35 +2455,35 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
@@ -1490,51 +2492,51 @@
       "well": [
         "A6",
         "B3",
-        "B6",
+        "B5",
         "C1",
-        "C6",
-        "D1",
-        "D4",
-        "A8",
-        "A10",
-        "B8",
+        "C4",
+        "D3",
+        "D6",
+        "A7",
+        "A12",
+        "B9",
         "B12",
-        "C9",
-        "C10",
+        "C7",
+        "C12",
         "D9",
         "D10",
-        "E2",
-        "E5",
+        "E3",
+        "E4",
         "F3",
-        "F5",
-        "G1",
-        "G5",
-        "H2",
+        "F6",
+        "G2",
+        "G4",
+        "H1",
         "H6",
-        "E9",
+        "E8",
         "E12",
-        "F9",
+        "F8",
         "F12",
         "G8",
-        "G12",
+        "G11",
         "H8",
-        "H12"
+        "H11"
       ],
       "labware": "target plate"
     },
     "tuberack_quad_2_map": {
       "slot": 4,
       "well": [
-        "A3",
-        "B1"
+        "A1",
+        "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_2_map_3": {
       "slot": 4,
       "well": [
-        "A3",
-        "B1"
+        "A1",
+        "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
@@ -1557,55 +2559,55 @@
     "tuberack_quad_1_map_4": {
       "slot": 7,
       "well": [
-        "A3",
-        "B1"
+        "A2",
+        "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map_6": {
       "slot": 7,
       "well": [
-        "A3",
-        "B1"
+        "A2",
+        "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map_5": {
       "slot": 8,
       "well": [
-        "A1",
-        "B3"
+        "A3",
+        "B2"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map_7": {
       "slot": 8,
       "well": [
-        "A1",
-        "B3"
+        "A3",
+        "B2"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map_2": {
       "slot": 10,
       "well": [
-        "B1",
-        "A3"
+        "B3",
+        "A2"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map_8": {
       "slot": 10,
       "well": [
-        "B1",
-        "A3"
+        "B3",
+        "A2"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
     },
     "tuberack_quad_1_map": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"
@@ -1613,7 +2615,7 @@
     "tuberack_quad_1_map_3": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "B3"
       ],
       "labware": "Tuberack with 6 Stellar Sci 25 mL tubes"

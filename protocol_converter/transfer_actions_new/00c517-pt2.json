@@ -1,5 +1,28 @@
 {
+  "description": "This protocol fills sds (slot 4) and sample (slot 2) according to a user specified csv.",
+  "tags": [
+    "00c517-pt2.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        32.0,
+        32.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Agilent 96 Well Plate 500 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +31,12 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     }
   ],

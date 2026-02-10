@@ -1,5 +1,53 @@
 {
+  "description": "Theis protocol is used to set up DNA samples for analysis with Life Technologies QuantStudio™ 12K Flex Real-Time PCR System, OpenArray™ block, Accufill™ System. Using the P20 Single-Channel Pipette (GEN2), two PCR preps are accomplished. During the first prep, samples are reformatted and transferred from a 96-well plate to another 96-well plate before amplification. Once amplification is complete, the user returns the amplified plate and the second prep occurs - this time samples are transferred from the 96-well plate to a 384-well plate.\nExplanation of complex parameters below:\n Transfer CSV: CSV file that contains the transfer information. It should contain the following header: SourcePos,SampleID,PreampPos,LoadPos1,LoadPos2\n P20 Single Mount: Select which mount the P20 Single-Channel Pipette (GEN2) is attached to.\nNote: In the current configuration, up to 95 samples can be completed in one run.",
+  "tags": [
+    "3d942d.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -12,6 +60,192 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
@@ -19,8 +253,64 @@
         "asp_vol": 2.5,
         "dis_vol": 2.5,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -30,7 +320,12 @@
         "asp_vol": 15.0,
         "dis_vol": 3.75,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 4,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F1"
+        }
       }
     },
     {
@@ -45,14 +340,328 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        4.0,
+        4.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "preampMix",
         "targets": "Liquid_2",
         "asp_vol": 1.25,
         "dis_vol": 1.25,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          }
+        ]
       }
     }
   ],
@@ -67,14 +676,14 @@
     "preampMix": {
       "slot": 2,
       "well": [
-        "A1"
+        "B1"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
     },
     "Liquid_2": {
       "slot": 3,
       "well": [
-        "C1"
+        "A1"
       ],
       "labware": "Corning 384 Well Plate 112 µL Flat"
     },

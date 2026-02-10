@@ -1,15 +1,323 @@
 {
+  "description": "This protocol automates the Illumina DNA prep protocol. Illumina DNA prep offers a fast, integrated workflow for a wide range of applications, from human whole-genome sequencing to amplicons, plasmids, and microbial species\nThe protocol allows you to set the number of samples to 8, 16 or 24 (i.e. 8 samples per column, up to 3 columns). Samples are prepared in the wells as shown in the table and figure below, with 30 µL of 100 ng:s of sample DNA in each well. See the Illumina DNA Prep protocol for more information about sample input requirements.\n\n\nThe user can choose which steps of the protocol they want to run, or skip - see explanation of parameters below.\nPlate Moving\nThe Protocol requires manually transferring the sample plate between the Thermocycler and Magnet 3 times.  It starts on the Thermocycler and needs to be moved to the Magnet for the post-Tagmentation washes, and then moved to the Thermocycler for PCR and then back to the Magnet for the post-PCR cleanup.  In the script the two positions are handled as sample_plate_mag and sample_plate_thermo; during calibration use an empty plate of the same labware as the sample plate on the magnet position to allow calibration.\nExplanation of parameters below:\n Number of samples: 8 (column 1), 16 (column 1, 3), or 24 (column 1, 3, 5) samples (see above).\n Do a dry run?: Sets the Use modules? parameter to No (see below). Tips will be returned, incubation steps skipped, and mixes shortened. This parameter is for testing purposes.\n Use modules?: Runs the protocol without module steps (e.g. thermocycle steps such as incubation and PCR cycles, or the steps using the magbetic module). Will be automatically set to Yes if the Do a dry run? parameter is set to Yes\n Tip reuse?: Reuses tips for washing steps so that no tip refill is neccesary during the run. Recommended only for a 24x samples run.\n Use tip offsets?: Whether to use specific offsets for each tip type\n Include tagmentation step in protocol run?: Run the tagmentation step or skip it.\n Run tagmentation incubation on the deck thermocycler?: Run the tagmentation incubation step on the deck thermocycler or on an off-deck external thermocycler.\n Run TSB step?: Run the TSB/adapter ligation step or not\n Run TSB incubation step on the deck thermocycler: Whether to do the incubation on the on-deck thermocycler or off-deck on an external thermocycler\n Run tagmentation wash with TWB step: Run the bead washing steps with TWB\n Run PCR cycle step: Whether to run the PCR amplification step\n Run PCR step on deck thermocycler?: Run the PCR amplification on the on-deck thermocycler or on an external thermocycler\n* Run post PCR cleanup step: Run or skip the post-PCR bead cleanup using AMPure beads",
+  "tags": [
+    "sci-illumina-dna-prep.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Illumina DNA Prep"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "<protocol>"
+    },
+    {
+      "action": "raw",
+      "text": "SETTING THERMO and TEMP BLOCK Temperature"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 4.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 100.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with Bio-Rad Well Plate 200 uL on Temperature Module GEN2",
+        "slot": 3
+      },
+      "flow_rate": [
+        47.0,
+        47.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with Bio-Rad Well Plate 200 uL on Temperature Module GEN2",
+        "slot": 3
+      },
+      "flow_rate": [
+        47.0,
+        47.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with Bio-Rad Well Plate 200 uL on Temperature Module GEN2",
+        "slot": 3
+      },
+      "flow_rate": [
+        47.0,
+        47.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 55, 'hold_time_minutes': 15}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 10.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 37, 'hold_time_minutes': 15}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 10.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "TAG",
         "targets": "Liquid_1",
         "asp_vol": 15.0,
-        "dis_vol": 9.666666666666666,
-        "asp_flow_rate": 15.549999999999999,
-        "dis_flow_rate": 43.7
+        "dis_vol": 15.0,
+        "asp_flow_rate": 15.549999999999997,
+        "dis_flow_rate": 15.549999999999997,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +327,135 @@
         "asp_vol": 30.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.366666666666667,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +465,86 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -41,8 +554,135 @@
         "asp_vol": 36.666666666666664,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.366666666666667,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +692,86 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +781,135 @@
         "asp_vol": 36.666666666666664,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.366666666666667,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        70.5
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        70.0,
+        70.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +919,86 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +1008,58 @@
         "asp_vol": 36.666666666666664,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.366666666666667,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "ADDING PCR"
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +1069,226 @@
         "asp_vol": 47.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 41.125,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 68, 'hold_time_minutes': 3}, {'temperature': 98, 'hold_time_minutes': 3}]"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 5 repetitions of cycle composed of the following steps: [{'temperature': 98, 'hold_time_seconds': 45}, {'temperature': 62, 'hold_time_seconds': 30}, {'temperature': 68, 'hold_time_minutes': 2}]"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 68, 'hold_time_minutes': 1}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 4.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -106,9 +1297,97 @@
         "targets": "Liquid_2",
         "asp_vol": 22.0,
         "dis_vol": 8.461538461538462,
-        "asp_flow_rate": 38.739999999999995,
-        "dis_flow_rate": 55.98461538461538
+        "asp_flow_rate": 38.74,
+        "dis_flow_rate": 55.98461538461539,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.1
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +1395,142 @@
         "sources": "Liquid_2",
         "targets": "Liquid_4",
         "asp_vol": 22.5,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 47.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 50
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 50
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 50
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +1538,102 @@
         "sources": "AMPure",
         "targets": "Liquid_4",
         "asp_vol": 40.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 23.5,
-        "dis_flow_rate": 61.75
+        "dis_flow_rate": 23.5,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +1643,45 @@
         "asp_vol": 33.333333333333336,
         "dis_vol": 200.0,
         "asp_flow_rate": 17.233333333333334,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +1689,57 @@
         "sources": "EtOH_3",
         "targets": "Liquid_4",
         "asp_vol": 150.0,
-        "dis_vol": 49.666666666666664,
+        "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 64.66666666666667
+        "dis_flow_rate": 47.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
     },
     {
       "action": "transfer_liquid",
@@ -160,10 +1747,47 @@
         "sources": "Liquid_4",
         "targets": "Liquid_trash",
         "asp_vol": 100.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 23.5,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -171,10 +1795,62 @@
         "sources": "EtOH_3",
         "targets": "Liquid_4",
         "asp_vol": 150.0,
-        "dis_vol": 49.666666666666664,
+        "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 64.66666666666667
+        "dis_flow_rate": 47.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 6.0
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -182,10 +1858,48 @@
         "sources": "Liquid_4",
         "targets": "Liquid_trash",
         "asp_vol": 100.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 23.5,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "AIR DRY"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -195,8 +1909,156 @@
         "asp_vol": 23.0,
         "dis_vol": 6.4,
         "asp_flow_rate": 24.925,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        32.0,
+        32.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        25.0,
+        25.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        32.0,
+        32.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        25.0,
+        25.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        32.0,
+        32.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        47.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        25.0,
+        25.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 65
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 0.5
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET ENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -204,10 +2066,35 @@
         "sources": "Liquid_4",
         "targets": "Liquid_4",
         "asp_vol": 32.0,
-        "dis_vol": 6.4,
+        "dis_vol": 6.3999999999999995,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 70.5
+        "dis_flow_rate": 70.5,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "MAGNET DISENGAGE"
     },
     {
       "action": "transfer_liquid",
@@ -216,36 +2103,57 @@
         "targets": "Liquid_5",
         "asp_vol": 15.0,
         "dis_vol": 15.0,
-        "asp_flow_rate": 1.8999999999999997,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 1.9000000000000001,
+        "dis_flow_rate": 7.6000000000000005,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
     "Liquid_2": {
       "slot": 1,
       "well": [
-        "A5",
+        "A1",
         "A7",
-        "A10"
+        "A8"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
     },
     "Liquid_4": {
       "slot": 1,
       "well": [
-        "A5",
+        "A1",
         "A7",
-        "A10"
+        "A8"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
     },
     "Liquid_5": {
       "slot": 1,
       "well": [
-        "A5",
+        "A1",
         "A7",
-        "A10"
+        "A8"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
     },
@@ -320,7 +2228,7 @@
     "Liquid_1": {
       "slot": 7,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
     }

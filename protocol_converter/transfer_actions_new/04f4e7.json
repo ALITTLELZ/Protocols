@@ -1,37 +1,206 @@
 {
+  "description": "This protocol performs an RNA extraction on a user-specified number of samples. Beads are pre-mixed and added to sample with 5 sequential incubation-mix periods. Excess liquid is picked off the top of the wells and dispensed into waste, and the remaining liquid + beads are added to the magnetic plate. After two PBS washes, elution and neutralization buffer are added to the samples. Samples are then moved to the elution plate, with beads in the mag plate collected for later use. \nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples to be processed this run.\n Slow Aspiration Rate (Step 7): Specify the aspiration rate for Step 7 in the protocol. A value of 1 is the default flow rate, a value of 0.5 would be half of the default flow rate, and so on.\n Aspiration Height to Remove Top Liquid (Step 7): Specify the aspiration height to aspirate 3 X 300ul from as specified in Step 7 in the protocol.\n Aspiration Height to Remove Supernatant: Specify the aspiration height to remove supernatant from.\n Incubation Time After Engaging Magnet: Specify the incubation time after engaging the magnet (in minutes).\n Length From Side of Well Opposite Magnetically Engaged Beads: Specify the distance from the side of the well opposite magnetically engaged beads to aspirate from. A value of 2 is 2mm from the side of the well opposite magnetically engaged beads.\n* P300 Multi-Channel Mount: Specify which mount (left or right) for the P300 multi-channel pipette.",
+  "tags": [
+    "04f4e7.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Nucleic Acid Purification"
+  ],
   "workflow": [
     {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.4,
+        150.4
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.4,
+        150.4
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.4,
+        150.4
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.4,
+        150.4
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.4,
+        150.4
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "beads",
-        "targets": "beads",
+        "targets": "Liquid_1",
         "asp_vol": 50.0,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Nunc 96 Well Plate 2000 uL",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "Liquid_1",
         "targets": "waste",
         "asp_vol": 300.0,
-        "dis_vol": 149.5,
+        "dis_vol": 300.0,
         "asp_flow_rate": 47.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 300.0,
-        "dis_vol": 149.5,
+        "dis_vol": 300.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +208,36 @@
         "sources": "source",
         "targets": "waste",
         "asp_vol": 180.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +245,31 @@
         "sources": "pbs",
         "targets": "source",
         "asp_vol": 180.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +277,36 @@
         "sources": "source",
         "targets": "waste",
         "asp_vol": 180.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -72,10 +314,31 @@
         "sources": "pbs",
         "targets": "source",
         "asp_vol": 180.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +346,36 @@
         "sources": "source",
         "targets": "waste",
         "asp_vol": 180.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -94,9 +383,14 @@
         "sources": "elution_buffer",
         "targets": "source",
         "asp_vol": 100.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -105,10 +399,24 @@
         "sources": "nuet_buffer",
         "targets": "dest",
         "asp_vol": 50.0,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +424,19 @@
         "sources": "source",
         "targets": "dest",
         "asp_vol": 100.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -129,7 +446,12 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -138,9 +460,9 @@
         "sources": "source",
         "targets": "used_beads",
         "asp_vol": 50.0,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
     }
   ],
@@ -198,6 +520,13 @@
         "A1"
       ],
       "labware": "NEST 1 Well Reservoir 195 mL"
+    },
+    "Liquid_1": {
+      "slot": 4,
+      "well": [
+        "A1"
+      ],
+      "labware": "Nunc 96 Well Plate 2000 µL"
     },
     "dest": {
       "slot": 5,

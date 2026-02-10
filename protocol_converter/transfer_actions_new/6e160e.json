@@ -1,6 +1,24 @@
 {
+  "description": "This protocol preps a 384 well plate on the temperature module with reaction mix and sample. Reaction mix is held in well one of a 12 well reservoir on the temperature module. Both temperature modules are held at 4C. The protocol uses a multi-channel to fill full plates, and a single channel to fill the last unfilled plate. Samples and reaction mix are filled by row, skipping columns.\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples for this run.\n P20 Mounts: Specify which mount (left or right) for each the P20 Single-Channel and P20 Multi-Channel pipettes.",
+  "tags": [
+    "6e160e.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "raw",
+      "text": "MOVING REACTION MIX TO PLATE"
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "reagent",
@@ -8,7 +26,12 @@
         "asp_vol": 20.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20uL TIPRACK",
+          "well": "A1"
+        }
       }
     },
     {
@@ -164,6 +187,10 @@
         "asp_flow_rate": 7.6,
         "dis_flow_rate": 7.6
       }
+    },
+    {
+      "action": "raw",
+      "text": "MOVING SAMPLE TO PLATE"
     },
     {
       "action": "transfer_liquid",
@@ -183,8 +210,70 @@
         "targets": "reagent",
         "asp_vol": 3.0,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 1,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          }
+        ]
       }
     },
     {
@@ -194,8 +283,70 @@
         "targets": "reagent",
         "asp_vol": 3.0,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          }
+        ]
       }
     },
     {
@@ -205,19 +356,143 @@
         "targets": "reagent",
         "asp_vol": 3.0,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          }
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source",
+        "sources": "Liquid_4",
         "targets": "reagent",
         "asp_vol": 3.0,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],
@@ -225,7 +500,7 @@
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "the SAMPLE PLATE"
     },
@@ -239,21 +514,21 @@
     "Liquid_2": {
       "slot": 5,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "the SAMPLE PLATE"
     },
     "Liquid_3": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "the SAMPLE PLATE"
     },
-    "source": {
+    "Liquid_4": {
       "slot": 11,
       "well": [
-        "A12"
+        "A2"
       ],
       "labware": "the SAMPLE PLATE"
     }

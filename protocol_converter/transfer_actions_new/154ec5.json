@@ -1,5 +1,54 @@
 {
+  "description": "This protocol uses a p20 single channel pipette to transfer custom volumes (2-10 uL) from source wells located in one of up to 10 pieces of 24-well, 96-well or 384-well labware on the OT-2 deck to a destination well in one of the ten pieces of loaded labware. The labware, deck slot locations, source plate, source well, destination plate, destination well and transfer volume are supplied by the user in a csv file uploaded at the time of protocol download (see example for file and data format).\nLinks:\n* example input csv\nThis protocol was developed to transfer custom volumes (2-10 uL) from source wells to destination wells as described above.",
+  "tags": [
+    "154ec5.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherrypicking"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
+      "action": "raw",
+      "text": "Labware loaded for this run: dict_values([Opentrons Fixed Trash on 12, Opentrons OT-2 96 Tip Rack 20 uL on 11, Corning 96 Well Plate 360 uL Flat on 1, Corning 384 Well Plate 112 uL Flat on 2, Corning 24 Well Plate 3.4 mL Flat on 3])"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        6.0,
+        6.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Corning 96 Well Plate 360 uL Flat",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        6.0,
+        6.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "Corning 96 Well Plate 360 uL Flat",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +57,37 @@
         "asp_vol": 6.0,
         "dis_vol": 6.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "P18",
+        "labware": "Corning 384 Well Plate 112 uL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +97,30 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Corning 24 Well Plate 3.4 mL Flat",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -30,7 +130,12 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "D1"
+        }
       }
     }
   ],

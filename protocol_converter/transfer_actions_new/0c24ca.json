@@ -1,4 +1,10 @@
 {
+  "description": "This protocol will transfer scattered sample tubes to a specified destination plate according to a csv. The csv header should read sample well, sample slot, destination well. Include the header in the csv and specify the volumes below. THe protocol will automatically pause if the user runs out of tips, rprompting the user to replace tips. A P20 or P300 pipette is specified depending on the volume selected by the user. Liquid height tracking is performed on the 50mL tube so that the pipette does not submerge.",
+  "tags": [
+    "0c24ca.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,18 +30,35 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "trans_mix_tube",
-        "targets": "Liquid_2",
+        "targets": "dest_well",
         "asp_vol": 40.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B1"
+          }
+        ]
       }
     }
   ],
@@ -56,7 +84,7 @@
       ],
       "labware": "Opentrons 10 Tube Rack with Falcon 7x50 mL, 6x15 mL Conical"
     },
-    "Liquid_2": {
+    "dest_well": {
       "slot": 8,
       "well": [
         "A1"

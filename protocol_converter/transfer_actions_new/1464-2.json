@@ -1,0 +1,166 @@
+{
+  "description": "Links:\n Part 1: Dilution\n Part 2-1: Antibody Addition\n* Part 2-2: Substrate and Stop Solution Addition\nThis is the second part of a ELISA protocol: Antibody Addition. The robot will first add Enzyme Conjugate Reagent to all of the columns required in the output plate in slot 9. Water, diluent, and HCP standards, and diluted samples will be transferred to the output plate in duplicate. User will need to upload the same CSV file used in part 1 of the protocol. See Additional Notes in Part 1 for more details on the CSV requirements.\nDownload full protocol details here.\n\nYou will need:\n P300 Multi-channel Pipette\n P300 Single-channel Pipette\n Opentrons Tube Racks (2 mL Eppendorf)\n Opentrons Tube Rack (15 + 50 mL)\n 2 mL 96-deep well Plate\n 96-well Plate\n 12-row Trough\n 300 uL Tip Racks",
+  "tags": [
+    "ELISA_protocol_part2.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "ELISA"
+  ],
+  "workflow": [
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_1",
+        "targets": "Liquid_2",
+        "asp_vol": 220.0,
+        "dis_vol": 100.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
+      }
+    },
+    {
+      "action": "raw",
+      "text": "hcp"
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_3",
+        "targets": "Liquid_2",
+        "asp_vol": 130.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H1"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_4",
+        "targets": "Liquid_2",
+        "asp_vol": 130.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H2"
+          }
+        ]
+      }
+    }
+  ],
+  "reagent": {
+    "Liquid_3": {
+      "slot": 4,
+      "well": [
+        "A5"
+      ],
+      "labware": "Opentrons 24 Tube Rack with Eppendorf 2 mL Safe-Lock Snapcap"
+    },
+    "Liquid_4": {
+      "slot": 5,
+      "well": [
+        "B2"
+      ],
+      "labware": "NEST 96 Deepwell Plate 2mL"
+    },
+    "Liquid_1": {
+      "slot": 8,
+      "well": [
+        "A1"
+      ],
+      "labware": "NEST 12 Well Reservoir 15 mL"
+    },
+    "Liquid_2": {
+      "slot": 9,
+      "well": [
+        "A4"
+      ],
+      "labware": "Corning 96 Well Plate 360 µL Flat"
+    }
+  }
+}

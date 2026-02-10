@@ -1,6 +1,17 @@
 {
+  "description": "This protocol uses 8-channel P300 and p20 pipettes to transfer samples and standard dilutions to a batch of 1-5 ELISA plates for the attached BioLegend Human IL-2 ELISA. User-determined parameters are available to specify the number of ELISA plates (1-5), to include or not include a tip touch following dispenses, the aspiration position in the large reservoir (in millimeters above the labware bottom), and to automate or not automate the placement and replenishment of tips in row H of the empty tip box in slot 9 (these tips will be used to transfer standard from row H of the sample plate to row H of the ELISA plate).\nLinks:\n* BioLegend Human IL-2 ELISA MAX Deluxe Set - user manual",
+  "tags": [
+    "30450c-part-2.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source",
@@ -8,7 +19,12 @@
         "asp_vol": 300.0,
         "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -43,6 +59,134 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Please ensure 20 uL tips and the sample plate"
+    },
+    {
+      "action": "raw",
+      "text": "for ELISA plate 2 are on deck"
     },
     {
       "action": "transfer_liquid",
@@ -50,9 +194,92 @@
         "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 55.0,
-        "dis_vol": 36.333333333333336,
-        "asp_flow_rate": 50.800000000000004,
-        "dis_flow_rate": 67.19999999999999
+        "dis_vol": 55.0,
+        "asp_flow_rate": 50.799999999999955,
+        "dis_flow_rate": 50.799999999999955,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Empty 300 uL Tip Box for Standard Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source",
+        "targets": "source",
+        "asp_vol": 300.0,
+        "dis_vol": 75.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -89,15 +316,132 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "source",
-        "targets": "source",
-        "asp_vol": 300.0,
-        "dis_vol": 75.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Please ensure 20 uL tips and the sample plate"
+    },
+    {
+      "action": "raw",
+      "text": "for ELISA plate 3 are on deck"
     },
     {
       "action": "transfer_liquid",
@@ -105,9 +449,92 @@
         "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 55.0,
-        "dis_vol": 36.333333333333336,
-        "asp_flow_rate": 50.800000000000004,
-        "dis_flow_rate": 67.19999999999999
+        "dis_vol": 55.0,
+        "asp_flow_rate": 50.799999999999955,
+        "dis_flow_rate": 50.799999999999955,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Empty 300 uL Tip Box for Standard Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source",
+        "targets": "source",
+        "asp_vol": 300.0,
+        "dis_vol": 75.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -144,15 +571,132 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "source",
-        "targets": "source",
-        "asp_vol": 300.0,
-        "dis_vol": 75.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Please ensure 20 uL tips and the sample plate"
+    },
+    {
+      "action": "raw",
+      "text": "for ELISA plate 4 are on deck"
     },
     {
       "action": "transfer_liquid",
@@ -160,9 +704,92 @@
         "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 55.0,
-        "dis_vol": 36.333333333333336,
-        "asp_flow_rate": 50.800000000000004,
-        "dis_flow_rate": 67.19999999999999
+        "dis_vol": 55.0,
+        "asp_flow_rate": 50.799999999999955,
+        "dis_flow_rate": 50.799999999999955,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Empty 300 uL Tip Box for Standard Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source",
+        "targets": "source",
+        "asp_vol": 300.0,
+        "dis_vol": 75.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -199,15 +826,132 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "source",
-        "targets": "source",
-        "asp_vol": 300.0,
-        "dis_vol": 75.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Please ensure 20 uL tips and the sample plate"
+    },
+    {
+      "action": "raw",
+      "text": "for ELISA plate 5 are on deck"
     },
     {
       "action": "transfer_liquid",
@@ -215,9 +959,92 @@
         "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 55.0,
-        "dis_vol": 36.333333333333336,
-        "asp_flow_rate": 50.800000000000004,
-        "dis_flow_rate": 67.19999999999999
+        "dis_vol": 55.0,
+        "asp_flow_rate": 50.799999999999955,
+        "dis_flow_rate": 50.799999999999955,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Empty 300 uL Tip Box for Standard Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          }
+        ]
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "source",
+        "targets": "source",
+        "asp_vol": 300.0,
+        "dis_vol": 75.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -254,15 +1081,128 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "source",
-        "targets": "source",
-        "asp_vol": 300.0,
-        "dis_vol": 75.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Finished"
     },
     {
       "action": "transfer_liquid",
@@ -270,9 +1210,76 @@
         "sources": "Liquid_1",
         "targets": "source",
         "asp_vol": 55.0,
-        "dis_vol": 36.333333333333336,
-        "asp_flow_rate": 50.800000000000004,
-        "dis_flow_rate": 67.19999999999999
+        "dis_vol": 55.0,
+        "asp_flow_rate": 50.799999999999955,
+        "dis_flow_rate": 50.799999999999955,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Empty 300 uL Tip Box for Standard Tips",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          }
+        ]
       }
     }
   ],
@@ -287,7 +1294,7 @@
     "Liquid_1": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "Sample Plate"
     }

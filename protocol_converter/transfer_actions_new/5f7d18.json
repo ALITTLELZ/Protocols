@@ -1,15 +1,869 @@
 {
+  "description": "This protocol isolates nucleic acid using a MagBio CTL lysis buffer and MAG-S1 particle beads suspended in 100% isopropanol. 200µL of sample is pre-loaded into each well within a Kingfisher deep-well plate on the Opentrons magnetic module. The sample undergoes extraction with 2 ethanol washes. The eluate is then transferred to a full-skirted PCR plate along with PCR master-mix for further processing.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.15.0 or later)\nOpentrons Magnetic Module\nP20 Single Pipette\nP300 Multi-Channel Pipette\nOpentrons 96 Filter Tip Rack 20 µL\nOpentrons 96 Filter Tip Rack 200 µL\nOpentrons NEST 96 well plate 100ul PCR full skirt\nOpentrons NEST 12-Well Reservoir\nOpentrons 4-in-1 Tube Rack Set (24-tube insert)\n\n\n\nFor this protocol, be sure that the pipettes (P20 and P300) are attached.\nUsing the customization fields below, set up your protocol.\n Number of columns: Specify the number of columns of samples loaded onto the NEST deep well plate. Note that runs should only be completed in multiples of full columns (8 samples).\n Sample and lysis buffer mix repetitions: Specify the number of repetitions to mix the sample and lysis buffer as mentioned in Step 1 of the MAGBIO protocol\n Mix repetitions before first magnetic engage: Specify the number of mix repetitions to re-suspend the MAG-S1 particles before use (i.e. \"shake well\" in Step 3 of the MAGBIO protocol).\n Incubation time: Specify the amount of incubation time to allow RNA to bind to the beads\n Magnetic bead engagement time: Specify the amount of time to engage the magnet for every engagement in protocol\n Aspiration height from bottom of well (removing supernatant): Specify the height from the bottom of the well in which the pipette will aspirate from when removing supernatant.\n Multi_channel pipette aspiration flow rate (ul/s): Specify the aspiration flow rate\n Multi-channel pippette dispense flow rate (ul/s): Specify the dispense flow rate\n Distance from side of well opposite beads (1mm - 4.15mm): Specify the distance from the side of the well opposite the engaged magnetic beads to aspirate from. A value of 4.15mm returns the center of the well, with 1mm returning 1mm from the side of the well opposite the engaged beads.\n Bead drying time: Specify the amount of incubation time for the beads to dry at room temperature while magnetically engaged.\n Bead drying time (with nuclease free water): Specify the amount of time to to dry the beads at room temperature after adding nuclease free water.\n Nuclease water volume: Specify the amount of nuclease free water to add to the beads\n P20 single GEN2 mount: Specify which mount to load the P20 single GEN2 pipette.\n P300 multi GEN2 mount: Specify which mount to load the P300 multi GEN2 pipette.\nNote about 20µL tip racks\nWhen prompted to replace the 300ul tip racks, be sure to re-load all 3 tip racks as in the original configuration of the deck.\nLabware Setup\nSlots 1: Opentrons Magnetic Module with loaded NEST 96 2mL deep well plate. 200ul of viral sample pre-loaded into each well.\nSlot 2, 5: Opentrons 96 Filter Tip Rack 20 µL\nSlot 3, 6, 9: Opentrons 96 Filter Tip Rack 200 µL\nSlot 4: Opentrons NEST 12-Well Reservoir (empty)\nSlot 7: Opentrons 4-in-1 Tube Rack Set. Mastermix loaded into tubes A1, B1.\nSlot 8: Opentrons NEST 96 well plate 100ul PCR full skirt\nSlot 10: Opentrons NEST 12-Well Reservoir with ethanol loaded\nSlot 11: Opentrons NEST 12-Well Reservoir with CTL medium, isopropanol + beads, and nuclease free water loaded\nNote NEST 12-Well Reservoir with Reagents on Slot 11\nThe minimum volume of reagents in the NEST 12-Well Reservoir will be calculated dependent on the number of columns specified and displayed in the Opentrons app prior to beginning the run.  \nEthanol is loaded into all 12 wells on the Nest 12-well reservoir on Slot 10.\n\nCTL medium is loaded onto the first two wells, isopropanol + beads onto wells 4-7, and nuclease free water loaded onto well 12 of the Nest 12-Well reservoir on Slot 11.",
+  "tags": [
+    "5f7d18.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "RNA Extraction"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Minimum 13920ul of MagBio CTL medium in row A1 and 960ul in tube B1"
+    },
+    {
+      "action": "raw",
+      "text": "of the Nest 15mL reservoir on Slot 11."
+    },
+    {
+      "action": "raw",
+      "text": "Minimum 12240ul of isopropanol + magnetic bead mastermix is in"
+    },
+    {
+      "action": "raw",
+      "text": "each row from row A4 to row A7 of the nest 15mL reservoir on Slot 11."
+    },
+    {
+      "action": "raw",
+      "text": "Minimum 9600ul of nuclease free water in row 10 of the"
+    },
+    {
+      "action": "raw",
+      "text": "Nest 15mL reservoir on Slot 11."
+    },
+    {
+      "action": "raw",
+      "text": "Minimum 8000ul of ethanol for each row up to row 12 of the"
+    },
+    {
+      "action": "raw",
+      "text": "Nest 15mL reservoir on Slot 10."
+    },
+    {
+      "action": "raw",
+      "text": "Minimum 960ul of PCR mastermix in tube A1 and 960ul in tube B1"
+    },
+    {
+      "action": "raw",
+      "text": "of the Nest 15mL reservoir on Slot 11."
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 10
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "isoprop_beads_ext",
+        "sources": "lysis_buffer",
         "targets": "Liquid_1",
         "asp_vol": 133.33333333333334,
         "dis_vol": 133.33333333333334,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +873,278 @@
         "asp_vol": 166.66666666666666,
         "dis_vol": 166.66666666666666,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +1154,84 @@
         "asp_vol": 125.0,
         "dis_vol": 125.0,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -41,8 +1241,278 @@
         "asp_vol": 125.0,
         "dis_vol": 125.0,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +1522,89 @@
         "asp_vol": 125.0,
         "dis_vol": 125.0,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +1614,283 @@
         "asp_vol": 125.0,
         "dis_vol": 125.0,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        90.0,
+        90.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        96.0,
+        96.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +1900,84 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 96.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 96.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +1985,1647 @@
         "sources": "Liquid_4",
         "targets": "Liquid_5",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_vol": 20.0,
+        "asp_flow_rate": 7.5599999999999845,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": {
+          "slot": 2,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H4",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H5",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H6",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H7",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H8",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H9",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H10",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "D12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "F12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "G12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "H12",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -94,52 +3633,538 @@
         "sources": "Liquid_1",
         "targets": "Liquid_5",
         "asp_vol": 5.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_vol": 10.0,
+        "asp_flow_rate": 7.559999999999966,
+        "dis_flow_rate": 7.5599999999999845,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL on Magnetic Module GEN2"
     },
     "Liquid_2": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     },
     "Liquid_4": {
       "slot": 7,
       "well": [
-        "B1"
+        "A1"
       ],
       "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
     },
     "Liquid_5": {
       "slot": 8,
       "well": [
-        "D5"
+        "C11"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
     },
     "Liquid_3": {
       "slot": 10,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     },
-    "isoprop_beads_ext": {
+    "lysis_buffer": {
       "slot": 11,
       "well": [
-        "A6",
+        "A2",
         "A12"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
@@ -147,7 +4172,7 @@
     "nuc_free_water": {
       "slot": 11,
       "well": [
-        "A6",
+        "A2",
         "A12"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"

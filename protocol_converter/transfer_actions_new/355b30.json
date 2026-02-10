@@ -1,15 +1,51 @@
 {
+  "description": "This protocol uses single-channel pipettes to prepare a number of sample mixtures composed of a number of samples from a number of sample groups according to an input CSV file. User-determined parameters are available for selection of the left and right pipettes (none, p20 single, p300 single or p1000), pipetting mode (one pipette operating alone, two pipettes operating independently with all steps of one transfer being completed before any steps of the next transfer are started, or two pipettes multi-tasking with coordinated tip pickups, aspirations, dispenses, and tip drops), source and destination labware (see dropdown lists below), flow rates, and filtered or standard pipette tips. The pipette used for each transfer will be one with a volume range inclusive of the transfer volume (p20 for transfer volume 1-20 uL, p300 for 20-200 uL, p1000 for 100 - 1000 uL) or the next smaller pipette if the former is not available. If pipettes are selected that are not compatible with the volumes specified (10 uL transfer volume with p300 and p1000 pipettes for example), an error will be thrown to notify the user prior to the start of the OT-2 run. If the aspiration volume + air gap volume exceeds tip capacity the transfer will be divided into multiple transfers having equal volume.\nLinks:\n* example input csv",
+  "tags": [
+    "355b30.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '70'), ('Sample_Position', 'B2'), ('Sample_Slot', '1'), ('Final_Position', 'A1'), ('Final_Slot', '5')]) transfer"
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '2'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 42.5,
-        "dis_vol": 28.0,
+        "dis_vol": 42.5,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '70'), ('Sample_Position', 'B2'), ('Sample_Slot', '3'), ('Final_Position', 'A1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +53,19 @@
         "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '4'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -28,10 +73,19 @@
         "sources": "Liquid_5",
         "targets": "Liquid_2",
         "asp_vol": 42.5,
-        "dis_vol": 28.0,
+        "dis_vol": 42.5,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '105'), ('Sample_Position', 'A2'), ('Sample_Slot', '1'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +93,19 @@
         "sources": "loc_asp",
         "targets": "Liquid_4",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '37'), ('Sample_Position', 'B2'), ('Sample_Slot', '2'), ('Final_Position', 'A1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +113,19 @@
         "sources": "Liquid_6",
         "targets": "Liquid_4",
         "asp_vol": 60.0,
-        "dis_vol": 39.666666666666664,
+        "dis_vol": 60.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '3'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +133,19 @@
         "sources": "Liquid_7",
         "targets": "Liquid_2",
         "asp_vol": 26.0,
-        "dis_vol": 17.0,
+        "dis_vol": 26.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '37'), ('Sample_Position', 'A2'), ('Sample_Slot', '4'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -72,10 +153,19 @@
         "sources": "Liquid_8",
         "targets": "Liquid_4",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '1'), ('Final_Position', 'B2'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +173,19 @@
         "sources": "loc_asp",
         "targets": "Liquid_4",
         "asp_vol": 26.0,
-        "dis_vol": 17.0,
+        "dis_vol": 26.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "E1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '1'), ('Sample_Volume', '55'), ('Sample_Position', 'B2'), ('Sample_Slot', '2'), ('Final_Position', 'A2'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -94,10 +193,19 @@
         "sources": "Liquid_6",
         "targets": "Liquid_9",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '15'), ('Sample_Position', 'A1'), ('Sample_Slot', '3'), ('Final_Position', 'A1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -105,10 +213,19 @@
         "sources": "Liquid_7",
         "targets": "Liquid_10",
         "asp_vol": 35.0,
-        "dis_vol": 23.0,
+        "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "F1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '72'), ('Sample_Position', 'B1'), ('Sample_Slot', '4'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +233,19 @@
         "sources": "Liquid_11",
         "targets": "Liquid_2",
         "asp_vol": 8.0,
-        "dis_vol": 5.0,
+        "dis_vol": 8.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '17'), ('Sample_Position', 'A1'), ('Sample_Slot', '1'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +253,19 @@
         "sources": "Liquid_12",
         "targets": "Liquid_4",
         "asp_vol": 43.5,
-        "dis_vol": 28.666666666666668,
+        "dis_vol": 43.5,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "G1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '17'), ('Sample_Position', 'A1'), ('Sample_Slot', '2'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +273,19 @@
         "sources": "Liquid_13",
         "targets": "Liquid_4",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '25'), ('Sample_Position', 'A1'), ('Sample_Slot', '3'), ('Final_Position', 'B1'), ('Final_Slot', '5')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +293,19 @@
         "sources": "Liquid_14",
         "targets": "Liquid_4",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '17'), ('Sample_Position', 'A1'), ('Sample_Slot', '4'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -160,10 +313,19 @@
         "sources": "Liquid_11",
         "targets": "Liquid_4",
         "asp_vol": 20.0,
-        "dis_vol": 13.0,
+        "dis_vol": 20.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '17'), ('Sample_Position', 'B1'), ('Sample_Slot', '1'), ('Final_Position', 'A1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -171,10 +333,19 @@
         "sources": "Liquid_15",
         "targets": "loc_disp",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '2'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -182,10 +353,19 @@
         "sources": "Liquid_16",
         "targets": "Liquid_17",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '77'), ('Sample_Position', 'B2'), ('Sample_Slot', '3'), ('Final_Position', 'A2'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -193,10 +373,19 @@
         "sources": "Liquid_3",
         "targets": "loc_disp",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P300 Single-Channel GEN2 on right mount performing dict_items([('Sample_Group', '2'), ('Sample_Volume', '45'), ('Sample_Position', 'A2'), ('Sample_Slot', '4'), ('Final_Position', 'B2'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -204,10 +393,19 @@
         "sources": "Liquid_5",
         "targets": "Liquid_18",
         "asp_vol": 46.0,
-        "dis_vol": 30.333333333333332,
+        "dis_vol": 46.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '17'), ('Sample_Position', 'A2'), ('Sample_Slot', '1'), ('Final_Position', 'A1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -215,10 +413,19 @@
         "sources": "loc_asp",
         "targets": "Liquid_19",
         "asp_vol": 30.0,
-        "dis_vol": 19.666666666666668,
+        "dis_vol": 30.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 95.24000000000001
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "B2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '18'), ('Sample_Position', 'B1'), ('Sample_Slot', '2'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -226,10 +433,19 @@
         "sources": "Liquid_6",
         "targets": "Liquid_17",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '17'), ('Sample_Position', 'A3'), ('Sample_Slot', '3'), ('Final_Position', 'A1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -237,10 +453,19 @@
         "sources": "Liquid_20",
         "targets": "loc_disp",
         "asp_vol": 9.5,
-        "dis_vol": 6.0,
+        "dis_vol": 9.5,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '18'), ('Sample_Position', 'B1'), ('Sample_Slot', '4'), ('Final_Position', 'A1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -248,10 +473,19 @@
         "sources": "Liquid_21",
         "targets": "Liquid_17",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '17'), ('Sample_Position', 'A1'), ('Sample_Slot', '1'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -259,10 +493,19 @@
         "sources": "Liquid_12",
         "targets": "Liquid_17",
         "asp_vol": 9.5,
-        "dis_vol": 6.0,
+        "dis_vol": 9.5,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '18'), ('Sample_Position', 'A2'), ('Sample_Slot', '2'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -270,10 +513,19 @@
         "sources": "Liquid_13",
         "targets": "loc_disp",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '17'), ('Sample_Position', 'B1'), ('Sample_Slot', '3'), ('Final_Position', 'A1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -281,10 +533,19 @@
         "sources": "Liquid_3",
         "targets": "loc_disp",
         "asp_vol": 9.5,
-        "dis_vol": 6.0,
+        "dis_vol": 9.5,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H2"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "P20 Single-Channel GEN2 on left mount performing dict_items([('Sample_Group', '3'), ('Sample_Volume', '18'), ('Sample_Position', 'A2'), ('Sample_Slot', '4'), ('Final_Position', 'B1'), ('Final_Slot', '6')]) transfer"
     },
     {
       "action": "transfer_liquid",
@@ -292,9 +553,14 @@
         "sources": "Liquid_22",
         "targets": "Liquid_17",
         "asp_vol": 9.0,
-        "dis_vol": 5.666666666666667,
+        "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -303,9 +569,14 @@
         "sources": "loc_asp",
         "targets": "loc_disp",
         "asp_vol": 9.5,
-        "dis_vol": 6.0,
+        "dis_vol": 9.5,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B3"
+        }
       }
     }
   ],

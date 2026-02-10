@@ -1,4 +1,10 @@
 {
+  "description": "This protocol provides sample and reagents to 2 96 well plates according to the Luminex MagPlex® Microspheres kit. Column 1 of the source isopak 1 is dispensed into rows A, C, E, G of the destination plate 1 in columns 1 and 2. Column 2 of the source isopak is dispensed into rows A, C, E, G of the destination plate 1 in columns 3 and 4, etc. Column 1 of the source isopak 2 is dispensed into rows B, D, F, H of the destination plate 1 in columns 1 and 2, etc. This is then repeated for destination plate 2. Tips are removed from rows B, D, F, H of the tipracks on slot 10 and 11 to allow for the multi-channel pipette to access the isopaks. The tiprack on slot 9 should be a full tip rack.\nExplanation of complex parameters below:\n Sample Volume: Specify the sample volume to be replicated in microliters.\n Use middle two columns?: Specify whether using the middle two columns in source isopaks. See below for deck map if selected. If selected, the protocol will pause after the first 96 plate is filled to prompt the user to replace the alternate tip rack on slot 11.\n Antibody Volume: Specify the sample volume to be replicated in microliters.\n SA-PE Volume: Specify the SA-PE volume to be replicated in microliters.\n* P300 Mount: Specify which mount (left or right) to host the P300 Multi-Channel Pipette.",
+  "tags": [
+    "0e7175-pt2.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 300.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -61,9 +72,41 @@
         "sources": "Liquid_1",
         "targets": "beads",
         "asp_vol": 200.0,
-        "dis_vol": 66.33333333333333,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          }
+        ]
       }
     },
     {
@@ -72,9 +115,41 @@
         "sources": "Liquid_2",
         "targets": "Liquid_3",
         "asp_vol": 200.0,
-        "dis_vol": 66.33333333333333,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -83,20 +158,84 @@
         "sources": "Liquid_4",
         "targets": "beads",
         "asp_vol": 200.0,
-        "dis_vol": 66.33333333333333,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          }
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_5",
-        "targets": "Liquid_6",
+        "sources": "s_col",
+        "targets": "Liquid_5",
         "asp_vol": 200.0,
-        "dis_vol": 66.33333333333333,
+        "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 96.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -105,9 +244,14 @@
         "sources": "antibodies",
         "targets": "beads",
         "asp_vol": 60.0,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -116,9 +260,9 @@
         "sources": "antibodies",
         "targets": "beads",
         "asp_vol": 60.0,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
     },
     {
@@ -127,9 +271,14 @@
         "sources": "sape",
         "targets": "beads",
         "asp_vol": 75.0,
-        "dis_vol": 37.0,
+        "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -138,9 +287,9 @@
         "sources": "sape",
         "targets": "beads",
         "asp_vol": 75.0,
-        "dis_vol": 37.0,
+        "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
     }
   ],
@@ -148,7 +297,7 @@
     "beads": {
       "slot": 1,
       "well": [
-        "A4",
+        "A3",
         "B4"
       ],
       "labware": "Greiner 96 Well Plate 200 µL"
@@ -156,16 +305,16 @@
     "Liquid_3": {
       "slot": 1,
       "well": [
-        "A4",
+        "A3",
         "B4"
       ],
       "labware": "Greiner 96 Well Plate 200 µL"
     },
-    "Liquid_6": {
+    "Liquid_5": {
       "slot": 2,
       "well": [
-        "A1",
-        "B6"
+        "A2",
+        "B1"
       ],
       "labware": "Greiner 96 Well Plate 200 µL"
     },
@@ -190,7 +339,7 @@
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "Custom 24 Well Plate 2000 µL"
     },
@@ -204,14 +353,14 @@
     "Liquid_4": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "Custom 24 Well Plate 2000 µL"
     },
-    "Liquid_5": {
+    "s_col": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "Custom 24 Well Plate 2000 µL"
     }

@@ -1,14 +1,42 @@
 {
+  "description": "This protocol performs part 3/4 of the Illumina DNA Prep protocol: Amplify Tagmented DNA. The user is prompted to move plates and perform manual centrifugation, sealing, and thermocycling steps when necessary.\nLinks:\n\nTagment Genomic DNA\nPost Tagmentation Cleanup\nAmplify Tagmented DNA\nClean Up Libraries",
+  "tags": [
+    "3_amplify.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Illumina DNA Prep"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,9 +45,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -28,9 +61,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -39,9 +77,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -50,9 +93,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -61,9 +109,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -72,9 +125,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -83,9 +141,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -94,9 +157,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -105,9 +173,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -116,9 +189,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -127,10 +205,19 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 55.0,
-        "dis_vol": 49.5,
+        "dis_vol": 100.0,
         "asp_flow_rate": 4.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +227,277 @@
         "asp_vol": 25.0,
         "dis_vol": 40.0,
         "asp_flow_rate": 49.35,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        141.0,
+        141.0
+      ],
+      "mix_time": 30
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +505,335 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 40.0,
-        "dis_vol": 18.608695652173914,
+        "dis_vol": 40.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.1304347826087
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "raw",
+      "text": "Seal the plate with Microseal B, and then centrifuge at  280 × g for 30 seconds. 11 Place on the thermal cycler and run the BLT PCR program."
     },
     {
       "action": "transfer_liquid",
@@ -162,7 +843,69 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -170,7 +913,7 @@
     "indexes": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "index plate"
     },

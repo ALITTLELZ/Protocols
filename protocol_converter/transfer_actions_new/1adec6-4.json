@@ -1,5 +1,45 @@
 {
+  "description": "Updated\nThis protocol has been updated based on feedback from the user.\n\nThis protocol is part four of a larger workflow. The entire workflow can be found below\nPart 1: Small Molecule Library Prep\nPart 2: Seed Cells\nPart 3: Transfer Small Molecules\nPart 4: Transfer Small Molecules - CSV Input\nPart 5: Custom Supernatant Removal\nPart 6: ProcartaPlex Protocol-1\nPart 7: ProcartaPlex Protocol-2\n\nIn this protocol, a CSV is used to dictate the volume and destination of liquid transfers using the P20 Single-Channel Pipette (GEN2).\nExplanation of complex parameters below:\n P20 Mount: Select which mount the P20 Pipette is attached to.\n P20 Selection (Single or Multi): Select which pipette is used (please see note below)\n* Transfer CSV: Upload the CSV containing the liquid transfers. The CSV should be formatted as follows:\n\n| Source Well | Volume | Destination Well |\n| ----------- | ------ | ---------------- |\n| A1          | 3      | C2               |\n| A1          | 2      | B4               |\n| A2          | 5      | D7               |\nNote: If using the P20 Multi-Channel Pipette (GEN2), you should only use Row A when selecting a destination well in the CSV.",
+  "tags": [
+    "1adec6-4.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "Assay"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        15.0,
+        15.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo-Fast 96, Skirted PCR Plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "SPL Cell Culture Plate 96 Well Flat Bottom",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +48,19 @@
         "asp_vol": 4.0,
         "dis_vol": 4.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],

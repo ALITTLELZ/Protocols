@@ -1,15 +1,20 @@
 {
+  "description": "This protocol transfers a specified volume of developer solution into reservoir cartridges within a custom 216-well plate. The developer solution is aspirated from a Nest 195mL reservoir, then distributed to the 216-well plate down by column. Transfers are distributed in chunks of 3 between the reservoir and plate, with a delay and blow out step for viscous liquid considerations. Extra developer solution is aspirated to ensure that each cartridge receives adequate distribution.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.19.0 or later)\nOpentrons P300 Single-Channel Pipette\nOpentrons 96 Tip Rack 300 µL\nOpentrons 300µL Tips\nNest 1-Well Reservoir 195 mL\nInvoy 216-Well Cartridge Plate\nInvoy Canisters with Fibrous Reservoir\n\n\n\nSlots 1, 2, 4, 5, 7, 8, 10, 11: Invoy 216-Well Cartridge Plate\nSlot 6: Opentrons 96 Tip Rack 300 µL\nSlot 9: Nest 1-Well Reservoir 195 mL\n\n\nUsing the customizations field (below), set up your protocol.\n Number of Samples: Specify the number of samples in your protocol run.\n Dispense Height Above Cartridge: Specify the height (mm) above the cartridge the pipette will dispense liquid\n Dispense Volume: Specify the volume (µL) of developer solution dispensed into each cartridge\n Dispense Flow Rate: Specify the rate (µL/sec) at which the pipette will aspirate solution into each cartridge\n Dispense Flow Rate: Specify the rate (µL/sec) at which the pipette will dispense solution into each cartridge\n Aspirate Delay Time: Specify the time to delay after each aspiration (in seconds)\n Dispense Delay Time: Specify the time to delay after each dispense (in seconds)\n P300 Single GEN2 Mount: Specify the mount side for the P300 Single GEN2 pipette",
+  "tags": [
+    "7f0f89.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
-        "asp_vol": 100.0,
-        "dis_vol": 33.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +22,25 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -28,10 +48,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +69,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +90,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +111,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -72,10 +132,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +153,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -94,10 +174,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -105,10 +195,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +216,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +237,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +258,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +279,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -160,10 +300,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -171,10 +321,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -182,10 +342,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -193,10 +363,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -204,10 +384,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -215,10 +405,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -226,10 +426,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -237,10 +447,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -248,10 +468,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -259,10 +489,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -270,10 +510,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -281,10 +531,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -292,10 +552,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -303,10 +573,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -314,10 +594,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -325,10 +615,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -336,10 +636,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -347,10 +657,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -358,10 +678,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -369,10 +699,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -380,10 +720,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -391,10 +741,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -402,10 +762,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -413,10 +783,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -424,10 +804,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -435,10 +825,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -446,10 +846,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -457,10 +867,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -468,10 +888,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -479,10 +909,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -490,10 +930,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -501,10 +951,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -512,10 +972,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -523,10 +993,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -534,10 +1014,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -545,10 +1035,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -556,10 +1056,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -567,10 +1077,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -578,10 +1098,20 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
     },
     {
       "action": "transfer_liquid",
@@ -589,9 +1119,30 @@
         "sources": "Liquid_1",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
-        "dis_vol": 33.0,
+        "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 46.666666666666664
+        "dis_flow_rate": 20.0
+      }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
+        "asp_vol": 100.0,
+        "dis_vol": 50.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 20.0
       }
     }
   ],

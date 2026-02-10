@@ -1,5 +1,21 @@
 {
+  "description": "This titration protocol utilizes a custom labware definition (beaker + stir plate) for use on the OT-2.\nThe P1000 Pipette (attached to the right mount) will pick up a tip from the tip rack located in slot 11. For each tube in the Opentrons Tube Rack (located in slot 9), the pipette will transfer 2mL to the beaker in slot 4, wait a predetermined amount of time, then transfer 2mL from the beaker in slot 4 to the beaker in slot 8.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.15.0 or later)\nOpentrons P1000 Single-Channel Pipette\nOpentrons 1000µL Tips\nOpentrons 4-in-1 Tube Rack Set, 6x50mL Top\n50mL Conical Tubes\nCustom Beaker + Stir Plate\nReagents\n\n\n\nSlot 4: Custom Beaker + Stir Plate\nSlot 8: Custom Beaker + Stir Plate (Waste Container)\nSlot 9: Opentrons 4-in-1 Tube Rack Set, 6x50mL Top with 50mL Conical Tubes containing reagents\n The P1000 will aspirate liquid from the bottom of the tube, so do not overfill the tube to ensure the pipette does not submerge itself in liquid.\nSlot 11: Opentrons 1000µL Tips",
+  "tags": [
+    "422b1e.ot2.apiv2.py",
+    "Titration",
+    "Custom Titration"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +24,12 @@
         "asp_vol": 1000.0,
         "dis_vol": 1000.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -21,6 +42,16 @@
         "asp_flow_rate": 137.35,
         "dis_flow_rate": 137.35
       }
+    },
+    {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -45,6 +76,16 @@
       }
     },
     {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tubes_3",
@@ -65,6 +106,16 @@
         "asp_flow_rate": 137.35,
         "dis_flow_rate": 137.35
       }
+    },
+    {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -89,6 +140,16 @@
       }
     },
     {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tubes_5",
@@ -109,6 +170,16 @@
         "asp_flow_rate": 137.35,
         "dis_flow_rate": 137.35
       }
+    },
+    {
+      "action": "delay",
+      "minutes": null,
+      "seconds": null
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",

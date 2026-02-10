@@ -1,14 +1,32 @@
 {
+  "description": "This protocols preps a 384 plate for qPCR processing. 1-14 samples can be selected. If running less than 14 samples, the protocol will pick up the correct number of tips (less than 8) to dispense across all columns in the 384 well plate. Tips are exchanged per source column in the 96 well plate.\nExplanation of complex parameters below:\n Tip pickup starting column (1-12): Specify which column (1-12) of the tiprack to start picking up tips. If \"3\" is selected, then the tip pickup will start on column 3 of the tip rack. Please ensure the starting tip column and the following tip column are full (16 tips between the selected column and the column after).\n P20 Multi-Channel Pipette Mount: Specify which mount (left or right) to host the P20 Multi-Channel pipette.",
+  "tags": [
+    "2d7d86.ot2.apiv2.py",
+    "PCR",
+    "qpcr setup"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "dest",
+        "targets": "Liquid_2",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.600000000000004,
+        "dis_flow_rate": 7.600000000000004,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          }
+        ]
       }
     }
   ],
@@ -16,14 +34,14 @@
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "A2"
+        "A1"
       ],
       "labware": "Thermofisher Scientific Deepwell 96 Well Plate 2000 µL"
     },
-    "dest": {
+    "Liquid_2": {
       "slot": 5,
       "well": [
-        "B24"
+        "A19"
       ],
       "labware": "Thermofisher 384 Well Plate 50 µL"
     }

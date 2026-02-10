@@ -1,4 +1,10 @@
 {
+  "description": "This protocol automates PCR setups using a CSV file. Slots 2, 5, 8, and 11 are reserved for input tube racks. Slot 6 is reserved for a 384 well PCR plate and slot 9 is reserved for a 96 well PCR plate. The rest of the slots are reserved for tips.\n\nUpdate (Jan 13, 2021): A fix was added that was preventing use of slots 5, 8, and 11.\nCustomize the PCR setup CSV and upload it to get a custom protocol. Template CSV can be found here.\n\n\n\nOpentrons P20-single channel electronic pipettes (GEN2)\nOpentrons 20ul Filter Tips\nOpentrons 4-in-1 Tube Rack Set\n384 or 96 well PCR plate",
+  "tags": [
+    "3fb582.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,29 @@
         "asp_vol": 6.5,
         "dis_vol": 6.5,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          }
+        ]
       }
     }
   ],
@@ -16,7 +44,7 @@
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
     },

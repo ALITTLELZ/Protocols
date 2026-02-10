@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs a custom sample normalization from a source PCR plate to a second PCR plate, diluting with water from a reservoir. Sample and diluent volumes are specified via .csv file in the following format, including the header line (empty lines ignored):\nsource plate well,destination plate well,volume sample (µl),volume diluent (µl)\nA1, A1, 2, 28\nYou can download an example .csv to edit directly here.\n\n\n\nBio-Rad 96 Well Plate 200 µL PCR\nNEST 1-channel reservoir 195ml\nOpentrons 10µl and 300µl tipracks\nOpentrons P10 and P300 GEN1 pipettes\n\n\n\nNEST 1-channel reservoir (slot 1)\n* channel 1: water for dilution",
+  "tags": [
+    "ML-normalization.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,9 +28,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_3",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B1"
+        }
       }
     },
     {
@@ -28,9 +44,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_4",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C1"
+        }
       }
     },
     {
@@ -39,9 +60,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_5",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D1"
+        }
       }
     },
     {
@@ -50,9 +76,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_6",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E1"
+        }
       }
     },
     {
@@ -61,9 +92,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_7",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F1"
+        }
       }
     },
     {
@@ -72,9 +108,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_8",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G1"
+        }
       }
     },
     {
@@ -83,9 +124,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_9",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H1"
+        }
       }
     },
     {
@@ -94,9 +140,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_10",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A2"
+        }
       }
     },
     {
@@ -105,9 +156,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_11",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B2"
+        }
       }
     },
     {
@@ -116,9 +172,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_12",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C2"
+        }
       }
     },
     {
@@ -127,9 +188,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_13",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D2"
+        }
       }
     },
     {
@@ -138,9 +204,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_14",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E2"
+        }
       }
     },
     {
@@ -149,9 +220,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_15",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F2"
+        }
       }
     },
     {
@@ -160,9 +236,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_16",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G2"
+        }
       }
     },
     {
@@ -171,9 +252,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_17",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H2"
+        }
       }
     },
     {
@@ -182,9 +268,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_18",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A3"
+        }
       }
     },
     {
@@ -193,9 +284,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_19",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B3"
+        }
       }
     },
     {
@@ -204,9 +300,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_20",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C3"
+        }
       }
     },
     {
@@ -215,9 +316,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_21",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D3"
+        }
       }
     },
     {
@@ -226,9 +332,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_22",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E3"
+        }
       }
     },
     {
@@ -237,9 +348,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_23",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F3"
+        }
       }
     },
     {
@@ -248,9 +364,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_24",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G3"
+        }
       }
     },
     {
@@ -259,9 +380,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_25",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H3"
+        }
       }
     },
     {
@@ -270,9 +396,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_26",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A4"
+        }
       }
     },
     {
@@ -281,9 +412,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_27",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B4"
+        }
       }
     },
     {
@@ -292,9 +428,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_28",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C4"
+        }
       }
     },
     {
@@ -303,9 +444,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_29",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D4"
+        }
       }
     },
     {
@@ -314,9 +460,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_30",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E4"
+        }
       }
     },
     {
@@ -325,9 +476,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_31",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F4"
+        }
       }
     },
     {
@@ -336,9 +492,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_32",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G4"
+        }
       }
     },
     {
@@ -347,9 +508,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_33",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H4"
+        }
       }
     },
     {
@@ -358,9 +524,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_34",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A5"
+        }
       }
     },
     {
@@ -369,9 +540,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_35",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B5"
+        }
       }
     },
     {
@@ -380,9 +556,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_36",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C5"
+        }
       }
     },
     {
@@ -391,9 +572,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_37",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D5"
+        }
       }
     },
     {
@@ -402,9 +588,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_38",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E5"
+        }
       }
     },
     {
@@ -413,9 +604,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_39",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F5"
+        }
       }
     },
     {
@@ -424,9 +620,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_40",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G5"
+        }
       }
     },
     {
@@ -435,9 +636,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_41",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H5"
+        }
       }
     },
     {
@@ -446,9 +652,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_42",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A6"
+        }
       }
     },
     {
@@ -457,9 +668,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_43",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B6"
+        }
       }
     },
     {
@@ -468,9 +684,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_44",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C6"
+        }
       }
     },
     {
@@ -479,9 +700,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_45",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D6"
+        }
       }
     },
     {
@@ -490,9 +716,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_46",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E6"
+        }
       }
     },
     {
@@ -501,9 +732,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_47",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F6"
+        }
       }
     },
     {
@@ -512,9 +748,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_48",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G6"
+        }
       }
     },
     {
@@ -523,9 +764,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_49",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H6"
+        }
       }
     },
     {
@@ -534,9 +780,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_50",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A7"
+        }
       }
     },
     {
@@ -545,9 +796,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_51",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B7"
+        }
       }
     },
     {
@@ -556,9 +812,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_52",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C7"
+        }
       }
     },
     {
@@ -567,9 +828,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_53",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D7"
+        }
       }
     },
     {
@@ -578,9 +844,14 @@
         "sources": "Liquid_54",
         "targets": "Liquid_55",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E7"
+        }
       }
     },
     {
@@ -589,9 +860,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_56",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F7"
+        }
       }
     },
     {
@@ -600,9 +876,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_57",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G7"
+        }
       }
     },
     {
@@ -611,9 +892,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_58",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H7"
+        }
       }
     },
     {
@@ -622,9 +908,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_59",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A8"
+        }
       }
     },
     {
@@ -633,9 +924,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_60",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B8"
+        }
       }
     },
     {
@@ -644,9 +940,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_61",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C8"
+        }
       }
     },
     {
@@ -655,9 +956,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_62",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D8"
+        }
       }
     },
     {
@@ -666,9 +972,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_63",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E8"
+        }
       }
     },
     {
@@ -677,9 +988,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_64",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F8"
+        }
       }
     },
     {
@@ -688,9 +1004,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_65",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G8"
+        }
       }
     },
     {
@@ -699,9 +1020,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_66",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H8"
+        }
       }
     },
     {
@@ -710,9 +1036,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_67",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A9"
+        }
       }
     },
     {
@@ -721,9 +1052,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_68",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B9"
+        }
       }
     },
     {
@@ -732,9 +1068,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_69",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C9"
+        }
       }
     },
     {
@@ -743,9 +1084,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_70",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D9"
+        }
       }
     },
     {
@@ -754,9 +1100,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_71",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E9"
+        }
       }
     },
     {
@@ -765,9 +1116,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_72",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F9"
+        }
       }
     },
     {
@@ -776,9 +1132,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_73",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G9"
+        }
       }
     },
     {
@@ -787,9 +1148,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_74",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H9"
+        }
       }
     },
     {
@@ -798,9 +1164,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_75",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A10"
+        }
       }
     },
     {
@@ -809,9 +1180,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_76",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B10"
+        }
       }
     },
     {
@@ -820,9 +1196,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_77",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C10"
+        }
       }
     },
     {
@@ -831,9 +1212,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_78",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D10"
+        }
       }
     },
     {
@@ -842,9 +1228,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_79",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E10"
+        }
       }
     },
     {
@@ -853,9 +1244,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_80",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F10"
+        }
       }
     },
     {
@@ -864,9 +1260,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_81",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G10"
+        }
       }
     },
     {
@@ -875,9 +1276,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_82",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H10"
+        }
       }
     },
     {
@@ -886,9 +1292,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_83",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A11"
+        }
       }
     },
     {
@@ -897,9 +1308,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_84",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B11"
+        }
       }
     },
     {
@@ -908,9 +1324,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_85",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C11"
+        }
       }
     },
     {
@@ -919,9 +1340,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_86",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D11"
+        }
       }
     },
     {
@@ -930,9 +1356,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_87",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E11"
+        }
       }
     },
     {
@@ -941,9 +1372,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_88",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F11"
+        }
       }
     },
     {
@@ -952,9 +1388,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_89",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G11"
+        }
       }
     },
     {
@@ -963,9 +1404,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_90",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H11"
+        }
       }
     },
     {
@@ -974,9 +1420,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_91",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "A12"
+        }
       }
     },
     {
@@ -985,9 +1436,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_92",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "B12"
+        }
       }
     },
     {
@@ -996,9 +1452,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_93",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "C12"
+        }
       }
     },
     {
@@ -1007,9 +1468,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_94",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "D12"
+        }
       }
     },
     {
@@ -1018,9 +1484,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_95",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "E12"
+        }
       }
     },
     {
@@ -1029,9 +1500,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_96",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "F12"
+        }
       }
     },
     {
@@ -1040,9 +1516,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_97",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "G12"
+        }
       }
     },
     {
@@ -1051,9 +1532,14 @@
         "sources": "Liquid_1",
         "targets": "d",
         "asp_vol": 15.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "300ul tiprack",
+          "well": "H12"
+        }
       }
     }
   ],

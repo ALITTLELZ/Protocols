@@ -1,4 +1,10 @@
 {
+  "description": "This protocol preps a 384 well plate with 5ul from (4) 96 deep well plates as the source. Deepwell plates should be placed in order of slot 4, 1, 5, 2 as sample number increases, with tips placed in order of slot 10, 7, 11, and 8. Samples in Plate 1 on slot 4 are completely transferred before moving onto Plate 2 on slot 1, so on and so forth. Plate 1 (slot 4) is dispensed into A1-A23 of the 384 plate, Plate 2 (slot 1) -> B1-B23 of the 384 plate, Plate 3 (slot 5) -> A2-A24 of the 384 plate, Plate 4 (slot 2) -> B2-B24 of the 384 plate. Negative and positive controls should be pre-loaded into O24 and P24 of the 384 well plate, and thus G12 and H12 of the Plate 4 on slot 2 should be empty.\nExplanation of complex parameters below:\n Number of Samples (1-382): Specify number of samples for this run. Negative and positive controls are always in O24 and P24 of the 384 plate, and so samples should not be placed in G12 and H12 of plate 4 on slot 2.\n P20 Mount: Specify which mount (left or right) to host the P20 multi-channel pipette.",
+  "tags": [
+    "0a33e8.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,71 @@
         "sources": "samples",
         "targets": "final_map",
         "asp_vol": 5.0,
-        "dis_vol": 2.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 3.7999999999999994,
-        "dis_flow_rate": 51.9
+        "dis_flow_rate": 3.7999999999999994,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -17,9 +85,71 @@
         "sources": "samples_2",
         "targets": "final_map_2",
         "asp_vol": 5.0,
-        "dis_vol": 2.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 3.7999999999999994,
-        "dis_flow_rate": 51.9
+        "dis_flow_rate": 3.7999999999999994,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -28,9 +158,71 @@
         "sources": "samples_3",
         "targets": "final_map_3",
         "asp_vol": 5.0,
-        "dis_vol": 2.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 3.7999999999999994,
-        "dis_flow_rate": 51.9
+        "dis_flow_rate": 3.7999999999999994,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -39,9 +231,71 @@
         "sources": "samples_4",
         "targets": "final_map_4",
         "asp_vol": 5.0,
-        "dis_vol": 2.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 3.7999999999999994,
-        "dis_flow_rate": 51.9
+        "dis_flow_rate": 3.7999999999999994,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -49,68 +303,68 @@
     "samples_2": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "Kingfisher 96 Well Plate 2000 µL"
     },
     "samples_4": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Kingfisher 96 Well Plate 2000 µL"
     },
     "final_map": {
       "slot": 3,
       "well": [
-        "A19",
-        "B21",
-        "A10",
-        "B12"
+        "A17",
+        "B9",
+        "A6",
+        "B24"
       ],
       "labware": "Thermofisher 384 Well Plate 50 µL"
     },
     "final_map_2": {
       "slot": 3,
       "well": [
-        "A19",
-        "B21",
-        "A10",
-        "B12"
+        "A17",
+        "B9",
+        "A6",
+        "B24"
       ],
       "labware": "Thermofisher 384 Well Plate 50 µL"
     },
     "final_map_3": {
       "slot": 3,
       "well": [
-        "A19",
-        "B21",
-        "A10",
-        "B12"
+        "A17",
+        "B9",
+        "A6",
+        "B24"
       ],
       "labware": "Thermofisher 384 Well Plate 50 µL"
     },
     "final_map_4": {
       "slot": 3,
       "well": [
-        "A19",
-        "B21",
-        "A10",
-        "B12"
+        "A17",
+        "B9",
+        "A6",
+        "B24"
       ],
       "labware": "Thermofisher 384 Well Plate 50 µL"
     },
     "samples": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "Kingfisher 96 Well Plate 2000 µL"
     },
     "samples_3": {
       "slot": 5,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "Kingfisher 96 Well Plate 2000 µL"
     }

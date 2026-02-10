@@ -1,14 +1,42 @@
 {
+  "description": "This protocol performs transfers of reagents for the Promega ADP-Glo Kinase Assay. It will transfer four different liquids into the test wells with pauses for centrifugation and incubations in between transfers.\n\n\n\nP20 single-channel GEN2 electronic pipette\nGreiner Microplate 384 Wells\n\n\n\nDeck Setup\n Greiner 384 Well Plate (Slot 1)\n Opentrons 20uL Tips (Slot 2)\n* Opentrons 24 Tube Rack 1.5mL Tubes (Slot 4)\nReagent Setup: Opentrons 24 Tube Rack 1.5mL Tubes (Slot 4):\n Liquid A (A1)\n Liquid B (B1)\n Liquid C (C1)\n Liquid D (D1)",
+  "tags": [
+    "58d57d.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "liquid_B",
+        "sources": "liquid_A",
         "targets": "sample_wells",
         "asp_vol": 4.75,
         "dis_vol": 4.75,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.559999999999975,
+        "dis_flow_rate": 7.559999999999975,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          }
+        ]
       }
     }
   ],
@@ -16,14 +44,14 @@
     "sample_wells": {
       "slot": 1,
       "well": [
-        "C5"
+        "P6"
       ],
       "labware": "Greiner 384 Well Plate 130 µL"
     },
-    "liquid_B": {
+    "liquid_A": {
       "slot": 4,
       "well": [
-        "B1"
+        "A1"
       ],
       "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
     }

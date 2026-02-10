@@ -1,22 +1,60 @@
 {
+  "description": "This protocol performs a sample consolidation from .csv file on up to 23 1.5ml snapcap tubes on a 4x6 Opentrons tuberack. All tubes are consolidated into the tube occupying A1 on the rack. The input file should be organized in the following way including header line:\nSample #,Position,Sample ID,Amt Lib (ul),Total Vol. (ul)\n1,A02,GMS,2,131.8\n2,A03,MCS,2.44,\n3,A04,DCS,3.05,\n4,A05,Log Dist,12.45,\n5,A06,NC_NC,15,\n6,B01,NC_Mg,15,\n7,B02,NC_Et,15,\n8,B03,NT_01a,3.83,\n...\nEmpty lines are ignored.\n\n\n\nOpentrons tuberack with 4x6 insert for 1.5ml snapcap tubes\nOpentrons P20 GEN2 single-channel electronic pipette\nOpentrons 20µl tipracks\nVWR 5ml tubes seated in Opentrons 3x5 tuberack",
+  "tags": [
+    "cherrypick.ot2.apiv2.py",
+    "Sample Prep",
+    "Consolidation"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "source",
         "targets": "destination_tube",
         "asp_vol": 3.7744444444444443,
         "dis_vol": 11.323333333333332,
-        "asp_flow_rate": 3.7799999999999994,
-        "dis_flow_rate": 3.78
+        "asp_flow_rate": 3.7800000000000002,
+        "dis_flow_rate": 3.78,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "C1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "D1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "E1"
+          },
+          {
+            "slot": 1,
+            "type": "20ul tiprack",
+            "well": "F1"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "Liquid_1": {
+    "source": {
       "slot": 2,
       "well": [
-        "A5",
+        "B1",
         "A1"
       ],
       "labware": "1.5ml tuberack"
@@ -24,7 +62,7 @@
     "destination_tube": {
       "slot": 2,
       "well": [
-        "A5",
+        "B1",
         "A1"
       ],
       "labware": "1.5ml tuberack"

@@ -1,937 +1,2094 @@
 {
+  "description": "Links:\n Part 1\n Part 2\nThis is Part 1/2 of the Swift Normalase Amplicon Panels (SNAP) Size Selection and Cleanup protocol.\nLysed samples should be loaded on the magnetic module in a Bio-Rad 96-well PCR plate.\nExplanation of complex parameters below:\n park tips: If set to yes (recommended), the protocol will conserve tips between reagent addition and removal. Tips will be stored in the wells of an empty rack corresponding to the well of the sample that they access (tip parked in A1 of the empty rack will only be used for sample A1, tip parked in B1 only used for sample B1, etc.). If set to no, tips will always be used only once, and the user will be prompted to manually refill tipracks mid-protocol for high throughput runs.\n track tips across protocol runs: If set to yes, tip racks will be assumed to be in the same state that they were in the previous run. For example, if one completed protocol run accessed tips through column 5 of the 3rd tiprack, the next run will access tips starting at column 6 of the 3rd tiprack. If set to no, tips will be picked up from column 1 of the 1st tiprack.\n* flash: If set to yes, the robot rail lights will flash during any automatic pauses in the protocol. If set to no, the lights will not flash.",
+  "tags": [
+    "extraction.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Swift Normalase Amplicon Panels (SNAP)"
+  ],
   "workflow": [
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
-        "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
-      }
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_2",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_3",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_4",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_5",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_6",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_7",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_8",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_9",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_10",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "targets": "mag_samples_m_11",
         "asp_vol": 30.0,
-        "dis_vol": 9.333333333333334,
+        "dis_vol": 30.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 116.66666666666667
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        30.0,
+        30.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir",
+        "slot": 5
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        28.5,
+        28.5
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
+        "targets": "mag_samples_m_12",
+        "asp_vol": 30.0,
+        "dis_vol": 30.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 36.666666666666664,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_3",
+        "targets": "mag_samples_m_3",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_4",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_6",
+        "targets": "mag_samples_m_6",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_7",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_8",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_10",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_11",
+        "targets": "mag_samples_m_11",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 32.833333333333336,
-        "dis_vol": 38.75,
+        "dis_vol": 78.5,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 2,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m_2",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_3",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_4",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_5",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_6",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_6",
+        "targets": "mag_samples_m_7",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_8",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_9",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_10",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_11",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_11",
+        "targets": "mag_samples_m",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_4",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_6",
+        "targets": "mag_samples_m_6",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_7",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_8",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_10",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_11",
+        "targets": "mag_samples_m_11",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m_2",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_4",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_5",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_6",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_6",
+        "targets": "mag_samples_m_7",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_8",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_9",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_10",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_11",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_11",
+        "targets": "mag_samples_m",
         "asp_vol": 73.33333333333333,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_2",
+        "targets": "mag_samples_m_2",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_4",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_6",
+        "targets": "mag_samples_m_6",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_7",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_8",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_10",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_11",
+        "targets": "mag_samples_m_11",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 74.0,
-        "dis_vol": 100.5,
+        "dis_vol": 202.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "tiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 18.8,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m_2",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m_2",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m_4",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_4",
+        "targets": "mag_samples_m_5",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_6",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_7",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_8",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_8",
+        "targets": "mag_samples_m_9",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_10",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m_11",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "binding_buffer",
-        "targets": "binding_buffer",
+        "sources": "mag_samples_m_10",
+        "targets": "mag_samples_m",
         "asp_vol": 18.7,
         "dis_vol": 17.4,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 1,
+          "type": "20ul filtertiprack",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        13.92,
+        13.92
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "PCR plate on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "raw",
+      "text": "Proceed to the Indexing PCR step."
     }
   ],
   "reagent": {
-    "binding_buffer": {
+    "mag_samples_m": {
       "slot": 4,
       "well": [
-        "A1"
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
       ],
       "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "mag_samples_m_4": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "mag_samples_m_5": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "mag_samples_m_8": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "mag_samples_m_9": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "mag_samples_m_10": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A8",
+        "A9",
+        "A10"
+      ],
+      "labware": "PCR plate on Magnetic Module GEN2"
+    },
+    "binding_buffer": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "labware": "reagent reservoir"
+    },
+    "mag_samples_m_11": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "labware": "reagent reservoir"
     }
   }
 }

@@ -1,14 +1,29 @@
 {
+  "description": "This protocol performs a custom sample normalization from a source PCR plate to a second PCR plate, diluting with water from a reservoir. Sample and diluent volumes are specified via .csv file in the following format, including the header line (empty lines ignored):\nsource plate well,destination plate well,volume sample (µl),volume diluent (µl)\nA1, A1, 2, 28\nYou can download an example .csv to edit directly here.\n\n\n\nEppendorf™ 96-Well twin.tec™ PCR Plate 250µl\nNEST 12-channel reservoir 15ml or USA Scientific 12 Well Reservoir 22 mL\nOpentrons 20µl and 300µl tipracks\nOpentrons P20 and P300 GEN2 single-channel pipettes\n\n\n\nNEST 12-channel reservoir (slot 1)\n* channel 1: water for dilution",
+  "tags": [
+    "normalization.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 101.5,
-        "dis_vol": 50.25,
+        "dis_vol": 101.5,
         "asp_flow_rate": 75.0,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 6,
+          "type": "300ul tiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,9 +32,14 @@
         "sources": "Liquid_3",
         "targets": "Liquid_2",
         "asp_vol": 5.0,
-        "dis_vol": 2.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "20ul tiprack",
+          "well": "A1"
+        }
       }
     }
   ],
@@ -34,7 +54,7 @@
     "Liquid_2": {
       "slot": 2,
       "well": [
-        "A1"
+        "B1"
       ],
       "labware": "destination plate"
     },

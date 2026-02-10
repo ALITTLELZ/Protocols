@@ -1,5 +1,19 @@
 {
+  "description": "This protocol adds barcode primers and master mix to samples to prepare for PCR enrichment as outlined in the NEBNext Ultra II Directional RNA Library Prep Kit",
+  "tags": [
+    "00f7b1_part9.ot2.apiv2.py",
+    "NGS Library Prep",
+    "NEBNext Ultra II Directional RNA Library Prep Kit for Illumina"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +22,29 @@
         "asp_vol": 25.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 47.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          }
+        ]
       }
     },
     {
@@ -19,7 +55,12 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 3.8,
-        "dis_flow_rate": 3.8
+        "dis_flow_rate": 3.8,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -30,7 +71,12 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 3.8,
-        "dis_flow_rate": 3.8
+        "dis_flow_rate": 3.8,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -41,8 +87,81 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 3.8,
-        "dis_flow_rate": 3.8
+        "dis_flow_rate": 3.8,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -52,7 +171,34 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 3.8,
-        "dis_flow_rate": 3.8
+        "dis_flow_rate": 3.8,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],

@@ -1,14 +1,86 @@
 {
+  "description": "This protocol performs a custom pooling and consolidation protocol from a 96-well PCR plate to an 8-tube strip, and then from the strip to a microcentrifuge tube.\n\n\n\nEppendorf twin.tec 96-well PCR plate 200ul seated in aluminum block\nUSA Scientific 12x8-tube strips 300ul seated in aluminum block\n1.5ml Eppendorf safelock snapcap microcentrifuge tube seated in Opentrons 4-in-1 tuberack with 4x6 microcentrifuge tube insert\nOpentrons GEN1 P10-single channel electronic pipette\nOpentrons GEN1 P300-single channel electronic pipette\nOpentrons 10ul filter tip rack\nOpentrons 200ul filter tip rack\n\n\n\nseated 8-tube strips (slot 2)\n* strip 1: 8-tube strip for initial transfers from PCR plate\n4x6 insert on Opentrons tuberack (slot 3)\n* tube A1: tube for pooling",
+  "tags": [
+    "pooling.ot2.apiv2.py",
+    "Sample Prep",
+    "Consolidation"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Consolidating 24.0 from A1 of strips in insert on 2 to A1 of 1.5ml tuberack on 3"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "strip",
         "asp_vol": 2.0,
-        "dis_vol": 1.5,
+        "dis_vol": 4.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 55.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A2"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A7"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A8"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A9"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A10"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A11"
+          },
+          {
+            "slot": 4,
+            "type": "10ul tiprack",
+            "well": "A12"
+          }
+        ]
       }
     },
     {
@@ -17,9 +89,14 @@
         "sources": "strip",
         "targets": "pool",
         "asp_vol": 24.0,
-        "dis_vol": 95.5,
+        "dis_vol": 192.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 5,
+          "type": "300ul tiprack",
+          "well": "A1"
+        }
       }
     }
   ],
@@ -27,7 +104,7 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "96-well plate in insert"
     },

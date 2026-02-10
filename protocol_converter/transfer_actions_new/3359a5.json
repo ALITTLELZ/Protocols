@@ -1,4 +1,10 @@
 {
+  "description": "With this protocol, your robot can perform multiple well-to-well liquid transfers using a single-channel pipette by parsing through a user-defined .csv file. The protocol can use Opentrons GEN1 or GEN2 pipettes.\nThis particular cherrypicking protocol  allows you to specify the source plate labware and slot number, as well as the aspiration height above the bottom of the well (in mm). Appropriate tip racks will be placed in every slot that isn't already populated with a source or destination labware.\nExplanation of complex parameters below:\n Pipette Type: Specify which single channel pipette you will be using for this protocol.\n input .csv file: Here, you should upload a .csv file formatted in the following way being sure to include the header line. Refer to our Labware Library to copy API names for labware to include in the source_labware and destination_labware columns of the .csv.",
+  "tags": [
+    "cherrypicking.ot2.apiv2.py",
+    "Featured",
+    "Cherrypicking"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 1.0,
         "dis_vol": 1.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 3.0,
         "dis_vol": 3.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -30,7 +46,12 @@
         "asp_vol": 7.0,
         "dis_vol": 7.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
     }
   ],

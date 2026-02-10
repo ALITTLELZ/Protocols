@@ -1,5 +1,95 @@
 {
+  "description": "This protocol performs beta-testing steps of the Opentrons Heater Shaker Module with user-determined parameters for selection of the target temperature of the heater shaker (37-95 degrees Celsius), the target shaking speed (recommended 200-2000 rpm although it is possible to go up to 3000 rpm), duration of time for shaking (minutes), n (dispense to every nth column of the heater shaker labware - to save run-time), the labware on the heater shaker (five options listed in the protocol parameters section of the python script), the source labware (a well plate or reservoir from the Opentrons Labware Library - see list in protocol parameters section of the python script), the destination labware (a well plate or reservoir from the Opentrons Labware Library - see list in protocol parameters section of the python script), the transfer volume, and the pipette to be used (any single- or multi-channel pipette). The beta-test protocol will open and close the heater shaker latch and report latch status to the log, set target temperature and proceed without waiting, report the current temperature to the log, report the selected target wells to the log, perform liquid transfers from the source labware to the heater shaker labware, wait to ensure the previously set temperature has been reached, start shaking and capture the start time, perform a pipette mix in the destination labware to demo a pipetting step NOT targeting the heater shaker but occurring during the timed shake, wait until the shake time has elapsed, stop shaking and report current rpm to the log, perform liquid transfer of 80 percent of the previously-dispensed volume from the heater shaker to the destination plate, deactivate the heater, open the latch, process complete.",
+  "tags": [
+    "heater-shaker-beta.ot2.apiv2.py",
+    "Heater Shaker",
+    "Heater Shaker Beta Test"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Unlatching labware on Heater-Shaker"
+    },
+    {
+      "action": "raw",
+      "text": "latch status idle_open"
+    },
+    {
+      "action": "raw",
+      "text": "Latching labware on Heater-Shaker"
+    },
+    {
+      "action": "raw",
+      "text": "latch status idle_closed"
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": 42.0,
+      "wait_for_temp": false,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": false,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "raw",
+      "text": "Heater Shaker current temperature 42"
+    },
+    {
+      "action": "raw",
+      "text": "Selected source wells [A1 of source on 3]"
+    },
+    {
+      "action": "raw",
+      "text": "Selected heater shaker wells [A1 of Heater Shaker Plate on Heater-Shaker Module GEN1 on 1, A7 of Heater Shaker Plate on Heater-Shaker Module GEN1 on 1]"
+    },
+    {
+      "action": "raw",
+      "text": "Selected destination wells [A1 of destination on 6, A2 of destination on 6]"
+    },
+    {
+      "action": "raw",
+      "text": "Heater Shaker current temperature 42"
+    },
+    {
+      "action": "raw",
+      "text": "Heater Shaker current temperature 42"
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": null,
+      "wait_for_temp": true,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": false,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "raw",
+      "text": "Heater Shaker current temperature 42"
+    },
+    {
+      "action": "raw",
+      "text": "current speed 0"
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": null,
+      "wait_for_temp": false,
+      "shake_speed": 1500.0,
+      "duration_minutes": null,
+      "deactivate_heater": false,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "current speed 1500"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +98,64 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "destination",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": null,
+      "wait_for_temp": false,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": false,
+      "deactivate_shaker": true
+    },
+    {
+      "action": "raw",
+      "text": "current speed 0"
+    },
+    {
+      "action": "heater_shaker",
+      "target_temperature": null,
+      "wait_for_temp": false,
+      "shake_speed": null,
+      "duration_minutes": null,
+      "deactivate_heater": true,
+      "deactivate_shaker": false
+    },
+    {
+      "action": "raw",
+      "text": "Unlatching labware on Heater-Shaker"
+    },
+    {
+      "action": "raw",
+      "text": "latch status idle_open"
+    },
+    {
+      "action": "raw",
+      "text": "Process Complete."
     },
     {
       "action": "transfer_liquid",
@@ -19,7 +165,19 @@
         "asp_vol": 80.0,
         "dis_vol": 80.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          }
+        ]
       }
     }
   ],
@@ -27,7 +185,7 @@
     "hs_wells": {
       "slot": 1,
       "well": [
-        "A7"
+        "A1"
       ],
       "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1"
     },

@@ -1,14 +1,66 @@
 {
+  "description": "Updated\nThis protocol has been updated based on feedback from the user.\n\nThis protocol is part two of a larger workflow. The entire workflow can be found below\nPart 1: Small Molecule Library Prep\nPart 2: Seed Cells\nPart 3: Transfer Small Molecules\nPart 4: Transfer Small Molecules - CSV Input\nPart 5: Custom Supernatant Removal\nPart 6: ProcartaPlex Protocol-1\nPart 7: ProcartaPlex Protocol-2\n\nIn this protocol, 250µL of cells are transferred from the NEST 12-Well Reservoir, 15mL to the SPL 96-Well Cell Culture Plates.\nExplanation of complex parameters below:\n P300-Multi Mount: Select which mount the P300-Multi Pipette is attached to.\n Number of Destination Plates: Select the number of destination plates.",
+  "tags": [
+    "1adec6-2.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "Assay"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 12 Well Reservoir 15 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsvr1",
+        "sources": "rsvr2",
         "targets": "Liquid_1",
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          }
+        ]
       }
     }
   ],
@@ -16,14 +68,14 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
     },
-    "rsvr1": {
+    "rsvr2": {
       "slot": 4,
       "well": [
-        "A3"
+        "A4"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     }

@@ -1,5 +1,15 @@
 {
+  "description": "This protocol automates the pooling of samples and distribution to Cepheid for rapid Covid-19 diagnostics.\nThe protocol begins by pooling samples in groups of 10. Once pooled, the pooled samples are mixed and transferred to the Cepheid device on a custom adapter containing the Cepheid device on the deck of the OT-2.\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples to run (in groups of 10).\n P1000 Mount: Specify which mount the P1000 Single-Channel Pipette (GEN2) is attached to",
+  "tags": [
+    "cepheid.ot2.apiv2.py",
+    "Sample Prep",
+    "Cepheid"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Pooling Samples Now"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +18,12 @@
         "asp_vol": 56.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +34,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -30,7 +50,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "C1"
+        }
       }
     },
     {
@@ -41,7 +66,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "D1"
+        }
       }
     },
     {
@@ -52,7 +82,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "E1"
+        }
       }
     },
     {
@@ -63,7 +98,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "F1"
+        }
       }
     },
     {
@@ -74,7 +114,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "G1"
+        }
       }
     },
     {
@@ -85,7 +130,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "H1"
+        }
       }
     },
     {
@@ -96,7 +146,12 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -107,8 +162,34 @@
         "asp_vol": 54.0,
         "dis_vol": 117.0,
         "asp_flow_rate": 300.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "B2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        500.0,
+        500.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Basis DX 15 Tube Rack 12000 uL",
+        "slot": 5
+      },
+      "flow_rate": [
+        300.0,
+        300.0
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "raw",
+      "text": "Adding Pool to Cepheid"
     },
     {
       "action": "transfer_liquid",

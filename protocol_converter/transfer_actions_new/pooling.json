@@ -1,14 +1,46 @@
 {
+  "description": "This protocol performs a custom sample pooling from a source PCR plate to a 1.5, 2, or 5ml Eppendorf tube. Sample locations and volumes are specified via .csv file in the following format, including the header line (empty lines ignored):\nsource plate well,volume sample (µl)\nA1, 28\nC4, 12\nThe proper pipette for a given volume is automatically calculated. Tips are changed for each transfer.\nYou can download an example .csv to edit directly here.",
+  "tags": [
+    "pooling.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source",
         "targets": "pooling_tube",
         "asp_vol": 12.5,
-        "dis_vol": 5.75,
-        "asp_flow_rate": 28.884999999999998,
-        "dis_flow_rate": 64.4425
+        "dis_vol": 12.5,
+        "asp_flow_rate": 28.885,
+        "dis_flow_rate": 28.885,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 6,
+            "type": "300ul tiprack",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "C1"
+          }
+        ]
       }
     }
   ],

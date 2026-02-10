@@ -1,5 +1,15 @@
 {
+  "description": "This protocol uses a .csv file to pool a calculated volume of each sample from a PCR plate into one or more 1.5 mL snapcap tube(s).  \nExplanation of complex parameters below:\n* input .csv file: Here, you should upload a .csv file formatted in the following way, being sure to include the header line:\nSample Location,Qubits,Volume (ul) for ng: 70,Sample Destination,,,,,,,,,,,\nA1,3.5,20.0,A1,,,,,,,,,,,\nA2,15,4.7,A2,,,,,,,,,,,",
+  "tags": [
+    "0dda91.ot2.apiv2.py",
+    "Sample Prep",
+    "Pooling"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +18,12 @@
         "asp_vol": 4.7,
         "dis_vol": 4.7,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     }
   ],

@@ -1,5 +1,114 @@
 {
+  "description": "This protocol is part 2 of a 10 part series. Please look at deck map and liquid legend below. Note: bead strip tubes can accommodate 2 columns of sample by volume (i.e. 6 columns of beads for a full plate of samples). The RNA binding buffer can accommodate 3 columns of sample per column of wash. There only needs to be one column of strand primer mix per run for all sample numbers. An overage of at least 10% should be used each run.",
+  "tags": [
+    "00f7b1_part2.ot2.apiv2.py",
+    "NGS Library Prep",
+    "NEBNext® Ultra™ II Directional RNA Library Prep"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        65.0,
+        65.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with Generic PCR Strip 200 uL on Temperature Module GEN2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "MOVE PLATE IN SLOT 1 TO OFF-DECK THERMOCYCLER"
+    },
+    {
+      "action": "raw",
+      "text": "REFER TO 1.2.12 FOR SPECIFIC HEATING/COOLING CYCLE"
+    },
+    {
+      "action": "raw",
+      "text": "RETURN PLATE TO SLOT 1 WHEN FINISHED. ENSURE SAMPLE PLATE IS"
+    },
+    {
+      "action": "raw",
+      "text": "FLAT AND SECURE WHEN RETURNING TO MAGNETIC MODULE!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +117,39 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 47.0,
-        "dis_flow_rate": 47.0
+        "dis_flow_rate": 47.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +157,20 @@
         "sources": "samples",
         "targets": "Liquid_1",
         "asp_vol": 42.5,
-        "dis_vol": 42.0,
+        "dis_vol": 85.0,
         "asp_flow_rate": 51.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -28,10 +178,19 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 23.333333333333332,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 34.12,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -41,8 +200,44 @@
         "asp_vol": 90.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 50.8,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        188.0,
+        188.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +245,20 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 90.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 51.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +266,19 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 23.333333333333332,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 34.12,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +288,44 @@
         "asp_vol": 90.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 50.8,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        188.0,
+        188.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +333,20 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 90.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 51.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -94,10 +354,19 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 23.333333333333332,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 34.12,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -107,8 +376,72 @@
         "asp_vol": 30.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 50.8,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "raw",
+      "text": "MOVE PLATE IN SLOT 1 TO OFF-DECK THERMOCYCLER"
+    },
+    {
+      "action": "raw",
+      "text": "REFER TO 1.2.24 FOR SPECIFIC HEATING/COOLING CYCLE"
+    },
+    {
+      "action": "raw",
+      "text": "RETURN PLATE TO SLOT 1 WHEN FINISHED. ENSURE SAMPLE PLATE IS"
+    },
+    {
+      "action": "raw",
+      "text": "FLAT AND SECURE WHEN RETURNING TO MAGNETIC MODULE!"
+    },
+    {
+      "action": "raw",
+      "text": "MIXING"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        188.0,
+        188.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +451,27 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +479,20 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 45.0,
-        "dis_vol": 44.5,
+        "dis_vol": 90.0,
         "asp_flow_rate": 51.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +500,19 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 23.333333333333332,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 34.12,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -151,8 +522,44 @@
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 50.8,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        188.0,
+        188.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -160,10 +567,20 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 90.0,
-        "dis_vol": 89.5,
+        "dis_vol": 180.0,
         "asp_flow_rate": 51.7,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
     },
     {
       "action": "transfer_liquid",
@@ -171,10 +588,19 @@
         "sources": "samples",
         "targets": "samples",
         "asp_vol": 23.333333333333332,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 34.12,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -184,8 +610,59 @@
         "asp_vol": 10.75,
         "dis_vol": 11.5,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        8.8,
+        8.8
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        15.2,
+        15.2
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "raw",
+      "text": "MOVE PLATE IN SLOT 1 TO OFF-DECK THERMOCYCLER"
+    },
+    {
+      "action": "raw",
+      "text": "REFER TO 1.2.37 FOR SPECIFIC HEATING/COOLING CYCLE"
+    },
+    {
+      "action": "raw",
+      "text": "SPIN PLATE DOWN BEFORE RETURNING TO DECK"
+    },
+    {
+      "action": "raw",
+      "text": "RETURN PLATE TO SLOT 1 WHEN FINISHED. ENSURE SAMPLE PLATE IS"
+    },
+    {
+      "action": "raw",
+      "text": "FLAT AND SECURE WHEN RETURNING TO MAGNETIC MODULE!"
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -195,7 +672,12 @@
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 0.76,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A7"
+        }
       }
     }
   ],

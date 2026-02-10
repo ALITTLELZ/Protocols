@@ -1,15 +1,60 @@
 {
+  "description": "This protocol performs a custom cherrypicking workflow from a .csv file using custom Biotix filtertips. This protocol also performs a mix step after transferring liquid (3 repetitions) with the ability to specify the aspirate and dispense height from the top of the source and destination wells.\nExplanation of complex parameters below:\n\ninput .csv file: Here, you should upload a .csv file formatted in the following way, being sure to include the header line. Note that source labware and destination labware must be either plate, tuberack, or deepplate, which will be considered as the Bio-Rad 200ul plate, Opentrons 24 Eppendorf 1.5mL safelock snapcap tube rack, and the Nest 96 Deepwell Plate 2mL respectively. A value of 0 for the Height Offset columns returns the top of the well.\nP10 GEN1 single-channel pipette mount: Specify which mount (left or right) to load the P10 GEN1 Single Channel pipette.\nP300 GEN1 single-channel pipette mount: Specify which mount (left or right) to load the P300 GEN1 Single Channel pipette.\nChange Tips: Specify whether the pipette should have a new tip either once per well transfer or in between well transfers.",
+  "tags": [
+    "cherrypick.ot2.apiv2.py",
+    "Featured",
+    "Cherrypicking"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "destination plate 5",
+        "slot": 5
+      },
+      "flow_rate": [
+        3.5,
+        7.0
+      ],
+      "mix_time": 3
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 7.0,
-        "dis_vol": 3.0,
+        "dis_vol": 7.0,
         "asp_flow_rate": 3.5,
-        "dis_flow_rate": 53.5
+        "dis_flow_rate": 7.0,
+        "tip_racks": {
+          "slot": 4,
+          "type": "Biotix 96 Filter Tip Rack 10ul",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "destination plate 3",
+        "slot": 3
+      },
+      "flow_rate": [
+        3.5,
+        7.0
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -17,9 +62,14 @@
         "sources": "source",
         "targets": "dest",
         "asp_vol": 9.0,
-        "dis_vol": 4.0,
+        "dis_vol": 9.0,
         "asp_flow_rate": 3.5,
-        "dis_flow_rate": 53.5
+        "dis_flow_rate": 7.0,
+        "tip_racks": {
+          "slot": 4,
+          "type": "Biotix 96 Filter Tip Rack 10ul",
+          "well": "B1"
+        }
       }
     }
   ],

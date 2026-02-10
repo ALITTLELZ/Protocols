@@ -1,4 +1,10 @@
 {
+  "description": "This protocol is a modified version of this sample aliquoting protocol.\n\nWith this version of the protocol, the user can specify the number of plates they would like to fill (up to 6). When run, the robot will transfer the specified volume two times (2x) to each tube, in each tube rack, and change tip after each liquid transfer.\n\nPlease note that this protocol uses a custom labware definition for the tube rack (definition included with download). For more information regarding custom labware definition usage on the OT-2, please see this article: Using labware in your protocols.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.17.0 or later)\nNEST 1 Well Reservoir 195 mL\nOpentrons P1000 GEN2 single-channel electronic pipette\nOpentrons 96 Tip Rack 1000 µL\n24-Tube Tube Rack plus Tubes\n\n\n\nTube Racks\nLoad sequentially deck slots, in this order: 2, 3, 5, 6, 7, 8, 9\n\nTip Racks\nOne tip rack is needed for every two tube racks. The tip racks should be loaded in deck slots: 1, 4\n\nReagent Reservoirs\nOne reagent reservoir should be used for every three tube racks. The reservoirs should be loaded in deck slots: 11 (will be used first), 10",
+  "tags": [
+    "0bd707.ot2.apiv2.py",
+    "Sample Prep",
+    "Aliquoting"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 487.5,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B1"
+        }
       }
     },
     {
@@ -41,7 +57,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C1"
+        }
       }
     },
     {
@@ -58,18 +79,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -85,7 +111,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E1"
+        }
       }
     },
     {
@@ -107,7 +138,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F1"
+        }
       }
     },
     {
@@ -129,7 +165,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G1"
+        }
       }
     },
     {
@@ -151,7 +192,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H1"
+        }
       }
     },
     {
@@ -168,18 +214,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "Liquid_8",
         "targets": "Liquid_9",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "Liquid_8",
         "targets": "Liquid_9",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -190,18 +241,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_8",
         "targets": "Liquid_10",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_8",
         "targets": "Liquid_10",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -212,18 +268,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_10",
         "targets": "Liquid_11",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_10",
         "targets": "Liquid_11",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -234,18 +295,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_11",
         "targets": "Liquid_12",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_11",
         "targets": "Liquid_12",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -256,18 +322,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_12",
         "targets": "Liquid_13",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_12",
         "targets": "Liquid_13",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -278,18 +349,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_13",
         "targets": "Liquid_14",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_13",
         "targets": "Liquid_14",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -300,18 +376,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_14",
         "targets": "Liquid_15",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_9",
+        "sources": "Liquid_14",
         "targets": "Liquid_15",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -327,7 +408,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H2"
+        }
       }
     },
     {
@@ -349,7 +435,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A3"
+        }
       }
     },
     {
@@ -371,7 +462,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B3"
+        }
       }
     },
     {
@@ -393,7 +489,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C3"
+        }
       }
     },
     {
@@ -410,18 +511,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_18",
+        "sources": "Liquid_19",
         "targets": "Liquid_20",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_18",
+        "sources": "Liquid_19",
         "targets": "Liquid_20",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -437,7 +543,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E3"
+        }
       }
     },
     {
@@ -454,18 +565,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_21",
         "targets": "Liquid_22",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_21",
         "targets": "Liquid_22",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -476,18 +592,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_22",
         "targets": "Liquid_23",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_22",
         "targets": "Liquid_23",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -498,18 +619,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_23",
         "targets": "Liquid_24",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
+        "sources": "Liquid_23",
         "targets": "Liquid_24",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -520,18 +646,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_24",
+        "sources": "Liquid_23",
         "targets": "Liquid_25",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_24",
+        "sources": "Liquid_23",
         "targets": "Liquid_25",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -547,7 +678,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B4"
+        }
       }
     },
     {
@@ -564,18 +700,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_25",
+        "sources": "Liquid_26",
         "targets": "Liquid_27",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_25",
+        "sources": "Liquid_26",
         "targets": "Liquid_27",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -591,7 +732,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D4"
+        }
       }
     },
     {
@@ -608,18 +754,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_27",
         "targets": "Liquid_29",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_27",
         "targets": "Liquid_29",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -630,18 +781,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_29",
         "targets": "Liquid_30",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_29",
         "targets": "Liquid_30",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -652,18 +808,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_30",
         "targets": "Liquid_31",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_30",
         "targets": "Liquid_31",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -674,18 +835,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_31",
         "targets": "Liquid_32",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_31",
         "targets": "Liquid_32",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -696,18 +862,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_32",
         "targets": "Liquid_33",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_32",
         "targets": "Liquid_33",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -718,18 +889,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_33",
         "targets": "Liquid_34",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_33",
         "targets": "Liquid_34",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -745,7 +921,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C5"
+        }
       }
     },
     {
@@ -767,7 +948,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D5"
+        }
       }
     },
     {
@@ -784,18 +970,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_35",
+        "sources": "Liquid_36",
         "targets": "Liquid_37",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_35",
+        "sources": "Liquid_36",
         "targets": "Liquid_37",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -806,18 +997,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_37",
+        "sources": "Liquid_36",
         "targets": "Liquid_38",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_37",
+        "sources": "Liquid_36",
         "targets": "Liquid_38",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -828,18 +1024,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_37",
+        "sources": "Liquid_36",
         "targets": "Liquid_39",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_37",
+        "sources": "Liquid_36",
         "targets": "Liquid_39",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -855,7 +1056,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H5"
+        }
       }
     },
     {
@@ -877,7 +1083,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A6"
+        }
       }
     },
     {
@@ -894,18 +1105,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_41",
         "targets": "Liquid_42",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_41",
         "targets": "Liquid_42",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -916,18 +1132,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_41",
         "targets": "Liquid_43",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_41",
         "targets": "Liquid_43",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -938,18 +1159,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_43",
         "targets": "Liquid_44",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_43",
         "targets": "Liquid_44",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -960,18 +1186,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_44",
         "targets": "Liquid_45",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_44",
         "targets": "Liquid_45",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -987,7 +1218,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F6"
+        }
       }
     },
     {
@@ -1009,7 +1245,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G6"
+        }
       }
     },
     {
@@ -1026,18 +1267,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_47",
+        "sources": "Liquid_46",
         "targets": "Liquid_48",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_47",
+        "sources": "Liquid_46",
         "targets": "Liquid_48",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1048,18 +1294,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_47",
+        "sources": "Liquid_48",
         "targets": "Liquid_49",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_47",
+        "sources": "Liquid_48",
         "targets": "Liquid_49",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1075,7 +1326,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B7"
+        }
       }
     },
     {
@@ -1097,7 +1353,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C7"
+        }
       }
     },
     {
@@ -1114,18 +1375,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_50",
+        "sources": "Liquid_51",
         "targets": "Liquid_52",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_50",
+        "sources": "Liquid_51",
         "targets": "Liquid_52",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1141,7 +1407,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E7"
+        }
       }
     },
     {
@@ -1163,7 +1434,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F7"
+        }
       }
     },
     {
@@ -1185,7 +1461,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G7"
+        }
       }
     },
     {
@@ -1207,7 +1488,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H7"
+        }
       }
     },
     {
@@ -1224,18 +1510,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_55",
+        "sources": "Liquid_56",
         "targets": "Liquid_57",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_55",
+        "sources": "Liquid_56",
         "targets": "Liquid_57",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1246,18 +1537,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_56",
         "targets": "Liquid_58",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_56",
         "targets": "Liquid_58",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1268,18 +1564,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_58",
         "targets": "Liquid_59",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_58",
         "targets": "Liquid_59",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1290,18 +1591,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_59",
         "targets": "Liquid_60",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_59",
         "targets": "Liquid_60",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1312,18 +1618,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_60",
         "targets": "Liquid_61",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_60",
         "targets": "Liquid_61",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1334,18 +1645,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_61",
         "targets": "Liquid_62",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_61",
         "targets": "Liquid_62",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1356,18 +1672,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_62",
         "targets": "Liquid_63",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_57",
+        "sources": "Liquid_62",
         "targets": "Liquid_63",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1383,7 +1704,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H8"
+        }
       }
     },
     {
@@ -1400,18 +1726,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_63",
+        "sources": "Liquid_64",
         "targets": "Liquid_65",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_63",
+        "sources": "Liquid_64",
         "targets": "Liquid_65",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1427,7 +1758,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B9"
+        }
       }
     },
     {
@@ -1449,7 +1785,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C9"
+        }
       }
     },
     {
@@ -1466,18 +1807,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_66",
+        "sources": "Liquid_67",
         "targets": "Liquid_68",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_66",
+        "sources": "Liquid_67",
         "targets": "Liquid_68",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1493,7 +1839,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E9"
+        }
       }
     },
     {
@@ -1510,18 +1861,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_69",
         "targets": "Liquid_70",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_69",
         "targets": "Liquid_70",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1532,18 +1888,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_70",
         "targets": "Liquid_71",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_70",
         "targets": "Liquid_71",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1554,18 +1915,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_71",
         "targets": "Liquid_72",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_68",
+        "sources": "Liquid_71",
         "targets": "Liquid_72",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1581,7 +1947,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A10"
+        }
       }
     },
     {
@@ -1603,7 +1974,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B10"
+        }
       }
     },
     {
@@ -1625,7 +2001,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C10"
+        }
       }
     },
     {
@@ -1647,7 +2028,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D10"
+        }
       }
     },
     {
@@ -1664,18 +2050,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_76",
+        "sources": "Liquid_75",
         "targets": "Liquid_77",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_76",
+        "sources": "Liquid_75",
         "targets": "Liquid_77",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1691,7 +2082,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F10"
+        }
       }
     },
     {
@@ -1713,7 +2109,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G10"
+        }
       }
     },
     {
@@ -1730,18 +2131,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_79",
+        "sources": "Liquid_78",
         "targets": "Liquid_80",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H10"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_79",
+        "sources": "Liquid_78",
         "targets": "Liquid_80",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1752,18 +2158,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_79",
+        "sources": "Liquid_78",
         "targets": "Liquid_81",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_79",
+        "sources": "Liquid_78",
         "targets": "Liquid_81",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1779,7 +2190,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B11"
+        }
       }
     },
     {
@@ -1801,7 +2217,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C11"
+        }
       }
     },
     {
@@ -1823,7 +2244,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D11"
+        }
       }
     },
     {
@@ -1840,18 +2266,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_83",
+        "sources": "Liquid_84",
         "targets": "Liquid_85",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_83",
+        "sources": "Liquid_84",
         "targets": "Liquid_85",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1862,18 +2293,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_85",
+        "sources": "Liquid_84",
         "targets": "Liquid_86",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_85",
+        "sources": "Liquid_84",
         "targets": "Liquid_86",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1884,18 +2320,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_85",
+        "sources": "Liquid_84",
         "targets": "Liquid_87",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G11"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_85",
+        "sources": "Liquid_84",
         "targets": "Liquid_87",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1911,7 +2352,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H11"
+        }
       }
     },
     {
@@ -1933,7 +2379,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "A12"
+        }
       }
     },
     {
@@ -1950,18 +2401,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_89",
+        "sources": "Liquid_88",
         "targets": "Liquid_90",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "B12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_89",
+        "sources": "Liquid_88",
         "targets": "Liquid_90",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1972,18 +2428,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_90",
+        "sources": "Liquid_88",
         "targets": "Liquid_91",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "C12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_90",
+        "sources": "Liquid_88",
         "targets": "Liquid_91",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -1994,18 +2455,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_90",
+        "sources": "Liquid_88",
         "targets": "Liquid_92",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "D12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_90",
+        "sources": "Liquid_88",
         "targets": "Liquid_92",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2016,18 +2482,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_92",
+        "sources": "Liquid_88",
         "targets": "Liquid_93",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "E12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_92",
+        "sources": "Liquid_88",
         "targets": "Liquid_93",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2043,7 +2514,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "F12"
+        }
       }
     },
     {
@@ -2065,7 +2541,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "G12"
+        }
       }
     },
     {
@@ -2082,18 +2563,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_95",
+        "sources": "Liquid_94",
         "targets": "Liquid_96",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 1,
+          "type": "1000ul tiprack",
+          "well": "H12"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_95",
+        "sources": "Liquid_94",
         "targets": "Liquid_96",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2109,7 +2595,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2126,18 +2617,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_96",
+        "sources": "Liquid_97",
         "targets": "Liquid_98",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_96",
+        "sources": "Liquid_97",
         "targets": "Liquid_98",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2148,18 +2644,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_98",
+        "sources": "Liquid_97",
         "targets": "Liquid_99",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_98",
+        "sources": "Liquid_97",
         "targets": "Liquid_99",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2175,7 +2676,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D1"
+        }
       }
     },
     {
@@ -2192,18 +2698,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_99",
+        "sources": "Liquid_100",
         "targets": "Liquid_101",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_99",
+        "sources": "Liquid_100",
         "targets": "Liquid_101",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2219,7 +2730,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F1"
+        }
       }
     },
     {
@@ -2236,18 +2752,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_102",
+        "sources": "Liquid_101",
         "targets": "Liquid_103",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_102",
+        "sources": "Liquid_101",
         "targets": "Liquid_103",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2263,7 +2784,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H1"
+        }
       }
     },
     {
@@ -2285,7 +2811,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2302,18 +2833,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_105",
+        "sources": "Liquid_104",
         "targets": "Liquid_106",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_105",
+        "sources": "Liquid_104",
         "targets": "Liquid_106",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2329,7 +2865,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C2"
+        }
       }
     },
     {
@@ -2351,7 +2892,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D2"
+        }
       }
     },
     {
@@ -2368,18 +2914,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_108",
+        "sources": "Liquid_107",
         "targets": "Liquid_109",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_108",
+        "sources": "Liquid_107",
         "targets": "Liquid_109",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2395,7 +2946,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F2"
+        }
       }
     },
     {
@@ -2417,7 +2973,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G2"
+        }
       }
     },
     {
@@ -2439,7 +3000,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H2"
+        }
       }
     },
     {
@@ -2456,18 +3022,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_112",
+        "sources": "Liquid_110",
         "targets": "Liquid_113",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_112",
+        "sources": "Liquid_110",
         "targets": "Liquid_113",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2483,7 +3054,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B3"
+        }
       }
     },
     {
@@ -2505,7 +3081,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C3"
+        }
       }
     },
     {
@@ -2527,7 +3108,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D3"
+        }
       }
     },
     {
@@ -2549,7 +3135,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E3"
+        }
       }
     },
     {
@@ -2566,18 +3157,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_117",
+        "sources": "Liquid_116",
         "targets": "Liquid_118",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_117",
+        "sources": "Liquid_116",
         "targets": "Liquid_118",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2588,18 +3184,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_118",
+        "sources": "Liquid_116",
         "targets": "Liquid_119",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_118",
+        "sources": "Liquid_116",
         "targets": "Liquid_119",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2615,7 +3216,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H3"
+        }
       }
     },
     {
@@ -2632,18 +3238,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_120",
+        "sources": "Liquid_119",
         "targets": "Liquid_121",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_120",
+        "sources": "Liquid_119",
         "targets": "Liquid_121",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2654,18 +3265,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_121",
+        "sources": "Liquid_119",
         "targets": "Liquid_122",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_121",
+        "sources": "Liquid_119",
         "targets": "Liquid_122",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2681,7 +3297,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C4"
+        }
       }
     },
     {
@@ -2698,18 +3319,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_123",
+        "sources": "Liquid_122",
         "targets": "Liquid_124",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_123",
+        "sources": "Liquid_122",
         "targets": "Liquid_124",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2720,18 +3346,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_124",
+        "sources": "Liquid_122",
         "targets": "Liquid_125",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_124",
+        "sources": "Liquid_122",
         "targets": "Liquid_125",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2742,18 +3373,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_125",
+        "sources": "Liquid_122",
         "targets": "Liquid_126",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F4"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_125",
+        "sources": "Liquid_122",
         "targets": "Liquid_126",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2769,7 +3405,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G4"
+        }
       }
     },
     {
@@ -2791,7 +3432,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H4"
+        }
       }
     },
     {
@@ -2813,7 +3459,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2835,7 +3486,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B5"
+        }
       }
     },
     {
@@ -2852,18 +3508,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_130",
+        "sources": "Liquid_129",
         "targets": "Liquid_131",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_130",
+        "sources": "Liquid_129",
         "targets": "Liquid_131",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2879,7 +3540,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D5"
+        }
       }
     },
     {
@@ -2901,7 +3567,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E5"
+        }
       }
     },
     {
@@ -2918,18 +3589,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_133",
+        "sources": "Liquid_132",
         "targets": "Liquid_134",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_133",
+        "sources": "Liquid_132",
         "targets": "Liquid_134",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2940,18 +3616,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_134",
+        "sources": "Liquid_132",
         "targets": "Liquid_135",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_134",
+        "sources": "Liquid_132",
         "targets": "Liquid_135",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -2967,7 +3648,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H5"
+        }
       }
     },
     {
@@ -2989,7 +3675,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A6"
+        }
       }
     },
     {
@@ -3006,18 +3697,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_137",
+        "sources": "Liquid_136",
         "targets": "Liquid_138",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_137",
+        "sources": "Liquid_136",
         "targets": "Liquid_138",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3028,18 +3724,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_138",
+        "sources": "Liquid_136",
         "targets": "Liquid_139",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_138",
+        "sources": "Liquid_136",
         "targets": "Liquid_139",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3050,18 +3751,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_139",
+        "sources": "Liquid_136",
         "targets": "Liquid_140",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_139",
+        "sources": "Liquid_136",
         "targets": "Liquid_140",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3072,18 +3778,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_140",
+        "sources": "Liquid_136",
         "targets": "Liquid_141",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_140",
+        "sources": "Liquid_136",
         "targets": "Liquid_141",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3094,18 +3805,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_140",
+        "sources": "Liquid_141",
         "targets": "Liquid_142",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_140",
+        "sources": "Liquid_141",
         "targets": "Liquid_142",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3121,7 +3837,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G6"
+        }
       }
     },
     {
@@ -3138,18 +3859,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_143",
+        "sources": "Liquid_142",
         "targets": "Liquid_144",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_143",
+        "sources": "Liquid_142",
         "targets": "Liquid_144",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3165,7 +3891,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A7"
+        }
       }
     },
     {
@@ -3187,7 +3918,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B7"
+        }
       }
     },
     {
@@ -3209,7 +3945,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C7"
+        }
       }
     },
     {
@@ -3231,7 +3972,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D7"
+        }
       }
     },
     {
@@ -3253,7 +3999,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E7"
+        }
       }
     },
     {
@@ -3275,7 +4026,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F7"
+        }
       }
     },
     {
@@ -3292,18 +4048,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_150",
+        "sources": "Liquid_149",
         "targets": "Liquid_151",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_150",
+        "sources": "Liquid_149",
         "targets": "Liquid_151",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3319,7 +4080,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H7"
+        }
       }
     },
     {
@@ -3341,7 +4107,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A8"
+        }
       }
     },
     {
@@ -3363,7 +4134,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B8"
+        }
       }
     },
     {
@@ -3385,7 +4161,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C8"
+        }
       }
     },
     {
@@ -3402,18 +4183,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_155",
+        "sources": "Liquid_154",
         "targets": "Liquid_156",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_155",
+        "sources": "Liquid_154",
         "targets": "Liquid_156",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3429,7 +4215,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E8"
+        }
       }
     },
     {
@@ -3451,7 +4242,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F8"
+        }
       }
     },
     {
@@ -3473,7 +4269,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G8"
+        }
       }
     },
     {
@@ -3490,18 +4291,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_159",
+        "sources": "Liquid_158",
         "targets": "Liquid_160",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H8"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_159",
+        "sources": "Liquid_158",
         "targets": "Liquid_160",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3512,18 +4318,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_160",
+        "sources": "Liquid_158",
         "targets": "Liquid_161",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_160",
+        "sources": "Liquid_158",
         "targets": "Liquid_161",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3539,7 +4350,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "B9"
+        }
       }
     },
     {
@@ -3561,7 +4377,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "C9"
+        }
       }
     },
     {
@@ -3583,7 +4404,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "D9"
+        }
       }
     },
     {
@@ -3600,18 +4426,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_163",
+        "sources": "Liquid_164",
         "targets": "Liquid_165",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "E9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_163",
+        "sources": "Liquid_164",
         "targets": "Liquid_165",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3627,7 +4458,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "F9"
+        }
       }
     },
     {
@@ -3644,18 +4480,23 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_166",
+        "sources": "Liquid_165",
         "targets": "Liquid_167",
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "G9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_166",
+        "sources": "Liquid_165",
         "targets": "Liquid_167",
         "asp_vol": 487.5,
         "dis_vol": 975.0,
@@ -3671,7 +4512,12 @@
         "asp_vol": 341.6666666666667,
         "dis_vol": 975.0,
         "asp_flow_rate": 137.35,
-        "dis_flow_rate": 137.35
+        "dis_flow_rate": 137.35,
+        "tip_racks": {
+          "slot": 4,
+          "type": "1000ul tiprack",
+          "well": "H9"
+        }
       }
     },
     {
@@ -3692,16 +4538,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3710,16 +4565,52 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_3": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3728,16 +4619,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3746,16 +4646,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3764,16 +4673,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3782,34 +4700,187 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_9": {
+    "Liquid_8": {
       "slot": 2,
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_10": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_11": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_12": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_13": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_14": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3818,16 +4889,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3836,16 +4916,25 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3854,16 +4943,52 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_19": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3872,34 +4997,106 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_24": {
+    "Liquid_21": {
       "slot": 2,
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
         "A5",
         "B5",
+        "C5",
         "D5",
-        "D6"
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_22": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_23": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -3907,16 +5104,49 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_26": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -3924,33 +5154,149 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_28": {
+    "Liquid_29": {
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_30": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_31": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_32": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_33": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -3958,16 +5304,24 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -3975,33 +5329,49 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_37": {
+    "Liquid_36": {
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -4009,16 +5379,24 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -4026,16 +5404,99 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_41": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_43": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_44": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
+        "B3",
+        "C3",
+        "D3",
+        "C4",
+        "D4",
+        "A5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -4043,16 +5504,24 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -4060,33 +5529,49 @@
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_47": {
+    "Liquid_48": {
       "slot": 3,
       "well": [
         "A1",
+        "B1",
         "C1",
-        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
+        "A5",
+        "C5",
+        "D5",
         "A6",
         "B6",
-        "C6"
+        "D6"
       ],
       "labware": "custom tuberack"
     },
@@ -4095,15 +5580,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4113,15 +5609,55 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_51": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4131,15 +5667,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4149,15 +5696,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4167,15 +5725,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4185,33 +5754,200 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_57": {
+    "Liquid_56": {
       "slot": 5,
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_58": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_59": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_60": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_61": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_62": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4221,15 +5957,55 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_64": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4239,15 +6015,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4257,15 +6044,55 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_67": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4275,15 +6102,113 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_69": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_70": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_71": {
+      "slot": 5,
+      "well": [
+        "A1",
+        "B1",
+        "C1",
+        "D1",
+        "A2",
+        "B2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
+        "C4",
+        "D4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4293,15 +6218,26 @@
       "well": [
         "A1",
         "B1",
+        "C1",
         "D1",
         "A2",
         "B2",
         "C2",
-        "A3",
+        "D2",
+        "B3",
+        "C3",
+        "D3",
+        "A4",
+        "B4",
         "C4",
+        "D4",
         "A5",
         "B5",
+        "C5",
         "D5",
+        "A6",
+        "B6",
+        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4312,22 +6248,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4338,22 +6268,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4364,48 +6288,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_76": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4416,22 +6308,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4442,48 +6328,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_79": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4494,22 +6348,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4520,22 +6368,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4546,48 +6388,36 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_85": {
+    "Liquid_84": {
       "slot": 6,
       "well": [
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4598,22 +6428,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4624,100 +6448,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_89": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_90": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_92": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4728,22 +6468,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4754,48 +6488,16 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
         "A3",
         "B3",
         "C3",
-        "A4",
+        "D3",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "D5",
         "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_95": {
-      "slot": 6,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -4806,51 +6508,38 @@
         "A1",
         "B1",
         "C1",
-        "D1",
         "A2",
         "B2",
-        "C2",
-        "A3",
-        "B3",
-        "C3",
-        "A4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_98": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
         "A3",
         "B3",
         "C3",
         "D3",
+        "C4",
+        "D4",
+        "A6",
+        "B6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_97": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "C1",
+        "D1",
+        "A2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -4858,27 +6547,41 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_100": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "C1",
+        "D1",
+        "A2",
+        "C2",
+        "D2",
+        "B3",
+        "C3",
+        "A4",
+        "B4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -4886,55 +6589,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_102": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -4942,27 +6610,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -4970,55 +6631,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_105": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5026,27 +6652,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5054,55 +6673,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_108": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5110,27 +6694,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5138,55 +6715,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_112": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5194,27 +6736,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5222,27 +6757,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5250,27 +6778,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5278,83 +6799,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
         "C1",
+        "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_117": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_118": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5362,84 +6820,20 @@
       "slot": 7,
       "well": [
         "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_120": {
-      "slot": 7,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_121": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
-        "A3",
         "B3",
         "C3",
-        "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
         "D5",
-        "B6",
-        "C6",
-        "D6"
+        "C6"
       ],
       "labware": "custom tuberack"
     },
@@ -5448,113 +6842,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_123": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_124": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_125": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5564,26 +6861,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5593,26 +6880,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5622,26 +6899,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5651,55 +6918,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_130": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5709,26 +6937,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5738,84 +6956,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_133": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_134": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5825,26 +6975,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5854,142 +6994,35 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
     },
-    "Liquid_137": {
+    "Liquid_141": {
       "slot": 8,
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_138": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_139": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_140": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -5999,55 +7032,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_143": {
-      "slot": 8,
-      "well": [
-        "A1",
-        "B1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "A3",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
-        "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -6057,26 +7051,16 @@
       "well": [
         "A1",
         "B1",
-        "C1",
-        "D1",
-        "A2",
         "B2",
         "C2",
         "D2",
         "A3",
-        "B3",
         "C3",
         "D3",
-        "A4",
-        "B4",
         "C4",
         "D4",
-        "A5",
-        "B5",
-        "C5",
-        "D5",
+        "A6",
         "B6",
-        "C6",
         "D6"
       ],
       "labware": "custom tuberack"
@@ -6088,21 +7072,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6115,21 +7095,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6142,21 +7118,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6169,48 +7141,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_150": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6223,21 +7164,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6250,21 +7187,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6277,48 +7210,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_155": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6331,21 +7233,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6358,21 +7256,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6385,75 +7279,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_159": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_160": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6466,21 +7302,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6493,21 +7325,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6520,21 +7348,40 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
+        "C6",
+        "D6"
+      ],
+      "labware": "custom tuberack"
+    },
+    "Liquid_164": {
+      "slot": 9,
+      "well": [
+        "A1",
+        "C1",
+        "D1",
+        "A2",
+        "C2",
+        "D2",
+        "B3",
+        "D3",
+        "A4",
+        "B4",
+        "A5",
+        "B5",
+        "C5",
+        "D5",
+        "A6",
         "C6",
         "D6"
       ],
@@ -6547,48 +7394,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
-        "C6",
-        "D6"
-      ],
-      "labware": "custom tuberack"
-    },
-    "Liquid_166": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "C1",
-        "D1",
-        "A2",
-        "B2",
-        "C2",
-        "D2",
-        "B3",
-        "C3",
-        "D3",
-        "A4",
-        "B4",
-        "C4",
-        "D4",
-        "A5",
-        "B5",
-        "C5",
-        "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6601,21 +7417,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],
@@ -6628,21 +7440,17 @@
         "C1",
         "D1",
         "A2",
-        "B2",
         "C2",
         "D2",
         "B3",
-        "C3",
         "D3",
         "A4",
         "B4",
-        "C4",
-        "D4",
         "A5",
         "B5",
         "C5",
+        "D5",
         "A6",
-        "B6",
         "C6",
         "D6"
       ],

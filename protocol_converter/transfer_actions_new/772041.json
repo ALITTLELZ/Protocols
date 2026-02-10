@@ -1,33 +1,37 @@
 {
+  "description": "This protocol distributes PCR mastermix from a source NEST 12 well reservoir to a target Applied Biosystems Microamp optical 384 well 30 µL plate (or other PCR plate) with an 20 µL 8-channel pipette loaded in the left mount. The user can choose how many wells to transfer to (rounding up to the nearest number of columns) as well as how much volume to add to each well. The user can also choose whether they want to reuse tips, or pick up new tips for each transfer.\nExplanation of parameters below:\n Number of wells to distribute mastermix to: How many wells to transfer mastermix to on the target plate. This will be rounded up to the nearest number of full columns.\n Volume of mastermix: Volume of mastermix to add to each well (µL)\n Reuse tips?: Yes: Reuse tips when distributing the mastermix. No: Drop the tips after each distribution, and pick up new tips before each aspiration.\n Destination plate: What type of plate to distribute mastermix to",
+  "tags": [
+    "772041.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mastermix",
-        "targets": "waste",
+        "targets": "Liquid_1",
         "asp_vol": 15.0,
-        "dis_vol": 7.08421052631579,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 53.31368421052632
+        "dis_vol": 15.0,
+        "asp_flow_rate": 7.600000000000004,
+        "dis_flow_rate": 7.600000000000004
       }
     }
   ],
   "reagent": {
-    "waste": {
+    "mastermix": {
       "slot": 1,
       "well": [
-        "A2",
         "A1"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
     },
-    "mastermix": {
-      "slot": 1,
+    "Liquid_1": {
+      "slot": 4,
       "well": [
-        "A2",
-        "A1"
+        "A7"
       ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      "labware": "Applied Biosystems™ MicroAmp™ Optical 384-Well Reaction Plate 384 Well Plate 30 µL"
     }
   }
 }

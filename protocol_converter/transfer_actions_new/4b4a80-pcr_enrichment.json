@@ -1,37 +1,1655 @@
 {
+  "description": "Part 4 of 4: Enrichment, barcoding, and post-PCR clean up of size-selected DNA fragments\nLinks:\n Part 1: Fragmentation\n Part 2: Adapter Ligation\n Part 3: Size Selection\n Part 4: PCR Enrichment\nWith this protocol, your robot can perform the NEBNext Ultra II FS DNA Library Prep Kit for Illumina E6177S/L protocol described by the NEBNext E6177S/L. NEB Instruction Manual for NEBNext E6177S/L.\nThis is part 4 of the protocol: PCR enrichment\nThis step amplifies and barcodes the size-selected output from part 3, followed by a post-PCR cleanup.\nThis protocol assumes up to 24 input DNA samples of > 100 ng and follows Section 2 of the NEB Instruction Manual.\nAfter the pcr enrichment and cleanup steps carried out in this protocol, store samples at -20 C.",
+  "tags": [
+    "4b4a80-pcr_enrichment.ot2.apiv2.py",
+    "NGS Library Prep",
+    "NEBNext Ultra II FS DNA Library Prep Kit for Illumina E6177S/L"
+  ],
   "workflow": [
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "spri_beads",
-        "targets": "spri_beads",
-        "asp_vol": 59.13793103448276,
-        "dis_vol": 59.13793103448276,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
+      "action": "raw",
+      "text": "temperature module to 4 degrees via settings in the Opentrons app prior to"
+    },
+    {
+      "action": "raw",
+      "text": "running this protocol. Please transfer Q5 master mix to well A1, i5"
+    },
+    {
+      "action": "raw",
+      "text": "to well A2, i7 to well A3 of the 4 degree temperature module"
+    },
+    {
+      "action": "raw",
+      "text": "on the OT-2 deck."
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 105.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 98, 'hold_time_seconds': 30}]"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 3 repetitions of cycle composed of the following steps: [{'temperature': 98, 'hold_time_seconds': 10}, {'temperature': 65, 'hold_time_seconds': 75}]"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 1 repetitions of cycle composed of the following steps: [{'temperature': 65, 'hold_time_minutes': 5}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 4.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 22.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "from the thermocycler, spin, and place the plate on the magnetic module."
+    },
+    {
+      "action": "raw",
+      "text": "Please place vortexed SPRI beads in well A1 of the"
+    },
+    {
+      "action": "raw",
+      "text": "temperature module. Please place freshly prepared 80% ethanol in well"
+    },
+    {
+      "action": "raw",
+      "text": "A1 and 0.1X TE in well A2 of the reagent reservoir."
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "spri_beads",
+        "sources": "i5",
+        "targets": "i5",
+        "asp_vol": 59.13793103448276,
+        "dis_vol": 59.13793103448276,
+        "asp_flow_rate": 92.85999999999999,
+        "dis_flow_rate": 92.85999999999999,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F4"
+          }
+        ]
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+        "slot": 2
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        47.5,
+        47.5
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "i5",
         "targets": "post_pcr_sample",
         "asp_vol": 45.0,
         "dis_vol": 45.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_flow_rate": 92.85999999999996,
+        "dis_flow_rate": 92.85999999999996,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E7"
+          }
+        ]
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "post_pcr_sample",
-        "targets": "Liquid_1",
-        "asp_vol": 95.0,
-        "dis_vol": 95.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -41,19 +1659,18 @@
         "asp_vol": 90.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 75.0,
-        "dis_flow_rate": 50.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "post_pcr_sample",
-        "targets": "Liquid_1",
-        "asp_vol": 90.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 75.0,
-        "dis_flow_rate": 50.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -63,19 +1680,78 @@
         "asp_vol": 90.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 75.0,
-        "dis_flow_rate": 50.0
+        "dis_flow_rate": 50.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "post_pcr_sample",
-        "targets": "Liquid_1",
-        "asp_vol": 58.75,
-        "dis_vol": 117.5,
-        "asp_flow_rate": 75.0,
-        "dis_flow_rate": 50.0
-      }
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 30.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        16.5,
+        16.5
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        16.5,
+        16.5
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        16.5,
+        16.5
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "delay",
+      "minutes": 7,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +1761,38 @@
         "asp_vol": 33.0,
         "dis_vol": 33.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "PCR enrichment step is complete"
     },
     {
       "action": "transfer_liquid",
@@ -96,7 +1802,24 @@
         "asp_vol": 33.0,
         "dis_vol": 33.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          }
+        ]
       }
     }
   ],
@@ -108,17 +1831,17 @@
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
     },
-    "spri_beads": {
+    "i5": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1"
     },
     "post_pcr_sample": {
       "slot": 4,
       "well": [
-        "E1"
+        "C1"
       ],
       "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
     },
@@ -137,13 +1860,6 @@
         "A2"
       ],
       "labware": "NEST 12 Well Reservoir 15 mL"
-    },
-    "Liquid_1": {
-      "slot": 12,
-      "well": [
-        "A1"
-      ],
-      "labware": "Opentrons Fixed Trash"
     }
   }
 }

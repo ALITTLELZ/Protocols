@@ -1,4 +1,10 @@
 {
+  "description": "This protocol allows for a robust cherrypicking and normalization in one step.\n\nUsing two CSV files (Dilutant CSV and Sample CSV), the OT-2 will make all transfers of dilutant using a single tip (transfers based on Dilutant CSV). Then, using a new tip for each transfer, the OT-2 will make each sample transfers according to the Sample CSV (the dilutant and sample will be mixed after dispensing the sample).\n\nThe two .csv files should be formatted as shown in the example below, including headers:\nSource Labware,Source Slot,Source Well,Source Aspiration Height Above Bottom (in mm),Dest Labware,Dest Slot,Dest Well,Dest Dispense Height Above Bottom (in mm),Volume (in ul),Pipette\nagilent_1_reservoir_290ml,1,A1,1,nest_96_wellplate_100ul_pcr_full_skirt,4,A11,1,5,right\nnest_12_reservoir_15ml,2,A1,1,nest_96_wellplate_2ml_deep,5,A5,5,3,right\nnest_1_reservoir_195ml,3,A1,1,nest_96_wellplate_2ml_deep,5,H12,5,7,right\nAll available empty slots will be filled with the necessary tipracks, and the user will be prompted to refill the tipracks if all are emptied in the middle of the protocol.",
+  "tags": [
+    "76c562.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,14 @@
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 1.0,
-        "dis_vol": 0.0,
+        "dis_vol": 1.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,9 +28,14 @@
         "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 3.0,
-        "dis_vol": 1.0,
+        "dis_vol": 3.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -28,10 +44,32 @@
         "sources": "last_dil",
         "targets": "dest",
         "asp_vol": 7.0,
-        "dis_vol": 3.0,
+        "dis_vol": 7.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Well Plate 100 uL PCR Full Skirt",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +77,32 @@
         "sources": "Liquid_1",
         "targets": "Liquid_2",
         "asp_vol": 5.0,
-        "dis_vol": 1.0,
+        "dis_vol": 5.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 69.18666666666667
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        3.0,
+        3.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +110,32 @@
         "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 3.0,
-        "dis_vol": 0.3333333333333333,
+        "dis_vol": 3.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 69.18666666666667
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "H12",
+        "labware": "NEST 96 Deep Well Plate 2mL",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -61,9 +143,14 @@
         "sources": "source",
         "targets": "dest",
         "asp_vol": 7.0,
-        "dis_vol": 1.6666666666666667,
+        "dis_vol": 7.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 69.18666666666667
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F1"
+        }
       }
     }
   ],

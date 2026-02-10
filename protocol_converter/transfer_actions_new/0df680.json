@@ -1,5 +1,45 @@
 {
+  "description": "This protocol performs a custom cherrypicking for any number of source and destination plates using a P20 single-channel pipette. An output file mapping each sample ID, source plate ID, and destination plate ID is output for each run.\nThe input .csv file should be formatted as follows including header line\n,clone ID,0ur plate ID,Source Labware,Source Slot,Source Well,Source Aspiration Height Above Bottom (in mm),Dest Labware,Dest Slot,Dest. Plate ID,Dest Well,Volume (in ul)\nn1,CL-1418591,1,biorad_96_wellplate_200ul_pcr,2,B06,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A01,15\nn2,CL-1418640,1,biorad_96_wellplate_200ul_pcr,2,D12,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A02,15\nn3,CL-1418621,1,biorad_96_wellplate_200ul_pcr,2,H09,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A03,15\nn4,CL-1418715,2,biorad_96_wellplate_200ul_pcr,3,H09,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A04,15\nn5,CL-1418738,3,biorad_96_wellplate_200ul_pcr,4,A01,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A05,15\nn6,CL-1418818,3,biorad_96_wellplate_200ul_pcr,4,A11,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A06,15\nn7,CL-1418744,3,biorad_96_wellplate_200ul_pcr,4,G01,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A07,15\nn8,CL-1418866,4,biorad_96_wellplate_200ul_pcr,5,C05,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A08,15\nn9,CL-1418976,5,biorad_96_wellplate_200ul_pcr,6,C07,1,biorad_96_wellplate_200ul_pcr,11,RAILPB03,A09,15\n...\nYou can also access a template here.",
+  "tags": [
+    "cherrypicking.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherrypicking"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +48,35 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +86,43 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +132,35 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -41,8 +170,63 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -51,9 +235,46 @@
         "targets": "Liquid_10",
         "asp_vol": 8.5,
         "dis_vol": 17.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +284,33 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "F2"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +320,30 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +353,23 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -96,7 +379,12 @@
         "asp_vol": 8.5,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B3"
+        }
       }
     }
   ],
@@ -104,7 +392,7 @@
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "D12"
+        "B6"
       ],
       "labware": "source 1"
     },
@@ -118,7 +406,7 @@
     "Liquid_5": {
       "slot": 4,
       "well": [
-        "A11"
+        "A1"
       ],
       "labware": "source 3"
     },
@@ -132,7 +420,7 @@
     "Liquid_9": {
       "slot": 6,
       "well": [
-        "C7"
+        "H8"
       ],
       "labware": "source 5"
     },
@@ -167,11 +455,11 @@
     "Liquid_2": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -182,11 +470,11 @@
     "Liquid_4": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -197,11 +485,11 @@
     "Liquid_6": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -212,11 +500,11 @@
     "Liquid_8": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -227,11 +515,11 @@
     "Liquid_10": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -242,11 +530,11 @@
     "Liquid_12": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -257,11 +545,11 @@
     "Liquid_14": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -272,11 +560,11 @@
     "Liquid_16": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",
@@ -287,11 +575,11 @@
     "Liquid_18": {
       "slot": 11,
       "well": [
-        "A1",
+        "A2",
         "A4",
-        "A6",
+        "A7",
         "A8",
-        "A12",
+        "A9",
         "B2",
         "B3",
         "B5",

@@ -1,5 +1,32 @@
 {
+  "description": "This protocol automates certain steps of the Lyra Direct SARS-CoV Assay. This protocol assumes buffer is being added manually. The automated steps include mixing of the deep well block, and transferring samples to the PCR plate. \n\n\n\nP20 single-channel GEN2 electronic pipette\nP1000 single-channel GEN2 electronic pipette\nOpentrons 20ul filter tiprack\nOpentrons 1000ul filter tiprack\nMicroAmp™ EnduraPlate™ Optical 96-Well PCR Plates\nEppendorf 96 Deep Well Block 1000ul\n\n\n\nDeck Setup\n Opentrons 1000ul filter tiprack (Slot 4)\n Opentrons 20ul filter tiprack (Slot 7)\n Eppendorf 96 Deep Well Block 1000ul (Slot 2)\n MicroAmp™ EnduraPlate™ Optical 96-Well PCR Plate (Slot 3, should be rested on top of the Eppendorf cooling block)",
+  "tags": [
+    "3db190-manual.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Starting the mixing and transfer of specimen process..."
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Eppendorf 96 Deep Well Block 1000ul",
+        "slot": 2
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +35,19 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],

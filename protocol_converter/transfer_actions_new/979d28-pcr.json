@@ -1,4 +1,10 @@
 {
+  "description": "Links:\n\nRNA Isolation\n\nNormalization\n\nqPCR Prep\nThis protocol performs a custom cDNA dilution and 384-well PCR prep in triplicate.",
+  "tags": [
+    "pcr.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -7,8 +13,13 @@
         "targets": "all_dests_384",
         "asp_vol": 18.0,
         "dis_vol": 18.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,8 +30,30 @@
         "asp_vol": 45.0,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +63,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -43,6 +132,23 @@
         "asp_flow_rate": 7.599999999999999,
         "dis_flow_rate": 7.599999999999999
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +158,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -65,6 +227,23 @@
         "asp_flow_rate": 7.599999999999999,
         "dis_flow_rate": 7.599999999999999
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +253,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -87,6 +322,23 @@
         "asp_flow_rate": 7.599999999999999,
         "dis_flow_rate": 7.599999999999999
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +348,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -109,6 +417,23 @@
         "asp_flow_rate": 7.599999999999999,
         "dis_flow_rate": 7.599999999999999
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +443,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -131,6 +512,23 @@
         "asp_flow_rate": 7.599999999999999,
         "dis_flow_rate": 7.599999999999999
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "dilution plate",
+        "slot": 8
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +538,64 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -155,6 +609,57 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "384-wellplate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "water",
@@ -162,7 +667,24 @@
         "asp_vol": 2.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          }
+        ]
       }
     }
   ],
@@ -186,14 +708,14 @@
     "all_dests_384": {
       "slot": 5,
       "well": [
-        "A9"
+        "A19"
       ],
       "labware": "384-wellplate"
     },
     "dil_locs": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "dilution plate"
     },

@@ -1,15 +1,19 @@
 {
+  "description": "This protocol uses an 8-channel P300 pipette to add 100 or 200 uL of reagent to a batch of 1-5 ELISA plates for steps of the attached BioLegend Human IL-2 ELISA. User-determined parameters are available to specify which step of the ELISA process is being performed (coating, blocking, detection antibody, avidin HRP, TMB substrate or stop step), the number of ELISA plates (1-5), the aspiration position in the large reservoir (in millimeters above the labware bottom), to optionally pause the robot with the P300 above the reagent reservoir to wait for off-deck plate washing steps, and to include or not include a tip touch following reagent dispenses.\nLinks:\n* BioLegend Human IL-2 ELISA MAX Deluxe Set - user manual",
+  "tags": [
+    "30450c.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "bufferwells",
-        "targets": "bufferwells",
-        "asp_vol": 300.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
+      "action": "raw",
+      "text": "Resume to fill with 100 uL capture ab in 1x Coating Buffer A"
     },
     {
       "action": "transfer_liquid",
@@ -54,6 +58,21 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "bufferwells",
+        "targets": "bufferwells",
+        "asp_vol": 300.0,
+        "dis_vol": 100.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0
+      }
+    },
+    {
+      "action": "raw",
+      "text": "Resume to fill with 100 uL capture ab in 1x Coating Buffer A"
     },
     {
       "action": "transfer_liquid",
@@ -120,6 +139,10 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Resume to fill with 100 uL capture ab in 1x Coating Buffer A"
     },
     {
       "action": "transfer_liquid",
@@ -186,6 +209,10 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Resume to fill with 100 uL capture ab in 1x Coating Buffer A"
     },
     {
       "action": "transfer_liquid",
@@ -252,6 +279,10 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Resume to fill with 100 uL capture ab in 1x Coating Buffer A"
     },
     {
       "action": "transfer_liquid",
@@ -318,6 +349,10 @@
         "asp_flow_rate": 94.0,
         "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Finished with coating step"
     },
     {
       "action": "transfer_liquid",
@@ -342,7 +377,7 @@
     "bufferwells_2": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Elisa Plate in Slot 2"
     },
@@ -356,7 +391,7 @@
     "bufferwells_4": {
       "slot": 4,
       "well": [
-        "A2"
+        "A1"
       ],
       "labware": "Elisa Plate in Slot 4"
     },

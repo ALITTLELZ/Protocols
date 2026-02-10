@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs a custom PCR prep by transferring samples, primers, BigDye, and water to a clean PCR plate. New tips are used for each transfer, both to avoid contamination and to accurately dispense small volumes (1-6µl). See below for deck and reagent setups.\nNote that the product of the number of samples multiplied by the number of primers cannot exceed 96, or an exception will be thrown.\nAn example of the transfer scheme is shown in the following schematic:",
+  "tags": [
+    "pcr_prep.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -7,8 +13,13 @@
         "targets": "d_set",
         "asp_vol": 16.0,
         "dis_vol": 16.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -18,8 +29,40 @@
         "targets": "d_set",
         "asp_vol": 3.0,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.6000000000000005,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A7"
+          }
+        ]
       }
     },
     {
@@ -29,8 +72,250 @@
         "targets": "d_set",
         "asp_vol": 1.0,
         "dis_vol": 1.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H6"
+          }
+        ]
       }
     }
   ],
@@ -38,14 +323,14 @@
     "d_set": {
       "slot": 1,
       "well": [
-        "A4"
+        "A3"
       ],
       "labware": "destination PCR plate"
     },
     "primer_sources": {
       "slot": 2,
       "well": [
-        "A1"
+        "B1"
       ],
       "labware": "primer rack"
     },

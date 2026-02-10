@@ -1,44 +1,105 @@
 {
+  "description": "This is a flexible protocol that helps you to prepare the PCR plate for a batch test of 12 samples and 2 No Template Controls, with the previous adition of the Master Mix\nThe protocol is broken down into 3 main parts:\n Mix dispensing\n Samples Dispensing\n* NTC dispensing",
+  "tags": [
+    "batch-test-plating.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 8.0
+    },
+    {
+      "action": "raw",
+      "text": "Waiting for Temperature Module to reach temperature 8.0 °C (rounded off to nearest integer)"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "MIX",
-        "targets": "MIX",
+        "targets": "Liquid_1",
         "asp_vol": 16.0,
-        "dis_vol": 4.666666666666667,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_vol": 7.5,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "muestra_MH1",
-        "targets": "MIX",
+        "sources": "muestra_UU2",
+        "targets": "Liquid_1",
         "asp_vol": 6.0,
-        "dis_vol": 1.3333333333333333,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 38.373333333333335
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "MIX": {
+    "muestra_UU2": {
       "slot": 1,
       "well": [
-        "C1",
-        "D6"
+        "B2"
       ],
       "labware": "Opentrons 24 Tube Rack with Generic 2 mL Screwcap"
     },
-    "muestra_MH1": {
-      "slot": 1,
+    "Liquid_1": {
+      "slot": 2,
       "well": [
-        "C1",
-        "D6"
+        "B1"
       ],
-      "labware": "Opentrons 24 Tube Rack with Generic 2 mL Screwcap"
+      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+    },
+    "MIX": {
+      "slot": 3,
+      "well": [
+        "A1"
+      ],
+      "labware": "Temperature-Controlled Tubes on Temperature Module GEN2"
     }
   }
 }

@@ -1,14 +1,33 @@
 {
+  "description": "This protocol automates RNA extraction according to the 3D Black Bio RNA Extraction Kit.\n\nUsing the P300 Multi-Channel Pipette, this protocol can accommodate up to 96 samples per run and can be configured to run any multiple of 8 up to 96. Starting with at least 200µL of sample in a standard 96-well plate, the entire process is automated and ends with 60µL of elution containing RNA dispensed into a 96-well PCR plate. The elution is then ready for RT/qPCR, Next-Gen Sequencing, hybridization, etc.\n\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 4.0.0 or later)\nOpentrons Magnetic Module, GEN2\nOpentrons P300 Multi-Channel Pipette\nOpentrons 200µL Filter Tips (recommended) or Opentrons 300µL Tips\nNEST 96-Deep Well Plate, 2mL\nNEST 96-Well PCR Plate\nNEST 12-Well Reservoir\nNEST 1-Well Reservoir\nOpentrons 96-Well Aluminum Block\nPCR Tubes\n3D Black Bio Extraction Kit\nSamples\n\n\n\nReagent Preparation\nPrepare all reagents according to manual.\n\nProteinase K: At least 10µL (12µL is recommended) per column of samples should fill a PCR Strip.\nThe PCR strip should be placed in column 1 of the Opentrons 96-Well Aluminum Block\n\nMagBeads: At least 20µL (22µL is recommended) per column of samples should fill 1 (or 2, if processing more than 48 samples) PCR strip(s).\nThe PCR strip(s) should be placed in column(s) 3 (and 4, if processing more than 48 samples) of the Opentrons 96-Well Aluminum Block\n\nLysis-Binding Mix: In slots 1-6 of the NEST 12-Well Reservoir.\nFor every column (8 samples), 7mL of Lysis-Binding Mix should be added to the reservoir. Each slot of the 12 well reservoir can accommodate volume for 2 columns/16 samples and should be loaded sequentially (ex. if running 24 samples, slot 1 would get 14mL lysis-binding mix, slot 2 would get 7mL lysis-binding mix, slot 3 would be empty, etc).\n\nWash 1: In slots 7-12 of the NEST 12-Well Reservoir.\nFor every column (8 samples), 6.5mL of wash 1 should be added to the reservoir. Each slot of the 12 well reservoir can accommodate volume for 2 columns/16 samples and should be loaded sequentially (ex. if running 24 samples, slot 7 would get 13mL wash 1, slot 8 would get 6.5mL wash 1, slot 9 would be empty, etc).\n\nWash 2: In NEST 1-Well Reservoir.\nFor every column (8 samples), 14mL of wash 2 should be added to the reservoir.\n\nElution Buffer: At least 60µL (65µL is recommended) per column of samples should fill a PCR Strip. Each PCR strip can accommodate up to two columns worth (16) samples.\nThe PCR strips should be loaded in columns 7-12 of the Opentrons 96-Well Aluminum Block\n\n\nDeck Layout\n\nSlot 1: NEST 96-Well PCR Plate, containing samples\nSlot 2: NEST 1-Well Reservoir containing Wash 2\nSlot 3: Opentrons 200µL Filter Tips\nSlot 4: Opentrons 96-Well Aluminum Block containing Proteinase K, Magnetic Beads, and Elution Buffer\nSlot 5: NEST 12-Well Reservoir containing Lysis-Binding Mix and Wash 1\nSlot 6: Opentrons 200µL Filter Tips\nSlot 7: Opentrons Magnetic Module, GEN2 with NEST 96-Deep Well Plate, 2mL\nSlot 8: Opentrons 200µL Filter Tips\nSlot 9: Opentrons 200µL Filter Tips\nSlot 10: NEST 1-Well Reservoir, empty for liquid waste\nSlot 11: NEST 1-Well Reservoir, empty for liquid waste\n\nNote about tips: The tips in slot 8 will be used for removing supernatant and used tips will be returned to empty tip racks to prevent overflow of the waste bin.\n\nUsing the customizations field (below), set up your protocol.\n P300-Multi Mount: Select which mount the P300-Multi is attached to\n Number of Samples: Specify the number of samples to run",
+  "tags": [
+    "7cfbde.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "RNA Extraction"
+  ],
   "workflow": [
+    {
+      "action": "raw",
+      "text": "Adding 10uL of Proteinase K"
+    },
+    {
+      "action": "raw",
+      "text": "Adding 804uL of Lysis-Binding Mix + 200uL of Sample"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 144.0,
-        "dis_vol": 10.214285714285714,
+        "dis_vol": 11.076923076923077,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 146.42857142857142
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,10 +36,27 @@
         "sources": "lysis",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -28,9 +64,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -39,10 +75,32 @@
         "sources": "lysis",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -50,9 +108,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -61,10 +119,32 @@
         "sources": "lysis_2",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -72,9 +152,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -83,10 +163,32 @@
         "sources": "lysis_2",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -94,9 +196,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -105,10 +207,32 @@
         "sources": "lysis_3",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -116,9 +240,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -127,10 +251,32 @@
         "sources": "lysis_3",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -138,9 +284,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -149,10 +295,32 @@
         "sources": "lysis_4",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -160,9 +328,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -171,10 +339,32 @@
         "sources": "lysis_4",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -182,9 +372,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -193,10 +383,32 @@
         "sources": "lysis_5",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -204,9 +416,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -215,10 +427,32 @@
         "sources": "lysis_5",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -226,9 +460,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -237,10 +471,32 @@
         "sources": "lysis_6",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -248,9 +504,9 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -259,10 +515,32 @@
         "sources": "lysis_6",
         "targets": "pk",
         "asp_vol": 201.0,
-        "dis_vol": 160.6,
+        "dis_vol": 201.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 140.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 20
     },
     {
       "action": "transfer_liquid",
@@ -270,10 +548,214 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -281,10 +763,85 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 20.0,
-        "dis_vol": 13.0,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 3 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -294,7 +851,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -360,7 +922,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -426,7 +993,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -492,7 +1064,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -558,7 +1135,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -624,7 +1206,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -690,7 +1277,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -756,7 +1348,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -822,7 +1419,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -888,7 +1490,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -954,7 +1561,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -1020,7 +1632,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
       }
     },
     {
@@ -1077,6 +1694,14 @@
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Performing Wash 1..."
     },
     {
       "action": "transfer_liquid",
@@ -1086,51 +1711,12 @@
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash1",
-        "targets": "wash1",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash1",
-        "targets": "wash1",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash1",
-        "targets": "wash1",
-        "asp_vol": 80.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash1",
-        "targets": "pk",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1165,6 +1751,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1172,9 +1775,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -1209,6 +1817,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1216,9 +1841,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -1253,6 +1883,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1260,9 +1907,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -1297,6 +1949,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1304,9 +1973,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -1341,6 +2015,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1348,9 +2039,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -1385,6 +2081,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1392,9 +2105,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -1429,6 +2147,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1436,9 +2171,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -1473,6 +2213,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1480,9 +2237,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -1517,6 +2279,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1524,9 +2303,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -1561,6 +2345,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1568,9 +2369,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -1605,6 +2411,89 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 80.0,
+        "dis_vol": 180.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -1612,10 +2501,23 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 3 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -1625,51 +2527,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 80.0,
-        "dis_vol": 80.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1713,7 +2576,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -1757,7 +2625,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -1801,7 +2674,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -1845,7 +2723,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -1889,7 +2772,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -1933,7 +2821,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -1977,7 +2870,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2021,7 +2919,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2065,7 +2968,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2109,7 +3017,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -2144,6 +3057,63 @@
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 80.0,
+        "dis_vol": 80.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Performing Wash 2-1..."
     },
     {
       "action": "transfer_liquid",
@@ -2153,95 +3123,12 @@
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 230.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "pk",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "wash2",
-        "asp_vol": 105.0,
-        "dis_vol": 230.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wash2",
-        "targets": "pk",
-        "asp_vol": 110.0,
-        "dis_vol": 73.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2276,6 +3163,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2283,9 +3187,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2320,6 +3229,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2327,9 +3253,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -2364,6 +3295,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2371,9 +3319,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -2408,6 +3361,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2415,9 +3385,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2452,6 +3427,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2459,9 +3451,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -2496,6 +3493,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2503,9 +3517,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -2540,6 +3559,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2547,9 +3583,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2584,6 +3625,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2591,9 +3649,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2628,6 +3691,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2635,9 +3715,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2672,6 +3757,155 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 230.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 110.0,
+        "dis_vol": 110.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 230.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -2679,10 +3913,23 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 3 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -2692,51 +3939,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_2",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "Liquid_2",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2780,7 +3988,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2824,7 +4037,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -2868,7 +4086,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -2912,7 +4135,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2956,7 +4184,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -3000,7 +4233,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -3044,7 +4282,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -3088,7 +4331,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -3132,7 +4380,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -3176,7 +4429,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -3216,11 +4474,107 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pk",
-        "targets": "Liquid_2",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Performing Wash 2-2..."
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "raw",
+      "text": "Replace the tips in slots 9, 6, and 3.  Move empty rack to slot 8"
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -3255,6 +4609,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3262,9 +4633,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -3299,6 +4675,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3306,9 +4699,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -3343,6 +4741,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3350,9 +4765,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -3387,6 +4807,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3394,9 +4831,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -3431,6 +4873,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3438,9 +4897,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -3475,6 +4939,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3482,9 +4963,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -3519,6 +5005,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3526,9 +5029,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -3563,6 +5071,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3570,9 +5095,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -3607,6 +5137,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3614,9 +5161,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -3651,6 +5203,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3658,9 +5227,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -3695,6 +5269,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3702,9 +5293,14 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 110.0,
-        "dis_vol": 73.0,
+        "dis_vol": 110.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
       }
     },
     {
@@ -3739,6 +5335,23 @@
         "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -3746,10 +5359,23 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 3 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -3759,51 +5385,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 105.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pk",
-        "targets": "pk",
-        "asp_vol": 105.0,
-        "dis_vol": 200.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -3847,7 +5434,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -3891,7 +5483,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -3935,7 +5532,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -3979,7 +5581,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -4023,7 +5630,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -4067,7 +5679,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -4111,7 +5728,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -4155,7 +5777,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -4199,7 +5826,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -4243,7 +5875,12 @@
         "asp_vol": 105.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -4278,6 +5915,59 @@
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 200.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pk",
+        "targets": "pk",
+        "asp_vol": 105.0,
+        "dis_vol": 105.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -4287,7 +5977,12 @@
         "asp_vol": 60.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -4298,7 +5993,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -4309,7 +6009,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     },
     {
@@ -4320,7 +6025,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A4"
+        }
       }
     },
     {
@@ -4331,7 +6041,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A5"
+        }
       }
     },
     {
@@ -4342,7 +6057,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -4353,7 +6073,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -4364,7 +6089,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A8"
+        }
       }
     },
     {
@@ -4375,7 +6105,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A9"
+        }
       }
     },
     {
@@ -4386,7 +6121,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A10"
+        }
       }
     },
     {
@@ -4397,7 +6137,12 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A11"
+        }
       }
     },
     {
@@ -4408,8 +6153,34 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Letting air dry for 10 minutes..."
+    },
+    {
+      "action": "raw",
+      "text": "Please replace 96-Well Plate containing Samples  with clean plate for elutions"
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Adding 60uL of elution buffer to samples..."
     },
     {
       "action": "transfer_liquid",
@@ -4419,8 +6190,217 @@
         "asp_vol": 35.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 37.5,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -4428,10 +6408,89 @@
         "sources": "pk",
         "targets": "pk",
         "asp_vol": 60.0,
-        "dis_vol": 28.17391304347826,
+        "dis_vol": 60.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 123.91304347826087
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating at room temp for 10 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 2 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -4441,8 +6500,74 @@
         "asp_vol": 60.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {

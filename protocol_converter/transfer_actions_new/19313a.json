@@ -1,5 +1,49 @@
 {
+  "description": "This protocol extracts RNA with a temperature module and magnetic module. User has the choice to include a \"Waste water mode\" which consists of adding and mixing binding buffer on magnetically engaged beads. Tips are tracked between protocols with the protocol pausing and prompting the user to replace tip racks when a tip rack is depleted.\nExplanation of complex parameters below:\n Most customizable variables below are in reference to the original protocol request coded by the user. All additional parameters are explained:\n Reset Tipracks: Select yes to pick up the tip from A1 on both the 200ul and 300ul tip racks. Select no to pick up the tips for both tip racks from where the previous run left off.\n Remove supernatant aspiration height (mm): Select aspiration height from the bottom of the well to remove supernatant.\n Length from side of the well opposite magnetically engaged beads (mm): Specify the distance to aspirate from the side of the well opposite the magnetically engaged beads. A values of 1 is the side of the well, a values of 4.1 is the middle of the well.\n* P300 Single GEN2 Mount: Select which side (left or right) to mount P300 single channel pipette.",
+  "tags": [
+    "19313a.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Nucleic Acid Purification"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 65.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Normal Mode"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 10
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +52,22 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 11,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +75,44 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "End Normal Mode"
+    },
+    {
+      "action": "raw",
+      "text": "RPS"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        371.44,
+        371.44
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +122,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +145,40 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 66.0,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 97.62
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Five washes"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +188,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +211,36 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +250,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +273,36 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +312,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "E1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -105,10 +335,36 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +374,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "F1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +397,36 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        300.0,
+        300.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        278.58,
+        278.58
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +436,22 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "G1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +459,28 @@
         "sources": "samples",
         "targets": "Liquid_2",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
     },
     {
       "action": "transfer_liquid",
@@ -162,8 +490,39 @@
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Mag Plate on Magnetic Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        232.15,
+        232.15
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -173,8 +532,57 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Temperature tuberack on Temperature Module GEN2",
+        "slot": 10
+      },
+      "flow_rate": [
+        232.15,
+        232.15
+      ],
+      "mix_time": 6
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Temperature tuberack on Temperature Module GEN2",
+        "slot": 10
+      },
+      "flow_rate": [
+        232.15,
+        232.15
+      ],
+      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
@@ -182,9 +590,14 @@
         "sources": "samples",
         "targets": "source",
         "asp_vol": 60.0,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -199,6 +612,15 @@
       }
     },
     {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples_second_well",
@@ -206,8 +628,17 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 9.286,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {

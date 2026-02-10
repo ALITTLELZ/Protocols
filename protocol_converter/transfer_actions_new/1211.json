@@ -1,4 +1,10 @@
 {
+  "description": "With this protocol, your robot can perform multiple well-to-well liquid transfers using a single-channel pipette by parsing through a user-defined .csv file.\nThe .csv file should be formatted as shown in the example below, including headers:\nSource Labware,Source Slot,Source Well,Source Aspiration Height Above Bottom (in mm),Dest Labware,Dest Slot,Dest Well,Volume (in ul)\nagilent_1_reservoir_290ml,1,A1,1,nest_96_wellplate_100ul_pcr_full_skirt,4,A11,1\nnest_12_reservoir_15ml,2,A1,1,nest_96_wellplate_2ml_deep,5,A5,3\nnest_1_reservoir_195ml,3,A1,1,nest_96_wellplate_2ml_deep,5,H12,7\nAll available empty slots will be filled with the necessary tipracks, and the user will be prompted to refill the tipracks if all are emptied in the middle of the protocol.",
+  "tags": [
+    "cherrypicking.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherrypicking"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 1.0,
         "dis_vol": 1.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 10 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 3.0,
         "dis_vol": 3.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 10 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -30,7 +46,12 @@
         "asp_vol": 7.0,
         "dis_vol": 7.0,
         "asp_flow_rate": 5.0,
-        "dis_flow_rate": 10.0
+        "dis_flow_rate": 10.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 10 uL",
+          "well": "C1"
+        }
       }
     }
   ],

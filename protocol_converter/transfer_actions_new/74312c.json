@@ -1,5 +1,16 @@
 {
+  "description": "This protocol performs the transfer of buffer to various wells on a custom PCB board. It will delay for 1 minute and repeat the same transfers.\n\n\n\nP20 single-channel GEN2 electronic pipette",
+  "tags": [
+    "74312c.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,8 +18,20 @@
         "targets": "Liquid_1",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "asp_flow_rate": 7.559999999999953,
+        "dis_flow_rate": 7.559999999999953,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          }
+        ]
       }
     }
   ],
@@ -16,7 +39,7 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "C5"
+        "K5"
       ],
       "labware": "PCB Board"
     },

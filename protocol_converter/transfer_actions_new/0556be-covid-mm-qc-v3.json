@@ -1,5 +1,15 @@
 {
+  "description": "This protocol performs the transfer of master mix into 24 tubes in an aluminum block on top of the temperature module.\n\n\n\nP1000 single-channel GEN2 electronic pipette\nOpentrons Aluminum Blocks",
+  "tags": [
+    "0556be-covid-mm-qc-v3.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 8.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,8 +17,13 @@
         "targets": "Liquid_2",
         "asp_vol": 546.0,
         "dis_vol": 546.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "asp_flow_rate": 274.6999999999999,
+        "dis_flow_rate": 274.6999999999999,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     }
   ],
@@ -23,7 +38,7 @@
     "Liquid_2": {
       "slot": 10,
       "well": [
-        "D5"
+        "D2"
       ],
       "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
     }

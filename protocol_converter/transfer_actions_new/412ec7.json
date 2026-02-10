@@ -1,5 +1,164 @@
 {
+  "description": "With this protocol, you can do the requested serial dilution with or without a temperature module under the 96-well plate using an 8-channel P300 pipette. The dilution factor and choice of plate are also modifiable.\n\nExample Setup\nThis protocol uses the inputs you define for \"Dilution Factor\" and \"Total Mixing Volume\" to automatically infer the necessary transfer volume for each dilution across your plate. For a 1 in 3 dilution series across an entire plate, as seen above:\n-- Start with your samples/reagents in Column 1 of your plate. In this example, you would pre-add 150 uL of concentrated sample to the first column of your 96-well plate.\n-- Define a Total Mixing Volume of 150uL, a Dilution Factor of 3, and set Number of Dilutions = 11.\n-- Your OT-2 will add 100uL of diluent to each empty well in your plate. Then it will transfer 50uL from Column 1 between each well/column in the plate.\n-- \"Total mixing volume\" = transfer volume + diluent volume.\n-- \"Tip Use Strategy\" will set whether a new tip will be used for every transfer or the same tip reused\n-- \"Blank in Well Plate\" will set whether a blank will be added to column 12\n\n-- Opentrons OT-2\n-- Opentrons OT-2 Run App (Version 4.7 or later)\n-- Opentrons Tips for selected Opentrons Pipette\n-- 12-Row, Automation-Friendly Trough\n-- 96-Well Plate, Bio-Rad or NEST full skirted plates or equivalent aluminum block plates\n-- Diluent (Pre-loaded in row 1 of trough)\n-- Samples/Standards (Pre-loaded in Column 1 of a standard 96-well plate)",
+  "tags": [
+    "412ec7.ot2.apiv2.py",
+    "Serial Dilution",
+    "Optional Temperature Module Serial Dilution"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        145.0,
+        145.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +167,104 @@
         "asp_vol": 41.8421052631579,
         "dis_vol": 83.6842105263158,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          }
+        ]
       }
     }
   ],

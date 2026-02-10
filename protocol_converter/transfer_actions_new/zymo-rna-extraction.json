@@ -1,14 +1,66 @@
 {
+  "description": "This protocol automates the Zymo Quick-DNA/RNA Viral MagBead Extraction Kit. This kit is designed for high-throughput purification of viral DNA and/or RNA and the isolated nucleic acids are ready for all downstream applications, such as RT-qPCR, Next-Gen Sequencing, and many others.\n\nThis kit can be used for Station B (RNA extraction) as part of our COVID Workstation.\n\n\nTo purchase consumables, labware, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.16.0 or later)\nOpentrons Magnetic Module\nOpentrons Temperature Module with 96-Well Aluminum Block\nOpentrons P20 Single-Channel Pipette\nOpentrons P300 8-Channel Pipette, Gen 2\nOpentrons 200µL Filter Tips\nOpentrons 20µL Filter Tips\nOpentrons 4-in-1 Tube Rack with 24-Well Top\nNEST 1.5mL Microcentrifuge Tubes\nNEST 96-Deepwell Plate, 2mL\nNEST 96-Well PCR Plate\nNEST 12-Well Reservoir, 15mL\nNEST 1-Well Reservoir, 195mL\nZymo Quick-DNA/RNA Viral MagBead Kit\nEthanol, 95-100%\nSample, 400µL per well\n\n\n\nNote - Before running this protocol, make sure you clean the OT-2. For more information on cleaning the OT-2, check out this guide.\n\nThe setup for this protocol varies slightly, depending on the number of samples the user selects.\n\nLabware Setup\n\nSlot 2: NEST 12-Well Reservoir, 15mL with reagents (see below)\n\nSlot 3: Opentrons Temperature Module with 96-Well Aluminum Block with clean and empty NEST 96-Well PCR Plate\n\nSlot 4: Opentrons Magnetic Module with NEST 96-Deepwell Plate, 2mL, containing samples\nSamples should be loaded in odd-numbered columns only\n\nSlot 5: Opentrons 20µL Filter Tips\n\nSlot 8: Opentrons 4-in-1 Tube Rack with 24-Well Top, containing reagents in NEST 1.5mL Microcentrifuge Tubes (see below)\n\nOpentrons 200µL Filter Tips\n if 8 samples, Slot 1\n if 16 samples, Slots 1 and 6\n if 24 samples, Slots 1, 6, and 9\n if 32 samples, Slots 1, 6, 7, and 9\n if 40 or 48 samples, Slots 1, 6, 7, 9, and 10\n\n\nReagent Setup\n\nOpentrons 4-in-1 Tube Rack with 24-Well Top\nD1: Proteinase K, 4µL per sample\nD6: Extraction Control Spike-In, if using\n\nNEST 12-Well Reservoir, 15mL\nFor every 8 samples, the following reagents are needed:\n 7mL Zymo Viral DNA/RNA Buffer + 350µL of Zymo MagBeads\n 4.5mL of Zymo Wash Buffer 1\n 4.5mL of Zymo Wash Buffer 2\n 4.5mL of Ethanol (Ethanol Wash 1)\n* 4.5mL Ethanol (Ethanol Wash 2)\n\nSlot 1: Zymo Viral DNA/RNA Buffer + Zymo MagBeads, 8/16 samples\nSlot 2: Zymo Viral DNA/RNA Buffer + Zymo MagBeads, 24/32 samples\nSlot 3: Zymo Viral DNA/RNA Buffer + Zymo MagBeads, 40/48 samples\nSlot 4: Zymo Wash Buffer 1, 8/16/24 samples\nSlot 5: Zymo Wash Buffer 1, 32/40/48 samples\nSlot 6: Zymo Wash Buffer 2, 8/16/24 samples\nSlot 7: Zymo Wash Buffer 2, 32/40/48 samples\nSlot 8: Ethanol (Ethanol Wash 1), 8/16/24 samples\nSlot 9: Ethanol (Ethanol Wash 1), 32/40/48 samples\nSlot 10: Ethanol (Ethanol Wash 2), 8/16/24 samples\nSlot 11: Ethanol (Ethanol Wash 2), 32/40/48 samples\nSlot 12: Nuclease-Free Water, 3.5-4mL\n\nFull Deck Layout:\n\nUsing the customizations fields, below set up your protocol.\n Number of Samples: Specify the number of samples you'd like to run.\n Amount of Spike-in: Specify how much control RNA (or other spike-in) should be added to each well. If not using a spike-in, leave as 0.\n* Return tips after wash step: Specify whether to drop tips into trash bin after use, or to replace in tip rack for easy disposal.",
+  "tags": [
+    "zymo-rna-extraction.ot2.apiv2.py",
+    "Covid Workstation",
+    "RNA Extraction"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 6.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pk",
         "targets": "magsamps24",
         "asp_vol": 4.0,
-        "dis_vol": 1.5,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 51.89
+        "dis_vol": 4.0,
+        "asp_flow_rate": 3.7800000000000002,
+        "dis_flow_rate": 3.7800000000000002,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "H1"
+          }
+        ]
       }
     },
     {
@@ -19,14 +71,19 @@
         "asp_vol": 160.0,
         "dis_vol": 160.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "buffer",
-        "targets": "buffer",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 160.0,
         "asp_flow_rate": 50.0,
@@ -36,8 +93,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "buffer",
-        "targets": "buffer",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 160.0,
         "asp_flow_rate": 50.0,
@@ -47,8 +104,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "buffer",
-        "targets": "buffer",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 160.0,
         "asp_flow_rate": 50.0,
@@ -58,8 +115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "buffer",
-        "targets": "buffer",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 50.0,
@@ -67,32 +124,89 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "buffer",
-        "targets": "buffer",
-        "asp_vol": 20.0,
-        "dis_vol": 13.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 133.33333333333334
-      }
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 7
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 29
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "buffer",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
+        "asp_vol": 20.0,
+        "dis_vol": 20.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on magdeck for 5 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "magsamps24",
         "targets": "Liquid_1",
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -102,8 +216,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 190.0,
         "asp_flow_rate": 20.0,
@@ -113,19 +227,24 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -135,8 +254,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -146,8 +265,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 85.0,
         "dis_vol": 190.0,
         "asp_flow_rate": 20.0,
@@ -155,21 +274,30 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wb1",
-        "targets": "Liquid_1",
-        "asp_vol": 165.0,
-        "dis_vol": 165.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wb1",
-        "targets": "wb1",
+        "targets": "magsamps24",
+        "asp_vol": 165.0,
+        "dis_vol": 165.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 87.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 50.0,
@@ -179,8 +307,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wb1",
-        "targets": "wb1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 87.5,
         "dis_vol": 185.0,
         "asp_flow_rate": 50.0,
@@ -188,32 +316,67 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wb1",
-        "targets": "wb1",
-        "asp_vol": 20.0,
-        "dis_vol": 9.5,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 19
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wb1",
-        "targets": "Liquid_1",
-        "asp_vol": 180.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 20.0,
+        "sources": "magsamps24",
+        "targets": "magsamps24",
+        "asp_vol": 20.0,
+        "dis_vol": 20.0,
+        "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
     },
     {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 3 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
+        "asp_vol": 180.0,
+        "dis_vol": 180.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -223,8 +386,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 72.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 20.0,
@@ -232,21 +395,30 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wb2",
-        "targets": "Liquid_1",
-        "asp_vol": 165.0,
-        "dis_vol": 165.0,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
-      }
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wb2",
-        "targets": "wb2",
+        "targets": "magsamps24",
+        "asp_vol": 165.0,
+        "dis_vol": 165.0,
+        "asp_flow_rate": 50.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 87.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 50.0,
@@ -256,8 +428,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wb2",
-        "targets": "wb2",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 87.5,
         "dis_vol": 185.0,
         "asp_flow_rate": 50.0,
@@ -265,32 +437,67 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "wb2",
-        "targets": "wb2",
-        "asp_vol": 20.0,
-        "dis_vol": 9.5,
-        "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wb2",
-        "targets": "Liquid_1",
-        "asp_vol": 180.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 20.0,
+        "sources": "magsamps24",
+        "targets": "magsamps24",
+        "asp_vol": 20.0,
+        "dis_vol": 20.0,
+        "asp_flow_rate": 50.0,
         "dis_flow_rate": 150.0
       }
     },
     {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 3 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
+        "asp_vol": 180.0,
+        "dis_vol": 180.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -300,23 +507,32 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "magsamps24",
+        "targets": "magsamps24",
         "asp_vol": 72.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 20.0,
         "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol1",
-        "targets": "Liquid_1",
+        "targets": "magsamps24",
         "asp_vol": 165.0,
         "dis_vol": 165.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
     },
     {
@@ -342,32 +558,67 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 9
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol1",
         "targets": "ethanol1",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 3 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "ethanol1",
+        "targets": "magsamps24",
+        "asp_vol": 180.0,
+        "dis_vol": 180.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol1",
-        "targets": "Liquid_1",
-        "asp_vol": 180.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "targets": "ethanol1",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -377,8 +628,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "ethanol1",
+        "targets": "ethanol1",
         "asp_vol": 72.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 20.0,
@@ -386,14 +637,23 @@
       }
     },
     {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol2",
-        "targets": "Liquid_1",
+        "targets": "ethanol1",
         "asp_vol": 165.0,
         "dis_vol": 165.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
     },
     {
@@ -419,32 +679,67 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 9
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol2",
         "targets": "ethanol2",
         "asp_vol": 20.0,
-        "dis_vol": 9.5,
+        "dis_vol": 20.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
+      }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 3 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "ethanol2",
+        "targets": "ethanol1",
+        "asp_vol": 180.0,
+        "dis_vol": 180.0,
+        "asp_flow_rate": 20.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol2",
-        "targets": "Liquid_1",
-        "asp_vol": 180.0,
-        "dis_vol": 180.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "targets": "ethanol2",
         "asp_vol": 95.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
@@ -454,8 +749,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "ethanol2",
+        "targets": "ethanol2",
         "asp_vol": 72.5,
         "dis_vol": 165.0,
         "asp_flow_rate": 20.0,
@@ -463,70 +758,145 @@
       }
     },
     {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Allowing beads to air dry for 2 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Allowing beads to air dry for 10 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "ethanol2",
+        "targets": "ethanol2",
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 20.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 14
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        70.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "water",
-        "targets": "Liquid_1",
+        "targets": "ethanol2",
         "asp_vol": 35.0,
-        "dis_vol": 19.5,
+        "dis_vol": 40.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating at room temp for 2 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on MagDeck for 4 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 4,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "ethanol2",
         "targets": "elutes",
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 10.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
-    "buffer": {
+    "magsamps24": {
       "slot": 2,
       "well": [
         "A1",
-        "A4",
-        "A6",
-        "A8",
-        "A10",
-        "A12"
-      ],
-      "labware": "Trough with Reagents"
-    },
-    "wb1": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A4",
-        "A6",
-        "A8",
-        "A10",
-        "A12"
-      ],
-      "labware": "Trough with Reagents"
-    },
-    "wb2": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A4",
-        "A6",
         "A8",
         "A10",
         "A12"
@@ -537,8 +907,6 @@
       "slot": 2,
       "well": [
         "A1",
-        "A4",
-        "A6",
         "A8",
         "A10",
         "A12"
@@ -549,8 +917,6 @@
       "slot": 2,
       "well": [
         "A1",
-        "A4",
-        "A6",
         "A8",
         "A10",
         "A12"
@@ -561,8 +927,6 @@
       "slot": 2,
       "well": [
         "A1",
-        "A4",
-        "A6",
         "A8",
         "A10",
         "A12"
@@ -575,22 +939,6 @@
         "A1"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN1"
-    },
-    "magsamps24": {
-      "slot": 4,
-      "well": [
-        "B1",
-        "A1"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL on Magnetic Module GEN1"
-    },
-    "Liquid_1": {
-      "slot": 4,
-      "well": [
-        "B1",
-        "A1"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL on Magnetic Module GEN1"
     },
     "pk": {
       "slot": 8,

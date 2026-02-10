@@ -1,22 +1,33 @@
 {
+  "description": "Part 6 of 6: Distribution of Prot K (Qiagen)\nLinks:\n Distribution of Sample Lysis Buffer\n Distribution of Prot K (Apostle)\n Transfer of DNA Template\n Distribution of Master Mix\n Distribution of Elution Buffer\n Distribution of Prot K (Qiagen)\nThis protocol is a translation of the attached json protocol json protocol to python with a couple additional features for control of the blow out location in order to place it near the bottom of the well: 10 ul sample lysis buffer is distributed from a reservoir to the columns of a 96 deep-well plate with a blow out occuring after each dispense in a location close to the bottom of the well.\nThe deck layout can be displayed by uploading the attached json protocol to the Opentrons Protocol Designer web page.",
+  "tags": [
+    "6bc986_part_6.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "targets": "Liquid_2",
         "asp_vol": 7.5,
-        "dis_vol": 2.75,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 30.7
+        "dis_vol": 4.0,
+        "asp_flow_rate": 7.6000000000000005,
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 4,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     }
   ],
   "reagent": {
-    "Liquid_1": {
+    "Liquid_2": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL"
     }

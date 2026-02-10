@@ -1,4 +1,10 @@
 {
+  "description": "Links:\n Part 1: Incubation\n Part 2: Extension\n* Part 3: Detection\nThis protocol accomplishes part 1/3: Incubation for use with Olink® Target 96 protocol for protein biomarker discovery.\n\nOlink® is a registered trademark of Olink Proteomics AB. Opentrons is not affiliated with or endorsed by Olink Proteomics AB.",
+  "tags": [
+    "olink.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "Olink® Target 96"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 41.75,
         "dis_vol": 47.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -29,9 +40,18 @@
         "targets": "Liquid_1",
         "asp_vol": 3.1538461538461537,
         "dis_vol": 3.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.599999999999999,
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 4,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "Seal the plate with an adhesive plastic film, spin  at 400 x g, 1 min at room temperature. Incubate overnight at +4°C."
     },
     {
       "action": "transfer_liquid",
@@ -39,9 +59,71 @@
         "sources": "Liquid_2",
         "targets": "Liquid_1",
         "asp_vol": 1.0,
-        "dis_vol": 0.0,
+        "dis_vol": 1.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 53.79999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 1,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -49,7 +131,7 @@
     "Liquid_2": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "sample plate"
     },
@@ -63,14 +145,14 @@
     "Liquid_1": {
       "slot": 10,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "incubation plate"
     },
     "strip": {
       "slot": 11,
       "well": [
-        "B1",
+        "C1",
         "H1"
       ],
       "labware": "strip for distribution (column 1)"

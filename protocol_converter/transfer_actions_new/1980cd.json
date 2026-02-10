@@ -1,4 +1,10 @@
 {
+  "description": "This protocol automates {mesoscale kit} in 4 steps over 2 days. Those steps are:\n\n(Day 1) Load blocking solution into test plates\n(Day 2) Load standards and up to 10 sample columns from sample plates into 2 test plates\n(Day 2) Load detection antibody into test plates\n(Day 2) Load read buffer into test plates\n\nThe initial Day 1 step can be done with up to 9 test plates. The subsequent steps are done with 1 sample plate and then 2 test plates. To increase throughput, run the step again with a separate plate. \nNote all volumes requested in process are the amount required + 10%. You may need more or less given your particular robot and calibrations.\n\n\n\nOpentrons P300-multi channel electronic pipettes (GEN2)\nOpentrons 200ul Filter Tips\nNEST 1 Well Reservoir 195 mL\nNEST 12-Well Reservoirs, 15 mL\n{mesoscale kit{",
+  "tags": [
+    "1980cd.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Plant DNA"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
     }
   ],
@@ -34,14 +50,14 @@
     "Liquid_1": {
       "slot": 3,
       "well": [
-        "A10"
+        "A6"
       ],
       "labware": "Plate 3"
     },
     "Liquid_2": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "Plate 4"
     }

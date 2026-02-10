@@ -1,14 +1,29 @@
 {
+  "description": "This protocol preps (3) 384 plates with urea, buffer and sample. One tip is used for each the urea and buffer reagents, with changing tips for the sample. Pipettes are selected dependent on the volume passed to the csv. If the protocol runs out of tips, it will pause and prompt the user to refill tip racks and resume. After sample is added, the well is mixed at 20ul for 3 repetitions.\nExplanation of complex parameters below:\n Number of 384 plates: Specify how many 384 well plates there are for this run. Note that for plates less than 3, plates should be placed in order of slot number (1, 2, then 3), and csvs should also be uploaded in that order (from the top down below).\n .CSV: Find below the format for the urea/buffer, and sample csvs. NOTE: Always put an \"x\" in the top left well of the csv, and include the header line. All csvs should be seperate. For wells which receive no volume, input an \"x\" instead. Please see the csvs below for reference.\n\nUrea/buffer map:\n\n\nSample map:\n\n\n\nUrea/Buffer Initial Volume (mL): Specify the initial volume in mL in each the urea and buffer tubes.\n\nP20/P300 Mount: Specify which mount (left or right) to host the single-channel pipettes.",
+  "tags": [
+    "1fcf02.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
     {
+      "action": "raw",
+      "text": "ADDING URINE"
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "urea",
         "targets": "Liquid_1",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,10 +32,14 @@
         "sources": "urea",
         "targets": "Liquid_2",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005
       }
+    },
+    {
+      "action": "raw",
+      "text": "ADDING UREA"
     },
     {
       "action": "transfer_liquid",
@@ -28,9 +47,9 @@
         "sources": "urea",
         "targets": "Liquid_3",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005
       }
     },
     {
@@ -39,9 +58,14 @@
         "sources": "urea",
         "targets": "Liquid_4",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -50,10 +74,14 @@
         "sources": "urea",
         "targets": "Liquid_5",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "raw",
+      "text": "ADDING BUFFER"
     },
     {
       "action": "transfer_liquid",
@@ -61,9 +89,9 @@
         "sources": "urea",
         "targets": "Liquid_6",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86
       }
     },
     {
@@ -72,9 +100,14 @@
         "sources": "buffer",
         "targets": "Liquid_1",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -83,9 +116,9 @@
         "sources": "buffer",
         "targets": "Liquid_2",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005
       }
     },
     {
@@ -94,9 +127,9 @@
         "sources": "buffer",
         "targets": "Liquid_3",
         "asp_vol": 20.0,
-        "dis_vol": 5.275,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.779999999999994
+        "dis_vol": 11.55,
+        "asp_flow_rate": 7.5600000000000005,
+        "dis_flow_rate": 7.5600000000000005
       }
     },
     {
@@ -105,9 +138,14 @@
         "sources": "buffer",
         "targets": "Liquid_4",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -116,10 +154,14 @@
         "sources": "buffer",
         "targets": "Liquid_5",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "raw",
+      "text": "ADDING SAMPLE"
     },
     {
       "action": "transfer_liquid",
@@ -127,10 +169,418 @@
         "sources": "buffer",
         "targets": "Liquid_6",
         "asp_vol": 300.0,
-        "dis_vol": 11.125,
+        "dis_vol": 23.25,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 96.43
+        "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A22",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A23",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A24",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 1
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +588,540 @@
         "sources": "Liquid_7",
         "targets": "Liquid_4",
         "asp_vol": 5.75,
-        "dis_vol": 2.375,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_vol": 5.75,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A22",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A23",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A24",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 2
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -149,10 +1129,540 @@
         "sources": "Liquid_7",
         "targets": "Liquid_2",
         "asp_vol": 5.75,
-        "dis_vol": 2.375,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_vol": 5.75,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A13",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A14",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A15",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A16",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A17",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A18",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A19",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A20",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A21",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A22",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A23",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A24",
+        "labware": "Greiner 384 Well Plate 138 uL",
+        "slot": 3
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -160,9 +1670,131 @@
         "sources": "Liquid_7",
         "targets": "Liquid_3",
         "asp_vol": 5.75,
-        "dis_vol": 2.375,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_vol": 5.75,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          }
+        ]
       }
     }
   ],
@@ -170,28 +1802,28 @@
     "Liquid_4": {
       "slot": 1,
       "well": [
-        "A10"
+        "A16"
       ],
       "labware": "Greiner 384 Well Plate 138 µL"
     },
     "Liquid_2": {
       "slot": 2,
       "well": [
-        "A5"
+        "A21"
       ],
       "labware": "Greiner 384 Well Plate 138 µL"
     },
     "Liquid_3": {
       "slot": 3,
       "well": [
-        "A19"
+        "A2"
       ],
       "labware": "Greiner 384 Well Plate 138 µL"
     },
     "Liquid_7": {
       "slot": 4,
       "well": [
-        "B1"
+        "A1"
       ],
       "labware": "Opentrons 24 Tube Rack with Eppendorf 2 mL Safe-Lock Snapcap"
     },

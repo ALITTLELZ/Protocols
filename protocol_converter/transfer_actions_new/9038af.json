@@ -1,5 +1,26 @@
 {
+  "description": "This protocol automates steps 3-10 of the Oxford Nanopore Rapid Barcoding Kit SQK-RBK110.96. Choose between 16-32 samples per run (> 24 samples requires two 4-in-1 tube racks)",
+  "tags": [
+    "normalization.ot2.apiv2.py",
+    "Library Prep",
+    "Sequencing"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +29,28 @@
         "asp_vol": 4.5,
         "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 3,
+          "type": "20ul tiprack",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +60,28 @@
         "asp_vol": 4.5,
         "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 3,
+          "type": "20ul tiprack",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -30,29 +91,421 @@
         "asp_vol": 4.5,
         "dis_vol": 9.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 3,
+          "type": "20ul tiprack",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "normalization plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "normalization plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        7.0,
+        7.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "normalization plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "barcodes",
-        "targets": "reactions_2",
+        "targets": "reactions",
         "asp_vol": 1.0,
-        "dis_vol": 0.0,
+        "dis_vol": 1.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 53.78
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "F1"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        27.0,
+        27.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        45.0,
+        45.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+        "slot": 8
+      },
+      "flow_rate": [
+        274.7,
+        274.7
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 30.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "reactions_2",
+        "sources": "reactions",
         "targets": "pool",
         "asp_vol": 15.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 74.345,
-        "dis_flow_rate": 96.60666666666667
+        "dis_flow_rate": 96.60666666666667,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "20ul tiprack",
+            "well": "G1"
+          },
+          {
+            "slot": 6,
+            "type": "1000ul tiprack",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],
@@ -60,7 +513,7 @@
     "barcodes": {
       "slot": 1,
       "well": [
-        "C1"
+        "A1"
       ],
       "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
     },
@@ -71,7 +524,7 @@
       ],
       "labware": "genomic dna"
     },
-    "reactions_2": {
+    "reactions": {
       "slot": 4,
       "well": [
         "A1"

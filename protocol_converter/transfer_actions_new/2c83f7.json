@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs capsule nucleic acid purification according to the Zymo Research Direct-zol-96 RNA MagPrep kit. This protocol has been updated from this protocol (written with APIv1) to APIv2.\n\n\n\nOpentrons magnetic module\nP300 Multi-channel electronic pipette\nOpentrons 300ul tiprack\nBio-Rad Hardshell 96-Well PCR Plate 200ul #HSP9601\nAxygen 96-Deepwell Plate 2.0ml #P-DW-20-C-S\nAgilent 1 Well Reservoir 290mL #201252-100\nUSA Scientific 12-channel Reservoir 22ml #1061-8150\n\n\n\n12-channel reservoir (deck slot 5)\n channel 1: magbeads vortexed and added to the reservoir immediately before beginning the protocol run\n channel 2: DNAse\n channels 3-5: RNA buffer\n channels 6-8: magbead wash 1\n channels 9-11: magbead wash 2\n channel 12: DNAse/RNAse-free water",
+  "tags": [
+    "2c83f7.ot2.apiv2.py",
+    "Nucleic Acid Extraction & Purification",
+    "Zymo Kit"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,10 +12,1155 @@
         "sources": "beads",
         "targets": "mag_samples",
         "asp_vol": 210.0,
-        "dis_vol": 25.571428571428573,
+        "dis_vol": 30.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 271.42857142857144
+        "dis_flow_rate": 300.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incuating with iterative mixing..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +1168,85 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 225.0,
-        "dis_vol": 74.33333333333333,
+        "dis_vol": 225.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 166.66666666666666
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Beads separating for supernatant removal"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +1256,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +1535,81 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +1619,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -61,10 +1898,81 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +1982,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -83,10 +2261,90 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Airdrying beads for 5 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +2354,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        40.0,
+        40.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -105,10 +2633,285 @@
         "sources": "dnase",
         "targets": "mag_samples",
         "asp_vol": 50.0,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 10 minutes."
+    },
+    {
+      "action": "delay",
+      "minutes": 10,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -116,10 +2919,94 @@
         "sources": "rna_buff",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating off magnet for 5 minutes"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Beads separating."
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -129,8 +3016,278 @@
         "asp_vol": 275.0,
         "dis_vol": 275.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -138,10 +3295,81 @@
         "sources": "wash1",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -151,8 +3379,278 @@
         "asp_vol": 275.0,
         "dis_vol": 275.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -160,10 +3658,81 @@
         "sources": "wash2",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -173,8 +3742,278 @@
         "asp_vol": 275.0,
         "dis_vol": 275.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -182,10 +4021,81 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -195,8 +4105,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -204,10 +4384,81 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -217,8 +4468,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -226,10 +4747,81 @@
         "sources": "etoh",
         "targets": "mag_samples",
         "asp_vol": 250.0,
-        "dis_vol": 166.33333333333334,
+        "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 233.33333333333334
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -239,8 +4831,278 @@
         "asp_vol": 250.0,
         "dis_vol": 250.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 300.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -248,10 +5110,520 @@
         "sources": "water",
         "targets": "mag_samples",
         "asp_vol": 230.0,
-        "dis_vol": 21.666666666666668,
+        "dis_vol": 50.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 188.88888888888889
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating before next mix..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incubating before next mix..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        250.0,
+        250.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "deepwell block on Magnetic Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        300.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "raw",
+      "text": "Incubating before next mix..."
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "raw",
+      "text": "Incubating on magnet for bead separation"
+    },
+    {
+      "action": "delay",
+      "minutes": 3,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -259,17 +5631,83 @@
         "sources": "mag_samples",
         "targets": "elution_samples",
         "asp_vol": 50.0,
-        "dis_vol": 24.5,
+        "dis_vol": 50.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 200.0
+        "dis_flow_rate": 300.0,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     }
   ],
   "reagent": {
     "elution_samples": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "elution plate"
     },
@@ -290,7 +5728,7 @@
     "mag_samples": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "deepwell block on Magnetic Module GEN1"
     },
@@ -301,7 +5739,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"
@@ -313,7 +5751,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"
@@ -325,7 +5763,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"
@@ -337,7 +5775,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"
@@ -349,7 +5787,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"
@@ -361,7 +5799,7 @@
         "A2",
         "A5",
         "A8",
-        "A11",
+        "A10",
         "A12"
       ],
       "labware": "reagent reservoir"

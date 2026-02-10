@@ -1,5 +1,36 @@
 {
+  "description": "This protocol uses multi-channel P20 and P300 pipettes to perform fragment analyzer set up steps on 48-96 output libraries. User-determined parameters are available for selection of the labware for the libraries plate.\nLinks:\n Part 1: Enzymatic Fragmentation and End Prep\n Part 2: Sample Cleanup for Covaris Samples\n Part 3: End Prep\n Part 4: Adapter Ligation\n Part 5: Size Selection\n Part 6: Clean Up\n Part 7: PCR Enrichment\n Part 8: Sample Clean Up\n Part 9: Fragment Analyzer\n Part 10: Pooling According to Concentration",
+  "tags": [
+    "11bb6a-part-9.ot2.apiv2.py",
+    "NGS Library Prep",
+    "NEBNext"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 10.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "raw",
+      "text": "Ensure reagents in sufficient volume are present on deck"
+    },
+    {
+      "action": "raw",
+      "text": "4 mL DILUENT BUFFER in A9 of 12-well Reservoir on 5"
+    },
+    {
+      "action": "raw",
+      "text": "Step - diluent bf to fragment analyzer plate (all wells except H12)"
+    },
+    {
+      "action": "raw",
+      "text": "Step - 2 uL library sample to fragment analyzer plate"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +39,24 @@
         "asp_vol": 22.0,
         "dis_vol": 22.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B2"
+          }
+        ]
       }
+    },
+    {
+      "action": "raw",
+      "text": "Finished. Proceed to measure concentration."
     },
     {
       "action": "transfer_liquid",
@@ -19,7 +66,69 @@
         "asp_vol": 2.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
@@ -27,7 +136,7 @@
     "Liquid_2": {
       "slot": 3,
       "well": [
-        "A10"
+        "A6"
       ],
       "labware": "Libraries Plate"
     },
@@ -41,7 +150,7 @@
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "Fragment Analyzer Plate"
     }

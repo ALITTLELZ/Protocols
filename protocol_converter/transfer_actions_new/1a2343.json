@@ -1,1081 +1,2243 @@
 {
+  "description": "This protocol performs a custom PCR preparation for gel samples using an on-deck Opentrons Thermocycler module.\n\n\n\nOpentrons Thermocycler (occupying slots 7, 8, 10, 11) with NEST 0.1 mL 96-Well PCR Plate, Full Skirt\nOpentrons Temperature Module with USA Scientific 96 Deep Well Plate 2.4 mL\nCorning 96 Well Plate 360 µL Flat\nOpentrons 20µl and 50/300µl tipracks\n\n\n\n96-deepwell reagent block on temperature module (slot 4)\n well A1: DNTPs\n well B1: polymerase\n column 2: PCR buffer\n wells A3-H3: templates 1-8\n* column 4: water",
+  "tags": [
+    "pcr_prep.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rxn_sources",
-        "targets": "rxn_sources",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 19.696428571428573,
-        "dis_vol": 18.142857142857142,
-        "asp_flow_rate": 45.55714285714286,
-        "dis_flow_rate": 105.19142857142857
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_2",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_3",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_4",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_5",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_6",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_7",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_8",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_9",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_10",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_11",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_12",
-        "targets": "rxn_sources",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_13",
-        "targets": "rxn_sources_2",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_14",
-        "targets": "rxn_sources_3",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_15",
-        "targets": "rxn_sources_4",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_16",
-        "targets": "rxn_sources_5",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_17",
-        "targets": "rxn_sources_6",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_18",
-        "targets": "rxn_sources_7",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_19",
-        "targets": "rxn_sources_8",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_20",
-        "targets": "rxn_sources_9",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_21",
-        "targets": "rxn_sources_10",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_22",
-        "targets": "rxn_sources_11",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_23",
-        "targets": "rxn_sources_12",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_24",
-        "targets": "rxn_sources_13",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_25",
-        "targets": "rxn_sources_14",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_26",
-        "targets": "rxn_sources_15",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_27",
-        "targets": "rxn_sources_16",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_28",
-        "targets": "rxn_sources_17",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_29",
-        "targets": "rxn_sources_18",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_30",
-        "targets": "rxn_sources_19",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_31",
-        "targets": "rxn_sources_20",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_32",
-        "targets": "rxn_sources_21",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_33",
-        "targets": "rxn_sources_22",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_34",
-        "targets": "rxn_sources_23",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_35",
-        "targets": "rxn_sources_24",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_36",
-        "targets": "rxn_sources_25",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_37",
-        "targets": "rxn_sources_26",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_38",
-        "targets": "rxn_sources_27",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_39",
-        "targets": "rxn_sources_28",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_40",
-        "targets": "rxn_sources_29",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_41",
-        "targets": "rxn_sources_30",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_42",
-        "targets": "rxn_sources_31",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_43",
-        "targets": "rxn_sources_32",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_44",
-        "targets": "rxn_sources_33",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_45",
-        "targets": "rxn_sources_34",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_46",
-        "targets": "rxn_sources_35",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_47",
-        "targets": "rxn_sources_36",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_48",
-        "targets": "rxn_sources_37",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
+        "dis_vol": 27.972972972972972,
+        "asp_flow_rate": 45.557142857142836,
+        "dis_flow_rate": 107.85729729729728,
+        "tip_racks": [
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 6,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "A2"
+          }
+        ]
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_49",
-        "targets": "rxn_sources_38",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_50",
-        "targets": "rxn_sources_39",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_51",
-        "targets": "rxn_sources_40",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_52",
-        "targets": "rxn_sources_41",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_53",
-        "targets": "rxn_sources_42",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_54",
-        "targets": "rxn_sources_43",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_55",
-        "targets": "rxn_sources_44",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_56",
-        "targets": "rxn_sources_45",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_57",
-        "targets": "rxn_sources_46",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_58",
-        "targets": "rxn_sources_47",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_59",
-        "targets": "rxn_sources_48",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_60",
-        "targets": "rxn_sources_49",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_61",
-        "targets": "rxn_sources_50",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_62",
-        "targets": "rxn_sources_51",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_63",
-        "targets": "rxn_sources_52",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_64",
-        "targets": "rxn_sources_53",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_65",
-        "targets": "rxn_sources_54",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_66",
-        "targets": "rxn_sources_55",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_67",
-        "targets": "rxn_sources_56",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_68",
-        "targets": "rxn_sources_57",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_69",
-        "targets": "rxn_sources_58",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_70",
-        "targets": "rxn_sources_59",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_71",
-        "targets": "rxn_sources_60",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_72",
-        "targets": "rxn_sources_61",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_73",
-        "targets": "rxn_sources_62",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_74",
-        "targets": "rxn_sources_63",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_75",
-        "targets": "rxn_sources_64",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_76",
-        "targets": "rxn_sources_65",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_77",
-        "targets": "rxn_sources_66",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_78",
-        "targets": "rxn_sources_67",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_79",
-        "targets": "rxn_sources_68",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_80",
-        "targets": "rxn_sources_69",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_81",
-        "targets": "rxn_sources_70",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_82",
-        "targets": "rxn_sources_71",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_83",
-        "targets": "rxn_sources_72",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_84",
-        "targets": "rxn_sources_73",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_85",
-        "targets": "rxn_sources_74",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_86",
-        "targets": "rxn_sources_75",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_87",
-        "targets": "rxn_sources_76",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_88",
-        "targets": "rxn_sources_77",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_89",
-        "targets": "rxn_sources_78",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_90",
-        "targets": "rxn_sources_79",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_91",
-        "targets": "rxn_sources_80",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_92",
-        "targets": "rxn_sources_81",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_93",
-        "targets": "rxn_sources_82",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_94",
-        "targets": "rxn_sources_83",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_95",
-        "targets": "rxn_sources_84",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "primers_96",
-        "targets": "rxn_sources_85",
-        "asp_vol": 3.5,
-        "dis_vol": -1.0,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 100.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "rxn_sources_58",
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "D12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "F12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "G12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H4",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H5",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H6",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H7",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H8",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H9",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H10",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H11",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        12.0
+      ],
+      "position": {
+        "well": "H12",
+        "labware": "reaction plate on Thermocycler Module GEN1",
+        "slot": 7
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Closing Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler lid temperature to 105.0 °C"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 95.0 °C with a hold time of 2.0 minutes and 0 seconds"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler starting 20 repetitions of cycle composed of the following steps: [{'temperature': 95, 'hold_time_seconds': 30}, {'temperature': 57, 'hold_time_seconds': 30}, {'temperature': 72, 'hold_time_seconds': 60}]"
+    },
+    {
+      "action": "raw",
+      "text": "Setting Thermocycler well block temperature to 72.0 °C with a hold time of 10.0 minutes and 0 seconds"
+    },
+    {
+      "action": "raw",
+      "text": "Deactivating Thermocycler lid heating"
+    },
+    {
+      "action": "raw",
+      "text": "Opening Thermocycler lid"
+    },
+    {
+      "action": "raw",
+      "text": "Thermocycler block remaining at 72˚C incubation. Deactivate  through Opentrons App when ready."
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_1",
         "targets": "gel_dests",
         "asp_vol": 5.0,
-        "dis_vol": 4.5,
-        "asp_flow_rate": 3.78,
-        "dis_flow_rate": 51.88999999999999
+        "dis_vol": 10.0,
+        "asp_flow_rate": 3.779999999999983,
+        "dis_flow_rate": 3.7799999999999923,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          }
+        ]
       }
     }
   ],
@@ -1083,23 +2245,16 @@
     "gel_dests": {
       "slot": 1,
       "well": [
-        "C5"
+        "D2"
       ],
       "labware": "gel samples plate"
     },
-    "rxn_sources": {
+    "Liquid_1": {
       "slot": 4,
       "well": [
-        "A4"
+        "F3"
       ],
       "labware": "reagent plate on Temperature Module GEN1"
-    },
-    "rxn_sources_58": {
-      "slot": 7,
-      "well": [
-        "A6"
-      ],
-      "labware": "reaction plate on Thermocycler Module"
     },
     "primers": {
       "slot": 9,

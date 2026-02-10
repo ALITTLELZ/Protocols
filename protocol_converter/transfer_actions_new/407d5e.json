@@ -1,5 +1,15 @@
 {
+  "description": "This workflow is comprised of a protein labelling protocol that begins by adding several reagents to samples and then incubating at 37C for several days (up to 4) and aliquoting 20µL of the incubating samples. For more information about this protocol, including materials needed and customizable parameters, please see below before downloading.\n\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons Temperature Module with Aluminum Blocks\nP300 Single-Channel Pipette\nP20 Single-Channel Pipette\nOpentrons 300µl Pipette Tips\nOpentrons 20µL Pipette Tips\nNEST 96-Well PCR Plates\nNEST 1.5mL Microcentrifuge Tubes & Tubes for Samples\nReagents\nSamples\n\n\n\nUsing the customizations field (below), set up your protocol.\n Number of Samples (1-19): Specify the number of samples to run (1-19).\n Number of Incubations: Specify the number of incubations. The protocol will transfer 20µL to the destination plate and repeat the process, up to three times, at the 1, 2, and 4 day mark.\n Labware Containing Samples: Select the type of tube that will be used to contain the samples. This tube should be place in the 24-Well Aluminum Block.\n Temperature Module: Select which generation of the Temperature Module will be used.\n* Reset Tipracks?: This protocol can save the state of the tipracks after each run for the P300 and the P20. If this is set to \"Yes\" (or the protocol is run for the first time on the robot), the protocol will begin picking up tips from the A1 of Tiprack 1 for each pipette. If set to \"No\", the saved tip state from the previous run will be accessed and the pipette will begin using tips where the previous protocol run left off. The user will be prompted to replace the corresponding tip racks.\n\n\nDeck Layout\n\nSlot 1: Destination Plate (NEST 96-Well PCR Plates) - 20µL of sample aliquots will be transferred here. This should be replaced for transfer after incubation(s).\n\nSlot 2: 24-Well Aluminum Block containing Tubes (specified by user) with Samples\n\nSlot 3: Opentrons 20µL Tiprack (Tiprack 3)\n\nSlot 4: Opentrons Temperature Module with 96-Well Aluminum Block and NEST 96-Well PCR Plates\n\nSlot 5: NEST 96-Well PCR Plates (Empty, for mixing)\n\nSlot 6: Opentrons 20µL Tiprack (Tiprack 2)\n\nSlot 7: 24-Well Aluminum Block containing 1.5mL NEST Tubes with Reagents\n\nSlot 8: Opentrons 300µL Tiprack (Tiprack 1)\n\nSlot 9: Opentrons 20µL Tiprack (Tiprack 1)\n\nSlot 10: Opentrons 300µL Tiprack (Tiprack 3)\n\nSlot 11: Opentrons 300µL Tiprack (Tiprack 2)",
+  "tags": [
+    "407d5e.ot2.apiv2.py",
+    "Proteins & Proteomics",
+    "Assay"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "state": "off"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +18,12 @@
         "asp_vol": 5.8,
         "dis_vol": 5.8,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,8 +34,30 @@
         "asp_vol": 58.1,
         "dis_vol": 58.1,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 PCR Plate for mixing",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
@@ -30,8 +67,43 @@
         "asp_vol": 2.9,
         "dis_vol": 2.9,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 9,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 1 hour"
+    },
+    {
+      "action": "delay",
+      "minutes": 60,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Adding 58.1uL of Tris to each Sample &  Distributing 20uL 5-times to Temperature Module"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 PCR Plate for mixing",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -41,7 +113,12 @@
         "asp_vol": 58.1,
         "dis_vol": 58.1,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -56,6 +133,108 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        180.0,
+        180.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sampBuffs",
@@ -63,8 +242,108 @@
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +353,232 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G1"
+          }
+        ]
       }
+    },
+    {
+      "action": "temperature",
+      "target": 37.0
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 1 day(s)"
+    },
+    {
+      "action": "delay",
+      "minutes": 1440,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Preparing for sample transfer to final plate"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +588,237 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D2"
+          }
+        ]
       }
+    },
+    {
+      "action": "temperature",
+      "target": 37.0
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 1 day(s)"
+    },
+    {
+      "action": "delay",
+      "minutes": 1440,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Preparing for sample transfer to final plate"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +828,237 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "A3"
+          }
+        ]
       }
+    },
+    {
+      "action": "temperature",
+      "target": 37.0
+    },
+    {
+      "action": "raw",
+      "text": "Incubating for 2 day(s)"
+    },
+    {
+      "action": "delay",
+      "minutes": 2880,
+      "seconds": 0.0
+    },
+    {
+      "action": "raw",
+      "text": "Preparing for sample transfer to final plate"
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 1.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL on Temperature Module GEN1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -107,7 +1068,34 @@
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+            "well": "F3"
+          }
+        ]
       }
     }
   ],
@@ -115,7 +1103,7 @@
     "destWells": {
       "slot": 1,
       "well": [
-        "C1"
+        "B1"
       ],
       "labware": "NEST 96 PCR Plate for Samples"
     },
@@ -129,7 +1117,7 @@
     "mixSamps": {
       "slot": 4,
       "well": [
-        "B1"
+        "C1"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN1"
     },
@@ -139,7 +1127,7 @@
         "A1",
         "A2",
         "A3",
-        "B1"
+        "B3"
       ],
       "labware": "Aluminum Block with 1.5mL Tubes containing Reagents"
     },
@@ -149,7 +1137,7 @@
         "A1",
         "A2",
         "A3",
-        "B1"
+        "B3"
       ],
       "labware": "Aluminum Block with 1.5mL Tubes containing Reagents"
     },
@@ -159,7 +1147,7 @@
         "A1",
         "A2",
         "A3",
-        "B1"
+        "B3"
       ],
       "labware": "Aluminum Block with 1.5mL Tubes containing Reagents"
     },
@@ -169,7 +1157,7 @@
         "A1",
         "A2",
         "A3",
-        "B1"
+        "B3"
       ],
       "labware": "Aluminum Block with 1.5mL Tubes containing Reagents"
     }

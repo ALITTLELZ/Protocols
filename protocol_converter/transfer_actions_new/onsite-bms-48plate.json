@@ -1,14 +1,34 @@
 {
+  "description": "This protocol transfers sample and diluent to a custom 40 tube rack on the temperature module. Liquid height is tracked in the diluent tube rack, and the temperature module is set to 4C. A fresh tip is granted for each diluent and sample transfer, and mixed after sample is dispensed.\nExplanation of complex parameters below:\n input .csv file: Here, you should upload a .csv file formatted in the following way, being sure to include the header line:\nDiluent Transfer Volume (ul), Dispense Tube (rack), Source Well, Sample Transfer Volume\n1000, A1, A1, 20\n Track tips?: Specify whether to start at A1 of both tip racks, or to start picking up from where the last protocol left off.\n Initial Volume Diluent (mL): Specify the initial volume of diluent in A1 of the 6 tube rack.\n P20/P1000 Mounts: Specify which mount (left or right) to host the P20 and P1000 pipettes.",
+  "tags": [
+    "onsite-bms-48plate.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
         "targets": "disp_tube",
         "asp_vol": 1000.0,
-        "dis_vol": 499.5,
+        "dis_vol": 1000.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 187.35
+        "dis_flow_rate": 274.7,
+        "tip_racks": {
+          "slot": 6,
+          "type": "GEB 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,8 +39,30 @@
         "asp_vol": 60.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 141.13,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 5,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "SH 48 Well Plate 2500 uL on Temperature Module GEN2",
+        "slot": 1
+      },
+      "flow_rate": [
+        15.12,
+        15.12
+      ],
+      "mix_time": 2
     }
   ],
   "reagent": {

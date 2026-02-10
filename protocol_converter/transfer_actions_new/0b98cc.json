@@ -1,4 +1,10 @@
 {
+  "description": "This protocol performs viral titration (serial dilution) of viral samples. It adds media to the dilution plates and then begins the serial dilution process of up to 12 columns worth of samples. It will dilute the samples in one of four dilution plates and then add it to the analysis dish in a specific order (skipping 3 columns for every dilution).\n\n\n\nOpentrons 200uL Filter Tips\nCorning 96 Well Round Bottom 1mL\nCorning 96-well Flat Clear Bottom Black Polystyrene TC-treated Microplate\nNEST 1 Well 195mL Reservoir\nP300 Multichannel GEN2\n\nFor more detailed information on compatible labware, please visit our Labware Library.\n\n\nNote: The Dilution Plates utilize the Corning 96 Well Round Bottom 1mL and the Analysis Dishes utilize the Corning 96-well Flat Clear Bottom Black Polystyrene TC-treated Microplate.\n\nLabware Type\n Dilution Plate: Corning 96 Well Round Bottom 1mL\n Analysis Dish: Corning 96-well Flat Clear Bottom Black Polystyrene TC-treated Microplate\n Samples: NEST 96 Well Plate 100uL PCR Full Skirt\n Media Reservoir: NEST 1 Well 195mL Reservoir\nProtocol Steps\n1. Transfer appropriate volumes of media from the reservoir to each dilution plate on a per column basis using the multichannel pipette.\n2. Sample from the first column (A1) is transferred to A1 of Dilution Plate 1 where it is mixed and then transffered to A1 on analysis dish 1.\n3. Diluted sample is transferred from A1 of Dilution Plate 1 to A1 of Dilution Plate 2. It is thoroughly mixed and then transferred to A4 on Analysis Dish 1.\n4. Diluted sample is transferred from A1 of Dilution Plate 2 to A1 of Dilution Plate 3. It is thoroughly mixed and then transferred to A7 on Analysis Dish 1.\n5. Diluted sample is transferred from A1 of Dilution Plate 3 to A1 of Dilution Plate 4. It is thoroughly mixed and then transferred to A10 on Analysis Dish 1.\n6. This completes one set of samples. This cycle will repeat for up to 12 columns worth of samples across four analysis dishes.",
+  "tags": [
+    "0b98cc.ot2.apiv2.py",
+    "Sample Prep",
+    "Serial Dilution"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -6,9 +12,14 @@
         "sources": "media_reservoir",
         "targets": "dilution_dish_wells",
         "asp_vol": 135.0,
-        "dis_vol": 67.0,
+        "dis_vol": 135.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -17,9 +28,9 @@
         "sources": "media_reservoir",
         "targets": "dilution_dish_wells_2",
         "asp_vol": 135.0,
-        "dis_vol": 67.0,
+        "dis_vol": 135.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
     },
     {
@@ -28,9 +39,9 @@
         "sources": "media_reservoir",
         "targets": "dilution_dish_wells_3",
         "asp_vol": 135.0,
-        "dis_vol": 67.0,
+        "dis_vol": 135.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
     },
     {
@@ -39,10 +50,31 @@
         "sources": "media_reservoir",
         "targets": "dilution_dish_wells_4",
         "asp_vol": 135.0,
-        "dis_vol": 67.0,
+        "dis_vol": 135.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +82,31 @@
         "sources": "sample_wells",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -67,6 +120,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -74,8 +144,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -89,6 +185,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -96,8 +209,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -111,6 +250,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -118,8 +274,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -133,15 +315,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_2",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -155,6 +384,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -162,8 +408,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -177,6 +449,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -184,8 +473,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -199,6 +514,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -206,8 +538,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -221,15 +579,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_3",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -243,6 +648,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -250,8 +672,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -265,6 +713,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -272,8 +737,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -287,6 +778,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -294,8 +802,38 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Analysis Dish 1",
+        "slot": 2
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
+    },
+    {
+      "action": "raw",
+      "text": "please remove the plate."
     },
     {
       "action": "transfer_liquid",
@@ -309,15 +847,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_4",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -331,6 +916,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -338,8 +940,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -353,6 +981,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -360,8 +1005,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -375,6 +1046,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -382,8 +1070,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -397,15 +1111,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_5",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -419,6 +1180,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -426,8 +1204,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -441,6 +1245,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -448,8 +1269,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -463,6 +1310,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -470,8 +1334,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -485,15 +1375,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_6",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -507,6 +1444,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -514,8 +1468,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -529,6 +1509,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -536,8 +1533,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -551,6 +1574,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -558,8 +1598,38 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Analysis Dish 2",
+        "slot": 3
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
+    },
+    {
+      "action": "raw",
+      "text": "please remove the plate."
     },
     {
       "action": "transfer_liquid",
@@ -573,15 +1643,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_7",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -595,6 +1712,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -602,8 +1736,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -617,6 +1777,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -624,8 +1801,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -639,6 +1842,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -646,8 +1866,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -661,15 +1907,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_8",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -683,6 +1976,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -690,8 +2000,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -705,6 +2041,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -712,8 +2065,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -727,6 +2106,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -734,8 +2130,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -749,15 +2171,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_9",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -771,6 +2240,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -778,8 +2264,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -793,6 +2305,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -800,8 +2329,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -815,6 +2370,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -822,8 +2394,38 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Analysis Dish 3",
+        "slot": 5
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
+    },
+    {
+      "action": "raw",
+      "text": "please remove the plate."
     },
     {
       "action": "transfer_liquid",
@@ -837,15 +2439,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_10",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -859,6 +2508,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -866,8 +2532,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -881,6 +2573,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -888,8 +2597,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -903,6 +2638,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -910,8 +2662,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -925,15 +2703,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_11",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -947,6 +2772,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -954,8 +2796,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -969,6 +2837,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -976,8 +2861,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -991,6 +2902,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -998,8 +2926,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -1013,15 +2967,62 @@
       }
     },
     {
+      "action": "raw",
+      "text": "Undiluted Sample Transferred to First Dilution Block!"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Dilution Plate 1",
+        "slot": 7
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells_12",
         "targets": "dilution_dish_wells",
         "asp_vol": 30.0,
-        "dis_vol": 14.5,
+        "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 97.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "First Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -1035,6 +3036,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Dilution Plate 2",
+        "slot": 10
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells",
@@ -1042,8 +3060,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Second Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -1057,6 +3101,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Dilution Plate 3",
+        "slot": 11
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_2",
@@ -1064,8 +3125,34 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Third Dilution and Transfer Complete!"
     },
     {
       "action": "transfer_liquid",
@@ -1079,6 +3166,23 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Dilution Plate 4",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dilution_dish_wells_3",
@@ -1086,8 +3190,38 @@
         "asp_vol": 30.0,
         "dis_vol": 30.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Analysis Dish 4",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        50.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "raw",
+      "text": "Fourth Dilution and Transfer Complete!"
+    },
+    {
+      "action": "raw",
+      "text": "please remove the plate."
     },
     {
       "action": "transfer_liquid",
@@ -2185,14 +4319,14 @@
     "dilution_dish_wells": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "Dilution Plate 1"
     },
     "dilution_dish_wells_4": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "Dilution Plate 4"
     },
@@ -2206,14 +4340,14 @@
     "dilution_dish_wells_2": {
       "slot": 10,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "Dilution Plate 2"
     },
     "dilution_dish_wells_3": {
       "slot": 11,
       "well": [
-        "A12"
+        "A2"
       ],
       "labware": "Dilution Plate 3"
     }

@@ -1,4 +1,10 @@
 {
+  "description": "This protocol allows for a robust cherrypicking and normalization in one step.\n\nUsing a P1000 Single-Channel Pipette, buffer will be transferred to all wells specified in the Normalization CSV (see below), before transferring samples from up to four source plates to four destination plates (specific plate and well location specifed in Normalization CSV).\n\nThe .csv file should be formatted as shown in the example below, including headers:\nSource Plate, Source Well, Dest Plate, Dest Well, Buffer Volume (in ul), Culture Volume (in ul)\n2,A1,1,A1,1591,1870\n2,B1,2,B1,1629,808\n\nUpdate: This protocol has been updated per user request and now allows for the option to use 96-well plates and (if using 96-well plates), prefill the plates with a P300 8-Channel Pipette.\nExplanation of complex parameters below:\n P1000 (GEN2) Mount: Specify whether the P1000 single channel pipette is on the left or right mount.\n Normalization CSV: CSV containing transfer information for normalization (as outlined above).\n Labware Type: Select between Corning 24-Well Plate and Corning 96-Well Plate.\n Prefill Volume: Specify the volume (in µL) to prefill the 96-Well plates.",
+  "tags": [
+    "05f673.ot2.apiv2.py",
+    "Sample Prep",
+    "Normalization"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,8 +14,30 @@
         "asp_vol": 300.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "dis_flow_rate": 274.7,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        1000.0,
+        1000.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Corning 24 Well Plate 3.4 mL Flat",
+        "slot": 2
+      },
+      "flow_rate": [
+        549.4,
+        549.4
+      ],
+      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
@@ -19,7 +47,12 @@
         "asp_vol": 400.0,
         "dis_vol": 400.0,
         "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "dis_flow_rate": 274.7,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "B1"
+        }
       }
     }
   ],

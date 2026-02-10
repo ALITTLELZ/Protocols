@@ -1,4 +1,10 @@
 {
+  "description": "This is a specific protocol for aliquoting liquid from three reagent plates to three 96 deep well plates using a multi-channel p300 pipette. Tips are changed between reagents. Either pipette mount can be specified in setup.\n 350ul SPR Wash Buffer is added to a 96 deep well plate\n 350ul VHB Buffer is added to a second 96 deep well plate\n* 50ul nuclease free water is added to a third 96 deep well plate\n\n'P300-Multi Mount Side': Left or right refers to the pipette mount side",
+  "tags": [
+    "3308b4.ot2.apiv2.py",
+    "PCR",
+    "PCR Prep"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 175.0,
         "dis_vol": 175.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 175.0,
         "dis_vol": 175.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -30,7 +46,12 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+          "well": "A3"
+        }
       }
     }
   ],
@@ -59,21 +80,21 @@
     "Liquid_1": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL"
     },
     "Liquid_2": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL"
     },
     "dests": {
       "slot": 9,
       "well": [
-        "A12"
+        "A5"
       ],
       "labware": "NEST 96 Deepwell Plate 2mL"
     }

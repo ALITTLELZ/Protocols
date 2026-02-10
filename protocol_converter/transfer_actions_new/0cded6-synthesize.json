@@ -1,22 +1,94 @@
 {
+  "description": "This protocol performs Syntehsize First Strand cDNA for the Illumina COVIDSeq protocol.\nLinks:\n 1. Anneal RNA\n 2. Synthesize First Strand cDNA\n 3. Amplify cDNA\n 4. Tagment PCR Amplicons\n 5. Post Tagmentation Clean Up\n 6. Amplify Tagmented Amplicons",
+  "tags": [
+    "synthesize.ot2.apiv2.py",
+    "NGS Library Prep",
+    "Illumina COVIDSeq"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mm",
-        "targets": "ref_well",
+        "targets": "Liquid_1",
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          }
+        ]
       }
     }
   ],
   "reagent": {
-    "ref_well": {
+    "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "cDNA plate"
     },

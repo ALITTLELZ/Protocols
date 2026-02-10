@@ -1,5 +1,15 @@
 {
+  "description": "This is Part 2 to the QIAseq FastSelect 5s, 16s, 23s Protocol. This protocol is used to perform the addition of samples with mastermix into a plate.\nPart 1 to this protocol is the normalization of samples.\nPart 3 to this protocol is the Extraction and Clean-Up steps.\nLinks:\n Part 1: Sample Normalization\n Part 2: QIAseq FastSelect 5s, 16s, 23s Fragmentation\n* Part 3: QIAseq FastSelect 5s, 16s, 23s Extraction",
+  "tags": [
+    "0b97ae-protocol-2B.ot2.apiv2.py",
+    "NGS LIBRARY PREP",
+    "QIASeq FastSelect"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +18,30 @@
         "asp_vol": 2.5,
         "dis_vol": 2.5,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Diluted RNA plate on Temperature Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +51,29 @@
         "asp_vol": 2.5,
         "dis_vol": 2.5,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "raw",
+      "text": "Process Complete. Remove Plate from Position 7 and incubate according"
+    },
+    {
+      "action": "raw",
+      "text": "to FastSelect 5/16/23S, Table 3"
     }
   ],
   "reagent": {

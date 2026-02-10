@@ -1,5 +1,36 @@
 {
+  "description": "With this Protocol you can Normalize RNA samples using RNA Concentration, Goal Concentration, Total Volume. This Normalization is the normalization protocol to preceed the QIAseq FastSelect and QIAsec FastSelect 5s , 16S and 23S.",
+  "tags": [
+    "0b97ae.ot2.apiv2.py",
+    "SAMPLE PREP",
+    "Normalization"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Dilution plate on Temperature Module GEN2",
+        "slot": 7
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +39,25 @@
         "asp_vol": 5.7,
         "dis_vol": 5.7,
         "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
+        "dis_flow_rate": 7.56,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "temperature",
+      "state": "off"
+    },
+    {
+      "action": "raw",
+      "text": "Process Complete."
     }
   ],
   "reagent": {

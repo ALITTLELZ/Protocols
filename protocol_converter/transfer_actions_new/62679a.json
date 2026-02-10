@@ -1,5 +1,232 @@
 {
+  "description": "This protocol performs a compound plating and subsequent serial dilution for up to 36 stock compounds. Each compound's dilution will occupy a column of a 96-well plate, requiring up to 4x 96-well plates for a full 48-compound dilution protocol. Stock compound will be transferred to row A of the dilution plates, and a 6-step dilution will be carried down the plate through rows B-G. Well H of that column will contain pure DMSO. A P300 or P20 pipette is automatically selected for each compound's dilution, depending on the dilution factor, and thus, the transfer volume.\nThe input file for the workflow should be specified in a format similar to this template.",
+  "tags": [
+    "dilution.ot2.apiv2.py",
+    "Sample Prep",
+    "Serial Dilution"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +235,279 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E2"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -19,8 +517,257 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H3"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A4"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "compound management plate",
+        "slot": 1
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -30,7 +777,64 @@
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "dis_flow_rate": 92.86,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 7,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D5"
+          }
+        ]
       }
     },
     {
@@ -38,10 +842,15 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 32.21515151515152,
-        "dis_vol": 31.306060606060605,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 93.94181818181818
+        "asp_vol": 32.21515151515151,
+        "dis_vol": 37.075000000000024,
+        "asp_flow_rate": 92.85999999999994,
+        "dis_flow_rate": 92.85999999999987,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "E5"
+        }
       }
     },
     {
@@ -49,10 +858,10 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 32.21515151515152,
-        "dis_vol": 31.306060606060605,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 93.94181818181818
+        "asp_vol": 32.21515151515151,
+        "dis_vol": 37.075000000000024,
+        "asp_flow_rate": 92.85999999999994,
+        "dis_flow_rate": 92.85999999999987
       }
     },
     {
@@ -60,11 +869,282 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 32.21515151515152,
-        "dis_vol": 31.306060606060605,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 93.94181818181818
+        "asp_vol": 32.21515151515151,
+        "dis_vol": 37.075000000000024,
+        "asp_flow_rate": 92.85999999999994,
+        "dis_flow_rate": 92.85999999999987
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "F5"
+        }
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -78,6 +1158,142 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
@@ -87,6 +1303,289 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -100,26 +1599,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -133,81 +1746,287 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 16.7,
-        "dis_vol": 16.7,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
         "targets": "Liquid_2",
-        "asp_vol": 16.7,
-        "dis_vol": 16.7,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_4",
-        "targets": "Liquid_7",
         "asp_vol": 25.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -221,15 +2040,1169 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
+        "sources": "Liquid_7",
         "targets": "Liquid_7",
         "asp_vol": 25.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 16.7,
+        "dis_vol": 16.7,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G12",
+        "labware": "compound plate 1",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 16.7,
+        "dis_vol": 16.7,
+        "asp_flow_rate": 7.56,
+        "dis_flow_rate": 7.56
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -243,6 +3216,142 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
@@ -252,6 +3361,142 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -265,15 +3510,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -287,15 +3657,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -307,6 +3802,436 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_4",
+        "targets": "Liquid_4",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -320,6 +4245,142 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G12",
+        "labware": "compound plate 2",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
@@ -331,15 +4392,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -351,6 +4537,436 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -364,15 +4980,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -384,6 +5125,142 @@
         "asp_flow_rate": 92.86,
         "dis_flow_rate": 92.86
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -397,15 +5274,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -419,15 +5421,140 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 25.0,
-        "dis_vol": 25.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
-      }
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -441,15 +5568,581 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        50.0,
+        50.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        92.86,
+        92.86
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_6",
+        "targets": "Liquid_6",
+        "asp_vol": 25.0,
+        "dis_vol": 25.0,
+        "asp_flow_rate": 92.86,
+        "dis_flow_rate": 92.86
+      }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_6",
+        "targets": "Liquid_6",
         "asp_vol": 16.7,
         "dis_vol": 16.7,
         "asp_flow_rate": 7.56,
         "dis_flow_rate": 7.56
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "B12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "C12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "D12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "E12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "F12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        20.0,
+        20.0
+      ],
+      "position": {
+        "well": "G12",
+        "labware": "compound plate 3",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.56,
+        7.56
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -467,58 +6160,58 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "C5",
-        "C8",
-        "E7"
+        "A11",
+        "C9",
+        "E3"
       ],
       "labware": "compound management plate"
     },
     "Liquid_3": {
       "slot": 1,
       "well": [
-        "C5",
-        "C8",
-        "E7"
+        "A11",
+        "C9",
+        "E3"
       ],
       "labware": "compound management plate"
     },
     "Liquid_5": {
       "slot": 1,
       "well": [
-        "C5",
-        "C8",
-        "E7"
+        "A11",
+        "C9",
+        "E3"
       ],
       "labware": "compound management plate"
     },
     "Liquid_2": {
       "slot": 4,
       "well": [
-        "A3",
-        "A8"
+        "A5",
+        "A9"
       ],
       "labware": "compound plate 1"
     },
     "Liquid_7": {
       "slot": 4,
       "well": [
-        "A3",
-        "A8"
+        "A5",
+        "A9"
       ],
       "labware": "compound plate 1"
     },
     "Liquid_4": {
       "slot": 5,
       "well": [
-        "A9",
-        "A4"
+        "A10",
+        "A6"
       ],
       "labware": "compound plate 2"
     },
     "Liquid_6": {
       "slot": 6,
       "well": [
-        "A9",
+        "A11",
         "A3"
       ],
       "labware": "compound plate 3"

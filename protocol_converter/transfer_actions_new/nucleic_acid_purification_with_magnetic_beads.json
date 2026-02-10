@@ -1,15 +1,973 @@
 {
+  "description": "With this protocol, you can perform high-quality nucleic acid purifications using magnetic beads and the Opentrons Magnetic Module. This protocol contains flexible parameters that you can customize for many different magnetic bead and nucleic acid types. Use this setup to rapidly iterate and optimize your magbead-based workflows!\nYou can use any magnetic beads you prefer with this protocol, but we have included some reagent recommendations in the Materials Needed section below to help you get started. For more detailed information on how to use this protocol, please see our Technical Note.\n\n\n\n-- Opentrons OT-2\n-- Opentrons Magnetic Module\n-- Opentrons OT-2 Run App (Version 3.1.2 or later)\n-- 200uL or 300 uL Tiprack (Opentrons tips suggested)\n-- 12-row automation-friendly trough\n-- BioRad HardShell 96-Well PCR Plate\n-- Magnetic Beads (Looking for a kit? We recommend trying Omega Bio-tek Mag-Bind® TotalPure NGS)\n-- Ethanol\n-- Elution Buffer (Typically 10 mM Tris pH 8.0, TE Buffer, or nuclease-free water)\n\n\n\nUsing the customization fields below, set up your protocol as follows:\n\nPipette: Specify your pipette. We recommend using a p50 or p300 multi- or single-channel.\nPipette Mount: Specify which mount (left or right) your pipette is on.\nSample number: Customize the number of samples to run per protocol. A multiple of 8 is recommended when you are using a multichannel pipette.\nSample volume: Specify the starting volume (in uL) of the input sample.\nBead Ratio: Customize the ratio of beads for left or right side size-selection of fragments. The default bead ratio is 1.8x the input sample volume.\nElution Volume: Specify the final volume (in uL) to elute the purified nucleic acid. The Opentrons MagDeck supports elution volumes above 10 µL.\nIncubation Time: Specify the amount of time (in minutes) that the bead solution and input sample interact.\nSettling Time: Specify the amount of time (in minutes) needed to pellet the beads. Higher volumes may require a longer settling time.\nDrying Time: Specify the drying time (in minutes) needed after wash steps.",
+  "tags": [
+    "dna_purification.ot2.apiv2.py",
+    "Featured",
+    "Nucleic Acid Purification with Magnetic Beads (Universal)"
+  ],
   "workflow": [
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "USA Scientific 12 Well Reservoir 22 mL",
+        "slot": 4
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        18.0,
+        18.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        137.35,
+        137.35
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "beads",
         "targets": "samples",
         "asp_vol": 36.0,
-        "dis_vol": 17.5,
-        "asp_flow_rate": 137.35,
-        "dis_flow_rate": 118.675
+        "dis_vol": 36.0,
+        "asp_flow_rate": 137.34999999999994,
+        "dis_flow_rate": 137.34999999999994,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H3"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +975,137 @@
         "sources": "samples",
         "targets": "liquid_waste",
         "asp_vol": 61.0,
-        "dis_vol": 30.0,
+        "dis_vol": 61.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H6"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -30,7 +1115,129 @@
         "asp_vol": 150.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H9"
+          }
+        ]
       }
     },
     {
@@ -41,8 +1248,135 @@
         "asp_vol": 150.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 3,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H12"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +1386,135 @@
         "asp_vol": 150.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H1"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H2"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G3"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H3"
+          }
+        ]
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +1524,547 @@
         "asp_vol": 150.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H4"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H5"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G6"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H6"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "B1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "D1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "E1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "F1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "G1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "H1",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "mix",
+      "vol": [
+        100.0,
+        100.0
+      ],
+      "position": {
+        "well": "H3",
+        "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN1",
+        "slot": 1
+      },
+      "flow_rate": [
+        25.0,
+        150.0
+      ],
+      "mix_time": 20
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -74,18 +2074,271 @@
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H7"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H8"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G9"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H9"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 1,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples",
-        "targets": "liquid_waste",
+        "targets": "output",
         "asp_vol": 200.0,
-        "dis_vol": 99.5,
+        "dis_vol": 200.0,
         "asp_flow_rate": 25.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H10"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H11"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "B12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "C12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "D12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "E12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "F12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "G12"
+          },
+          {
+            "slot": 5,
+            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+            "well": "H12"
+          }
+        ]
       }
     }
   ],
@@ -93,18 +2346,28 @@
     "samples": {
       "slot": 1,
       "well": [
-        "H1"
+        "E3"
       ],
       "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN1"
     },
-    "liquid_waste": {
+    "output": {
       "slot": 2,
       "well": [
-        "D1"
+        "H2"
       ],
       "labware": "output plate"
     },
     "beads": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A12",
+        "A2",
+        "A3"
+      ],
+      "labware": "USA Scientific 12 Well Reservoir 22 mL"
+    },
+    "liquid_waste": {
       "slot": 4,
       "well": [
         "A1",

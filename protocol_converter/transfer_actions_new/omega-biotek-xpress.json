@@ -1,5 +1,227 @@
 {
+  "description": "This protocol fully automates the Omega Biotek Mag-Bind Viral RNA XPress Kit. This specific protocol allows the user to manipulate the number of samples, elution volume, as well as tip parking for ultimate reuse (saving up to 4 tip boxes per run).\n\nBefore you begin:\n1. Pre-cool the Temperature Module in the Opentrons App to 4°C\n2. Create the Binding MasterMix\n\n3. Add the Binding Mastermix, RMP Buffer, Nuclease Free H20, and Lysis Buffer to the 12 well\nreservoir\n4. Create the freshly diluted 80% ethanol and add it to the 1 well reservoir in slot 2\n5. Place the deep well plate filled with samples on top of the magnetic module in slot 4.\n6. Add a 96 well aluminum block and the 96 well PCR plate or PCR strip tubes on top of\nthe Temperature Module in slot 1\nThe final plate of eluates/extractions will be found on top of the temperature module in slot 1.\nExplanation of complex parameters below:\n Number of Samples: Select the number of samples for this run.\n Park tips?: if True for “tiprack parking,” tips used for the same buffers with the same samples will be\nreused where 1 tiprack turns into a tiprack where used tips are “parked”. This method has low risk of\ncontamination and is highly recommended to avoid pauses to reuse tips. If selected, the parked tiprack slot is on slot 7.\n Elution Volume: Specify the elution volume for this run.\n P300 Multi-Channel Mount: Specify which mount (left or right) to host the P300 multi-channel pipette.",
+  "tags": [
+    "omega-biotek-xpress.ot2.apiv2.py",
+    "Covid Workstation",
+    "RNA Extraction"
+  ],
   "workflow": [
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
+    },
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,8 +230,96 @@
         "asp_vol": 120.0,
         "dis_vol": 120.0,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": [
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A1"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A2"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A3"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A4"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A5"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A6"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A7"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A8"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A9"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A10"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A11"
+          },
+          {
+            "slot": 7,
+            "type": "200ul filtertiprack for parking",
+            "well": "A12"
+          }
+        ]
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -19,7 +329,12 @@
         "asp_vol": 81.25,
         "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
@@ -34,15 +349,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -67,15 +433,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_2",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -100,15 +517,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_3",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -133,15 +601,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -166,15 +685,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_2",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -199,15 +769,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_3",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -232,15 +853,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -265,15 +937,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_2",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -298,15 +1021,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_3",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -331,15 +1105,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -364,15 +1189,66 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_2",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "reagent reservoir 1",
+        "slot": 5
+      },
+      "flow_rate": [
+        75.0,
+        300.0
+      ],
+      "mix_time": 9
     },
     {
       "action": "transfer_liquid",
@@ -397,15 +1273,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        50.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "binding_buffer_3",
         "targets": "mag_samples_m",
         "asp_vol": 81.25,
-        "dis_vol": 80.75,
+        "dis_vol": 162.5,
         "asp_flow_rate": 50.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -413,9 +1315,14 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 48.25,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 34.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
@@ -435,9 +1342,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -457,9 +1364,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -479,9 +1386,9 @@
         "sources": "mag_samples_m",
         "targets": "Liquid_1",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -492,7 +1399,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
@@ -501,9 +1413,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -523,9 +1435,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -545,9 +1457,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -567,9 +1479,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -580,7 +1492,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
@@ -589,9 +1506,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -611,9 +1528,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -633,9 +1550,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -655,9 +1572,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -668,7 +1585,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
@@ -677,9 +1599,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -699,9 +1621,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -721,9 +1643,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -743,9 +1665,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -756,7 +1678,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
@@ -765,9 +1692,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -787,9 +1714,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -809,9 +1736,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -831,9 +1758,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -844,7 +1771,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
@@ -853,9 +1785,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -875,9 +1807,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -897,9 +1829,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -919,9 +1851,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -932,7 +1864,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -941,9 +1878,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -963,9 +1900,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -985,9 +1922,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1007,9 +1944,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1020,7 +1957,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -1029,9 +1971,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1051,9 +1993,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1073,9 +2015,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1095,9 +2037,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1108,7 +2050,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -1117,9 +2064,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1139,9 +2086,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1161,9 +2108,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1183,9 +2130,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1196,7 +2143,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -1205,9 +2157,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1227,9 +2179,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1249,9 +2201,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1271,9 +2223,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1284,7 +2236,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
@@ -1293,9 +2250,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1315,9 +2272,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1337,9 +2294,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1359,9 +2316,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1372,7 +2329,12 @@
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
@@ -1381,9 +2343,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 10.625,
-        "dis_vol": 10.125,
+        "dis_vol": 21.25,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1403,9 +2365,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1425,9 +2387,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1447,10 +2409,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 55.3125,
-        "dis_vol": 73.41666666666667,
+        "dis_vol": 110.625,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 133.33333333333334
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -1460,7 +2426,12 @@
         "asp_vol": 71.66666666666667,
         "dis_vol": 195.0,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1475,22 +2446,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1501,6 +2478,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1508,22 +2501,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1534,6 +2533,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1541,22 +2556,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1567,6 +2588,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1574,22 +2611,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1600,6 +2643,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1607,22 +2666,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1633,6 +2698,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1640,22 +2721,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1666,6 +2753,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1673,22 +2776,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1699,6 +2808,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1706,22 +2831,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1732,6 +2863,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1739,22 +2886,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1765,6 +2918,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1772,22 +2941,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1798,6 +2973,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1805,22 +2996,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -1831,6 +3028,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 3,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -1838,15 +3051,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -1854,9 +3093,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
@@ -1876,9 +3120,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1887,9 +3131,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
@@ -1909,9 +3158,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1920,9 +3169,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
@@ -1942,9 +3196,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1953,9 +3207,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
@@ -1975,9 +3234,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -1986,9 +3245,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2008,9 +3272,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2019,9 +3283,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
@@ -2041,9 +3310,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2052,9 +3321,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -2074,9 +3348,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2085,9 +3359,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2107,9 +3386,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2118,9 +3397,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2140,9 +3424,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2151,9 +3435,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2173,9 +3462,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2184,9 +3473,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
@@ -2206,9 +3500,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2217,9 +3511,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
@@ -2239,10 +3538,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -2252,7 +3555,12 @@
         "asp_vol": 71.66666666666667,
         "dis_vol": 195.0,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2267,22 +3575,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2293,6 +3607,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2300,22 +3630,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2326,6 +3662,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2333,22 +3685,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2359,6 +3717,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2366,22 +3740,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2392,6 +3772,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2399,22 +3795,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2425,6 +3827,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2432,22 +3850,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2458,6 +3882,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2465,22 +3905,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2491,6 +3937,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2498,22 +3960,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2524,6 +3992,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2531,22 +4015,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2557,6 +4047,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2564,22 +4070,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2590,6 +4102,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2597,22 +4125,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -2623,6 +4157,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 6,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -2630,15 +4180,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -2646,9 +4222,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
@@ -2668,9 +4249,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2679,9 +4260,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
@@ -2701,9 +4287,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2712,9 +4298,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
@@ -2734,9 +4325,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2745,9 +4336,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
@@ -2767,9 +4363,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2778,9 +4374,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
@@ -2800,9 +4401,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2811,9 +4412,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
@@ -2833,9 +4439,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2844,9 +4450,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -2866,9 +4477,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2877,9 +4488,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -2899,9 +4515,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2910,9 +4526,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -2932,9 +4553,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2943,9 +4564,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -2965,9 +4591,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -2976,9 +4602,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
@@ -2998,9 +4629,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3009,9 +4640,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
@@ -3031,10 +4667,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -3044,7 +4684,12 @@
         "asp_vol": 71.66666666666667,
         "dis_vol": 195.0,
         "asp_flow_rate": 110.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
     },
     {
@@ -3059,22 +4704,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3085,6 +4736,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3092,22 +4759,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3118,6 +4791,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3125,22 +4814,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3151,6 +4846,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3158,22 +4869,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3184,6 +4901,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3191,22 +4924,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3217,6 +4956,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3224,22 +4979,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3250,6 +5011,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3257,22 +5034,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3283,6 +5066,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3290,22 +5089,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3316,6 +5121,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3323,22 +5144,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3349,6 +5176,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3356,22 +5199,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3382,6 +5231,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3389,22 +5254,28 @@
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 97.5,
-        "dis_vol": 97.0,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
-        "asp_vol": 71.66666666666667,
+        "asp_vol": 97.5,
         "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
         "dis_flow_rate": 150.0
@@ -3415,6 +5286,22 @@
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
+        "asp_vol": 71.66666666666667,
+        "dis_vol": 195.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 8,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "mag_samples_m",
+        "targets": "mag_samples_m",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 150.0,
@@ -3422,15 +5309,41 @@
       }
     },
     {
+      "action": "mix",
+      "vol": [
+        150.0,
+        150.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 15
+    },
+    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -3438,9 +5351,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 70.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
@@ -3460,9 +5378,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3471,9 +5389,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
@@ -3493,9 +5416,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3504,9 +5427,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
@@ -3526,9 +5454,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3537,9 +5465,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A4"
+        }
       }
     },
     {
@@ -3559,9 +5492,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3570,9 +5503,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
@@ -3592,9 +5530,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3603,9 +5541,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
@@ -3625,9 +5568,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3636,9 +5579,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
@@ -3658,9 +5606,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3669,9 +5617,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A8"
+        }
       }
     },
     {
@@ -3691,9 +5644,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3702,9 +5655,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
@@ -3724,9 +5682,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3735,9 +5693,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -3757,9 +5720,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3768,9 +5731,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A11"
+        }
       }
     },
     {
@@ -3790,9 +5758,9 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
     },
     {
@@ -3801,9 +5769,14 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 71.66666666666667,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A12"
+        }
       }
     },
     {
@@ -3823,10 +5796,19 @@
         "sources": "mag_samples_m",
         "targets": "mag_samples_m",
         "asp_vol": 97.5,
-        "dis_vol": 97.0,
+        "dis_vol": 195.0,
         "asp_flow_rate": 30.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 5,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "disengage"
     },
     {
       "action": "transfer_liquid",
@@ -3836,8 +5818,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 90.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3847,8 +5851,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3858,8 +5884,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3869,8 +5917,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3880,8 +5950,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3891,8 +5983,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3902,8 +6016,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3913,8 +6049,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3924,8 +6082,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3935,8 +6115,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3946,8 +6148,30 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
     },
     {
       "action": "transfer_liquid",
@@ -3957,19 +6181,44 @@
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 150.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 9,
+          "type": "200ul filtertiprack",
+          "well": "A12"
+        }
       }
     },
     {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
-        "asp_vol": 26.666666666666668,
-        "dis_vol": 19.333333333333332,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 116.66666666666667
-      }
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "NEST 96 Deep Well Plate 2mL on Magnetic Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        150.0,
+        150.0
+      ],
+      "mix_time": 10
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
+    },
+    {
+      "action": "magnet",
+      "state": "engage"
+    },
+    {
+      "action": "delay",
+      "minutes": 2,
+      "seconds": 0.0
     },
     {
       "action": "transfer_liquid",
@@ -3977,31 +6226,46 @@
         "sources": "mag_samples_m",
         "targets": "elution_samples_m",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "elution_samples_m",
         "targets": "elution_samples_m_2",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A2"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "elution_samples_m_2",
         "targets": "elution_samples_m_3",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A3"
+        }
       }
     },
     {
@@ -4010,31 +6274,46 @@
         "sources": "mag_samples_m",
         "targets": "elution_samples_m_4",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A4"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "elution_samples_m_4",
+        "targets": "elution_samples_m_5",
+        "asp_vol": 26.666666666666668,
+        "dis_vol": 60.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A5"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
-        "targets": "elution_samples_m_5",
-        "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "elution_samples_m_5",
         "targets": "elution_samples_m_6",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A6"
+        }
       }
     },
     {
@@ -4043,42 +6322,62 @@
         "sources": "elution_samples_m_6",
         "targets": "elution_samples_m_7",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A7"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "elution_samples_m_7",
         "targets": "elution_samples_m_8",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A8"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "elution_samples_m_8",
+        "targets": "elution_samples_m_9",
+        "asp_vol": 26.666666666666668,
+        "dis_vol": 60.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A9"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m",
-        "targets": "elution_samples_m_9",
-        "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
-        "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "elution_samples_m_9",
         "targets": "elution_samples_m_10",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A10"
+        }
       }
     },
     {
@@ -4087,31 +6386,90 @@
         "sources": "mag_samples_m",
         "targets": "elution_samples_m_11",
         "asp_vol": 26.666666666666668,
-        "dis_vol": 29.5,
+        "dis_vol": 60.0,
         "asp_flow_rate": 150.0,
-        "dis_flow_rate": 125.0
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A11"
+        }
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "elution_samples_m_11",
+        "targets": "elution_samples_m_12",
+        "asp_vol": 26.666666666666668,
+        "dis_vol": 60.0,
+        "asp_flow_rate": 150.0,
+        "dis_flow_rate": 150.0,
+        "tip_racks": {
+          "slot": 7,
+          "type": "200ul filtertiprack for parking",
+          "well": "A12"
+        }
       }
     }
   ],
   "reagent": {
-    "mag_samples_m": {
+    "elution_samples_m": {
       "slot": 1,
       "well": [
         "A1",
+        "A2",
+        "A3",
+        "A4",
         "A6",
         "A7",
-        "A10",
+        "A8",
+        "A11",
         "A12"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
     },
-    "elution_samples_m_5": {
+    "elution_samples_m_2": {
       "slot": 1,
       "well": [
         "A1",
+        "A2",
+        "A3",
+        "A4",
         "A6",
         "A7",
-        "A10",
+        "A8",
+        "A11",
+        "A12"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "mag_samples_m": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A7",
+        "A8",
+        "A11",
+        "A12"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "elution_samples_m_4": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A7",
+        "A8",
+        "A11",
         "A12"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
@@ -4120,20 +6478,43 @@
       "slot": 1,
       "well": [
         "A1",
+        "A2",
+        "A3",
+        "A4",
         "A6",
         "A7",
-        "A10",
+        "A8",
+        "A11",
         "A12"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
     },
-    "elution_samples_m_9": {
+    "elution_samples_m_7": {
       "slot": 1,
       "well": [
         "A1",
+        "A2",
+        "A3",
+        "A4",
         "A6",
         "A7",
-        "A10",
+        "A8",
+        "A11",
+        "A12"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "elution_samples_m_8": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A7",
+        "A8",
+        "A11",
         "A12"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
@@ -4142,9 +6523,28 @@
       "slot": 1,
       "well": [
         "A1",
+        "A2",
+        "A3",
+        "A4",
         "A6",
         "A7",
-        "A10",
+        "A8",
+        "A11",
+        "A12"
+      ],
+      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
+    },
+    "elution_samples_m_12": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A6",
+        "A7",
+        "A8",
+        "A11",
         "A12"
       ],
       "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2"
@@ -4152,7 +6552,7 @@
     "lysis_buffer": {
       "slot": 5,
       "well": [
-        "A8",
+        "A10",
         "A1",
         "A2",
         "A3",
@@ -4163,7 +6563,7 @@
     "binding_buffer": {
       "slot": 5,
       "well": [
-        "A8",
+        "A10",
         "A1",
         "A2",
         "A3",
@@ -4174,7 +6574,7 @@
     "binding_buffer_2": {
       "slot": 5,
       "well": [
-        "A8",
+        "A10",
         "A1",
         "A2",
         "A3",
@@ -4185,7 +6585,7 @@
     "binding_buffer_3": {
       "slot": 5,
       "well": [
-        "A8",
+        "A10",
         "A1",
         "A2",
         "A3",

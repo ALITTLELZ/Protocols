@@ -1,14 +1,25 @@
 {
+  "description": "This protocol performs a custom tube filling protocol through transferring sample from custom 100ml tubes to custom test tubes.\nDepth from the lip of the sample tube from which to aspirate, as well as aspiration and dispense flow rates, should be input as a .csv in the following format including the header line:\n```\ndistance down tube to aspirate (in mm),aspiration speed (in ul/s), dispense speed (in ul/s)\n20,100,100\n20,100,100\n```\nEmpty lines will be ignored. You can download a template for this .csv file here.\n\n\n\nOpentrons P1000 GEN2 single-channel pipette\nOpentrons 1000ul tipracks\nCustom tubes and tuberacks\n\n\n\nTransfer Scheme",
+  "tags": [
+    "tube_filling.ot2.apiv2.py",
+    "Sample Prep",
+    "Tube Filling"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples_odered",
-        "targets": "icp_ordered",
+        "targets": "lw_ordered",
         "asp_vol": 1000.0,
         "dis_vol": 500.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 100.0
+        "dis_flow_rate": 100.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -26,11 +37,16 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples_odered_2",
-        "targets": "icp_ordered_2",
+        "targets": "lw_ordered_2",
         "asp_vol": 1000.0,
         "dis_vol": 500.0,
         "asp_flow_rate": 100.0,
-        "dis_flow_rate": 100.0
+        "dis_flow_rate": 100.0,
+        "tip_racks": {
+          "slot": 1,
+          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -78,7 +94,7 @@
       ],
       "labware": "Samples 1, 2, 5, 6, 9, 10"
     },
-    "icp_ordered": {
+    "lw_ordered": {
       "slot": 7,
       "well": [
         "C1",
@@ -86,7 +102,7 @@
       ],
       "labware": "ICP 1-15"
     },
-    "icp_ordered_2": {
+    "lw_ordered_2": {
       "slot": 7,
       "well": [
         "C1",

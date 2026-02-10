@@ -1,4 +1,10 @@
 {
+  "description": "This protocol cherrypicks from source plate wells specified in the first column of an input CSV file and transfers 2 ul of the well's contents to destination plate wells specified in the second column of the input CSV file.\nLinks:\n Custom Cherrypicking json Protocol\n Opentrons Protocol Designer No-Code Tool\n* Sample CSV File\nThis protocol is a python translation of the attached custom cherrypicking json protocol that can be downloaded from the link above (and then uploaded to the online Opentrons Protocol Designer tool). This python translation has an added feature: upload of an input CSV file to specify source and destination wells.",
+  "tags": [
+    "1477ea.ot2.apiv2.py",
+    "Sample Prep",
+    "Cherrypicking"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,8 +14,353 @@
         "asp_vol": 198.0,
         "dis_vol": 198.0,
         "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
+        "dis_flow_rate": 94.0,
+        "tip_racks": {
+          "slot": 10,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "SOURCE",
+        "slot": 8
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -19,41 +370,112 @@
         "asp_vol": 6.333333333333333,
         "dis_vol": 2.0,
         "asp_flow_rate": 33.85333333333333,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "Liquid_2",
         "targets": "Liquid_2",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
+        "sources": "Liquid_2",
         "targets": "Liquid_12",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_5",
+        "sources": "Liquid_12",
         "targets": "Liquid_13",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +485,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +518,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +551,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +584,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -107,8 +617,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +650,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -129,8 +683,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +716,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "B11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -151,8 +749,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -162,8 +782,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -173,8 +815,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -184,8 +848,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H2"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -195,8 +881,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -206,8 +914,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -217,8 +947,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -228,8 +980,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -239,8 +1013,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -250,8 +1046,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "C11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -261,8 +1079,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -272,8 +1112,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -283,8 +1145,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -294,8 +1178,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -305,8 +1211,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -316,8 +1244,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -327,8 +1277,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -338,8 +1310,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -349,8 +1343,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -360,63 +1376,195 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "D11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
+        "sources": "Liquid_2",
         "targets": "Liquid_42",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_5",
+        "sources": "Liquid_42",
         "targets": "Liquid_43",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_13",
+        "sources": "Liquid_43",
         "targets": "Liquid_44",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_44",
+        "sources": "Liquid_7",
         "targets": "Liquid_45",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_45",
+        "sources": "Liquid_8",
         "targets": "Liquid_46",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -426,19 +1574,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_17",
+        "sources": "Liquid_47",
         "targets": "Liquid_48",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -448,8 +1640,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -459,8 +1673,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -470,19 +1706,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "E11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_21",
+        "sources": "Liquid_51",
         "targets": "Liquid_52",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -492,8 +1772,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -503,8 +1805,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -514,30 +1838,96 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_55",
+        "sources": "Liquid_25",
         "targets": "Liquid_56",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_26",
+        "sources": "Liquid_56",
         "targets": "Liquid_57",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -547,30 +1937,96 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
+        "sources": "Liquid_58",
         "targets": "Liquid_59",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_59",
+        "sources": "Liquid_29",
         "targets": "Liquid_60",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -580,19 +2036,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "F11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_31",
+        "sources": "Liquid_61",
         "targets": "Liquid_62",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -602,8 +2102,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -613,19 +2135,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_34",
+        "sources": "Liquid_64",
         "targets": "Liquid_65",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -635,8 +2201,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -646,19 +2234,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "B8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_37",
+        "sources": "Liquid_67",
         "targets": "Liquid_68",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "C8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -668,8 +2300,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "D8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -679,19 +2333,63 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "E8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
+        "sources": "Liquid_70",
         "targets": "Liquid_71",
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "F8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "G11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -701,8 +2399,30 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "G8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "H2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
@@ -712,8 +2432,438 @@
         "asp_vol": 3.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 7,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "H8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "H11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        3.78,
+        3.78
+      ],
+      "mix_time": 5
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 1
+    },
+    {
+      "action": "mix",
+      "vol": [
+        80.0,
+        80.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "DESTINATION",
+        "slot": 6
+      },
+      "flow_rate": [
+        94.0,
+        94.0
+      ],
+      "mix_time": 4
     }
   ],
   "reagent": {
@@ -727,9 +2877,7 @@
     "Liquid_2": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -759,32 +2907,36 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
     },
-    "Liquid_4": {
+    "Liquid_12": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -814,130 +2966,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
-        "G11",
-        "H2",
-        "H11"
-      ],
-      "labware": "DESTINATION"
-    },
-    "Liquid_3": {
-      "slot": 6,
-      "well": [
-        "A9",
-        "A11",
-        "A2",
-        "B2",
-        "B3",
-        "B4",
-        "B5",
-        "B6",
-        "B7",
-        "B8",
-        "B9",
-        "B10",
-        "B11",
-        "C2",
-        "C3",
-        "C4",
-        "C5",
-        "C6",
-        "C7",
-        "C8",
-        "C9",
-        "C10",
-        "C11",
-        "D2",
-        "D3",
-        "D4",
-        "D5",
-        "D6",
-        "D7",
-        "D8",
-        "D9",
-        "D10",
-        "E4",
-        "E5",
-        "E8",
-        "E9",
-        "F2",
-        "F3",
-        "F5",
-        "F9",
-        "G2",
-        "G3",
-        "G5",
-        "G6",
-        "G8",
-        "G9",
-        "G11",
-        "H2",
-        "H11"
-      ],
-      "labware": "DESTINATION"
-    },
-    "Liquid_5": {
-      "slot": 6,
-      "well": [
-        "A9",
-        "A11",
-        "A2",
-        "B2",
-        "B3",
-        "B4",
-        "B5",
-        "B6",
-        "B7",
-        "B8",
-        "B9",
-        "B10",
-        "B11",
-        "C2",
-        "C3",
-        "C4",
-        "C5",
-        "C6",
-        "C7",
-        "C8",
-        "C9",
-        "C10",
-        "C11",
-        "D2",
-        "D3",
-        "D4",
-        "D5",
-        "D6",
-        "D7",
-        "D8",
-        "D9",
-        "D10",
-        "E4",
-        "E5",
-        "E8",
-        "E9",
-        "F2",
-        "F3",
-        "F5",
-        "F9",
-        "G2",
-        "G3",
-        "G5",
-        "G6",
-        "G8",
-        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -947,9 +2995,7 @@
     "Liquid_13": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -979,20 +3025,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1002,9 +3054,7 @@
     "Liquid_7": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1034,20 +3084,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1057,9 +3113,7 @@
     "Liquid_8": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1089,20 +3143,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1112,9 +3172,7 @@
     "Liquid_16": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1144,20 +3202,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1167,9 +3231,7 @@
     "Liquid_17": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1199,20 +3261,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1222,9 +3290,7 @@
     "Liquid_18": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1254,20 +3320,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1277,9 +3349,7 @@
     "Liquid_19": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1309,20 +3379,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1332,9 +3408,7 @@
     "Liquid_20": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1364,20 +3438,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1387,9 +3467,7 @@
     "Liquid_21": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1419,20 +3497,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1442,9 +3526,7 @@
     "Liquid_22": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1474,20 +3556,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1497,9 +3585,7 @@
     "Liquid_23": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1529,20 +3615,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1552,9 +3644,7 @@
     "Liquid_24": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1584,20 +3674,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1607,9 +3703,7 @@
     "Liquid_25": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1639,20 +3733,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1662,9 +3762,7 @@
     "Liquid_26": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1694,20 +3792,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1717,9 +3821,7 @@
     "Liquid_27": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1749,20 +3851,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1772,9 +3880,7 @@
     "Liquid_28": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1804,20 +3910,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1827,9 +3939,7 @@
     "Liquid_29": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1859,20 +3969,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1882,9 +3998,7 @@
     "Liquid_30": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1914,20 +4028,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1937,9 +4057,7 @@
     "Liquid_31": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -1969,20 +4087,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -1992,9 +4116,7 @@
     "Liquid_32": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2024,20 +4146,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2047,9 +4175,7 @@
     "Liquid_33": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2079,20 +4205,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2102,9 +4234,7 @@
     "Liquid_34": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2134,20 +4264,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2157,9 +4293,7 @@
     "Liquid_35": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2189,20 +4323,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2212,9 +4352,7 @@
     "Liquid_36": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2244,20 +4382,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2267,9 +4411,7 @@
     "Liquid_37": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2299,20 +4441,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2322,9 +4470,7 @@
     "Liquid_38": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2354,20 +4500,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2377,9 +4529,7 @@
     "Liquid_39": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2409,20 +4559,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2432,9 +4588,7 @@
     "Liquid_40": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2464,32 +4618,36 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
     },
-    "Liquid_44": {
+    "Liquid_42": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2519,32 +4677,36 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
     },
-    "Liquid_45": {
+    "Liquid_43": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2574,20 +4736,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_47": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2597,9 +4824,7 @@
     "Liquid_48": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2629,20 +4854,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2652,9 +4883,7 @@
     "Liquid_49": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2684,20 +4913,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_51": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2707,9 +5001,7 @@
     "Liquid_52": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2739,20 +5031,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2762,9 +5060,7 @@
     "Liquid_53": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2794,32 +5090,36 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
     },
-    "Liquid_55": {
+    "Liquid_56": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2849,32 +5149,36 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
     },
-    "Liquid_59": {
+    "Liquid_58": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2904,20 +5208,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_61": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2927,9 +5296,7 @@
     "Liquid_62": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -2959,20 +5326,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -2982,9 +5355,7 @@
     "Liquid_63": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3014,20 +5385,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_64": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3037,9 +5473,7 @@
     "Liquid_65": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3069,20 +5503,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3092,9 +5532,7 @@
     "Liquid_66": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3124,20 +5562,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_67": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3147,9 +5650,7 @@
     "Liquid_68": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3179,20 +5680,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3202,9 +5709,7 @@
     "Liquid_69": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3234,20 +5739,85 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
+        "G11",
+        "H2",
+        "H11"
+      ],
+      "labware": "DESTINATION"
+    },
+    "Liquid_70": {
+      "slot": 6,
+      "well": [
+        "A11",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "B9",
+        "B10",
+        "B11",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "D9",
+        "D10",
+        "E2",
+        "E3",
+        "E7",
+        "E8",
+        "E9",
+        "E11",
+        "F2",
+        "F3",
+        "F6",
+        "F8",
+        "F11",
+        "G2",
+        "G3",
+        "G4",
+        "G5",
+        "G6",
+        "G7",
+        "G8",
+        "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3257,9 +5827,7 @@
     "Liquid_71": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3289,20 +5857,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3312,9 +5886,7 @@
     "Liquid_72": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3344,20 +5916,26 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
@@ -3367,9 +5945,7 @@
     "Liquid_73": {
       "slot": 6,
       "well": [
-        "A9",
         "A11",
-        "A2",
         "B2",
         "B3",
         "B4",
@@ -3399,25 +5975,72 @@
         "D8",
         "D9",
         "D10",
-        "E4",
-        "E5",
+        "E2",
+        "E3",
+        "E7",
         "E8",
         "E9",
+        "E11",
         "F2",
         "F3",
-        "F5",
-        "F9",
+        "F6",
+        "F8",
+        "F11",
         "G2",
         "G3",
+        "G4",
         "G5",
         "G6",
+        "G7",
         "G8",
         "G9",
+        "G10",
         "G11",
         "H2",
         "H11"
       ],
       "labware": "DESTINATION"
+    },
+    "Liquid_3": {
+      "slot": 8,
+      "well": [
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "D8",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "H2",
+        "H11"
+      ],
+      "labware": "SOURCE"
     },
     "Liquid_10": {
       "slot": 8,

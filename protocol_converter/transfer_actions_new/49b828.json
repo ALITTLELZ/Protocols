@@ -1,5 +1,15 @@
 {
+  "description": "This protocol preps a 384 well plate with mastermix and sample. Plates should loaded in order of slots 7, 8, 1, and 2. See below for how plates are transferred to the 384 well plate. If running a full run (382 samples), mastermix will be provided to the wells O24 and P24. If not running a full run, mastermix and controls will have to be placed manually. H11 and H12 of the final plate on slot 2 should be left empty if running a full run.\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples in this run. Samples 1-96 will go in plate 1 slot 7, samples 97-192 will go in plate 2 slot 8, samples 193-288 will go in plate 3 slot 1, samples 289-384 will go in plate 4 slot 2. Samples will be put into the 384 well plate in the following manner:\n 96 Well Plate Type: Specify whether using the four 96 plates as the Kingfisher plate (depth 12.8mm) or the thermofisher plate (depth 42.3mm).\n 384 Well Plate Type: Specify whether using the 384 plate with the clear numbers, or the 384 plate with the black numbers. Plate should be mounted on aluminum block.\n Use Temperature Module?: Specify whether using the temperature module or not on the 384 plate in slot 3 for this run. The temperature module will be set at 4C. If not using the temperature module, just place the 384 plate in slot 3 with no aluminum block.\n* P20 Multi-Channel Mount: Specify which mount (left or right) to host the P20 Single-Channel pipette.",
+  "tags": [
+    "49b828.ot2.apiv2.py",
+    "Sample Prep",
+    "Plate Filling"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -7,8 +17,20 @@
         "targets": "plate_to_384",
         "asp_vol": 15.0,
         "dis_vol": 15.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_flow_rate": 7.600000000000004,
+        "dis_flow_rate": 7.600000000000004,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -19,7 +41,69 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 4,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -30,7 +114,69 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 5,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -41,7 +187,69 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A1"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A2"
+          }
+        ]
       }
     },
     {
@@ -52,7 +260,69 @@
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": [
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A3"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A4"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A5"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A6"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A7"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A8"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A9"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A10"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A11"
+          },
+          {
+            "slot": 11,
+            "type": "20uL TIPRACK",
+            "well": "A12"
+          },
+          {
+            "slot": 6,
+            "type": "20uL TIPRACK",
+            "well": "B1"
+          },
+          {
+            "slot": 6,
+            "type": "20uL TIPRACK",
+            "well": "B2"
+          }
+        ]
       }
     }
   ],
@@ -60,35 +330,35 @@
     "source_cols_3": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "the SAMPLE PLATE"
     },
     "source_cols_4": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "the SAMPLE PLATE"
     },
     "plate_to_384": {
       "slot": 3,
       "well": [
-        "A19"
+        "B1"
       ],
       "labware": "Life Technologies 384 Well Plate 50 µL on Temperature Module GEN2"
     },
     "source_cols": {
       "slot": 7,
       "well": [
-        "A5"
+        "A2"
       ],
       "labware": "the SAMPLE PLATE"
     },
     "source_cols_2": {
       "slot": 8,
       "well": [
-        "A4"
+        "A6"
       ],
       "labware": "the SAMPLE PLATE"
     },

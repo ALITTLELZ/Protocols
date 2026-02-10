@@ -1,4 +1,10 @@
 {
+  "description": "Accomplish complex workflows, easily with this Custom CSV Transfer Protocol. This protocol utilizes a CSV to specify aspiration height, labware, pipette, as well as source and destination wells.\n\nTo use, simply upload a CSV (download a template with the proper format here and select the parameters that match the OT-2 below before downloading the Python protocol. The protocol can then be used on the OT-2 and will make all of the transfers outlined in the CSV.\n\nExplanation of complex parameters below:\n\ninput .csv file: Here, you should upload a .csv file formatted in the following way, making sure to include headers in your csv file. Refer to our Labware Library to copy API names for labware to include in the Source Labware and Dest Labware columns of the .csv.\nPipette Model: Select which pipette you will use for this protocol.\nPipette Mount: Specify which mount your single-channel pipette is on (left or right)\nTip Type: Specify whether you want to use filter tips.\nTip Usage Strategy: Specify whether you'd like to use a new tip for each transfer, or keep the same tip throughout the protocol.",
+  "tags": [
+    "csv_transfer.ot2.apiv2.py",
+    "Sample Prep",
+    "CSV Transfer"
+  ],
   "workflow": [
     {
       "action": "transfer_liquid",
@@ -8,7 +14,12 @@
         "asp_vol": 1.0,
         "dis_vol": 1.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
     },
     {
@@ -19,7 +30,12 @@
         "asp_vol": 3.0,
         "dis_vol": 3.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "B1"
+        }
       }
     },
     {
@@ -30,7 +46,12 @@
         "asp_vol": 7.0,
         "dis_vol": 7.0,
         "asp_flow_rate": 3.78,
-        "dis_flow_rate": 3.78
+        "dis_flow_rate": 3.78,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+          "well": "C1"
+        }
       }
     }
   ],

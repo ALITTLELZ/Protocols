@@ -1,5 +1,102 @@
 {
+  "description": "This protocol creates a custom qPCR prep protocol for Covid-19 diagnostics. The input into this protocol is an elution plate of purified RNA, and the output is a PCR plate containing the samples mixed with mastermix.\nUsing a Single-Channel Pipette, this protocol will begin by creating reaction mix in a 2ml tube. The mix is then distributed to a PCR strip. Then, using the Multi-Channel Pipette, samples will be transferred from their plate to the qPCR plate and mixed with the reaction mix.\nIf you have any questions about this protocol, please email our Applications Engineering team at protocols@opentrons.com.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.21.0 or later)\nOpentrons Temperature Module with Aluminum Block Set)\nOpentrons P300 Single-Channel GEN2 Pipette\nOpentrons P20 Multi-Channel GEN2 Pipette\nOpentrons Filter Tips\nNEST PCR Plate containing purified nucleic acid samples\n2ml NEST screwcap tubes or equivalent containing reaction mix(es)\n\n\n\nchilled 24-well aluminum block for 2ml tubes (slot 5):\n\nAllplex 2019-nCoV Assay (17µl/sample total):\n reagent 1: 2019-nCov MOM (5µl/sample)\n reagent 2: RNase-free water (5µl/sample)\n reagent 3: 5X Real-time One-step Buffer (5µl/sample)\n reagent 4: Real-time One-step Enzyme (2µl/sample)\nAllplex SARS-CoV-2 Assay (15µl/sample total):\n reagent 1: SARS2 MOM (5µl/sample)\n reagent 2: EM8 (5µl/sample)\n* reagent 3: RNase-free water (5µl/sample)\nSeegene Real-time One-step RT-PCR:\n reagent 1: SC2FabR MOM (5µl/sample)\n reagent 2: EM8 (5µl/sample)",
+  "tags": [
+    "generic_station_C.ot2.apiv2.py",
+    "Covid Workstation",
+    "qPCR Setup"
+  ],
   "workflow": [
+    {
+      "action": "temperature",
+      "target": 4.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 3.0
+    },
+    {
+      "action": "mix",
+      "vol": [
+        200.0,
+        200.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "2ml screw tube aluminum block for mastermix + controls",
+        "slot": 5
+      },
+      "flow_rate": [
+        15.0,
+        30.0
+      ],
+      "mix_time": 7
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
@@ -8,7 +105,29 @@
         "asp_vol": 74.37241379310345,
         "dis_vol": 74.37241379310345,
         "asp_flow_rate": 15.0,
-        "dis_flow_rate": 30.0
+        "dis_flow_rate": 30.0,
+        "tip_racks": [
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "A1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "B1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "C1"
+          },
+          {
+            "slot": 2,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+            "well": "D1"
+          }
+        ]
       }
     },
     {
@@ -19,8 +138,30 @@
         "asp_vol": 17.0,
         "dis_vol": 17.0,
         "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "dis_flow_rate": 7.599999999999999,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -28,9 +169,14 @@
         "sources": "sources",
         "targets": "sample_dests",
         "asp_vol": 8.0,
-        "dis_vol": 3.5,
+        "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 53.8
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A2"
+        }
       }
     },
     {
@@ -41,8 +187,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A3"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -52,8 +220,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A4"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -63,8 +253,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A5"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -74,8 +286,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A6"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -85,8 +319,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A7"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -96,8 +352,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A8"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -107,8 +385,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A9"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -118,8 +418,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A10"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -129,8 +451,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A11"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -140,8 +484,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 3,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A12"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     },
     {
       "action": "transfer_liquid",
@@ -151,8 +517,30 @@
         "asp_vol": 6.5,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6
+        "dis_flow_rate": 7.6,
+        "tip_racks": {
+          "slot": 6,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        10.0,
+        10.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "PCR plate on Temperature Module GEN2",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 1
     }
   ],
   "reagent": {

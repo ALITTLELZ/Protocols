@@ -1,15 +1,266 @@
 {
+  "description": "This protocol is the first of a 4 part series for performing NGS library prep with the ThermoFisher Scientific AgriSeq kit. The OT-2 will distribute 7ul of Amplification Mix to each well of 96 well plates up to the number of samples specified by the user. 3ul of DNA is then added to each well containing Ampflication Mix.\nLinks:\n Part 1: DNA Transfer\n Part 2: Pre-Ligation\n Part 3: Barcoding\n Part 4: Pooling\nNote about tips\nThe OT-2 will track tips from Part 1 to Part 4 of the protocol (e.g. tip leaves off in H11 at the end of protocol 1; first tip pick up will be from H12 in Part 2). When tips run out for any particular Part, the user will be prompted to replace all tip racks.\nUpdate (July 18, 2022): The custom touch tip has been adjusted\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.15.0 or later)\nP20 Multi-Channel Pipette\nOpentrons 96 Filter Tip Rack 20 µL\nThermoFisher Scientific 96 Well Plate 200ul (AB-0800)\nThermoFisher Scientific 96 Well Plate 200ul (4483352)\nBioRad Hard-shell 96-well PCR Plate Skirted\nCustom 96 Well Endura Plate\n\nNote About Labware\nThe ThermoFisher 96 well plate (model 4483352) is to be mounted on top of the BioRad Hard-shell plate, making one plate with a moniker of \"Custom 96 Well Endura Plate\".\nNote About Sample Number\nPart 4 of this protocol will pool 5ul from wells until a 60ul pool is achieved (i.e. a full plate would have one pool per row). If there is less than a full plate loaded, the protocol will iterate through wells dependent on the sample number specified until 60ul is reached. Please consider the following examples:\n\n96 sample run (1 plate): 1 column of 60ul pools.\n144 sample run (1.5 plates): 1 column and 4 wells of 60ul pools.\n216 sample run (2.25 plates): 2 columns and 2 wells of 60ul pools.\n\nIt is thus critical to load samples that can be discretely divided by 12.\n\n\nUsing the customization fields below, set up your protocol.\n Number of Samples: Specify the number of samples to be processed in this run (max 288).\n P20 single GEN2 mount: Specify which mount to load the P20 single GEN2 pipette.\nNote about 20µL tip racks\nWhen prompted to replace the 20ul tip racks, be sure to re-load all 3 tip racks as in the original configuration of the deck.\nLabware Setup\nSlots 1, 2, 3: ThermoFisher Scientific (model AB0800) 96 well plate loaded with DNA sample.  \nSlot 4, 5, 6: Custom 96 Well Endura Plate (empty)\nSlot 7: MMX Plate with Amplification Mix in Column 1\nSlot 8, 9, 10, 11: Opentrons 20ul Tip Rack",
+  "tags": [
+    "7855ef-plate.ot2.apiv2.py",
+    "NGS Library Prep",
+    "AgriSeq HTS Library Kit"
+  ],
   "workflow": [
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "amplify_mix",
         "targets": "reaction_plate_cols",
         "asp_vol": 4.5,
-        "dis_vol": 2.6666666666666665,
+        "dis_vol": 4.5,
         "asp_flow_rate": 1.5,
-        "dis_flow_rate": 34.333333333333336
+        "dis_flow_rate": 1.5,
+        "tip_racks": {
+          "slot": 8,
+          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+          "well": "A1"
+        }
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -17,10 +268,130 @@
         "sources": "amplify_mix",
         "targets": "reaction_plate_cols_2",
         "asp_vol": 4.5,
-        "dis_vol": 2.6666666666666665,
+        "dis_vol": 4.5,
         "asp_flow_rate": 1.5,
-        "dis_flow_rate": 34.333333333333336
+        "dis_flow_rate": 1.5
       }
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
+    },
+    {
+      "action": "delay",
+      "minutes": 0,
+      "seconds": 2.0
     },
     {
       "action": "transfer_liquid",
@@ -28,10 +399,214 @@
         "sources": "amplify_mix",
         "targets": "reaction_plate_cols_3",
         "asp_vol": 4.5,
-        "dis_vol": 2.6666666666666665,
+        "dis_vol": 4.5,
         "asp_flow_rate": 1.5,
-        "dis_flow_rate": 34.333333333333336
+        "dis_flow_rate": 1.5
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Reaction Plate",
+        "slot": 4
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -39,10 +614,276 @@
         "sources": "sample_plate_cols",
         "targets": "reaction_plate_cols",
         "asp_vol": 2.5,
-        "dis_vol": 1.3333333333333333,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 38.4
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 8,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Reaction Plate",
+        "slot": 5
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
     },
     {
       "action": "transfer_liquid",
@@ -50,10 +891,288 @@
         "sources": "sample_plate_cols_2",
         "targets": "reaction_plate_cols_2",
         "asp_vol": 2.5,
-        "dis_vol": 1.3333333333333333,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 38.4
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 9,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A1",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A2",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A3",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A4",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A5",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A6",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A7",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A8",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A9",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A10",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A11",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "mix",
+      "vol": [
+        5.0,
+        5.0
+      ],
+      "position": {
+        "well": "A12",
+        "labware": "Reaction Plate",
+        "slot": 6
+      },
+      "flow_rate": [
+        7.6,
+        7.6
+      ],
+      "mix_time": 2
+    },
+    {
+      "action": "raw",
+      "text": "from deck and proceed with PCR and centrifuge steps."
+    },
+    {
+      "action": "raw",
+      "text": "Return reaction plates back to deck and continue to"
+    },
+    {
+      "action": "raw",
+      "text": "Part 2 - Pre-ligation."
     },
     {
       "action": "transfer_liquid",
@@ -61,9 +1180,71 @@
         "sources": "sample_plate_cols_3",
         "targets": "reaction_plate_cols_3",
         "asp_vol": 2.5,
-        "dis_vol": 1.3333333333333333,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 38.4
+        "dis_vol": 2.5,
+        "asp_flow_rate": 7.599999999999997,
+        "dis_flow_rate": 7.599999999999997,
+        "tip_racks": [
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A2"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A3"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A4"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A5"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A6"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A7"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A8"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A9"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A10"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A11"
+          },
+          {
+            "slot": 10,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A12"
+          },
+          {
+            "slot": 11,
+            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+            "well": "A1"
+          }
+        ]
       }
     }
   ],
@@ -71,42 +1252,42 @@
     "sample_plate_cols": {
       "slot": 1,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "Sample Plate"
     },
     "sample_plate_cols_2": {
       "slot": 2,
       "well": [
-        "A1"
+        "A2"
       ],
       "labware": "Sample Plate"
     },
     "sample_plate_cols_3": {
       "slot": 3,
       "well": [
-        "A10"
+        "A6"
       ],
       "labware": "Sample Plate"
     },
     "reaction_plate_cols": {
       "slot": 4,
       "well": [
-        "A3"
+        "A5"
       ],
       "labware": "Reaction Plate"
     },
     "reaction_plate_cols_2": {
       "slot": 5,
       "well": [
-        "A9"
+        "A10"
       ],
       "labware": "Reaction Plate"
     },
     "reaction_plate_cols_3": {
       "slot": 6,
       "well": [
-        "A9"
+        "A11"
       ],
       "labware": "Reaction Plate"
     },
