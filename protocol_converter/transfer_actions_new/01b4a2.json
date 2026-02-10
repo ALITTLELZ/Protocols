@@ -1,9 +1,45 @@
 {
   "description": "This protocol preps up to two 96 well plates with reagent and sample. The protocol takes a csv as input to determine which wells in the middle rack (see below) will be populated. The csv must include the header, with the following order in the header: vial_id, parent_well, dmso_volume, daughter_column. The protocol pauses midway through after the samples are placed and mixed in the middle plates for the user to inspect before resuming.",
   "tags": [
-    "01b4a2.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Micronic_M96-4_1.4 96 Well Plate 1400 µL on 3",
+      "slot": "3",
+      "type": "lab_micronicm9641.4_96_wellplate_1400ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Micronic_M96-4_1.4 96 Well Plate 1400 µL on 6",
+      "slot": "6",
+      "type": "lab_micronicm9641.4_96_wellplate_1400ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 6 Tube Rack with VWR 50 mL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_6_tuberack_50000ul"
+    },
+    {
+      "name": "Bricklabware_type2_rack_short 24 Well Plate 2000 µL on 9",
+      "slot": "9",
+      "type": "lab_bricklabwaretype2rackshort_24_wellplate_2000ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -60,16 +96,14 @@
     "source_well": {
       "slot": 6,
       "well": [
-        "B1"
-      ],
-      "labware": "Micronic M96-4 1.4 96 Well Plate 1400 µL"
+        "C1"
+      ]
     },
     "buff": {
       "slot": 8,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 6 Tube Rack with VWR 50 mL"
+      ]
     }
   }
 }

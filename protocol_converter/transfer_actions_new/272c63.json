@@ -1,9 +1,65 @@
 {
   "description": "This protocol performs a custom tube filling protocol through transferring sample from custom 100ml tubes to custom test tubes.\nDepth from the lip of the sample tube from which to aspirate, as well as aspiration and dispense flow rates, should be input as a .csv in the following format including the header line:\n```\ndistance down tube to aspirate (in mm),aspiration speed (in ul/s), dispense speed (in ul/s)\n20,100,100\n20,100,100\n```\nEmpty lines will be ignored. You can download a template for this .csv file here.\n\n\n\nOpentrons P1000 GEN2 single-channel pipette\nOpentrons 1000ul tipracks\nCustom tubes and tuberacks\n\n\n\nTransfer Scheme",
   "tags": [
-    "tube_filling.ot2.apiv2.py",
     "Sample Prep",
     "Tube Filling"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Samples 3, 4, 7, 8, 11, 12 on 2",
+      "slot": "2",
+      "type": "lab_custom_6_tuberack_100ml"
+    },
+    {
+      "name": "Samples 15, 16, 19, 20, 23, 24 on 3",
+      "slot": "3",
+      "type": "lab_custom_6_tuberack_100ml"
+    },
+    {
+      "name": "IR tubes (1-24) on 4",
+      "slot": "4",
+      "type": "lab_custom_24_testtuberack_2ml"
+    },
+    {
+      "name": "Samples 1, 2, 5, 6, 9, 10 on 5",
+      "slot": "5",
+      "type": "lab_custom_6_tuberack_100ml"
+    },
+    {
+      "name": "Samples 13, 14, 17, 18, 21, 22 on 6",
+      "slot": "6",
+      "type": "lab_custom_6_tuberack_100ml"
+    },
+    {
+      "name": "ICP 1-15 on 7",
+      "slot": "7",
+      "type": "lab_custom_15_tuberack_6000ul"
+    },
+    {
+      "name": "ICP 16-24 (6 spare) on 8",
+      "slot": "8",
+      "type": "lab_custom_15_tuberack_6000ul"
+    },
+    {
+      "name": "LW 1-15 on 10",
+      "slot": "10",
+      "type": "lab_custom_15_tuberack_6000ul"
+    },
+    {
+      "name": "LW 16-24 (6 spare) on 11",
+      "slot": "11",
+      "type": "lab_custom_15_tuberack_6000ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -67,48 +123,42 @@
       "well": [
         "A1",
         "B1"
-      ],
-      "labware": "IR tubes (1-24)"
+      ]
     },
     "ir_ordered_2": {
       "slot": 4,
       "well": [
         "A1",
         "B1"
-      ],
-      "labware": "IR tubes (1-24)"
+      ]
     },
     "samples_odered": {
       "slot": 5,
       "well": [
         "A1",
         "B1"
-      ],
-      "labware": "Samples 1, 2, 5, 6, 9, 10"
+      ]
     },
     "samples_odered_2": {
       "slot": 5,
       "well": [
         "A1",
         "B1"
-      ],
-      "labware": "Samples 1, 2, 5, 6, 9, 10"
+      ]
     },
     "lw_ordered": {
       "slot": 7,
       "well": [
         "C1",
         "B1"
-      ],
-      "labware": "ICP 1-15"
+      ]
     },
     "lw_ordered_2": {
       "slot": 7,
       "well": [
         "C1",
         "B1"
-      ],
-      "labware": "ICP 1-15"
+      ]
     }
   }
 }

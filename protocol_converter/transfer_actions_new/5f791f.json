@@ -1,9 +1,70 @@
 {
   "description": "This protocol performs a full custom PCR prep and post-PCR magnetic bead cleanup protocol for up to 96 samples. If both steps are run, the user will be prompted to run PCR off of the robot deck, and to replace the reaction plate onto the magnetic module for cleanup.",
   "tags": [
-    "pcr_prep_cleanup.ot2.apiv2.py",
     "PCR",
     "PCR Prep and Magnetic Bead Cleanup"
+  ],
+  "labware": [
+    {
+      "name": "PCR plate on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "source sample plate on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "reagent reservoir on 4",
+      "slot": "4",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1179,8 +1240,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1195,8 +1256,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1227,8 +1288,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1243,8 +1304,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1259,8 +1320,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1275,8 +1336,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1291,8 +1352,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1307,8 +1368,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1323,8 +1384,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1339,8 +1400,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples",
+        "targets": "pcr_samples",
         "asp_vol": 31.666666666666668,
         "dis_vol": 75.0,
         "asp_flow_rate": 37.6,
@@ -1355,7 +1416,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples",
         "targets": "pcr_samples",
         "asp_vol": 85.0,
         "dis_vol": 75.0,
@@ -1383,7 +1444,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "Liquid_1",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1393,7 +1454,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "pcr_samples_2",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1405,7 +1466,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "Liquid_1",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1415,29 +1476,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "pcr_samples",
-        "asp_vol": 20.0,
-        "dis_vol": 20.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
-        "asp_vol": 150.0,
-        "dis_vol": 150.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0
-      }
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_2",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1471,7 +1510,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1481,7 +1520,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_5",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1493,7 +1532,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1503,7 +1542,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_5",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1515,7 +1554,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1525,7 +1564,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_7",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1537,7 +1576,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1547,7 +1586,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_7",
         "targets": "pcr_samples",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1559,7 +1598,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1569,7 +1608,29 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples",
+        "asp_vol": 20.0,
+        "dis_vol": 20.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pcr_samples",
+        "targets": "pcr_samples_9",
+        "asp_vol": 150.0,
+        "dis_vol": 150.0,
+        "asp_flow_rate": 94.0,
+        "dis_flow_rate": 94.0
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "pcr_samples_9",
         "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1581,7 +1642,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1591,7 +1652,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1603,7 +1664,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1619,7 +1680,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "targets": "etoh",
         "asp_vol": 38.0,
         "dis_vol": 95.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1629,8 +1690,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1645,8 +1706,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1677,8 +1738,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1693,8 +1754,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1709,8 +1770,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1725,8 +1786,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1741,8 +1802,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1757,8 +1818,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1773,8 +1834,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1789,8 +1850,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples",
+        "targets": "pcr_samples",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -1805,8 +1866,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 85.0,
         "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
@@ -1821,8 +1882,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1832,8 +1893,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1843,8 +1904,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_2",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1854,8 +1915,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1865,8 +1926,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_2",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1876,7 +1937,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
+        "sources": "etoh",
         "targets": "pcr_samples_4",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -1888,7 +1949,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1898,8 +1959,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1909,8 +1970,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_5",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1920,8 +1981,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1931,8 +1992,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_5",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1942,8 +2003,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1953,8 +2014,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_7",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -1964,8 +2025,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1975,7 +2036,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_7",
         "targets": "etoh_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1987,7 +2048,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_2",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -1997,7 +2058,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2009,7 +2070,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_2",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2019,7 +2080,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2031,7 +2092,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_2",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2041,7 +2102,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2053,7 +2114,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_2",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2068,8 +2129,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 38.0,
         "dis_vol": 95.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2079,8 +2140,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2095,8 +2156,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2127,8 +2188,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2143,8 +2204,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2159,8 +2220,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2175,8 +2236,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2191,8 +2252,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2207,8 +2268,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2223,8 +2284,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2239,8 +2300,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2255,8 +2316,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 85.0,
         "dis_vol": 75.0,
         "asp_flow_rate": 94.0,
@@ -2271,8 +2332,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -2282,8 +2343,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2293,8 +2354,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_2",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -2304,8 +2365,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2315,8 +2376,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_2",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -2326,7 +2387,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
+        "sources": "etoh",
         "targets": "pcr_samples_4",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -2338,7 +2399,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -2348,8 +2409,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2359,8 +2420,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples",
+        "sources": "pcr_samples_5",
+        "targets": "etoh",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -2370,8 +2431,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2381,7 +2442,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_5",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2393,7 +2454,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_4",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2403,7 +2464,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_7",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2415,7 +2476,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2425,7 +2486,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_7",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2437,7 +2498,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2447,7 +2508,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2459,7 +2520,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2469,7 +2530,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2481,7 +2542,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_8",
+        "targets": "pcr_samples_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2491,7 +2552,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_9",
         "targets": "etoh_3",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2503,7 +2564,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh_3",
-        "targets": "pcr_samples_8",
+        "targets": "etoh",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2518,7 +2579,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
+        "sources": "etoh",
         "targets": "etoh_3",
         "asp_vol": 38.0,
         "dis_vol": 95.0,
@@ -2529,8 +2590,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
-        "targets": "etoh_3",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2545,8 +2606,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
-        "targets": "etoh_3",
+        "sources": "pcr_samples_2",
+        "targets": "pcr_samples_2",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2577,8 +2638,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2593,8 +2654,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2609,8 +2670,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2625,8 +2686,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_7",
+        "targets": "pcr_samples_7",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2641,8 +2702,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2657,8 +2718,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2673,8 +2734,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_9",
+        "targets": "pcr_samples_9",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2689,8 +2750,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 38.0,
         "dis_vol": 170.0,
         "asp_flow_rate": 23.813333333333333,
@@ -2731,8 +2792,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2747,8 +2808,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
-        "targets": "etoh_3",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2780,8 +2841,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
-        "targets": "etoh_3",
+        "sources": "etoh",
+        "targets": "pcr_samples_2",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2813,7 +2874,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
+        "sources": "etoh",
         "targets": "pcr_samples_4",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
@@ -2846,8 +2907,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "etoh",
+        "targets": "pcr_samples_5",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2879,8 +2940,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_5",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2912,8 +2973,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_4",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_7",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2945,8 +3006,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_7",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -2978,8 +3039,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_9",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3011,8 +3072,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_9",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3044,8 +3105,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_5",
+        "targets": "pcr_samples_9",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3077,8 +3138,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
-        "targets": "pcr_samples_8",
+        "sources": "pcr_samples_5",
+        "targets": "etoh",
         "asp_vol": 35.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3124,7 +3185,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
+        "sources": "etoh",
         "targets": "elution_samples",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3140,7 +3201,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
+        "sources": "etoh",
         "targets": "pcr_samples",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3156,7 +3217,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh_3",
+        "sources": "etoh",
         "targets": "pcr_samples_2",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3172,7 +3233,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_2",
         "targets": "pcr_samples_3",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3220,7 +3281,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_4",
+        "sources": "pcr_samples_5",
         "targets": "pcr_samples_6",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3236,7 +3297,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_5",
         "targets": "pcr_samples_7",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3268,7 +3329,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples_8",
+        "sources": "pcr_samples_5",
         "targets": "pcr_samples_9",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3300,7 +3361,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "pcr_samples",
+        "sources": "pcr_samples_10",
         "targets": "pcr_samples_11",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3319,96 +3380,109 @@
     }
   ],
   "reagent": {
-    "pcr_samples": {
+    "etoh": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
-    "etoh_3": {
+    "pcr_samples_2": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
-    },
-    "pcr_samples_4": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A4",
-        "A5",
-        "A8",
-        "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "pcr_samples_3": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
-    "pcr_samples_8": {
+    "pcr_samples_4": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
+    },
+    "pcr_samples_5": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A9",
+        "A11",
+        "A12"
+      ]
     },
     "pcr_samples_7": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "pcr_samples_9": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
-        "A8",
+        "A6",
+        "A7",
         "A9",
-        "A11"
-      ],
-      "labware": "PCR plate on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
+    },
+    "pcr_samples_10": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A9",
+        "A11",
+        "A12"
+      ]
     },
     "pcr_samples_11": {
       "slot": 2,
@@ -3416,13 +3490,13 @@
         "A1",
         "A3",
         "A4",
-        "A7",
+        "A5",
+        "A6",
         "A8",
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "source sample plate"
+      ]
     },
     "beads": {
       "slot": 4,
@@ -3430,9 +3504,29 @@
         "A1",
         "A9",
         "A2",
-        "A5"
-      ],
-      "labware": "reagent reservoir"
+        "A5",
+        "A6"
+      ]
+    },
+    "pcr_samples": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A9",
+        "A2",
+        "A5",
+        "A6"
+      ]
+    },
+    "etoh_3": {
+      "slot": 4,
+      "well": [
+        "A1",
+        "A9",
+        "A2",
+        "A5",
+        "A6"
+      ]
     }
   }
 }

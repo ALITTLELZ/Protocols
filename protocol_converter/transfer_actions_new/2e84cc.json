@@ -1,9 +1,55 @@
 {
   "description": "This protocol automates the TG Nextera XT DNA Sample Preparation Kit from illumina on up to 96 samples. While this protocol functions perfectly fine on up to 96 samples, it will take a significant amount of time to run that many samples. For most preparations, there will need to be a technician available to replace tip boxes as they are used.\n\n\n\nOpentrons P300-multi channel electronic pipettes (GEN2)\nOpentrons 200ul Filter Tips\nOpentrons P20-single channel electronic pipettes (GEN2)\nOpentrons 20ul Filter Tips\nOpentrons Thermocycler Module\nOpentrons Temperature Module (GEN2)\nOpentrons Magnetic Module (GEN2)\nNEST 12-Well Reservoirs, 15 mL\nNEST 0.1 mL 96-Well PCR Plate, Full Skirt\nNextera XT DNA Library Preparation Kit\nPhusion High-Fidelity PCR Master Mix with HF Buffer\nKAPA HiFi HotStart ReadyMix\nOmega BioTek Mag-Bind TotalPure NGS",
   "tags": [
-    "2e84cc.ot2.apiv2.py",
     "NGS Library Prep",
     "Illumina Nextera XT"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_opentrons_24_aluminumblock_generic_2ml_screwcap"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 5",
+      "slot": "5",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -12700,7 +12746,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "north_indexing_primers",
+        "sources": "south_indexing_primers",
         "targets": "thermo_wells",
         "asp_vol": 2.5,
         "dis_vol": 2.5,
@@ -24814,41 +24860,36 @@
       "well": [
         "A1",
         "B1",
-        "D2"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+        "D4"
+      ]
     },
     "kapa_mm": {
       "slot": 1,
       "well": [
         "A1",
         "B1",
-        "D2"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+        "D4"
+      ]
     },
-    "north_indexing_primers": {
+    "south_indexing_primers": {
       "slot": 1,
       "well": [
         "A1",
         "B1",
-        "D2"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+        "D4"
+      ]
     },
     "dna_wells": {
       "slot": 2,
       "well": [
-        "F7"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "H5"
+      ]
     },
     "mag_wells": {
       "slot": 4,
       "well": [
-        "G1"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
+        "F9"
+      ]
     },
     "beads": {
       "slot": 5,
@@ -24863,8 +24904,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "liquid_trash_list": {
       "slot": 5,
@@ -24879,8 +24919,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "etoh_list": {
       "slot": 5,
@@ -24895,8 +24934,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "liquid_trash_list_2": {
       "slot": 5,
@@ -24911,8 +24949,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "etoh_list_2": {
       "slot": 5,
@@ -24927,8 +24964,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "h2o": {
       "slot": 5,
@@ -24943,8 +24979,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "liquid_trash_list_3": {
       "slot": 5,
@@ -24959,8 +24994,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "etoh_list_3": {
       "slot": 5,
@@ -24975,8 +25009,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "liquid_trash_list_4": {
       "slot": 5,
@@ -24991,8 +25024,7 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "etoh_list_4": {
       "slot": 5,
@@ -25007,15 +25039,13 @@
         "A5",
         "A10",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "thermo_wells": {
       "slot": 7,
       "well": [
-        "E7"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
+        "B9"
+      ]
     }
   }
 }

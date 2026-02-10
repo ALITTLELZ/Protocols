@@ -1,9 +1,30 @@
 {
   "description": "Since the elution buffer supplied along with PhyTip® Protein A, ProPlus or ProPlus LX Columns is highly acidic (pH 2.5), this protocol (Neutralization) is developed to transfer the neutralization buffer (pH 9.0) to the final product of protein purification (elution plate) to adjust the pH.",
   "tags": [
-    "neutralization.ot2.apiv2.py",
     "Protein Purification",
     "ProPlus PhyTip® Columns"
+  ],
+  "labware": [
+    {
+      "name": "300ul opentrons tiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "elution buffer on 10",
+      "slot": "10",
+      "type": "lab_opentrons_15_tuberack_nest_15ml_conical"
+    },
+    {
+      "name": "elute plate on 11",
+      "slot": "11",
+      "type": "lab_thermoscientific_96_wellplate_v_450"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -23,15 +44,13 @@
       "slot": 10,
       "well": [
         "A5"
-      ],
-      "labware": "elution buffer"
+      ]
     },
     "Liquid_1": {
       "slot": 11,
       "well": [
-        "A5"
-      ],
-      "labware": "elute plate"
+        "C9"
+      ]
     }
   }
 }

@@ -1,9 +1,55 @@
 {
   "description": "This protocol automates the purification of RNA using magnetic beads. It can support up to 94 samples and can have a custom starting well position. The protocol is also optimized for tip conservation and reuses tips for various steps.\nExplanation of parameters below:\n\nNumber of Samples: The total number of samples per run. The maximum samples supported is 94 samples. This value is also used to determine additional wells needed when setting a Starting Well below. For example, if there are 3 samples and the starting well is C7, then the sample wells for all plates will be C7, D7, E7.\nStarting Well Name: The well name samples should begin with for each 96 well plate in the protocol.\nP300 Single GEN2 Mount Position: Specify which mount (left or right) to load the P300 single channel pipette.\nThermocycler Hold Temperature (°C): The temperature the thermocycler will be set to and held for the entire protocol.\nMagnetic Module Engage Height (mm): The height the magnets should raise.\nSupernatant Removal Radius (X-dimension) (mm): The radius in the X-dimension of how far the pipette should move before aspirating supernatant. Note: Only enter positive values. The protocol will automatically determine the side (+/-) based on the well/column.\nSupernatant Removal Aspirate Flow Rate (uL/s): The aspiration flow rate at which the pipette will aspirate supernatant.\nSupernatant Removal Dispense Flow Rate (uL/s): The aspiration flow rate at which the pipette will dispense supernatant.",
   "tags": [
-    "2905a4.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "RNA Purification"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with Eppendorf 2 mL Safe-Lock Snapcap on 4",
+      "slot": "4",
+      "type": "lab_opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons 10 Tube Rack with Falcon 4x50 mL, 6x15 mL Conical on 5",
+      "slot": "5",
+      "type": "lab_opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical"
+    },
+    {
+      "name": "Recipient Cooled Plate on Temperature Module GEN2 on 6",
+      "slot": "6",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Origin RNA Sample Plate on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Mag Deck Plate on Magnetic Module GEN2 on 9",
+      "slot": "9",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -16153,8 +16199,7 @@
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 24 Tube Rack with Eppendorf 2 mL Safe-Lock Snapcap"
+      ]
     },
     "rfw": {
       "slot": 5,
@@ -16162,8 +16207,7 @@
         "A3",
         "B3",
         "A4"
-      ],
-      "labware": "Opentrons 10 Tube Rack with Falcon 5x50 mL, 6x15 mL Conical"
+      ]
     },
     "rbb": {
       "slot": 5,
@@ -16171,8 +16215,7 @@
         "A3",
         "B3",
         "A4"
-      ],
-      "labware": "Opentrons 10 Tube Rack with Falcon 5x50 mL, 6x15 mL Conical"
+      ]
     },
     "wb": {
       "slot": 5,
@@ -16180,29 +16223,25 @@
         "A3",
         "B3",
         "A4"
-      ],
-      "labware": "Opentrons 10 Tube Rack with Falcon 5x50 mL, 6x15 mL Conical"
+      ]
     },
     "temp_plate_wells": {
       "slot": 6,
       "well": [
-        "E11"
-      ],
-      "labware": "Recipient Cooled Plate on Temperature Module GEN2"
+        "G5"
+      ]
     },
     "tc_plate_wells": {
       "slot": 7,
       "well": [
-        "E7"
-      ],
-      "labware": "Origin RNA Sample Plate on Thermocycler Module"
+        "B9"
+      ]
     },
     "mag_plate_wells": {
       "slot": 9,
       "well": [
-        "H2"
-      ],
-      "labware": "Mag Deck Plate on Magnetic Module GEN2"
+        "D5"
+      ]
     }
   }
 }

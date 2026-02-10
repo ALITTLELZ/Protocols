@@ -1,16 +1,72 @@
 {
   "description": "This protocol outlines serial dilution of compound stock. There is an optional predilution step for each compounds involved. For detailed protocol steps, please see below. Labware setup consists of NEST 12 well 15mL reservoir in slot 1, Nest 96 well 100 uL plate in slot 2,4,5,7,8,10 & 11 as well as P20 filter tips in slot 3 and P200 filter tips in slot 6.",
   "tags": [
-    "combo.ot2.apiv2.py",
     "Sample Prep",
     "Serial Dilution"
+  ],
+  "labware": [
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 1",
+      "slot": "1",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 5",
+      "slot": "5",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 8",
+      "slot": "8",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 10",
+      "slot": "10",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 11",
+      "slot": "11",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "source8",
+        "targets": "source7",
         "asp_vol": 132.0,
         "dis_vol": 132.0,
         "asp_flow_rate": 92.85999999999648,
@@ -42,7 +98,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "source_7",
+        "targets": "source_10",
         "asp_vol": 150.85714285714286,
         "dis_vol": 150.85714285714286,
         "asp_flow_rate": 92.85999999999999,
@@ -69,7 +125,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "source_7",
+        "targets": "source_10",
         "asp_vol": 132.0,
         "dis_vol": 132.0,
         "asp_flow_rate": 92.86,
@@ -85,7 +141,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "source_7",
+        "targets": "source_10",
         "asp_vol": 132.0,
         "dis_vol": 132.0,
         "asp_flow_rate": 92.86,
@@ -361,8 +417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source8",
-        "targets": "source8",
+        "sources": "source7",
+        "targets": "source7",
         "asp_vol": 135.3846153846154,
         "dis_vol": 135.3846153846154,
         "asp_flow_rate": 92.86000000000017,
@@ -801,7 +857,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source8",
+        "sources": "source7",
         "targets": "Liquid_4",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -817,7 +873,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source8",
+        "sources": "source7",
         "targets": "Liquid_5",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -868,66 +924,57 @@
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_2": {
       "slot": 2,
       "well": [
         "B1",
-        "A2"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "A1"
+      ]
     },
     "Liquid_3": {
       "slot": 2,
       "well": [
         "B1",
-        "A2"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "A1"
+      ]
     },
     "Liquid_6": {
       "slot": 4,
       "well": [
-        "G1"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "F9"
+      ]
     },
     "Liquid_7": {
       "slot": 5,
       "well": [
-        "E2"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "B10"
+      ]
     },
-    "source8": {
+    "source7": {
       "slot": 7,
       "well": [
-        "D12"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "E1"
+      ]
     },
     "source10": {
       "slot": 8,
       "well": [
-        "H3"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "H10"
+      ]
     },
     "Liquid_4": {
       "slot": 10,
       "well": [
-        "E4"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "H10"
+      ]
     },
     "Liquid_5": {
       "slot": 11,
       "well": [
-        "A5"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "C9"
+      ]
     }
   }
 }

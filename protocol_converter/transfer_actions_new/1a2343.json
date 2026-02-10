@@ -1,9 +1,55 @@
 {
   "description": "This protocol performs a custom PCR preparation for gel samples using an on-deck Opentrons Thermocycler module.\n\n\n\nOpentrons Thermocycler (occupying slots 7, 8, 10, 11) with NEST 0.1 mL 96-Well PCR Plate, Full Skirt\nOpentrons Temperature Module with USA Scientific 96 Deep Well Plate 2.4 mL\nCorning 96 Well Plate 360 µL Flat\nOpentrons 20µl and 50/300µl tipracks\n\n\n\n96-deepwell reagent block on temperature module (slot 4)\n well A1: DNTPs\n well B1: polymerase\n column 2: PCR buffer\n wells A3-H3: templates 1-8\n* column 4: water",
   "tags": [
-    "pcr_prep.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "gel samples plate on 1",
+      "slot": "1",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "reagent plate on Temperature Module GEN1 on 4",
+      "slot": "4",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "reaction plate on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "primers plate on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -13,8 +59,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "dntps",
+        "targets": "dntps",
         "asp_vol": 19.696428571428573,
         "dis_vol": 27.972972972972972,
         "asp_flow_rate": 45.557142857142836,
@@ -1750,7 +1796,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "dntps",
         "targets": "gel_dests",
         "asp_vol": 5.0,
         "dis_vol": 10.0,
@@ -2245,16 +2291,14 @@
     "gel_dests": {
       "slot": 1,
       "well": [
-        "D2"
-      ],
-      "labware": "gel samples plate"
+        "G10"
+      ]
     },
-    "Liquid_1": {
+    "dntps": {
       "slot": 4,
       "well": [
-        "F3"
-      ],
-      "labware": "reagent plate on Temperature Module GEN1"
+        "A1"
+      ]
     },
     "primers": {
       "slot": 9,
@@ -2355,8 +2399,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_2": {
       "slot": 9,
@@ -2457,8 +2500,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_3": {
       "slot": 9,
@@ -2559,8 +2601,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_4": {
       "slot": 9,
@@ -2661,8 +2702,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_5": {
       "slot": 9,
@@ -2763,8 +2803,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_6": {
       "slot": 9,
@@ -2865,8 +2904,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_7": {
       "slot": 9,
@@ -2967,8 +3005,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_8": {
       "slot": 9,
@@ -3069,8 +3106,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_9": {
       "slot": 9,
@@ -3171,8 +3207,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_10": {
       "slot": 9,
@@ -3273,8 +3308,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_11": {
       "slot": 9,
@@ -3375,8 +3409,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_12": {
       "slot": 9,
@@ -3477,8 +3510,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_13": {
       "slot": 9,
@@ -3579,8 +3611,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_14": {
       "slot": 9,
@@ -3681,8 +3712,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_15": {
       "slot": 9,
@@ -3783,8 +3813,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_16": {
       "slot": 9,
@@ -3885,8 +3914,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_17": {
       "slot": 9,
@@ -3987,8 +4015,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_18": {
       "slot": 9,
@@ -4089,8 +4116,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_19": {
       "slot": 9,
@@ -4191,8 +4217,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_20": {
       "slot": 9,
@@ -4293,8 +4318,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_21": {
       "slot": 9,
@@ -4395,8 +4419,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_22": {
       "slot": 9,
@@ -4497,8 +4520,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_23": {
       "slot": 9,
@@ -4599,8 +4621,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_24": {
       "slot": 9,
@@ -4701,8 +4722,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_25": {
       "slot": 9,
@@ -4803,8 +4823,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_26": {
       "slot": 9,
@@ -4905,8 +4924,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_27": {
       "slot": 9,
@@ -5007,8 +5025,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_28": {
       "slot": 9,
@@ -5109,8 +5126,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_29": {
       "slot": 9,
@@ -5211,8 +5227,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_30": {
       "slot": 9,
@@ -5313,8 +5328,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_31": {
       "slot": 9,
@@ -5415,8 +5429,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_32": {
       "slot": 9,
@@ -5517,8 +5530,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_33": {
       "slot": 9,
@@ -5619,8 +5631,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_34": {
       "slot": 9,
@@ -5721,8 +5732,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_35": {
       "slot": 9,
@@ -5823,8 +5833,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_36": {
       "slot": 9,
@@ -5925,8 +5934,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_37": {
       "slot": 9,
@@ -6027,8 +6035,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_38": {
       "slot": 9,
@@ -6129,8 +6136,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_39": {
       "slot": 9,
@@ -6231,8 +6237,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_40": {
       "slot": 9,
@@ -6333,8 +6338,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_41": {
       "slot": 9,
@@ -6435,8 +6439,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_42": {
       "slot": 9,
@@ -6537,8 +6540,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_43": {
       "slot": 9,
@@ -6639,8 +6641,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_44": {
       "slot": 9,
@@ -6741,8 +6742,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_45": {
       "slot": 9,
@@ -6843,8 +6843,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_46": {
       "slot": 9,
@@ -6945,8 +6944,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_47": {
       "slot": 9,
@@ -7047,8 +7045,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_48": {
       "slot": 9,
@@ -7149,8 +7146,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_49": {
       "slot": 9,
@@ -7251,8 +7247,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_50": {
       "slot": 9,
@@ -7353,8 +7348,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_51": {
       "slot": 9,
@@ -7455,8 +7449,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_52": {
       "slot": 9,
@@ -7557,8 +7550,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_53": {
       "slot": 9,
@@ -7659,8 +7651,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_54": {
       "slot": 9,
@@ -7761,8 +7752,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_55": {
       "slot": 9,
@@ -7863,8 +7853,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_56": {
       "slot": 9,
@@ -7965,8 +7954,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_57": {
       "slot": 9,
@@ -8067,8 +8055,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_58": {
       "slot": 9,
@@ -8169,8 +8156,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_59": {
       "slot": 9,
@@ -8271,8 +8257,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_60": {
       "slot": 9,
@@ -8373,8 +8358,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_61": {
       "slot": 9,
@@ -8475,8 +8459,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_62": {
       "slot": 9,
@@ -8577,8 +8560,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_63": {
       "slot": 9,
@@ -8679,8 +8661,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_64": {
       "slot": 9,
@@ -8781,8 +8762,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_65": {
       "slot": 9,
@@ -8883,8 +8863,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_66": {
       "slot": 9,
@@ -8985,8 +8964,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_67": {
       "slot": 9,
@@ -9087,8 +9065,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_68": {
       "slot": 9,
@@ -9189,8 +9166,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_69": {
       "slot": 9,
@@ -9291,8 +9267,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_70": {
       "slot": 9,
@@ -9393,8 +9368,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_71": {
       "slot": 9,
@@ -9495,8 +9469,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_72": {
       "slot": 9,
@@ -9597,8 +9570,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_73": {
       "slot": 9,
@@ -9699,8 +9671,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_74": {
       "slot": 9,
@@ -9801,8 +9772,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_75": {
       "slot": 9,
@@ -9903,8 +9873,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_76": {
       "slot": 9,
@@ -10005,8 +9974,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_77": {
       "slot": 9,
@@ -10107,8 +10075,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_78": {
       "slot": 9,
@@ -10209,8 +10176,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_79": {
       "slot": 9,
@@ -10311,8 +10277,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_80": {
       "slot": 9,
@@ -10413,8 +10378,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_81": {
       "slot": 9,
@@ -10515,8 +10479,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_82": {
       "slot": 9,
@@ -10617,8 +10580,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_83": {
       "slot": 9,
@@ -10719,8 +10681,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_84": {
       "slot": 9,
@@ -10821,8 +10782,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_85": {
       "slot": 9,
@@ -10923,8 +10883,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_86": {
       "slot": 9,
@@ -11025,8 +10984,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_87": {
       "slot": 9,
@@ -11127,8 +11085,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_88": {
       "slot": 9,
@@ -11229,8 +11186,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_89": {
       "slot": 9,
@@ -11331,8 +11287,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_90": {
       "slot": 9,
@@ -11433,8 +11388,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_91": {
       "slot": 9,
@@ -11535,8 +11489,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_92": {
       "slot": 9,
@@ -11637,8 +11590,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_93": {
       "slot": 9,
@@ -11739,8 +11691,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_94": {
       "slot": 9,
@@ -11841,8 +11792,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_95": {
       "slot": 9,
@@ -11943,8 +11893,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     },
     "primers_96": {
       "slot": 9,
@@ -12045,8 +11994,7 @@
         "H10",
         "H11",
         "H12"
-      ],
-      "labware": "primers plate"
+      ]
     }
   }
 }

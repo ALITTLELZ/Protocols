@@ -1,9 +1,60 @@
 {
   "description": "Part 3 of 4: Perform end-prep and adapter ligation steps with double-stranded cDNA output from part 2 followed by a bead clean up.\nLinks:\n Part 1: RNA Isolation, Fragmentation and Priming\n Part 2: cDNA Synthesis\n Part 3: End Prep and Adapter Ligation\n Part 4: PCR Enrichment\nWith this protocol, your robot can perform the NEBNext Ultra II Directional RNA Library Prep Kit for Illumina protocol described by the NEB Instruction Manual.\nThis is part 3 of the protocol: End Prep and Adapter Ligation.\nThis step prepares ends and ligates indexing primers to the cDNA in preparation for Illumina sequencing. This protocol follows Section 1 of the NEB Instruction Manual.",
   "tags": [
-    "7805de-part-3.ot2.apiv2.py",
     "NGS Library Prep",
     "NEBNext Ultra II Directional Library Prep Kit for Illumina"
+  ],
+  "labware": [
+    {
+      "name": "Reagent Reservoir on 1",
+      "slot": "1",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "4 Degree Block on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_aluminumblock_generic_pcr_strip_200ul"
+    },
+    {
+      "name": "Mag Plate on Magnetic Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "cDNA Sample Plate on Chilled Aluminum Block on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Elution Plate on 8",
+      "slot": "8",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -722,8 +773,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "user",
-        "targets": "user",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 52.90625,
         "dis_vol": 52.90625,
         "asp_flow_rate": 43.62499999999999,
@@ -871,8 +922,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_3",
         "asp_vol": 48.0,
         "dis_vol": 48.0,
         "asp_flow_rate": 92.86,
@@ -1770,8 +1821,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "waste_2",
-        "targets": "waste_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -1801,8 +1852,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "waste_2",
-        "targets": "waste_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -1832,8 +1883,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "waste_2",
-        "targets": "waste_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -1863,8 +1914,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "waste_2",
-        "targets": "waste_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -2020,7 +2071,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "waste_2",
+        "targets": "Liquid_2",
         "asp_vol": 57.5,
         "dis_vol": 115.0,
         "asp_flow_rate": 92.86,
@@ -2080,7 +2131,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "waste_2",
+        "targets": "Liquid_2",
         "asp_vol": 57.5,
         "dis_vol": 115.0,
         "asp_flow_rate": 92.86,
@@ -2140,7 +2191,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "waste_2",
+        "targets": "Liquid_2",
         "asp_vol": 57.5,
         "dis_vol": 115.0,
         "asp_flow_rate": 92.86,
@@ -2200,7 +2251,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "waste_2",
+        "targets": "Liquid_2",
         "asp_vol": 57.5,
         "dis_vol": 115.0,
         "asp_flow_rate": 92.86,
@@ -2316,8 +2367,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wst",
-        "targets": "wst",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -2347,8 +2398,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wst",
-        "targets": "wst",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -2378,8 +2429,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wst",
-        "targets": "wst",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -2409,8 +2460,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wst",
-        "targets": "wst",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 74.16666666666667,
         "dis_vol": 130.0,
         "asp_flow_rate": 72.12126666666667,
@@ -2643,7 +2694,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "wst",
+        "targets": "Liquid_2",
         "asp_vol": 40.666666666666664,
         "dis_vol": 8.5,
         "asp_flow_rate": 36.02000000000001,
@@ -2698,8 +2749,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wst",
-        "targets": "Liquid_3",
+        "sources": "Liquid_2",
+        "targets": "Liquid_4",
         "asp_vol": 7.5,
         "dis_vol": 15.0,
         "asp_flow_rate": 2.5079999999999996,
@@ -2731,8 +2782,7 @@
         "A1",
         "A10",
         "A2"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
     "Liquid_2": {
       "slot": 1,
@@ -2740,8 +2790,7 @@
         "A1",
         "A10",
         "A2"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
     "etoh": {
       "slot": 1,
@@ -2749,29 +2798,19 @@
         "A1",
         "A10",
         "A2"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
-    "user": {
+    "Liquid_1": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "4 Degree Block on Temperature Module GEN2"
+        "A4"
+      ]
     },
-    "wst": {
-      "slot": 4,
-      "well": [
-        "A1"
-      ],
-      "labware": "Mag Plate on Magnetic Module GEN2"
-    },
-    "Liquid_3": {
+    "Liquid_4": {
       "slot": 8,
       "well": [
-        "A3"
-      ],
-      "labware": "Elution Plate"
+        "A1"
+      ]
     }
   }
 }

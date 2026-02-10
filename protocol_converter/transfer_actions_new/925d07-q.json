@@ -1,16 +1,37 @@
 {
   "description": "Links:\n Random Aliquoting\n\n\n Plasmind Luciferase Assay\n\n\n QIAcuity Plate Transfer\n\n\n PCR Prep\n\n\nThis protocol performs a custom QIAcuity PCR prep.",
   "tags": [
-    "pcr_prep.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "source plate (NEST) on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "destination plate (QIAcuity) on 2",
+      "slot": "2",
+      "type": "lab_qiacuity_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "targets": "d",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
         "asp_flow_rate": 5.0,
@@ -84,16 +105,14 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "source plate (NEST)"
+        "A5"
+      ]
     },
-    "Liquid_2": {
+    "d": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "destination plate (QIAcuity)"
+        "A12"
+      ]
     }
   }
 }

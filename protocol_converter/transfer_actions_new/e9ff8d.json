@@ -1,9 +1,45 @@
 {
   "description": "This is the first of four parts for a custom PCR prep followed by two stage cleanup.",
   "tags": [
-    "e9ff8d.ot2.apiv2.py",
     "PCR",
     "Pre-Amplification"
+  ],
+  "labware": [
+    {
+      "name": "SAMPLE PLATE on 1",
+      "slot": "1",
+      "type": "lab_eppendorf_96_aluminumblock_200ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "RECOVERY AGENT RACK on 3",
+      "slot": "3",
+      "type": "lab_opentrons_24_aluminumblock_nest_2ml_snapcap"
+    },
+    {
+      "name": "DUMMY PLATE on Temperature Module GEN1 on 6",
+      "slot": "6",
+      "type": "lab_eppendorf_96_aluminumblock_200ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "PREAMP RACK on Temperature Module GEN2 on 9",
+      "slot": "9",
+      "type": "lab_opentrons_24_aluminumblock_nest_2ml_snapcap"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -294,7 +330,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
+        "sources": "samples_3",
         "targets": "trash",
         "asp_vol": 72.5,
         "dis_vol": 125.0,
@@ -348,7 +384,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pre_amp_mix",
-        "targets": "samples_2",
+        "targets": "samples_3",
         "asp_vol": 35.0,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -363,8 +399,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -379,8 +415,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -395,8 +431,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -411,8 +447,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -427,8 +463,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -443,8 +479,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -459,8 +495,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_2",
-        "targets": "samples_2",
+        "sources": "samples_3",
+        "targets": "samples_3",
         "asp_vol": 27.5,
         "dis_vol": 35.0,
         "asp_flow_rate": 92.86,
@@ -486,26 +522,23 @@
     }
   ],
   "reagent": {
-    "samples_2": {
+    "samples_3": {
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "SAMPLE PLATE"
+      ]
     },
     "trash": {
       "slot": 2,
       "well": [
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "recovery_agent": {
       "slot": 3,
       "well": [
         "A1"
-      ],
-      "labware": "RECOVERY AGENT RACK"
+      ]
     }
   }
 }

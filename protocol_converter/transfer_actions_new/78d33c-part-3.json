@@ -1,9 +1,70 @@
 {
   "description": "With this 6 part workflow, the OT-2 will follow ArcBio Continuous DNA Workflow - Pre-PCR Instrument experimental protocol and Post-PCR Instrument experimental protocol to convert up to 96 input DNA samples into DNA libraries. This is Part 3 of 6: This OT-2 protocol uses the DNA Continuous Workflow, Pre-PCR Instrument section of attached experimental protocol to perform library purification and indexing.",
   "tags": [
-    "78d33c-part-3.ot2.apiv2.py",
     "NGS Library Prep",
     "Custom"
+  ],
+  "labware": [
+    {
+      "name": "Mag Plate on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_eppendorf_twintex_clickbio_adapter"
+    },
+    {
+      "name": "Reagents on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_aluminumblock_generic_pcr_strip_200ul"
+    },
+    {
+      "name": "Plate at 4 Degrees C on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_eppendorf_twintec_on_opentrons_metal_block_033822"
+    },
+    {
+      "name": "80 percent etoh on 4",
+      "slot": "4",
+      "type": "lab_nest_1_reservoir_195ml"
+    },
+    {
+      "name": "Reservoir on 5",
+      "slot": "5",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "80 percent etoh on 6",
+      "slot": "6",
+      "type": "lab_nest_1_reservoir_195ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -311,7 +372,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads",
+        "sources": "tris",
         "targets": "Liquid_1",
         "asp_vol": 62.5,
         "dis_vol": 62.5,
@@ -732,7 +793,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "etoh",
         "targets": "Liquid_1",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
@@ -928,8 +989,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "etoh",
+        "targets": "etoh",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1175,7 +1236,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "targets": "etoh",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1587,7 +1648,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "tris",
         "targets": "Liquid_1",
         "asp_vol": 18.0,
         "dis_vol": 16.0,
@@ -1607,7 +1668,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "tris",
         "targets": "Liquid_1",
         "asp_vol": 16.0,
         "dis_vol": 16.0,
@@ -2105,7 +2166,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_12",
+        "targets": "column",
         "asp_vol": 15.0,
         "dis_vol": 15.0,
         "asp_flow_rate": 7.599999999999999,
@@ -2441,8 +2502,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source",
-        "targets": "Liquid_12",
+        "sources": "Liquid_2",
+        "targets": "column",
         "asp_vol": 25.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 47.0,
@@ -2516,11 +2577,10 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "Mag Plate on Magnetic Module GEN2"
+        "A5"
+      ]
     },
-    "source": {
+    "Liquid_2": {
       "slot": 2,
       "well": [
         "A1",
@@ -2534,8 +2594,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_5": {
       "slot": 2,
@@ -2551,8 +2610,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_7": {
       "slot": 2,
@@ -2568,8 +2626,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_9": {
       "slot": 2,
@@ -2585,8 +2642,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_11": {
       "slot": 2,
@@ -2602,8 +2658,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_13": {
       "slot": 2,
@@ -2619,8 +2674,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_15": {
       "slot": 2,
@@ -2636,8 +2690,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_17": {
       "slot": 2,
@@ -2653,8 +2706,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_19": {
       "slot": 2,
@@ -2670,8 +2722,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_21": {
       "slot": 2,
@@ -2687,8 +2738,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
     "Liquid_23": {
       "slot": 2,
@@ -2704,23 +2754,19 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Reagents"
+      ]
     },
-    "Liquid_12": {
+    "column": {
       "slot": 3,
       "well": [
         "A1"
-      ],
-      "labware": "Plate at 4 Degrees C on Temperature Module GEN2"
+      ]
     },
-    "beads": {
-      "slot": 5,
+    "tris": {
+      "slot": 4,
       "well": [
-        "A1",
-        "A12"
-      ],
-      "labware": "Reservoir"
+        "A1"
+      ]
     }
   }
 }

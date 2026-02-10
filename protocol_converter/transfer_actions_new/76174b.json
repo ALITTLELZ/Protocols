@@ -1,9 +1,60 @@
 {
   "description": "This protocol performs an AlphaLISA Perkin Elmer AlphaLISA based on the attached experimental protocol with user determined parameters (described below).",
   "tags": [
-    "76174b.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "OptiPlate on 2",
+      "slot": "2",
+      "type": "lab_perkinelmer_384_wellplate_105ul"
+    },
+    {
+      "name": "Sample Serial Dilutions on 3",
+      "slot": "3",
+      "type": "lab_corning_96_wellplate_320ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Anti-Ligand, Acceptor, Donor, Ligands on 6",
+      "slot": "6",
+      "type": "lab_corning_96_wellplate_320ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -33,8 +84,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "row",
+        "sources": "source",
+        "targets": "Liquid_1",
         "asp_vol": 8.0,
         "dis_vol": 8.0,
         "asp_flow_rate": 7.600000000000004,
@@ -311,7 +362,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "row",
+        "targets": "Liquid_1",
         "asp_vol": 4.0,
         "dis_vol": 4.0,
         "asp_flow_rate": 7.599999999999947,
@@ -682,26 +733,23 @@
     }
   ],
   "reagent": {
-    "row": {
+    "Liquid_1": {
       "slot": 2,
       "well": [
-        "B21"
-      ],
-      "labware": "OptiPlate"
+        "A13"
+      ]
     },
-    "Liquid_1": {
+    "source": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "Sample Serial Dilutions"
+        "A12"
+      ]
     },
     "Liquid_2": {
       "slot": 6,
       "well": [
-        "A11"
-      ],
-      "labware": "Anti-Ligand, Acceptor, Donor, Ligands"
+        "A5"
+      ]
     }
   }
 }

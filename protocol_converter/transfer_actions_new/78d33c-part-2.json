@@ -1,9 +1,45 @@
 {
   "description": "With this 6 part workflow, the OT-2 will follow ArcBio Continuous DNA Workflow - Pre-PCR Instrument experimental protocol and Post-PCR Instrument experimental protocol to convert up to 96 input DNA samples into DNA libraries. This is Part 2 of 6: This OT-2 protocol uses the DNA Continuous Workflow, Pre-PCR Instrument section of attached experimental protocol to perform adapter ligation.",
   "tags": [
-    "78d33c-part-2.ot2.apiv2.py",
     "NGS Library Prep",
     "Custom"
+  ],
+  "labware": [
+    {
+      "name": "Reagents on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_aluminumblock_generic_pcr_strip_200ul"
+    },
+    {
+      "name": "Sample Plate at 4 Degrees on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_eppendorf_twintec_on_opentrons_metal_block_033822"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1791,8 +1827,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 30.923076923076923,
         "dis_vol": 30.923076923076923,
         "asp_flow_rate": 27.416923076923077,
@@ -1983,12 +2019,11 @@
     }
   ],
   "reagent": {
-    "Liquid_1": {
+    "column": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "Reagents"
+        "A4"
+      ]
     }
   }
 }

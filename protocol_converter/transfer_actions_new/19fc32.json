@@ -1,9 +1,65 @@
 {
   "description": "This protocol is a slightly modified version of a clean up protocol. With this protocol, the user selects which mount their P50-Multi is attached to and the protocol adds the necessary reagents and (dis)engages the magnetic module to accomplish the clean up. To conclude this protocol, 4µL of supernatant is added to a 384-well plate and 20µL of supernatant is added to a 96-well plate.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.15.0 or later)\nOpentrons Magnetic Module\nOpentrons P50 Multi-Channel Pipette\nOpentrons 50/300µL Tips\nBio-Rad 96-Well Plate, 200µL\nBio-Rad 384-Well Plate\nNEST 12-Well Reservoir\nReagents\nSamples\n\n\n\nSlot 1: NEST 12-Well Reservoir\n A1: Magnetic Beads\n A2: 80% Fresh Ethanol (~10mL)\n A3: 80% Fresh Ethanol (~10mL)\n A4: 80% Fresh Ethanol (~10mL)\n A5: 80% Fresh Ethanol (~10mL)\n A6: RSB Buffer\n A7: Empty\n A8: Empty\n A9: Empty, for liquid waste\n A10: Empty, for liquid waste\n A11: Empty, for liquid waste\n A12: Empty, for liquid waste\nSlot 2: Bio-Rad 96-Well Plate, clean and empty\nSlot 3: Bio-Rad 384-Well Plate\nSlot 4: Opentrons Magnetic Module with a Bio-Rad 96-Well Plate, filled with 25µL of sample\nSlot 5: Opentrons 50/300µL Tips\nSlot 6: Opentrons 50/300µL Tips\nSlot 7: Opentrons 50/300µL Tips\nSlot 8: Opentrons 50/300µL Tips\nSlot 9: Opentrons 50/300µL Tips\nSlot 10: Opentrons 50/300µL Tips\nUsing the customizations fields, below set up your protocol.\n* P50 Multi Mount: Select which mount (left or right) the P50 Multi is attached to.",
   "tags": [
-    "19fc32.ot2.apiv2.py",
     "NGS Library Prep",
     "Clean Up"
+  ],
+  "labware": [
+    {
+      "name": "Reservoir on 1",
+      "slot": "1",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "96-well plate on 2",
+      "slot": "2",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "384-well plate on 3",
+      "slot": "3",
+      "type": "lab_corning_384_wellplate_112ul_flat"
+    },
+    {
+      "name": "Mag Plate on Magnetic Module GEN1 on 4",
+      "slot": "4",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -671,7 +727,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh3",
+        "sources": "etoh4",
         "targets": "mag_samps",
         "asp_vol": 25.0,
         "dis_vol": 50.0,
@@ -693,7 +749,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "waste3",
+        "targets": "waste4",
         "asp_vol": 25.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 12.0,
@@ -1088,7 +1144,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p384_samps_3",
+        "targets": "p96_samps",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1104,7 +1160,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p96_samps",
+        "targets": "p96_samps_2",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1120,7 +1176,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p96_samps_2",
+        "targets": "p384_samps_3",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1136,7 +1192,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p384_samps_4",
+        "targets": "p96_samps_3",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1152,7 +1208,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p384_samps_5",
+        "targets": "p384_samps_4",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1168,7 +1224,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p96_samps_3",
+        "targets": "p96_samps_4",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1184,7 +1240,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p96_samps_4",
+        "targets": "p384_samps_5",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1216,7 +1272,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p384_samps_6",
+        "targets": "p96_samps_6",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1232,7 +1288,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samps",
-        "targets": "p384_samps_7",
+        "targets": "p96_samps_7",
         "asp_vol": 24.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 12.0,
@@ -1252,11 +1308,10 @@
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "waste1": {
       "slot": 1,
@@ -1264,11 +1319,10 @@
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "etoh1": {
       "slot": 1,
@@ -1276,35 +1330,32 @@
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
-    "etoh3": {
+    "etoh4": {
       "slot": 1,
       "well": [
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
-    "waste3": {
+    "waste4": {
       "slot": 1,
       "well": [
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "rsb": {
       "slot": 1,
@@ -1312,11 +1363,10 @@
         "A1",
         "A9",
         "A2",
-        "A4",
-        "A11",
+        "A5",
+        "A12",
         "A6"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "p384_samps": {
       "slot": 2,
@@ -1333,8 +1383,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
     "p384_samps_2": {
       "slot": 2,
@@ -1351,26 +1400,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
-    },
-    "p384_samps_3": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6",
-        "A7",
-        "A8",
-        "A9",
-        "A10",
-        "A11",
-        "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
     "p96_samps": {
       "slot": 2,
@@ -1387,8 +1417,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
     "p96_samps_2": {
       "slot": 2,
@@ -1405,10 +1434,9 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
-    "p384_samps_4": {
+    "p384_samps_3": {
       "slot": 2,
       "well": [
         "A1",
@@ -1423,26 +1451,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
-    },
-    "p384_samps_5": {
-      "slot": 2,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6",
-        "A7",
-        "A8",
-        "A9",
-        "A10",
-        "A11",
-        "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
     "p96_samps_3": {
       "slot": 2,
@@ -1459,8 +1468,24 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
+    },
+    "p384_samps_4": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12"
+      ]
     },
     "p96_samps_4": {
       "slot": 2,
@@ -1477,8 +1502,24 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
+    },
+    "p384_samps_5": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12"
+      ]
     },
     "p96_samps_5": {
       "slot": 2,
@@ -1495,10 +1536,9 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
-    "p384_samps_6": {
+    "p96_samps_6": {
       "slot": 2,
       "well": [
         "A1",
@@ -1513,10 +1553,9 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
-    "p384_samps_7": {
+    "p96_samps_7": {
       "slot": 2,
       "well": [
         "A1",
@@ -1531,15 +1570,13 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "96-well plate"
+      ]
     },
     "mag_samps": {
       "slot": 4,
       "well": [
-        "A5"
-      ],
-      "labware": "Mag Plate on Magnetic Module GEN1"
+        "A3"
+      ]
     }
   }
 }

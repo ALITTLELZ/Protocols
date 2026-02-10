@@ -1,9 +1,70 @@
 {
   "description": "This protocol performs a custom nucleic acid purification and PCR preparation on a PCR plate mounted on an Opentrons temperature module with aluminum block insert. The final step of the protocol is to transfer various PCR mixes in 1.5ml tubes to corresponding tubes. The source mix tubes and destination wells in the PCR plate should be specified in .csv format as in the following example:\nmix tube,PCR plate start well,PCR plate end well\nA1,A1,H2\nB1,A3,H6\nC1,A7,H8\nD1,A9,H12\nYou can also download a template for this input here, edit in a spreadsheet editor like Google Sheets, MS Excel, or Apple Numbers, export as a .csv file, and upload below as the .csv file to specify PCR mix destinations parameter.\nThe user is prompted to refill tipracks when necessary for both the P20 single-channel and P300 multi-channel pipettes.\n\n\n\nOpentrons temperature module with 96-well aluminum block insert holding Biozym 96-well PCR plate #712547 200µl\nCustom 24-cuvette racks for Greiner Bio-One Vacuette tubes (1-4)\nOpentrons 4-in-1 tuberack with 4x6 insert for Eppendorf 1.5 mL Safe-Lock Snapcap tubes\nUSA Scientific 12-channel reservoir 22ml #1061-8150\nOpentrons P20 single-channel GEN2 electronic pipette\nOpentrons P300 multi-channel electronic pipette\nOpentrons 20µl and 50/300µl tipracks\n\n\n\nblood collection tube racks (slots 7, 8, 10, 11):\n tubes 1-24: slot 7\n tubes 25-48: slot 8\n tubes 49-72: slot 10\n tubes 73-96: slot 11\n12-channel reservoir (slot 1)\n channel 1: concentration dilution\n channel 2: buffer B\n channels 3-5: buffer C\n channels 9-12: liquid waste (loaded empty)",
   "tags": [
-    "nuc_acid_pcr_prep.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "reagent reservoir on 1",
+      "slot": "1",
+      "type": "lab_usascientific_12_reservoir_22ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "blood sample rack 1 on 4",
+      "slot": "4",
+      "type": "lab_greinerbioone_24_bloodrack_13x100"
+    },
+    {
+      "name": "blood sample rack 2 on 5",
+      "slot": "5",
+      "type": "lab_greinerbioone_24_bloodrack_13x100"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "blood sample rack 3 on 7",
+      "slot": "7",
+      "type": "lab_greinerbioone_24_bloodrack_13x100"
+    },
+    {
+      "name": "blood sample rack 4 on 8",
+      "slot": "8",
+      "type": "lab_greinerbioone_24_bloodrack_13x100"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "PCR plate on Temperature Module GEN1 on 10",
+      "slot": "10",
+      "type": "lab_biozym_96_aluminumblock_200ul"
+    },
+    {
+      "name": "PCR mix tube rack on 11",
+      "slot": "11",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -4322,7 +4383,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples20_84",
-        "targets": "samples300_4",
+        "targets": "samples300",
         "asp_vol": 145.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 76.89,
@@ -4343,7 +4404,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples20_84",
-        "targets": "samples300_10",
+        "targets": "samples300_12",
         "asp_vol": 223.75,
         "dis_vol": 81.57894736842105,
         "asp_flow_rate": 150.0,
@@ -4358,7 +4419,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples300_10",
+        "sources": "samples300_12",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -4427,7 +4488,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_c",
-        "targets": "samples300_10",
+        "targets": "samples300_12",
         "asp_vol": 115.0,
         "dis_vol": 230.0,
         "asp_flow_rate": 150.0,
@@ -4442,7 +4503,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples300_10",
+        "sources": "samples300_12",
         "targets": "Liquid_2",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -4511,7 +4572,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_c_2",
-        "targets": "samples300_10",
+        "targets": "samples300_12",
         "asp_vol": 115.0,
         "dis_vol": 230.0,
         "asp_flow_rate": 150.0,
@@ -4526,7 +4587,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples300_10",
+        "sources": "samples300_12",
         "targets": "Liquid_3",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -4595,7 +4656,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_c_3",
-        "targets": "samples300_10",
+        "targets": "samples300_12",
         "asp_vol": 115.0,
         "dis_vol": 230.0,
         "asp_flow_rate": 150.0,
@@ -4610,7 +4671,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples300_10",
+        "sources": "samples300_12",
         "targets": "Liquid_4",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -4692,7 +4753,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
-        "targets": "samples20_25",
+        "targets": "samples20_70",
         "asp_vol": 6.5,
         "dis_vol": 13.0,
         "asp_flow_rate": 3.779999999999983,
@@ -4734,8 +4795,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_1": {
       "slot": 1,
@@ -4748,8 +4808,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "buffer_c": {
       "slot": 1,
@@ -4762,8 +4821,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_2": {
       "slot": 1,
@@ -4776,8 +4834,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "buffer_c_2": {
       "slot": 1,
@@ -4790,8 +4847,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_3": {
       "slot": 1,
@@ -4804,8 +4860,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "buffer_c_3": {
       "slot": 1,
@@ -4818,8 +4873,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_4": {
       "slot": 1,
@@ -4832,8 +4886,7 @@
         "A11",
         "A5",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "cuvettes": {
       "slot": 4,
@@ -4862,8 +4915,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_2": {
       "slot": 4,
@@ -4892,8 +4944,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_3": {
       "slot": 4,
@@ -4922,8 +4973,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_4": {
       "slot": 4,
@@ -4952,8 +5002,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_5": {
       "slot": 4,
@@ -4982,8 +5031,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_6": {
       "slot": 4,
@@ -5012,8 +5060,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_7": {
       "slot": 4,
@@ -5042,8 +5089,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_8": {
       "slot": 4,
@@ -5072,8 +5118,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_9": {
       "slot": 4,
@@ -5102,8 +5147,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_10": {
       "slot": 4,
@@ -5132,8 +5176,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_11": {
       "slot": 4,
@@ -5162,8 +5205,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_12": {
       "slot": 4,
@@ -5192,8 +5234,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_13": {
       "slot": 4,
@@ -5222,8 +5263,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_14": {
       "slot": 4,
@@ -5252,8 +5292,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_15": {
       "slot": 4,
@@ -5282,8 +5321,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_16": {
       "slot": 4,
@@ -5312,8 +5350,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_17": {
       "slot": 4,
@@ -5342,8 +5379,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_18": {
       "slot": 4,
@@ -5372,8 +5408,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_19": {
       "slot": 4,
@@ -5402,8 +5437,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_20": {
       "slot": 4,
@@ -5432,8 +5466,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_21": {
       "slot": 4,
@@ -5462,8 +5495,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_22": {
       "slot": 4,
@@ -5492,8 +5524,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_23": {
       "slot": 4,
@@ -5522,8 +5553,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_24": {
       "slot": 4,
@@ -5552,8 +5582,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 1"
+      ]
     },
     "cuvettes_25": {
       "slot": 5,
@@ -5582,8 +5611,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_26": {
       "slot": 5,
@@ -5612,8 +5640,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_27": {
       "slot": 5,
@@ -5642,8 +5669,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_28": {
       "slot": 5,
@@ -5672,8 +5698,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_29": {
       "slot": 5,
@@ -5702,8 +5727,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_30": {
       "slot": 5,
@@ -5732,8 +5756,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_31": {
       "slot": 5,
@@ -5762,8 +5785,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_32": {
       "slot": 5,
@@ -5792,8 +5814,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_33": {
       "slot": 5,
@@ -5822,8 +5843,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_34": {
       "slot": 5,
@@ -5852,8 +5872,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_35": {
       "slot": 5,
@@ -5882,8 +5901,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_36": {
       "slot": 5,
@@ -5912,8 +5930,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_37": {
       "slot": 5,
@@ -5942,8 +5959,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_38": {
       "slot": 5,
@@ -5972,8 +5988,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_39": {
       "slot": 5,
@@ -6002,8 +6017,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_40": {
       "slot": 5,
@@ -6032,8 +6046,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_41": {
       "slot": 5,
@@ -6062,8 +6075,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_42": {
       "slot": 5,
@@ -6092,8 +6104,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_43": {
       "slot": 5,
@@ -6122,8 +6133,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_44": {
       "slot": 5,
@@ -6152,8 +6162,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_45": {
       "slot": 5,
@@ -6182,8 +6191,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_46": {
       "slot": 5,
@@ -6212,8 +6220,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_47": {
       "slot": 5,
@@ -6242,8 +6249,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_48": {
       "slot": 5,
@@ -6272,8 +6278,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 2"
+      ]
     },
     "cuvettes_49": {
       "slot": 7,
@@ -6302,8 +6307,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_50": {
       "slot": 7,
@@ -6332,8 +6336,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_51": {
       "slot": 7,
@@ -6362,8 +6365,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_52": {
       "slot": 7,
@@ -6392,8 +6394,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_53": {
       "slot": 7,
@@ -6422,8 +6423,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_54": {
       "slot": 7,
@@ -6452,8 +6452,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_55": {
       "slot": 7,
@@ -6482,8 +6481,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_56": {
       "slot": 7,
@@ -6512,8 +6510,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_57": {
       "slot": 7,
@@ -6542,8 +6539,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_58": {
       "slot": 7,
@@ -6572,8 +6568,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_59": {
       "slot": 7,
@@ -6602,8 +6597,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_60": {
       "slot": 7,
@@ -6632,8 +6626,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_61": {
       "slot": 7,
@@ -6662,8 +6655,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_62": {
       "slot": 7,
@@ -6692,8 +6684,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_63": {
       "slot": 7,
@@ -6722,8 +6713,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_64": {
       "slot": 7,
@@ -6752,8 +6742,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_65": {
       "slot": 7,
@@ -6782,8 +6771,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_66": {
       "slot": 7,
@@ -6812,8 +6800,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_67": {
       "slot": 7,
@@ -6842,8 +6829,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_68": {
       "slot": 7,
@@ -6872,8 +6858,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_69": {
       "slot": 7,
@@ -6902,8 +6887,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_70": {
       "slot": 7,
@@ -6932,8 +6916,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_71": {
       "slot": 7,
@@ -6962,8 +6945,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_72": {
       "slot": 7,
@@ -6992,8 +6974,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 3"
+      ]
     },
     "cuvettes_73": {
       "slot": 8,
@@ -7022,8 +7003,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_74": {
       "slot": 8,
@@ -7052,8 +7032,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_75": {
       "slot": 8,
@@ -7082,8 +7061,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_76": {
       "slot": 8,
@@ -7112,8 +7090,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_77": {
       "slot": 8,
@@ -7142,8 +7119,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_78": {
       "slot": 8,
@@ -7172,8 +7148,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_79": {
       "slot": 8,
@@ -7202,8 +7177,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_80": {
       "slot": 8,
@@ -7232,8 +7206,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_81": {
       "slot": 8,
@@ -7262,8 +7235,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_82": {
       "slot": 8,
@@ -7292,8 +7264,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_83": {
       "slot": 8,
@@ -7322,8 +7293,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_84": {
       "slot": 8,
@@ -7352,8 +7322,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_85": {
       "slot": 8,
@@ -7382,8 +7351,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_86": {
       "slot": 8,
@@ -7412,8 +7380,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_87": {
       "slot": 8,
@@ -7442,8 +7409,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_88": {
       "slot": 8,
@@ -7472,8 +7438,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_89": {
       "slot": 8,
@@ -7502,8 +7467,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_90": {
       "slot": 8,
@@ -7532,8 +7496,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_91": {
       "slot": 8,
@@ -7562,8 +7525,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_92": {
       "slot": 8,
@@ -7592,8 +7554,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_93": {
       "slot": 8,
@@ -7622,8 +7583,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_94": {
       "slot": 8,
@@ -7652,8 +7612,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_95": {
       "slot": 8,
@@ -7682,8 +7641,7 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
     "cuvettes_96": {
       "slot": 8,
@@ -7712,22 +7670,19 @@
         "B6",
         "C6",
         "D6"
-      ],
-      "labware": "blood sample rack 4"
+      ]
     },
-    "samples20_25": {
+    "samples20_70": {
       "slot": 10,
       "well": [
         "A1"
-      ],
-      "labware": "PCR plate on Temperature Module GEN1"
+      ]
     },
     "Liquid_5": {
       "slot": 11,
       "well": [
         "C1"
-      ],
-      "labware": "PCR mix tube rack"
+      ]
     }
   }
 }

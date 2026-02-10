@@ -1,9 +1,45 @@
 {
   "description": "This protocol uses a p300 single channel and p20 single channel pipette to transfer custom volumes of master mixes to a 96-well PCR plate followed by addition of custom volumes of sample, positive control, or no-template control.\nLinks:\n* example input csv\nThis protocol was developed to combine custom volumes of master mixes with custom volumes of sample, positive control, or no-template control for PCR/qPCR setup.",
   "tags": [
-    "6401f1.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "Plate on 1",
+      "slot": "1",
+      "type": "lab_hardshell_96_wellplate_200ul"
+    },
+    {
+      "name": "PCRMix1 on 2",
+      "slot": "2",
+      "type": "lab_beckman_24_tuberack_1000ul"
+    },
+    {
+      "name": "Sample on 3",
+      "slot": "3",
+      "type": "lab_lvl_96_wellplate_1317.97ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "POS_NTC on 6",
+      "slot": "6",
+      "type": "lab_lvl_96_wellplate_1317.97ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1431,28 +1467,26 @@
     "Liquid_2": {
       "slot": 1,
       "well": [
-        "D8"
-      ],
-      "labware": "Plate"
+        "C1"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "B1"
-      ],
-      "labware": "PCRMix1"
+        "C5"
+      ]
     },
     "Liquid_3": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1463,20 +1497,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_5": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1487,20 +1520,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_6": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1511,20 +1543,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_7": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1535,20 +1566,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_8": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1559,20 +1589,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_9": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1583,20 +1612,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_10": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1607,20 +1635,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_11": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1631,20 +1658,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_12": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1655,20 +1681,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_13": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1679,20 +1704,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_14": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1703,20 +1727,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_15": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1727,20 +1750,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_16": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1751,20 +1773,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_17": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1775,20 +1796,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_18": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1799,20 +1819,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_19": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1823,20 +1842,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_20": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1847,20 +1865,19 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_21": {
       "slot": 3,
       "well": [
         "B1",
         "B5",
-        "A6",
+        "A5",
         "A9",
-        "C4",
-        "C8",
-        "C1",
-        "A1",
+        "C6",
+        "C10",
+        "B8",
+        "C7",
         "A2",
         "B12",
         "B6",
@@ -1871,15 +1888,13 @@
         "A8",
         "B10",
         "D4"
-      ],
-      "labware": "Sample"
+      ]
     },
     "Liquid_4": {
       "slot": 6,
       "well": [
         "C1"
-      ],
-      "labware": "POS NTC"
+      ]
     }
   }
 }

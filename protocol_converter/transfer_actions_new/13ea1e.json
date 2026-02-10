@@ -1,9 +1,70 @@
 {
   "description": "This protocol preps a sample plate as well as an ethanol, NPW3, NPW4, and elution buffer plate for further use in a Kingfisher Flex Extractor. Samples are pre-loaded onto the sample plate before the protocol begins. Mag beads are then added to sample, and after an incubation step, all other reagent plates are prepped.  \nThe protocol is broken down into 3 main parts:\n Controls are added to sample plate\n Proteinase K is added to samples\n Magnetic Beads are added, incubate\n Sample blocks made\nNote: For all transfers between reservoirs/tubes to well plate, transfers will always iterate over all wells in the source. For example, magnetic beads will be transferred from A1 to plate, A2 to plate, A3 to plate, A4 to plate, A1 to plate, etc. Consequently, all reaction volumes should be split equally into respective wells as seen in the deck layout.\nExplanation of complex parameters below:\n Number of samples: Specify the number of populated wells (1-96, include controls) that the sample block, elution buffer block, ethanol block, NPW3 block, and NPW4 block will be filled.\n Mix repetitions to resuspend beads: Specify the amount of mix steps to re-suspend beads each time the pipette returns to the reservoir.\n P1000 Single Channel Mount (GEN2): Specify which mount the P1000 Single Channel pipette will be mounted.\n P300 Multi Channel Mount (GEN2): Specify which mount the P300 Multi Channel pipette will be mounted.",
   "tags": [
-    "13ea1e.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 1",
+      "slot": "1",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Nest 96 Well Plate 2200 µL on 3",
+      "slot": "3",
+      "type": "lab_nest_96_wellplate_2200ul"
+    },
+    {
+      "name": "Nest 96 Well Plate 2200 µL on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_2200ul"
+    },
+    {
+      "name": "Nest 96 Well Plate 2200 µL on 5",
+      "slot": "5",
+      "type": "lab_nest_96_wellplate_2200ul"
+    },
+    {
+      "name": "Nest 96 Well Plate 2200 µL on 6",
+      "slot": "6",
+      "type": "lab_nest_96_wellplate_2200ul"
+    },
+    {
+      "name": "Nest 96 Well Plate 2200 µL on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_2200ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack 1500 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_24_tuberack_1500ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1752,86 +1813,75 @@
       "slot": 1,
       "well": [
         "A8",
-        "A11",
-        "A4"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A9",
+        "A2"
+      ]
     },
     "npw3": {
       "slot": 1,
       "well": [
         "A8",
-        "A11",
-        "A4"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A9",
+        "A2"
+      ]
     },
     "mag_beads": {
       "slot": 1,
       "well": [
         "A8",
-        "A11",
-        "A4"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A9",
+        "A2"
+      ]
     },
     "npw4": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A4"
+      ]
     },
     "Liquid_4": {
       "slot": 3,
       "well": [
-        "D12"
-      ],
-      "labware": "Nest 96 Well Plate 2200 µL"
+        "G7"
+      ]
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "G1"
-      ],
-      "labware": "Nest 96 Well Plate 2200 µL"
+        "F9"
+      ]
     },
     "Liquid_5": {
       "slot": 5,
       "well": [
-        "E2"
-      ],
-      "labware": "Nest 96 Well Plate 2200 µL"
+        "B10"
+      ]
     },
     "Liquid_2": {
       "slot": 6,
       "well": [
-        "E11"
-      ],
-      "labware": "Nest 96 Well Plate 2200 µL"
+        "G5"
+      ]
     },
     "Liquid_3": {
       "slot": 7,
       "well": [
-        "E7"
-      ],
-      "labware": "Nest 96 Well Plate 2200 µL"
+        "B9"
+      ]
     },
     "hsc": {
       "slot": 11,
       "well": [
         "C1",
-        "D3"
-      ],
-      "labware": "Opentrons 24 Tube Rack 1500 µL"
+        "D4"
+      ]
     },
     "elution_buffer": {
       "slot": 11,
       "well": [
         "C1",
-        "D3"
-      ],
-      "labware": "Opentrons 24 Tube Rack 1500 µL"
+        "D4"
+      ]
     }
   }
 }

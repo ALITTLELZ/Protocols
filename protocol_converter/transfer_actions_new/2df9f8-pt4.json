@@ -1,9 +1,70 @@
 {
   "description": "This protocol pools up to 5 plates by column to a final destination plate. 100ul of sample is taken from each column of each specified plate and dispensed into the final deep well plate on slot 11.\nExplanation of complex parameters below:\n Number of plates: Specify the number of agar plates (1-5) to fill for this run.\n Number of columns in each plate: Specify the number of columns (1-12) in each agar plate to fill.\n* P300 Multi-Channel Pipette Mount: Specify which mount (left or right) to host the P300 multi-channel pipette.",
   "tags": [
-    "2df9f8-pt4.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 6",
+      "slot": "6",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 8",
+      "slot": "8",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 9",
+      "slot": "9",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 10",
+      "slot": "10",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 11",
+      "slot": "11",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -301,7 +362,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_6",
+        "sources": "col",
         "targets": "Liquid_2",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -376,44 +437,38 @@
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "A11"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A5"
+      ]
     },
     "Liquid_3": {
       "slot": 7,
       "well": [
-        "A2"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A12"
+      ]
     },
     "Liquid_4": {
       "slot": 8,
       "well": [
-        "A6"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A12"
+      ]
     },
     "Liquid_5": {
       "slot": 9,
       "well": [
-        "A5"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A3"
+      ]
     },
-    "Liquid_6": {
+    "col": {
       "slot": 10,
       "well": [
-        "A10"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A12"
+      ]
     },
     "Liquid_2": {
       "slot": 11,
       "well": [
-        "A2"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A4"
+      ]
     }
   }
 }

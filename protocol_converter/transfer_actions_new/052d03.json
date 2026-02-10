@@ -1,8 +1,54 @@
 {
   "description": "This protocol performs a custom dilution and PCR protocol on the Opentrons Thermocycler GEN2 Module. The number of samples will be automatically calculated from the input cherrypicking .csv list, which should be formatted as the following example excluding the positive control:\n```\nA4,tc\nB4,tc\nC1,dil\nD1,dil\nB1,dil\nH12,dil\n```\nNote that the first value of each line should specify the well location, and the second value should specify whether to pick from the thermocycler plate or the dilution plate.",
   "tags": [
-    "tc.ot2.apiv2.py",
     "PCR"
+  ],
+  "labware": [
+    {
+      "name": "mastermix plate on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_aluminumblock_250ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on 4",
+      "slot": "4",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "dilution plate on 5",
+      "slot": "5",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -603,7 +649,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "targets": "Liquid_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 94.0,
@@ -936,7 +982,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
+        "sources": "Liquid_2",
         "targets": "Liquid_5",
         "asp_vol": 3.75,
         "dis_vol": 5.5,
@@ -1444,57 +1490,43 @@
     "Liquid_5": {
       "slot": 1,
       "well": [
-        "E3",
-        "G4"
-      ],
-      "labware": "mastermix plate"
+        "C1",
+        "H3"
+      ]
     },
     "Liquid_7": {
       "slot": 1,
       "well": [
-        "E3",
-        "G4"
-      ],
-      "labware": "mastermix plate"
+        "C1",
+        "H3"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A1",
+        "A3",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_4": {
       "slot": 2,
       "well": [
-        "A1",
+        "A3",
         "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_2": {
       "slot": 4,
       "well": [
-        "C1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
-    },
-    "Liquid_3": {
-      "slot": 5,
-      "well": [
-        "A4",
-        "B1"
-      ],
-      "labware": "dilution plate"
+        "A1"
+      ]
     },
     "Liquid_6": {
       "slot": 5,
       "well": [
         "A4",
-        "B1"
-      ],
-      "labware": "dilution plate"
+        "D1"
+      ]
     }
   }
 }

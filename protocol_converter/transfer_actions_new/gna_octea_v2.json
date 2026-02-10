@@ -1,9 +1,45 @@
 {
   "description": "This protocol automates GNA Octea prep. Using the P300 Multi-Channel Pipette (GEN2) and the P300 Single-Channel Pipette (GEN2), all the reagents necessary for the sample prep are transferred to the samples and the samples are incubated on the Temperature Module and Magnetic Module. Once all sample prep has been completed, the samples are transferred to a custom plate containing the labware needed to test the samples on the GNA analyzer.\nThis protocol is still a work in progress and will be updated.\nExplanation of complex parameters below:\n P300-Multi Mount: Select which mount the P300 Multi-Channel Pipette (GEN2) is attached to.\n P300-Single Mount: Select which mount the P300 Single-Channel Pipette (GEN2) is attached to.\n Labware on Temp Deck + Al Block: Select which tube type will contain the samples.\n Reconstitue MagBeads/PCA?: Specify whether the OT-2 will reconstitute the MagBeads and PCA.",
   "tags": [
-    "gna_octea_v2.ot2.apiv2.py",
     "Sample Prep",
     "Covid"
+  ],
+  "labware": [
+    {
+      "name": "Octea 16 Well Plate 40 µL on 1",
+      "slot": "1",
+      "type": "lab_octea_16_wellplate_40ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap on 6",
+      "slot": "6",
+      "type": "lab_opentrons_24_tuberack_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on Magnetic Module GEN2 on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 10",
+      "slot": "10",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -148,7 +184,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -186,7 +222,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -197,7 +233,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -235,7 +271,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -246,7 +282,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -284,7 +320,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -295,7 +331,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -333,7 +369,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -344,7 +380,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -382,7 +418,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -393,7 +429,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -431,7 +467,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -442,7 +478,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 73.33333333333333,
         "dis_vol": 200.0,
@@ -480,7 +516,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magBeads",
         "asp_vol": 100.0,
         "dis_vol": 200.0,
@@ -1730,7 +1766,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "hb1",
         "targets": "magSingle",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
@@ -2025,7 +2061,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "magBeads",
+        "sources": "pca",
         "targets": "magSingle",
         "asp_vol": 38.529411764705884,
         "dis_vol": 72.77777777777777,
@@ -2245,24 +2281,38 @@
     "Liquid_2": {
       "slot": 1,
       "well": [
-        "A3"
-      ],
-      "labware": "Octea 16 Well Plate 40 µL"
+        "A5"
+      ]
     },
-    "magBeads": {
+    "hb1": {
       "slot": 4,
       "well": [
-        "C1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2"
+        "B2"
+      ]
+    },
+    "magBeads": {
+      "slot": 6,
+      "well": [
+        "A1",
+        "A6",
+        "D6"
+      ]
+    },
+    "pca": {
+      "slot": 6,
+      "well": [
+        "A1",
+        "A6",
+        "D6"
+      ]
     },
     "magSingle": {
       "slot": 6,
       "well": [
         "A1",
+        "A6",
         "D6"
-      ],
-      "labware": "Opentrons 24 Tube Rack with NEST 1.5 mL Snapcap"
+      ]
     }
   }
 }

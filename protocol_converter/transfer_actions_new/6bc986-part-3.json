@@ -1,9 +1,40 @@
 {
   "description": "Part 3 of 6: Transfer of DNA Template\nLinks:\n Distribution of Sample Lysis Buffer\n Distribution of Prot K (Apostle)\n Transfer of DNA Template\n Distribution of Master Mix\n Distribution of Elution Buffer\n Distribution of Prot K (Qiagen)\nThis protocol is a translation of the attached json protocol json protocol to python: 5 ul DNA template is transferred to the columns of a PCR plate.\nThe deck layout can be displayed by uploading the attached json protocol to the Opentrons Protocol Designer web page.",
   "tags": [
-    "6bc986-part-3.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Aspir-8 Reservoir on 2",
+      "slot": "2",
+      "type": "lab_aspir8_1_reservoir_taped"
+    },
+    {
+      "name": "PCR plate on 3",
+      "slot": "3",
+      "type": "lab_pcr_plate"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Thermo 96 Well Plate 200 ÂµL on 6",
+      "slot": "6",
+      "type": "lab_thermo_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -70,7 +101,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "targets": "column",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
@@ -141,19 +172,17 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "column": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "PCR plate"
+        "A12"
+      ]
     },
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "A11"
-      ],
-      "labware": "Thermo 96 Well Plate 200 ÂµL"
+        "A5"
+      ]
     }
   }
 }

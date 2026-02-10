@@ -1,9 +1,35 @@
 {
   "description": "This protocol performs a custom sample pooling from a source PCR plate to a 1.5, 2, or 5ml Eppendorf tube. Sample locations and volumes are specified via .csv file in the following format, including the header line (empty lines ignored):\nsource plate well,volume sample (µl)\nA1, 28\nC4, 12\nThe proper pipette for a given volume is automatically calculated. Tips are changed for each transfer.\nYou can download an example .csv to edit directly here.",
   "tags": [
-    "pooling.ot2.apiv2.py",
     "Sample Prep",
     "Pooling"
+  ],
+  "labware": [
+    {
+      "name": "source plate on Temperature Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_regeneron_96_aluminumblock_200ul"
+    },
+    {
+      "name": "pooling tube on 2",
+      "slot": "2",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "20ul tiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "300ul tiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -49,15 +75,13 @@
       "slot": 1,
       "well": [
         "D1"
-      ],
-      "labware": "source plate on Temperature Module GEN2"
+      ]
     },
     "pooling_tube": {
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "pooling tube"
+      ]
     }
   }
 }

@@ -1,9 +1,70 @@
 {
   "description": "Links:\n Part 1: Incubation\n Part 2: Extension\n* Part 3: Detection\nThis protocol accomplishes part 3/3: Detection for use with the Olink® Target 48 protocol for protein biomarker discovery. Primers are transferred to the left 48 wells of the Fluidigm detection plate, and samples are transferred to the right 48 wells. The transfer mapping for these plates is shown in the following image:\n\n\nOlink® is a registered trademark of Olink Proteomics AB. Opentrons is not affiliated with or endorsed by Olink Proteomics AB.",
   "tags": [
-    "olink.ot2.apiv2.py",
     "Proteins & Proteomics",
     "Olink® Target 48"
+  ],
+  "labware": [
+    {
+      "name": "primer plate on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Fluidigm 96.96 Dynamic Array on 2",
+      "slot": "2",
+      "type": "lab_fluidigm_96_wellplate_48x50ul_48x50ul"
+    },
+    {
+      "name": "sample plate on 3",
+      "slot": "3",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "incubation plate on 5",
+      "slot": "5",
+      "type": "lab_generic_96_aluminumblock_350ul"
+    },
+    {
+      "name": "strip for distribution (column 7) on 6",
+      "slot": "6",
+      "type": "lab_genericstrips_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "tuberack for detection mix (A3) on 9",
+      "slot": "9",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -49,7 +110,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "strip",
-        "targets": "source",
+        "targets": "Liquid_1",
         "asp_vol": 6.885714285714286,
         "dis_vol": 7.2,
         "asp_flow_rate": 7.6000000000000005,
@@ -68,8 +129,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "source",
+        "sources": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vol": 2.8000000000000003,
         "dis_vol": 2.8000000000000003,
         "asp_flow_rate": 7.6000000000000005,
@@ -111,7 +172,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "Liquid_3",
         "targets": "primer_destinations",
         "asp_vol": 7.0,
         "dis_vol": 5.0,
@@ -154,7 +215,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source",
+        "sources": "Liquid_1",
         "targets": "sample_destinations",
         "asp_vol": 7.0,
         "dis_vol": 5.0,
@@ -196,58 +257,51 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_3": {
       "slot": 1,
       "well": [
-        "A3"
-      ],
-      "labware": "primer plate"
+        "A5"
+      ]
     },
     "primer_destinations": {
       "slot": 2,
       "well": [
-        "B1",
+        "B3",
         "A4"
-      ],
-      "labware": "Fluidigm 96.96 Dynamic Array"
+      ]
     },
     "sample_destinations": {
       "slot": 2,
       "well": [
-        "B1",
+        "B3",
         "A4"
-      ],
-      "labware": "Fluidigm 96.96 Dynamic Array"
-    },
-    "source": {
-      "slot": 3,
-      "well": [
-        "A6"
-      ],
-      "labware": "sample plate"
+      ]
     },
     "Liquid_1": {
-      "slot": 5,
+      "slot": 3,
       "well": [
         "A4"
-      ],
-      "labware": "incubation plate"
+      ]
+    },
+    "Liquid_2": {
+      "slot": 5,
+      "well": [
+        "A1"
+      ]
     },
     "strip": {
       "slot": 6,
       "well": [
-        "C7",
+        "E7",
         "H7"
-      ],
-      "labware": "strip for distribution (column 7)"
+      ]
     },
     "det_mix": {
       "slot": 6,
       "well": [
-        "C7",
+        "E7",
         "H7"
-      ],
-      "labware": "strip for distribution (column 7)"
+      ]
     }
   }
 }

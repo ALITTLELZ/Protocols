@@ -1,15 +1,36 @@
 {
   "description": "Draw a picture of a dinosaur (Stegosaurus!) on a 96 well plate using food coloring.\n\n\n\n\nOpentrons 300uL Tips\nOpentrons 200uL Filter Tips\nBio-Rad 96 Well Plate 200 uL PCR\nNEST 96 Well Plate 100 uL PCR Full Skirt\nCorning 96 Well Plate 360 µL Flat\nNEST 96 Well Plate 200 µL Flat\nP300 Single Channel GEN2\n\nFor more detailed information on compatible labware, please visit our Labware Library.\n\n\nDeck Setup\n\nProtocol Steps\n\nDistribute 50 uL of green solution to all the necessary wells.\nDistribute 50 uL of blue solution to all the necessary wells.\nEnjoy the dinosaur!",
   "tags": [
-    "dinosaur.ot2.apiv2.py",
     "Getting Started",
     "Dinosaur"
+  ],
+  "labware": [
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on 3",
+      "slot": "3",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 8",
+      "slot": "8",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "blue",
+        "sources": "green",
         "targets": "green_wells",
         "asp_vol": 249.16666666666666,
         "dis_vol": 50.0,
@@ -34,16 +55,14 @@
     "green_wells": {
       "slot": 3,
       "well": [
-        "G5"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
+        "E2"
+      ]
     },
-    "blue": {
+    "green": {
       "slot": 8,
       "well": [
-        "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A1"
+      ]
     }
   }
 }

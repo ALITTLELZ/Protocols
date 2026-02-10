@@ -1,9 +1,65 @@
 {
   "description": "Links:\n\nRNA Isolation\n\nNormalization\n\nqPCR Prep\nThis protocol performs the Omega Mag-Bind® Total RNA 96 Kit protocol.\nSamples should be loaded on the magnetic module in a NEST deepwell plate. For reagent layout in the 2 12-channel reservoirs used in this protocol, please see \"Setup\" below.\nThere are several user-intervention steps to move the deepwell isolation plate to and from the Magnetic Module and QInstruments Bioshake.",
   "tags": [
-    "extraction.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "Omega Mag-Bind® Total RNA Isolation"
+  ],
+  "labware": [
+    {
+      "name": "NEST Bioshake 96 Well Plate 2000 µL on 1",
+      "slot": "1",
+      "type": "lab_nestbioshake_96_wellplate_2000ul"
+    },
+    {
+      "name": "reagent reservoir 1 on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Liquid Waste on 3",
+      "slot": "3",
+      "type": "lab_nest_1_reservoir_195ml"
+    },
+    {
+      "name": "reagent reservoir 2 on 5",
+      "slot": "5",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "deepwell plate on Magnetic Module GEN2 on 6",
+      "slot": "6",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "200µl filtertiprack on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "elution plate on Temperature Module GEN2 on 9",
+      "slot": "9",
+      "type": "lab_vwr_96_aluminumblock_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -77,7 +133,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "shake_samples_m_3",
         "asp_vol": 82.5,
         "dis_vol": 160.0,
@@ -93,7 +149,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "shake_samples_m_3",
         "asp_vol": 160.0,
         "dis_vol": 160.0,
@@ -176,7 +232,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "shake_samples_m_6",
         "asp_vol": 82.5,
         "dis_vol": 160.0,
@@ -192,7 +248,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "shake_samples_m_6",
         "asp_vol": 160.0,
         "dis_vol": 160.0,
@@ -1774,7 +1830,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "elution_solution",
-        "targets": "shake_samples_m",
+        "targets": "shake_samples_m_2",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
@@ -1784,7 +1840,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "elution_solution",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -1855,7 +1911,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "elution_solution",
-        "targets": "shake_samples_m_5",
+        "targets": "shake_samples_m_4",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
@@ -1865,7 +1921,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "elution_solution",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -1974,7 +2030,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dnase",
-        "targets": "shake_samples_m",
+        "targets": "shake_samples_m_2",
         "asp_vol": 52.0,
         "dis_vol": 52.0,
         "asp_flow_rate": 94.0,
@@ -1984,7 +2040,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "dnase",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2106,7 +2162,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "dnase",
-        "targets": "shake_samples_m_5",
+        "targets": "shake_samples_m_4",
         "asp_vol": 52.0,
         "dis_vol": 52.0,
         "asp_flow_rate": 94.0,
@@ -2116,7 +2172,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "dnase",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2209,7 +2265,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "phm",
-        "targets": "shake_samples_m",
+        "targets": "shake_samples_m_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2219,7 +2275,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "phm",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2290,7 +2346,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "phm",
-        "targets": "shake_samples_m_5",
+        "targets": "shake_samples_m_4",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2300,7 +2356,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "phm",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2419,7 +2475,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "shake_samples_m",
+        "targets": "shake_samples_m_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2429,7 +2485,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "Liquid_4",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -2458,7 +2514,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_4",
-        "targets": "shake_samples_m",
+        "targets": "shake_samples_m_2",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2468,7 +2524,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "Liquid_4",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2617,7 +2673,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
-        "targets": "shake_samples_m_5",
+        "targets": "shake_samples_m_4",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2627,7 +2683,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "Liquid_5",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -2656,7 +2712,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
-        "targets": "shake_samples_m_5",
+        "targets": "shake_samples_m_4",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2666,7 +2722,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
+        "sources": "shake_samples_m_4",
         "targets": "Liquid_5",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -2745,7 +2801,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "shake_samples_m_6",
         "targets": "Liquid_1",
         "asp_vol": 102.5,
         "dis_vol": 200.0,
@@ -2761,7 +2817,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "shake_samples_m_6",
         "targets": "Liquid_1",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
@@ -2928,7 +2984,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_6",
-        "targets": "Liquid_1",
+        "targets": "shake_samples_m_6",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -2938,7 +2994,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "shake_samples_m_6",
         "targets": "Liquid_6",
         "asp_vol": 10.0,
         "dis_vol": 10.0,
@@ -2967,7 +3023,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_6",
-        "targets": "Liquid_1",
+        "targets": "shake_samples_m_6",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -2977,7 +3033,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "shake_samples_m_6",
         "targets": "Liquid_6",
         "asp_vol": 5.0,
         "dis_vol": 0.0,
@@ -3487,8 +3543,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
-        "targets": "shake_samples_m",
+        "sources": "Liquid_1",
+        "targets": "shake_samples_m_2",
         "asp_vol": 27.5,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3503,7 +3559,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m",
+        "sources": "shake_samples_m_2",
         "targets": "shake_samples_m_3",
         "asp_vol": 27.5,
         "dis_vol": 50.0,
@@ -3519,7 +3575,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_3",
+        "sources": "shake_samples_m_2",
         "targets": "shake_samples_m_4",
         "asp_vol": 27.5,
         "dis_vol": 50.0,
@@ -3535,8 +3591,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_4",
-        "targets": "shake_samples_m_5",
+        "sources": "shake_samples_m_2",
+        "targets": "shake_samples_m_4",
         "asp_vol": 27.5,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3551,8 +3607,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "shake_samples_m_5",
-        "targets": "Liquid_1",
+        "sources": "shake_samples_m_2",
+        "targets": "shake_samples_m_6",
         "asp_vol": 27.5,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -3576,7 +3632,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "shake_samples_m_6",
         "targets": "elution_samples_m",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3592,7 +3648,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_2",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3608,7 +3664,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "elution_samples_m_2",
         "targets": "elution_samples_m_3",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3624,7 +3680,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "elution_samples_m_3",
         "targets": "elution_samples_m_4",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3640,7 +3696,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_4",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_5",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3656,7 +3712,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_5",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_6",
         "asp_vol": 23.333333333333332,
         "dis_vol": 65.0,
@@ -3671,60 +3727,40 @@
     }
   ],
   "reagent": {
-    "shake_samples_m": {
-      "slot": 1,
-      "well": [
-        "A4",
-        "A6",
-        "A7",
-        "A8",
-        "A9"
-      ],
-      "labware": "NEST Bioshake 96 Well Plate 2000 µL"
-    },
-    "shake_samples_m_3": {
-      "slot": 1,
-      "well": [
-        "A4",
-        "A6",
-        "A7",
-        "A8",
-        "A9"
-      ],
-      "labware": "NEST Bioshake 96 Well Plate 2000 µL"
-    },
-    "shake_samples_m_4": {
-      "slot": 1,
-      "well": [
-        "A4",
-        "A6",
-        "A7",
-        "A8",
-        "A9"
-      ],
-      "labware": "NEST Bioshake 96 Well Plate 2000 µL"
-    },
-    "shake_samples_m_5": {
-      "slot": 1,
-      "well": [
-        "A4",
-        "A6",
-        "A7",
-        "A8",
-        "A9"
-      ],
-      "labware": "NEST Bioshake 96 Well Plate 2000 µL"
-    },
     "Liquid_1": {
       "slot": 1,
       "well": [
         "A4",
-        "A6",
-        "A7",
-        "A8",
+        "A5",
         "A9"
-      ],
-      "labware": "NEST Bioshake 96 Well Plate 2000 µL"
+      ]
+    },
+    "shake_samples_m_2": {
+      "slot": 1,
+      "well": [
+        "A4",
+        "A5",
+        "A9"
+      ]
+    },
+    "shake_samples_m_6": {
+      "slot": 1,
+      "well": [
+        "A4",
+        "A5",
+        "A9"
+      ]
+    },
+    "shake_samples_m_4": {
+      "slot": 2,
+      "well": [
+        "A1",
+        "A2",
+        "A4",
+        "A5",
+        "A7",
+        "A9"
+      ]
     },
     "vhb": {
       "slot": 2,
@@ -3735,8 +3771,7 @@
         "A5",
         "A7",
         "A9"
-      ],
-      "labware": "reagent reservoir 1"
+      ]
     },
     "vhb_2": {
       "slot": 2,
@@ -3747,8 +3782,7 @@
         "A5",
         "A7",
         "A9"
-      ],
-      "labware": "reagent reservoir 1"
+      ]
     },
     "dnase": {
       "slot": 2,
@@ -3759,8 +3793,7 @@
         "A5",
         "A7",
         "A9"
-      ],
-      "labware": "reagent reservoir 1"
+      ]
     },
     "phm": {
       "slot": 2,
@@ -3771,8 +3804,7 @@
         "A5",
         "A7",
         "A9"
-      ],
-      "labware": "reagent reservoir 1"
+      ]
     },
     "Liquid_2": {
       "slot": 5,
@@ -3783,8 +3815,7 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
     "Liquid_3": {
       "slot": 5,
@@ -3795,8 +3826,7 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
     "Liquid_4": {
       "slot": 5,
@@ -3807,8 +3837,7 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
     "Liquid_5": {
       "slot": 5,
@@ -3819,8 +3848,7 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
     "Liquid_6": {
       "slot": 5,
@@ -3831,8 +3859,7 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
     "Liquid_7": {
       "slot": 5,
@@ -3843,49 +3870,34 @@
         "A4",
         "A5",
         "A6"
-      ],
-      "labware": "reagent reservoir 2"
+      ]
     },
-    "elution_samples_m": {
+    "elution_samples_m_2": {
       "slot": 6,
       "well": [
         "A4",
         "A5",
-        "A8",
-        "A9"
-      ],
-      "labware": "deepwell plate on Magnetic Module GEN2"
+        "A6",
+        "A7"
+      ]
     },
-    "elution_samples_m_4": {
+    "elution_samples_m_3": {
       "slot": 6,
       "well": [
         "A4",
         "A5",
-        "A8",
-        "A9"
-      ],
-      "labware": "deepwell plate on Magnetic Module GEN2"
-    },
-    "elution_samples_m_5": {
-      "slot": 6,
-      "well": [
-        "A4",
-        "A5",
-        "A8",
-        "A9"
-      ],
-      "labware": "deepwell plate on Magnetic Module GEN2"
+        "A6",
+        "A7"
+      ]
     },
     "elution_samples_m_6": {
       "slot": 9,
       "well": [
         "A1",
         "A2",
-        "A4",
-        "A5",
+        "A3",
         "A6"
-      ],
-      "labware": "elution plate on Temperature Module GEN2"
+      ]
     }
   }
 }

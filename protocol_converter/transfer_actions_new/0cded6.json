@@ -1,9 +1,35 @@
 {
   "description": "This protocol performs Anneal RNA for the Illumina COVIDSeq protocol.\nLinks:\n 1. Anneal RNA\n 2. Synthesize First Strand cDNA\n 3. Amplify cDNA\n 4. Tagment PCR Amplicons\n 5. Post Tagmentation Clean Up\n 6. Amplify Tagmented Amplicons",
   "tags": [
-    "anneal.ot2.apiv2.py",
     "NGS Library Prep",
     "Illumina COVIDSeq"
+  ],
+  "labware": [
+    {
+      "name": "sample plate on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "cDNA plate on 2",
+      "slot": "2",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "200µl filtertiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "reagent plate on Temperature Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -14,7 +40,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "eph3",
-        "targets": "Liquid_1",
+        "targets": "d",
         "asp_vol": 8.5,
         "dis_vol": 8.5,
         "asp_flow_rate": 7.599999999999999,
@@ -33,8 +59,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_1",
+        "sources": "Liquid_1",
+        "targets": "d",
         "asp_vol": 8.5,
         "dis_vol": 8.5,
         "asp_flow_rate": 7.599999999999999,
@@ -100,26 +126,23 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_1": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "sample plate"
+        "A5"
+      ]
     },
-    "Liquid_1": {
+    "d": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "cDNA plate"
+        "A12"
+      ]
     },
     "eph3": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "reagent plate on Temperature Module GEN2"
+      ]
     }
   }
 }

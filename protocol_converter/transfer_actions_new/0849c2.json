@@ -1,9 +1,70 @@
 {
   "description": "This protocol performs a custom nucleic acid purification on up to 96 samples using the Opentrons Magnetic Module GEN2 and Beckman Coulter Ampure XP Reagent for PCR Purification. The user is prompted to refill tipracks when necessary.",
   "tags": [
-    "extraction.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "Nucleic Acid Extraction"
+  ],
+  "labware": [
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "elution plate on 2",
+      "slot": "2",
+      "type": "lab_biorad_96_aluminumblock_350ul"
+    },
+    {
+      "name": "200µl filtertiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "reagent reservoir 1 on 4",
+      "slot": "4",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "200µl filtertiprack on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "200µl filtertiprack on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -127,7 +188,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
+        "sources": "mag_samples_m_5",
         "targets": "mag_samples_m_6",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -148,7 +209,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
         "targets": "mag_samples_m_7",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -190,7 +251,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
+        "sources": "mag_samples_m_7",
         "targets": "mag_samples_m_9",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -211,7 +272,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_10",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -232,7 +293,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_11",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -253,7 +314,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_12",
         "asp_vol": 28.75,
         "dis_vol": 37.5,
@@ -1411,7 +1472,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_4",
+        "targets": "mag_samples_m_5",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -1686,8 +1747,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -1962,7 +2023,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
         "targets": "mag_samples_m_7",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -2239,7 +2300,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m_7",
-        "targets": "mag_samples_m_8",
+        "targets": "mag_samples_m_7",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -2514,8 +2575,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_9",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -2790,8 +2851,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -3066,8 +3127,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_11",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
         "asp_flow_rate": 94.0,
@@ -3342,7 +3403,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_12",
         "asp_vol": 32.5,
         "dis_vol": 45.0,
@@ -3717,7 +3778,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m",
         "asp_vol": 102.5,
         "dis_vol": 200.0,
@@ -3738,7 +3799,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_2",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
@@ -3759,7 +3820,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_2",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
@@ -3780,7 +3841,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
         "targets": "mag_samples_m_4",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
@@ -3801,8 +3862,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_4",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_5",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3822,8 +3883,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3843,7 +3904,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
         "targets": "mag_samples_m_7",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
@@ -3865,7 +3926,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_m_7",
-        "targets": "mag_samples_m_8",
+        "targets": "mag_samples_m_7",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3885,8 +3946,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_7",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3906,8 +3967,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3927,8 +3988,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_11",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -3948,8 +4009,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
-        "targets": "mag_samples_m",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4042,8 +4103,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 102.5,
         "dis_vol": 200.0,
         "asp_flow_rate": 51.7,
@@ -4063,8 +4124,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4084,8 +4145,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
-        "targets": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4105,8 +4166,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
-        "targets": "mag_samples_m_4",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4126,8 +4187,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_4",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_5",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4147,8 +4208,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4168,7 +4229,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
         "targets": "mag_samples_m_7",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
@@ -4189,8 +4250,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_7",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_7",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4210,8 +4271,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4231,8 +4292,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4252,8 +4313,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_11",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4273,8 +4334,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
-        "targets": "mag_samples_m",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_9",
         "asp_vol": 110.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -4371,8 +4432,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
-        "targets": "mag_samples_m",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_9",
         "asp_vol": 16.5,
         "dis_vol": 28.0,
         "asp_flow_rate": 51.7,
@@ -4647,8 +4708,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
-        "targets": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -4923,8 +4984,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
-        "targets": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -5199,8 +5260,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
-        "targets": "mag_samples_m_4",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_9",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -5475,8 +5536,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_4",
+        "sources": "mag_samples_m_9",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -5751,8 +5812,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
-        "targets": "mag_samples_m_6",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -6027,8 +6088,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_6",
-        "targets": "mag_samples_m_7",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -6303,8 +6364,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_7",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -6579,8 +6640,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -6855,8 +6916,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -7131,8 +7192,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
-        "targets": "mag_samples_m_11",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -7407,8 +7468,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_11",
-        "targets": "mag_samples_m",
+        "sources": "mag_samples_m_5",
+        "targets": "mag_samples_m_5",
         "asp_vol": 24.0,
         "dis_vol": 28.0,
         "asp_flow_rate": 94.0,
@@ -7714,7 +7775,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "mag_samples_m_9",
         "targets": "elution_samples_m",
         "asp_vol": 22.5,
         "dis_vol": 25.0,
@@ -7735,7 +7796,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
         "targets": "elution_samples_m_2",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7756,7 +7817,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_2",
+        "sources": "mag_samples_m_9",
         "targets": "elution_samples_m_3",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7777,7 +7838,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_4",
+        "sources": "elution_samples_m_3",
         "targets": "elution_samples_m_4",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7840,7 +7901,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_7",
+        "sources": "elution_samples_m_6",
         "targets": "elution_samples_m_7",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7861,7 +7922,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m_8",
+        "sources": "mag_samples_m_5",
         "targets": "elution_samples_m_8",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7903,7 +7964,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_9",
+        "sources": "mag_samples_m_5",
         "targets": "elution_samples_m_10",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7945,7 +8006,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_m",
+        "sources": "elution_samples_m_11",
         "targets": "elution_samples_m_12",
         "asp_vol": 15.0,
         "dis_vol": 25.0,
@@ -7964,165 +8025,131 @@
     }
   ],
   "reagent": {
-    "mag_samples_m": {
+    "mag_samples_m_9": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
-    "mag_samples_m_2": {
+    "elution_samples_m_3": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
-    },
-    "mag_samples_m_4": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A4",
-        "A5",
-        "A6",
-        "A7",
-        "A8",
-        "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "elution_samples_m_4": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "elution_samples_m_5": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
-    "mag_samples_m_7": {
+    "elution_samples_m_6": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
-    "mag_samples_m_8": {
+    "mag_samples_m_5": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "elution_samples_m_8": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
-    },
-    "elution_samples_m_9": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A4",
-        "A5",
-        "A6",
-        "A7",
-        "A8",
-        "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
     },
     "elution_samples_m_10": {
       "slot": 1,
       "well": [
         "A1",
-        "A2",
         "A4",
         "A5",
         "A6",
         "A7",
         "A8",
         "A9",
-        "A10",
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+        "A11",
+        "A12"
+      ]
+    },
+    "elution_samples_m_11": {
+      "slot": 1,
+      "well": [
+        "A1",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A11",
+        "A12"
+      ]
     },
     "elution_samples_m_12": {
       "slot": 2,
@@ -8134,20 +8161,10 @@
         "A6",
         "A7",
         "A8",
-        "A9",
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "elution plate"
-    },
-    "mag_samples_m_11": {
-      "slot": 4,
-      "well": [
-        "A1",
-        "A3"
-      ],
-      "labware": "reagent reservoir 1"
+      ]
     }
   }
 }

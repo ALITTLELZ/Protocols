@@ -1,9 +1,65 @@
 {
   "description": "This protocol is a full COVID-19 diagnostic workflow up to RNA amplification. Samples are loaded in 15ml tubes and transferred to a 96-wellplate for lysis and temperature incubations on an Opentrons temperature module. The samples are then transferred to a deepwell plate mounted on an Opentrons magnetic module for a 1-wash magnetic bead-based RNA extraction.\nExplanation of protocol parameters below:\n* track tips across protocol runs: If set to yes, tip racks will be assumed to be in the same state that they were in the previous run. For example, if one completed protocol run accessed tips through column 5 of the 3rd tiprack, the next run will access tips starting at column 6 of the 3rd tiprack. If set to no, tips will be picked up from column 1 of the 1st tiprack.\n\n \nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons magnetic module GEN2\nOpentrons temperature module GEN2\nNEST 12 Well Reservoir 15 mL\nUSA Scientific PlateOne 96 Deepwell Plate 2mL\nBio-Rad 96 Well Plate 350 µL PCR\nOpentrons 96 Filter Tip Rack 200 and 1000 µL\nOpentrons P300-Multi GEN2 and P1000-Single GEN2 electronic pipettes\n\n\n \n \nReservoir (slot 2):\n channel 2: magnetic beads\n channel 4: wash buffer\n channel 5: master mix\n channel 12: liquid waste (loaded empty)",
   "tags": [
-    "assay2.ot2.apiv2.py",
     "Covid Workstation",
     "RNA Extraction"
+  ],
+  "labware": [
+    {
+      "name": "deepwell plate on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "reagent reservoir on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "reaction plate on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "elution chips on 4",
+      "slot": "4",
+      "type": "lab_neo_48_wellplate_40ul"
+    },
+    {
+      "name": "patient samples in VTM: rack 1 on 5",
+      "slot": "5",
+      "type": "lab_opentrons_15_tuberack_nest_15ml_conical"
+    },
+    {
+      "name": "200µl filtertiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "200µl filtertiprack on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "200µl filtertiprack on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 1000 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 1000 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_1000ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -692,8 +748,7 @@
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "deepwell plate on Magnetic Module GEN2"
+      ]
     },
     "beads": {
       "slot": 2,
@@ -701,8 +756,7 @@
         "A2",
         "A12",
         "A5"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
@@ -710,8 +764,7 @@
         "A2",
         "A12",
         "A5"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "mm": {
       "slot": 2,
@@ -719,8 +772,7 @@
         "A2",
         "A12",
         "A5"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "inc_tubes_s": {
       "slot": 3,
@@ -733,8 +785,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_2": {
       "slot": 3,
@@ -747,8 +798,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_3": {
       "slot": 3,
@@ -761,8 +811,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_4": {
       "slot": 3,
@@ -775,8 +824,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_5": {
       "slot": 3,
@@ -789,8 +837,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_6": {
       "slot": 3,
@@ -803,8 +850,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_7": {
       "slot": 3,
@@ -817,8 +863,7 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "inc_tubes_s_8": {
       "slot": 3,
@@ -831,15 +876,13 @@
         "F1",
         "G1",
         "H1"
-      ],
-      "labware": "reaction plate on Temperature Module GEN2"
+      ]
     },
     "elution_samples_m": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "elution chips"
+      ]
     },
     "sources": {
       "slot": 5,
@@ -852,8 +895,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_2": {
       "slot": 5,
@@ -866,8 +908,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_3": {
       "slot": 5,
@@ -880,8 +921,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_4": {
       "slot": 5,
@@ -894,8 +934,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_5": {
       "slot": 5,
@@ -908,8 +947,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_6": {
       "slot": 5,
@@ -922,8 +960,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_7": {
       "slot": 5,
@@ -936,8 +973,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     },
     "sources_8": {
       "slot": 5,
@@ -950,8 +986,7 @@
         "C2",
         "A3",
         "B3"
-      ],
-      "labware": "patient samples in VTM: rack 1"
+      ]
     }
   }
 }

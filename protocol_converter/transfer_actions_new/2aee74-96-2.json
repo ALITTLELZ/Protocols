@@ -1,9 +1,30 @@
 {
   "description": "Links:\n Part 1: Incubation\n Part 2: Extension\n* Part 3: Detection\nThis protocol accomplishes part 2/3: Extension for use with the Olink® Target 96 protocol for protein biomarker discovery.\n\nOlink® is a registered trademark of Olink Proteomics AB. Opentrons is not affiliated with or endorsed by Olink Proteomics AB.",
   "tags": [
-    "olink.ot2.apiv2.py",
     "Proteins & Proteomics",
     "Olink® Target 96"
+  ],
+  "labware": [
+    {
+      "name": "incubation plate on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "reservoir for extension mix (channel 1) on 5",
+      "slot": "5",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -26,7 +47,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ext_mix",
-        "targets": "Liquid_1",
+        "targets": "col",
         "asp_vol": 90.15384615384616,
         "dis_vol": 96.0,
         "asp_flow_rate": 94.0,
@@ -40,19 +61,17 @@
     }
   ],
   "reagent": {
-    "Liquid_1": {
+    "col": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "incubation plate"
+        "A12"
+      ]
     },
     "ext_mix": {
       "slot": 5,
       "well": [
         "A1"
-      ],
-      "labware": "reservoir for extension mix (channel 1)"
+      ]
     }
   }
 }

@@ -1,9 +1,70 @@
 {
   "description": "This protocol automates the NucleoMag® Virus kit for flexible magnetic bead based isolation.\nBefore beginning the protocol on the OT-2, the following preparation steps are needed.\n1. Perform the lysis according to the NucleoMag® Virus user manual.\n2. Fill the 12-Well Buffer Reservoir according to the table below.\n3. Resuspend the NucleoMag® V-Beads by vortexing and place them in Position A1 of the 2mL Tube Rack.\n4. Load the instrument deck according to the displayed positions.\n5. Place the Square-well Block containing the lysates on the Magnetic Module and start the run.\nYou can access the full description of this workflow on the OT-2 by visiting this link: link",
   "tags": [
-    "macherey-nagel-nucleomag-virus.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "MACHEREY-NAGEL NucleoMag® Virus"
+  ],
+  "labware": [
+    {
+      "name": "Elution Plate on 1",
+      "slot": "1",
+      "type": "lab_96_elutionplate_ubottom_by_macherey_nagel"
+    },
+    {
+      "name": "300µl filtertiprack on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "300µl filtertiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NucleoMag B-Beads on 4",
+      "slot": "4",
+      "type": "lab_opentrons_24_tuberack_generic_2ml_screwcap"
+    },
+    {
+      "name": "300µl filtertiprack on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "300µl filtertiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NucleoMag Buffers on 7",
+      "slot": "7",
+      "type": "lab_usascientific_12_reservoir_22ml"
+    },
+    {
+      "name": "empty tiprack for parking on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "1000µl filtertiprack on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Separation Plate on Magnetic Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_96_squarewell_block_macherey_nagel"
+    },
+    {
+      "name": "Liquid Waste on 11",
+      "slot": "11",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -319,8 +380,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "mag_samples_s_2",
+        "targets": "mag_samples_s_2",
         "asp_vol": 78.33333333333333,
         "dis_vol": 117.5,
         "asp_flow_rate": 100.0,
@@ -335,7 +396,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
+        "sources": "mag_samples_s_2",
         "targets": "mag_samples_s",
         "asp_vol": 75.0,
         "dis_vol": 220.0,
@@ -352,7 +413,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "targets": "mag_samples_s_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
@@ -367,7 +428,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
+        "sources": "mag_samples_s_2",
         "targets": "mag_samples_s",
         "asp_vol": 110.0,
         "dis_vol": 220.0,
@@ -379,7 +440,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "targets": "mag_samples_s_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
@@ -581,8 +642,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "mag_samples_s",
+        "targets": "mag_samples_s",
         "asp_vol": 78.33333333333333,
         "dis_vol": 117.5,
         "asp_flow_rate": 100.0,
@@ -597,7 +658,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "mag_samples_s",
         "targets": "mag_samples_s_2",
         "asp_vol": 75.0,
         "dis_vol": 220.0,
@@ -614,7 +675,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "targets": "mag_samples_s",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
@@ -629,7 +690,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "mag_samples_s",
         "targets": "mag_samples_s_2",
         "asp_vol": 110.0,
         "dis_vol": 220.0,
@@ -641,7 +702,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "targets": "mag_samples_s",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 100.0,
@@ -994,8 +1055,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 71.33333333333333,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1010,8 +1071,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1021,8 +1082,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1032,8 +1093,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1043,8 +1104,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1054,8 +1115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1065,8 +1126,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1076,8 +1137,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1087,8 +1148,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1098,8 +1159,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1109,8 +1170,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1120,8 +1181,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 71.33333333333333,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1136,8 +1197,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1147,8 +1208,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1158,8 +1219,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1169,8 +1230,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1180,8 +1241,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1191,8 +1252,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1202,8 +1263,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1213,8 +1274,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1224,8 +1285,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1235,8 +1296,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1246,8 +1307,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 71.33333333333333,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1262,8 +1323,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1273,8 +1334,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1284,8 +1345,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1295,8 +1356,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1306,8 +1367,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1317,8 +1378,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1328,8 +1389,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1339,8 +1400,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1350,8 +1411,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1361,8 +1422,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1372,8 +1433,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 71.33333333333333,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1388,8 +1449,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1399,8 +1460,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1410,8 +1471,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1421,8 +1482,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1432,8 +1493,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1443,8 +1504,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1454,8 +1515,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1465,8 +1526,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1476,8 +1537,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1487,8 +1548,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1498,8 +1559,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 71.33333333333333,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1514,8 +1575,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1525,8 +1586,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1536,8 +1597,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1547,8 +1608,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1558,8 +1619,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1569,8 +1630,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1580,8 +1641,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1591,8 +1652,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1602,8 +1663,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -1613,8 +1674,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 97.0,
         "dis_vol": 194.0,
         "asp_flow_rate": 15.0,
@@ -1628,7 +1689,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "Liquid_1",
         "targets": "mag_samples_s_2",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
@@ -1645,7 +1706,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 90.0,
@@ -1706,7 +1767,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "Liquid_1",
         "targets": "mag_samples_s_2",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
@@ -1718,7 +1779,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1733,7 +1794,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
+        "sources": "Liquid_1",
         "targets": "mag_samples_s_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1796,7 +1857,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1806,8 +1867,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1822,8 +1883,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -1884,8 +1945,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1895,8 +1956,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1911,8 +1972,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -1973,8 +2034,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -1984,8 +2045,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2000,8 +2061,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2062,8 +2123,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2073,8 +2134,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2089,8 +2150,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2151,8 +2212,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2171,8 +2232,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 68.88888888888889,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 50.0,
@@ -2187,8 +2248,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2198,8 +2259,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2209,8 +2270,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2220,8 +2281,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2236,8 +2297,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2247,8 +2308,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2258,8 +2319,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2269,8 +2330,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2285,8 +2346,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2296,8 +2357,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2307,8 +2368,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2318,8 +2379,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2334,8 +2395,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2345,8 +2406,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2356,8 +2417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2367,8 +2428,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2383,8 +2444,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2394,8 +2455,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2405,8 +2466,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2416,8 +2477,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2432,8 +2493,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2443,8 +2504,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2454,8 +2515,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -2465,8 +2526,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 93.33333333333333,
         "dis_vol": 186.66666666666666,
         "asp_flow_rate": 15.0,
@@ -2481,7 +2542,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wash2",
-        "targets": "mag_samples_s_2",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 90.0,
@@ -2496,7 +2557,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "Liquid_1",
         "targets": "wash2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -2559,7 +2620,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wash2",
-        "targets": "mag_samples_s_2",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 90.0,
@@ -2569,8 +2630,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "wash2",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2585,8 +2646,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "wash2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2647,8 +2708,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "wash2",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2658,8 +2719,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "wash2",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2674,8 +2735,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "wash2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2736,8 +2797,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "wash2",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2747,8 +2808,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2763,8 +2824,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2825,8 +2886,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2836,8 +2897,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2852,8 +2913,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -2914,8 +2975,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2925,8 +2986,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 96.66666666666667,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -2941,8 +3002,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 120.0,
@@ -3003,8 +3064,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 135.0,
         "dis_vol": 270.0,
         "asp_flow_rate": 120.0,
@@ -3023,8 +3084,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 50.0,
@@ -3039,8 +3100,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3050,8 +3111,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3061,8 +3122,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3072,8 +3133,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3083,8 +3144,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3099,8 +3160,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3110,8 +3171,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3121,8 +3182,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3132,8 +3193,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3143,8 +3204,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3159,8 +3220,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3170,8 +3231,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3181,8 +3242,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3192,8 +3253,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3203,8 +3264,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3219,8 +3280,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3230,8 +3291,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3241,8 +3302,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3252,8 +3313,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3263,8 +3324,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3279,8 +3340,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3290,8 +3351,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3301,8 +3362,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3312,8 +3373,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3323,8 +3384,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 75.55555555555556,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3339,8 +3400,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3350,8 +3411,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 103.33333333333333,
         "dis_vol": 206.66666666666666,
         "asp_flow_rate": 15.0,
@@ -3361,8 +3422,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 15.0,
@@ -3372,8 +3433,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 53.33333333333333,
         "dis_vol": 133.33333333333331,
         "asp_flow_rate": 15.0,
@@ -3392,8 +3453,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 52.5,
@@ -3425,8 +3486,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -3458,8 +3519,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -3491,8 +3552,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -3524,8 +3585,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -3557,8 +3618,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
-        "targets": "mag_samples_s_2",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -3599,7 +3660,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m",
         "asp_vol": 46.666666666666664,
         "dis_vol": 120.0,
@@ -3631,7 +3692,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_2",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_3",
         "asp_vol": 43.333333333333336,
         "dis_vol": 120.0,
@@ -3647,7 +3708,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_3",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_4",
         "asp_vol": 43.333333333333336,
         "dis_vol": 120.0,
@@ -3663,7 +3724,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_4",
+        "sources": "Liquid_1",
         "targets": "elution_samples_m_5",
         "asp_vol": 43.333333333333336,
         "dis_vol": 120.0,
@@ -3679,7 +3740,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_samples_s_2",
+        "sources": "elution_samples_m_5",
         "targets": "elution_samples_m_6",
         "asp_vol": 43.333333333333336,
         "dis_vol": 120.0,
@@ -3703,79 +3764,50 @@
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
-    "elution_samples_m_2": {
+    "Liquid_1": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
-    "elution_samples_m_3": {
+    "elution_samples_m_5": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
-    },
-    "elution_samples_m_4": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6"
-      ],
-      "labware": "Elution Plate"
-    },
-    "mag_samples_s_2": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "elution_samples_m_6": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "mag_samples_s": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "NucleoMag B-Beads"
+      ]
+    },
+    "mag_samples_s_2": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "A2",
+        "A4"
+      ]
     }
   }
 }

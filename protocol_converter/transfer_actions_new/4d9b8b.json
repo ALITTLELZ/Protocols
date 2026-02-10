@@ -1,9 +1,40 @@
 {
   "description": "This protocol drop casts a mixed solution of polymer to a silicon wafer. The protocol can be broken down into the following parts:\n\nMix 3 user-specified volumes (via CSV) of polymer in a mix plate.\nMix solutions, drop cast 1-1 transfer from mix plate onto silicon wafer.\n\nThe protocol begins by mixing 3 solutions of polymer (volumes of each respective solution specified by the user via a CSV file) in a 96 well plate, up to the number of samples specified. After a mix step, solutions are transferred 1-to-1 from the 96 well plate to the silicon wafer (A1 to A1, B1 to B1, etc.). The silicon wafer is treated as a 24, 48, or 96 well grid for this step, although in reality the surface is uniform.\nThe option to have various grid sizes is to vary spacing between drops. Depending on the solution volume, viscosity, dispense flow rate, and dispense height above the wafer, an appropriate grid can be chosen.  \nExplanation of complex parameters below:\n Number of Samples: Specify how many samples will be transferred onto the silicon wafer (number of wells).\n CSV: Upload a CSV which specifies transfer volumes of the three solutions to be mixed and added to the silicon wafer.\nThe CSV should be formatted like so:\nWell | Transfer Volume Solution 1 (ul) | Transfer Volume Solution 2 (ul) | Transfer Volume Solution 3 (ul) | Transfer Volume to Silicon Plate (ul)\nExample Row: A1, 5, 10, 3, 18\nThe first row should contain headers (like above). All following rows should just include necessary information. \nSamples will be referenced in this protocol, as well as referenced in the CSV in order by column (e.g. A1, B1, C1, etc.) up to the number of samples for the run. The first Well column in the CSV should thus be ordered, A1, B1, C1, etc. \n Dispense Height Above Wafer: Specify the height above the wafer to dispense mixed solution. Caution: a value of 0 returns the top of the wafer, with a value of 1 returning 1mm above the top of the wafer, for example. Negative numbers can also be passed (distance from top of the wafer) - use discretion to avoid tip crashing.\n Dispense Flow Rate: Specify the dispense flow rate of solution onto the silicon wafer.\n Mix Repetitions: Specify the number of times each well will be mixed in the mix well plate before being transferred onto the wafer.\n Mix Volume: Specify the volume at which each well be mixed.\n Initial Volume in Solution: Specify the initial volumes in all 3 tubes. This parameter is used for liquid tracking and ensuring the pipette is not submerged in solution.\n Delay after dispense before returning tip: Specify the amount of time (in seconds) before the tip is returned to the tip rack after dispense. Following the dispense, there will be a delay, then blow out and touch tip. \n* P20 Single Mount: Specify which mount the P20 is on (left or right).",
   "tags": [
-    "4d9b8b.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Corning 96 Well Plate 360 µL Flat on 1",
+      "slot": "1",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "8x20mL Vial Rack on 2",
+      "slot": "2",
+      "type": "lab_vial_rack_8x20ml_vials"
+    },
+    {
+      "name": "Custom Wafer 4x6 Plate on 3",
+      "slot": "3",
+      "type": "lab_wafer_6x4_grid"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -49,8 +80,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "sources": "tube",
+        "targets": "Liquid_1",
         "asp_vol": 2.3333333333333335,
         "dis_vol": 2.3333333333333335,
         "asp_flow_rate": 7.56,
@@ -86,8 +117,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "Liquid_1",
+        "targets": "Liquid_2",
         "asp_vol": 12.0,
         "dis_vol": 12.0,
         "asp_flow_rate": 7.56,
@@ -133,8 +164,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_4",
+        "sources": "tube",
+        "targets": "Liquid_3",
         "asp_vol": 2.0,
         "dis_vol": 2.0,
         "asp_flow_rate": 7.56,
@@ -170,8 +201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_4",
-        "targets": "Liquid_5",
+        "sources": "Liquid_3",
+        "targets": "Liquid_4",
         "asp_vol": 13.0,
         "dis_vol": 13.0,
         "asp_flow_rate": 7.56,
@@ -217,8 +248,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_6",
+        "sources": "tube",
+        "targets": "Liquid_5",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -254,8 +285,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_6",
-        "targets": "Liquid_7",
+        "sources": "Liquid_5",
+        "targets": "Liquid_6",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -301,8 +332,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_8",
+        "sources": "tube",
+        "targets": "Liquid_7",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -338,8 +369,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_8",
-        "targets": "Liquid_9",
+        "sources": "Liquid_7",
+        "targets": "Liquid_8",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -385,8 +416,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_10",
+        "sources": "tube",
+        "targets": "Liquid_9",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -422,8 +453,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_10",
-        "targets": "Liquid_11",
+        "sources": "Liquid_9",
+        "targets": "Liquid_10",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -469,8 +500,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_12",
+        "sources": "tube",
+        "targets": "Liquid_11",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -506,8 +537,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_12",
-        "targets": "Liquid_13",
+        "sources": "Liquid_11",
+        "targets": "Liquid_12",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -553,8 +584,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_14",
+        "sources": "tube",
+        "targets": "Liquid_13",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -590,8 +621,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_15",
+        "sources": "Liquid_13",
+        "targets": "Liquid_14",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -637,8 +668,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_16",
+        "sources": "tube",
+        "targets": "Liquid_15",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -674,8 +705,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_16",
-        "targets": "Liquid_17",
+        "sources": "Liquid_15",
+        "targets": "Liquid_16",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -721,8 +752,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_18",
+        "sources": "tube",
+        "targets": "Liquid_17",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -758,8 +789,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_18",
-        "targets": "Liquid_19",
+        "sources": "Liquid_17",
+        "targets": "Liquid_18",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -805,8 +836,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_20",
+        "sources": "tube",
+        "targets": "Liquid_19",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -842,8 +873,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_20",
-        "targets": "Liquid_21",
+        "sources": "Liquid_19",
+        "targets": "Liquid_20",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -889,8 +920,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_22",
+        "sources": "tube",
+        "targets": "Liquid_21",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -926,8 +957,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_22",
-        "targets": "Liquid_23",
+        "sources": "Liquid_21",
+        "targets": "Liquid_22",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -973,8 +1004,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_24",
+        "sources": "tube",
+        "targets": "Liquid_23",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1010,8 +1041,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_24",
-        "targets": "Liquid_25",
+        "sources": "Liquid_23",
+        "targets": "Liquid_24",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1057,8 +1088,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_26",
+        "sources": "tube",
+        "targets": "Liquid_25",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1094,8 +1125,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_26",
-        "targets": "Liquid_27",
+        "sources": "Liquid_25",
+        "targets": "Liquid_26",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1141,8 +1172,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_28",
+        "sources": "tube",
+        "targets": "Liquid_27",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1178,8 +1209,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_28",
-        "targets": "Liquid_29",
+        "sources": "Liquid_27",
+        "targets": "Liquid_28",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1225,8 +1256,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_30",
+        "sources": "tube",
+        "targets": "Liquid_29",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1262,8 +1293,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_30",
-        "targets": "Liquid_31",
+        "sources": "Liquid_29",
+        "targets": "Liquid_30",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1309,8 +1340,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_32",
+        "sources": "tube",
+        "targets": "Liquid_31",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1346,8 +1377,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_32",
-        "targets": "Liquid_33",
+        "sources": "Liquid_31",
+        "targets": "Liquid_32",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1393,8 +1424,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_34",
+        "sources": "tube",
+        "targets": "Liquid_33",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1430,8 +1461,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_34",
-        "targets": "Liquid_35",
+        "sources": "Liquid_33",
+        "targets": "Liquid_34",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1477,8 +1508,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_36",
+        "sources": "tube",
+        "targets": "Liquid_35",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1514,8 +1545,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_36",
-        "targets": "Liquid_37",
+        "sources": "Liquid_35",
+        "targets": "Liquid_36",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1561,8 +1592,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_38",
+        "sources": "tube",
+        "targets": "Liquid_37",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1598,8 +1629,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_38",
-        "targets": "Liquid_39",
+        "sources": "Liquid_37",
+        "targets": "Liquid_38",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1645,8 +1676,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_40",
+        "sources": "tube",
+        "targets": "Liquid_39",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1682,8 +1713,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_40",
-        "targets": "Liquid_41",
+        "sources": "Liquid_39",
+        "targets": "Liquid_40",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1729,8 +1760,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_42",
+        "sources": "tube",
+        "targets": "Liquid_41",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1766,8 +1797,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_42",
-        "targets": "Liquid_43",
+        "sources": "Liquid_41",
+        "targets": "Liquid_42",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1813,8 +1844,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_44",
+        "sources": "tube",
+        "targets": "Liquid_43",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1850,8 +1881,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_44",
-        "targets": "Liquid_45",
+        "sources": "Liquid_43",
+        "targets": "Liquid_44",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1897,8 +1928,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_46",
+        "sources": "tube",
+        "targets": "Liquid_45",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
         "asp_flow_rate": 7.56,
@@ -1934,8 +1965,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_46",
-        "targets": "Liquid_47",
+        "sources": "Liquid_45",
+        "targets": "Liquid_46",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
         "asp_flow_rate": 7.56,
@@ -1981,7 +2012,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "tube",
         "targets": "mix_well",
         "asp_vol": 7.666666666666667,
         "dis_vol": 7.666666666666667,
@@ -2024,7 +2055,7 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_1": {
       "slot": 1,
       "well": [
         "A1",
@@ -2051,10 +2082,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_4": {
+    "Liquid_3": {
       "slot": 1,
       "well": [
         "A1",
@@ -2081,10 +2111,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_6": {
+    "Liquid_5": {
       "slot": 1,
       "well": [
         "A1",
@@ -2111,10 +2140,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_8": {
+    "Liquid_7": {
       "slot": 1,
       "well": [
         "A1",
@@ -2141,10 +2169,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_10": {
+    "Liquid_9": {
       "slot": 1,
       "well": [
         "A1",
@@ -2171,10 +2198,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_12": {
+    "Liquid_11": {
       "slot": 1,
       "well": [
         "A1",
@@ -2201,10 +2227,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_14": {
+    "Liquid_13": {
       "slot": 1,
       "well": [
         "A1",
@@ -2231,10 +2256,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_16": {
+    "Liquid_15": {
       "slot": 1,
       "well": [
         "A1",
@@ -2261,10 +2285,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_18": {
+    "Liquid_17": {
       "slot": 1,
       "well": [
         "A1",
@@ -2291,10 +2314,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_20": {
+    "Liquid_19": {
       "slot": 1,
       "well": [
         "A1",
@@ -2321,10 +2343,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_22": {
+    "Liquid_21": {
       "slot": 1,
       "well": [
         "A1",
@@ -2351,10 +2372,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_24": {
+    "Liquid_23": {
       "slot": 1,
       "well": [
         "A1",
@@ -2381,10 +2401,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_26": {
+    "Liquid_25": {
       "slot": 1,
       "well": [
         "A1",
@@ -2411,10 +2430,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_28": {
+    "Liquid_27": {
       "slot": 1,
       "well": [
         "A1",
@@ -2441,10 +2459,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_30": {
+    "Liquid_29": {
       "slot": 1,
       "well": [
         "A1",
@@ -2471,10 +2488,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_32": {
+    "Liquid_31": {
       "slot": 1,
       "well": [
         "A1",
@@ -2501,10 +2517,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_34": {
+    "Liquid_33": {
       "slot": 1,
       "well": [
         "A1",
@@ -2531,10 +2546,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_36": {
+    "Liquid_35": {
       "slot": 1,
       "well": [
         "A1",
@@ -2561,10 +2575,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_38": {
+    "Liquid_37": {
       "slot": 1,
       "well": [
         "A1",
@@ -2591,10 +2604,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_40": {
+    "Liquid_39": {
       "slot": 1,
       "well": [
         "A1",
@@ -2621,10 +2633,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_42": {
+    "Liquid_41": {
       "slot": 1,
       "well": [
         "A1",
@@ -2651,10 +2662,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_44": {
+    "Liquid_43": {
       "slot": 1,
       "well": [
         "A1",
@@ -2681,10 +2691,9 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_46": {
+    "Liquid_45": {
       "slot": 1,
       "well": [
         "A1",
@@ -2711,8 +2720,7 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
     "mix_well": {
       "slot": 1,
@@ -2741,17 +2749,15 @@
         "F3",
         "G3",
         "H3"
-      ],
-      "labware": "Corning 96 Well Plate 360 µL Flat"
+      ]
     },
-    "Liquid_1": {
+    "tube": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "8x20mL Vial Rack"
+        "A3"
+      ]
     },
-    "Liquid_3": {
+    "Liquid_2": {
       "slot": 3,
       "well": [
         "A1",
@@ -2778,10 +2784,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_5": {
+    "Liquid_4": {
       "slot": 3,
       "well": [
         "A1",
@@ -2808,10 +2813,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_7": {
+    "Liquid_6": {
       "slot": 3,
       "well": [
         "A1",
@@ -2838,10 +2842,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_9": {
+    "Liquid_8": {
       "slot": 3,
       "well": [
         "A1",
@@ -2868,10 +2871,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_11": {
+    "Liquid_10": {
       "slot": 3,
       "well": [
         "A1",
@@ -2898,10 +2900,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_13": {
+    "Liquid_12": {
       "slot": 3,
       "well": [
         "A1",
@@ -2928,10 +2929,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_15": {
+    "Liquid_14": {
       "slot": 3,
       "well": [
         "A1",
@@ -2958,10 +2958,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_17": {
+    "Liquid_16": {
       "slot": 3,
       "well": [
         "A1",
@@ -2988,10 +2987,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_19": {
+    "Liquid_18": {
       "slot": 3,
       "well": [
         "A1",
@@ -3018,10 +3016,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_21": {
+    "Liquid_20": {
       "slot": 3,
       "well": [
         "A1",
@@ -3048,10 +3045,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_23": {
+    "Liquid_22": {
       "slot": 3,
       "well": [
         "A1",
@@ -3078,10 +3074,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_25": {
+    "Liquid_24": {
       "slot": 3,
       "well": [
         "A1",
@@ -3108,10 +3103,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_27": {
+    "Liquid_26": {
       "slot": 3,
       "well": [
         "A1",
@@ -3138,10 +3132,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_29": {
+    "Liquid_28": {
       "slot": 3,
       "well": [
         "A1",
@@ -3168,10 +3161,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_31": {
+    "Liquid_30": {
       "slot": 3,
       "well": [
         "A1",
@@ -3198,10 +3190,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_33": {
+    "Liquid_32": {
       "slot": 3,
       "well": [
         "A1",
@@ -3228,10 +3219,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_35": {
+    "Liquid_34": {
       "slot": 3,
       "well": [
         "A1",
@@ -3258,10 +3248,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_37": {
+    "Liquid_36": {
       "slot": 3,
       "well": [
         "A1",
@@ -3288,10 +3277,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_39": {
+    "Liquid_38": {
       "slot": 3,
       "well": [
         "A1",
@@ -3318,10 +3306,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_41": {
+    "Liquid_40": {
       "slot": 3,
       "well": [
         "A1",
@@ -3348,10 +3335,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_43": {
+    "Liquid_42": {
       "slot": 3,
       "well": [
         "A1",
@@ -3378,10 +3364,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_45": {
+    "Liquid_44": {
       "slot": 3,
       "well": [
         "A1",
@@ -3408,10 +3393,9 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
-    "Liquid_47": {
+    "Liquid_46": {
       "slot": 3,
       "well": [
         "A1",
@@ -3438,8 +3422,7 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     },
     "dest_well": {
       "slot": 3,
@@ -3468,8 +3451,7 @@
         "D4",
         "E4",
         "F4"
-      ],
-      "labware": "Custom Wafer 4x6 Plate"
+      ]
     }
   }
 }

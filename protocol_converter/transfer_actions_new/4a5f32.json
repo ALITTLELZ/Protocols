@@ -1,9 +1,50 @@
 {
   "description": "This protocol automates the purification of nucleic acids using magnetic beads. It can support up to 96 samples in multiples of 8 using the P300 Multichannel pipette. The purification process is performed using the magnetic module for the OT-2.\nExplanation of parameters below:\n\nP300 Multichannel GEN2 Mount Position: Specify which mount (left or right) to load the P300 single channel pipette.\nNumber of Samples: Total number of samples (multiples of 8).\nMagnet Engage Height (mm): The height the magnet should be raised in millimeters.",
   "tags": [
-    "4a5f32.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "Nucleic Acid Purification"
+  ],
+  "labware": [
+    {
+      "name": "Waste Reservoir on 1",
+      "slot": "1",
+      "type": "lab_starlab10ml24wellplate_24_wellplate_10000ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Elution Plate on 3",
+      "slot": "3",
+      "type": "lab_4titude_96_wellplate_200ul"
+    },
+    {
+      "name": "4ti-0960/C 96 Well Full Skirted Plate on Magnetic Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_4titude_96_wellplate_200ul"
+    },
+    {
+      "name": "Reagent Reservoir on 5",
+      "slot": "5",
+      "type": "lab_starlab_12_reservoir_22000ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -900,22 +941,19 @@
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "Waste Reservoir"
+      ]
     },
     "elution_plate_wells": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "Elution Plate"
+        "A12"
+      ]
     },
     "sample_plate_wells": {
       "slot": 4,
       "well": [
-        "A5"
-      ],
-      "labware": "4ti-0960/C 96 Well Full Skirted Plate on Magnetic Module GEN2"
+        "A3"
+      ]
     },
     "beads": {
       "slot": 5,
@@ -924,8 +962,7 @@
         "A3",
         "A4",
         "A5"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
     "Liquid_2": {
       "slot": 5,
@@ -934,8 +971,7 @@
         "A3",
         "A4",
         "A5"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
     "Liquid_3": {
       "slot": 5,
@@ -944,8 +980,7 @@
         "A3",
         "A4",
         "A5"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     },
     "elution_buff": {
       "slot": 5,
@@ -954,8 +989,7 @@
         "A3",
         "A4",
         "A5"
-      ],
-      "labware": "Reagent Reservoir"
+      ]
     }
   }
 }

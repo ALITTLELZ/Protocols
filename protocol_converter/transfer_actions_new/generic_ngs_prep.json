@@ -1,9 +1,65 @@
 {
   "description": "This protocol performs a generic NGS Library Prep. It utilizes up to three temperature modules in Slot 1, 4 and 7 for the cooling of reagents. It also utilizes the magnetic module for bead based purification of samples.\nExplanation of parameters below:\n P20 Multichannel GEN2 Mount Position: Choose the mount position of the P20 Multichannel GEN2 pipette. (left or right)\n P300 Multichannel GEN2 Mount Position: Choose the mount position of the P300 Multichannel GEN2 pipette. (left or right\n Number of Samples: Enter total number of samples in the protocol run. Note: Because both pipettes are 8-channels, the number of samples should be a multiple of 8 or close if possible, otherwise it will use up additional tips for an entire column.\n Temperature module in slot 1 (Optional parameter) Specify which temperature module to use in slot 1 (or None). This temperature module would allow the user to control the temperature of the sample plate in part 1 of the protocol.\n Temperature module in slot 1 (Optional parameter) Specify which temperature module to use in slot 4 (or None). This temperature module would allow the user to control the temperature of reagent plate 1 in part 1 of the protocol, and the primer plate in part 2.\n Temperature module in slot 7 (Optional parameter) Specify which temperature module to use in slot 7 (or None). This temperature module would allow the user to control the temperature of reagent plate 2 in part 1 of the protocol, and the Indexing plate in part 2.\n Sample plate The sample plate holds DNA samples and is the site of mixing with buffers and reagents in part 1.\n Reagent 1 plate The reagent 1 plate holds the first mixing reagent in column 1 (e.g. a buffer or an enzyme) to be mixed with the samples\n Reagent 2 plate The reagent 2 plate holds the second mixing reagent in column 1 (e.g. a buffer or an enzyme) to be mixed with the samples.\n Primer plate Contains primers to be mixed with DNA samples in step 2\n Reagent reservoir The (12 well) reservoir contains paramagnetic bead solution, PCR buffer, and PCR mastermix.\n Ethanol reservoir Ethanol solution for washing beads, e.g. 80:20 ethanol:water. Uses 180 µL per sample\n Number of Samples The number of DNA samples (up to 96)\n Temperature (deg C) for temperature module on slot x in part 1 These parameters for each of the temperature modules allow the user to set the temperatures for all/any temperature module in part 1.\n Temperature (deg C) for temperature module on slot x in part 2 These parameters for each of the temperature modules allow the user to set the temperatures for all/any temperature module in part 2.\n Volume of reagent 1 to add Volume of reagent 1 to add to samples, e.g. an enzyme or a reaction buffer\n Volume of reagent 2 to add Volume of reagent 2 to add to samples, e.g. an enzyme or a reaction buffer\n Ethanol wash volume The volume of ethanol solution to use for bead washing\n Mastermix volume Volume of PCR mastermix for the PCR reaction in step 2, this is added to the indexing plate\n Primer mix volume Volume of primer mix for the PCR reaction in step 2, this is added to the indexing plate\n Bead volume Volume of paramagnetic bead solution to use for cleaning up the DNA from the enzymatic reaction in part 1 of the protocol\n Elution buffer volume The volume of elution buffer to use for eluting the DNA after the ethanol cleanup\n Sample volume The initial volume of DNA on the sample plate\n DNA supernatant volume The volume of clean DNA to be transferred from the magnetic deck plate to the indexing plate to be used in the PCR reaction",
   "tags": [
-    "generic_ngs_prep.ot2.apiv2.py",
     "NGS Library Prep",
     "Generic"
+  ],
+  "labware": [
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Agilent 1 Well Reservoir 290 mL on 6",
+      "slot": "6",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2 on 7",
+      "slot": "7",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -895,7 +951,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 50.0,
@@ -973,7 +1029,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 180.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 50.0,
@@ -1076,7 +1132,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1112,7 +1168,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1148,7 +1204,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1184,7 +1240,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1220,7 +1276,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1256,7 +1312,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1292,7 +1348,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1328,7 +1384,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1364,7 +1420,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1400,7 +1456,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1436,7 +1492,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1481,7 +1537,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_8",
-        "targets": "mag_plate_wells_6",
+        "targets": "mag_plate_wells_12",
         "asp_vol": 21.0,
         "dis_vol": 21.0,
         "asp_flow_rate": 50.0,
@@ -1676,7 +1732,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "mag_plate_wells_6",
+        "sources": "mag_plate_wells_12",
         "targets": "indexing_plate_wells",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
@@ -1751,9 +1807,8 @@
     "sample_wells": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2"
+        "A5"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
@@ -1767,8 +1822,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_2": {
       "slot": 2,
@@ -1782,8 +1836,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_3": {
       "slot": 2,
@@ -1797,8 +1850,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_4": {
       "slot": 2,
@@ -1812,8 +1864,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_5": {
       "slot": 2,
@@ -1827,8 +1878,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_6": {
       "slot": 2,
@@ -1842,8 +1892,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_7": {
       "slot": 2,
@@ -1857,8 +1906,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_8": {
       "slot": 2,
@@ -1872,8 +1920,7 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "Liquid_9": {
       "slot": 2,
@@ -1887,36 +1934,31 @@
         "A9",
         "A10",
         "A12"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
-    "mag_plate_wells_6": {
+    "mag_plate_wells_12": {
       "slot": 3,
       "well": [
         "A1"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Magnetic Module GEN2"
+      ]
     },
     "reagent1": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2"
+      ]
     },
     "ethanol": {
       "slot": 6,
       "well": [
         "A1"
-      ],
-      "labware": "Agilent 1 Well Reservoir 290 mL"
+      ]
     },
     "indexing_plate_wells": {
       "slot": 7,
       "well": [
         "A1"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR on Temperature Module GEN2"
+      ]
     }
   }
 }

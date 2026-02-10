@@ -1,9 +1,30 @@
 {
   "description": "This protocol automates the serial dilution of two separate sample columns and also adds PBS buffer to the necessary wells. It will perform additional mixing steps before and after the addition of reagents. Each transfer performs a blow out in the destination well.\nSerial Dilution Plate Map:\n\nExplanation of parameters below:\n P300 Multichannel GEN2 Mount: Specify which mount (left or right) to load the P300 multi channel pipette.\n Reservoir Type: Specify the type of reservoir being used in Slot 1.\n Blowout Height from Well Bottom (mm): The height the blowout should occur from the bottom of the well. For example, a volume of 200 uL in this plate will have a height of approximately 5.4 mm from the bottom of the well.\n Mix Aspiration Flow Rate (uL/s): Flow rate when aspiration occurs in a mixing step.\n* Mix Dispensing Flow Rate (uL/s): Flow rate when dispensing occurs in a mixing step.",
   "tags": [
-    "7f9595.ot2.apiv2.py",
     "Sample Prep",
     "Serial Dilution"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Corning 96 Well Plate 360 µL Flat on 3",
+      "slot": "3",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -349,8 +370,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "p1",
-        "targets": "p1",
+        "sources": "p2",
+        "targets": "p2",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 94.0,
@@ -416,12 +437,11 @@
     }
   ],
   "reagent": {
-    "p1": {
+    "p2": {
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     }
   }
 }

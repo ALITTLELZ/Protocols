@@ -1,9 +1,60 @@
 {
   "description": "This protocol automates the MACHEREY-NAGEL NucleoMag® NGS double-size selection for flexible size selection.\nBefore beginning the protocol on the OT-2, the following preparation steps are needed:\n1. Fill the 12-Well Buffer Reservoir according to the table below.\n2. Resuspend the NucleoMag® NGS Bead suspension by vortexing.\n3. Load the instrument deck according to the displayed positions.\n4. Place the Square-well Block containing the lysates on the Magnetic Module and start the run.\nYou can access the full descripition of this workflow on the OT-2 by visiting this link: link",
   "tags": [
-    "macherey-nagel-nucleomag-size-select.ot2.apiv2.py",
     "NGS Library Prep",
     "MACHEREY-NAGEL Double-Size Select"
+  ],
+  "labware": [
+    {
+      "name": "Elution Plate on 1",
+      "slot": "1",
+      "type": "lab_96_elutionplate_ubottom_by_macherey_nagel"
+    },
+    {
+      "name": "300µl filtertiprack on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "300µl filtertiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "300µl filtertiprack on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "300µl filtertiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NucleoMag Buffers on 7",
+      "slot": "7",
+      "type": "lab_usascientific_12_reservoir_22ml"
+    },
+    {
+      "name": "empty tiprack for parking on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Separation Plate on Magnetic Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_96_elutionplate_ubottom_by_macherey_nagel"
+    },
+    {
+      "name": "Liquid Waste on 11",
+      "slot": "11",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1178,7 +1229,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "NGS_Beads",
+        "sources": "elution_buffer",
         "targets": "NGS_Beads",
         "asp_vol": 25.0,
         "dis_vol": 30.0,
@@ -1211,7 +1262,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "NGS_Beads",
+        "sources": "elution_buffer",
         "targets": "NGS_Beads",
         "asp_vol": 25.0,
         "dis_vol": 30.0,
@@ -1244,7 +1295,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "NGS_Beads",
+        "sources": "elution_buffer",
         "targets": "NGS_Beads",
         "asp_vol": 25.0,
         "dis_vol": 30.0,
@@ -1277,7 +1328,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "NGS_Beads",
+        "sources": "elution_buffer",
         "targets": "NGS_Beads",
         "asp_vol": 25.0,
         "dis_vol": 30.0,
@@ -1319,7 +1370,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_buffer",
+        "sources": "NGS_Beads",
         "targets": "elution_samples_m",
         "asp_vol": 23.333333333333332,
         "dis_vol": 50.0,
@@ -1335,7 +1386,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m",
+        "sources": "elution_buffer",
         "targets": "elution_samples_m_2",
         "asp_vol": 20.0,
         "dis_vol": 50.0,
@@ -1367,7 +1418,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "NGS_Beads",
+        "sources": "elution_buffer",
         "targets": "elution_samples_m_4",
         "asp_vol": 20.0,
         "dis_vol": 50.0,
@@ -1383,7 +1434,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_samples_m_4",
+        "sources": "elution_buffer",
         "targets": "elution_samples_m_5",
         "asp_vol": 20.0,
         "dis_vol": 50.0,
@@ -1399,7 +1450,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "elution_buffer",
+        "sources": "NGS_Beads",
         "targets": "elution_samples_m_6",
         "asp_vol": 20.0,
         "dis_vol": 50.0,
@@ -1418,92 +1469,55 @@
     }
   ],
   "reagent": {
-    "elution_samples_m": {
+    "elution_buffer": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "elution_samples_m_2": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "NGS_Beads": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
-    },
-    "elution_samples_m_4": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6"
-      ],
-      "labware": "Elution Plate"
-    },
-    "elution_buffer": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A2",
-        "A3",
-        "A4",
-        "A5",
-        "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "elution_samples_m_6": {
       "slot": 1,
       "well": [
         "A1",
         "A2",
-        "A3",
-        "A4",
         "A5",
         "A6"
-      ],
-      "labware": "Elution Plate"
+      ]
     },
     "wash2": {
       "slot": 7,
       "well": [
         "A1",
-        "A3"
-      ],
-      "labware": "NucleoMag Buffers"
+        "A3",
+        "A12"
+      ]
     },
     "Liquid_1": {
       "slot": 11,
       "well": [
         "A1"
-      ],
-      "labware": "Liquid Waste"
+      ]
     }
   }
 }

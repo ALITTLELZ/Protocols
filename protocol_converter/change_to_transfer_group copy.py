@@ -316,18 +316,6 @@ def load_protocol_metadata(protocol_name):
     description = ""
     tags = []
 
-    # --- 读取 metadata.json ---
-    metadata_file = os.path.join(proto_build_dir, "metadata.json")
-    if os.path.exists(metadata_file):
-        try:
-            with open(metadata_file, "r", encoding="utf-8") as f:
-                metadata = json.load(f)
-            ot2_protocols = metadata.get("files", {}).get("OT 2 protocol", [])
-            if isinstance(ot2_protocols, list):
-                tags.extend(ot2_protocols)
-        except Exception as e:
-            print(f"  ⚠️  读取 metadata.json 失败: {e}")
-
     # --- 读取 README.json ---
     readme_file = os.path.join(proto_build_dir, "README.json")
     if os.path.exists(readme_file):
@@ -357,6 +345,34 @@ def load_protocol_metadata(protocol_name):
             unique_tags.append(t)
 
     return description, unique_tags
+
+
+def load_labware_from_protobuild(protocol_name):
+    """从 protoBuilds/{name}/{name}.ot2.apiv2.py.json 中直接读取 labware 数组。
+
+    返回:
+        labware 列表，每个元素包含 name, slot, type 等字段。
+        如果读取失败则返回空列表。
+    """
+    try:
+        labware_json = get_labware_data(protocol_name)
+        labware_list = labware_json.get("labware", [])
+        if not isinstance(labware_list, list):
+            return []
+        # 只保留有用字段: name, slot, type（type 加上 lab_ 前缀）
+        result = []
+        for lw in labware_list:
+            raw_type = lw.get("type", "")
+            prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
+            result.append({
+                "name": lw.get("name", ""),
+                "slot": lw.get("slot", ""),
+                "type": prefixed_type,
+            })
+        return result
+    except Exception as e:
+        print(f"  ⚠️  读取 labware 失败: {e}")
+        return []
 
 
 def process_protocol(protocol_name):
@@ -767,21 +783,21 @@ def export_transfer_actions(protocol_name, output_file=None):
                     # 获取该液体在这个labware中的wells
                     wells = labware['liquid_input_wells'] if labware['liquid_input_wells'] else []
                     
-                    # 处理labware名称：去掉slot后缀并将下划线替换为空格
-                    labware_name = labware['id'].replace(f"_on_{labware['slot_on_deck']}", "").replace("_", " ")
-                    
                     reagents[liquid] = {
                         "slot": labware['slot_on_deck'],
                         "well": wells,
-                        "labware": labware_name
                     }
     
     # 加载 description 和 tags
     description, tags = load_protocol_metadata(protocol_name)
 
+    # 加载 labware 信息（从 protoBuilds 的 JSON 中直接复制）
+    labware_list = load_labware_from_protobuild(protocol_name)
+
     output_data = {
         "description": description,
         "tags": tags,
+        "labware": labware_list,
         "workflow": transfer_actions,
         "reagent": reagents
     }

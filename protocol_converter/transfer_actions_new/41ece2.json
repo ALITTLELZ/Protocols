@@ -1,9 +1,55 @@
 {
   "description": "Note: This protocol is a modified version of this drug dilution protocol. For a note on the differences, please see the note on modifications.\n\nThis protocol is an updated version of a drug dilution protocol designed with Protocol Designer.\n\nIn this protocol, the p300-multi channel pipette (GEN1) is used to transfer 100µL media to all of the columns of the three dilution plates (10uM, 1uM, and 0.1uM). When transferring the media, the same tips (column 1) will be used for all transfers, but after every four transfers, the pipette will return the tips to the tiprack and pick up them up again to ensure a good seal with the tips.\nAfter the media is added, the p10-multi channel pipette is used for the dilutions, transferring 10µL from a stock plate in slot 10, to the first dilution plate and so on... (using the same set of tip for each column of dilutions).\nFinally, the p300-multi will be used again, this time transferring 100µL from the reservoir in slot 11 to the three dilution plates. These transfers will follow the same pattern for tip usage as the earlier transfer with the p300-multi, but instead use the tips from column 2.\n\nModifications: In this modified version of the protocol, 100µL of media is added to columns 2-12 of the first two plates and 90µL of media is added to columns 2-12 of the last plate. When performing the dilution, only columns 2-11 are accessed, leaving column 1 completely empty and column 12 without drug. Finally, there is an optional parameter, Add Cells + Media?, that if selected, will add 100µL from the reservoir to columns 2-12 of the three dilution plates, 2mm above the dispense height of the original protocol, otherwise, the protocol will end after the dilution.\n\n\nUpdate: A new parameter - Number of Dilution Plates - has been added that will give the user the ability to choose 3 or 4 total dilution plates. This change also includes a change to the location of the labware.\n\n\nTo purchase tips, reagents, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nP300 Multi-Channel Pipette (GEN1)\nP10 Multi-Channel Pipette\nOpentrons 300µl Pipette Tips\nOpentrons 10µL Pipette Tips\nAxygen 1-Well Reservoir, 90mL\nCorning 96-Well Plate, 360µL Flat\n\n\n\nDeck Layout\n\nSlot 1: Corning 96-Well Plate (Drug Dilution 0.01µM), if using\n\nSlot 2: Axygen 1-Well Reservoir, 90mL (containing media, added to columns 2-12 of dilution plates)\n\nSlot 3: Opentrons 300µl Pipette tips\n\nSlot 4: Corning 96-Well Plate (Drug Dilution 0.1µM)\n\nSlot 5: Axygen 1-Well Reservoir, 90mL (containing cells, added to columns 2-12 of dilution plate), if using\n\nSlot 6: Opentrons 10µL Pipette Tips\n\nSlot 7: Corning 96-Well Plate (Drug Dilution 1µM)\n\nSlot 10: Corning 96-Well Plate (Drug Dilution 10µM)\n\nSlot 11: Corning 96-Well Plate (Drug Stock)",
   "tags": [
-    "41ece2.ot2.apiv2.py",
     "Sample Prep",
     "Serial Dilution"
+  ],
+  "labware": [
+    {
+      "name": "Media+IL-2+OKT3+CD28 on 2",
+      "slot": "2",
+      "type": "lab_axygen_1_reservoir_90ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Drug Dilution 0.1uM on 4",
+      "slot": "4",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Cells on 5",
+      "slot": "5",
+      "type": "lab_axygen_1_reservoir_90ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 10 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_10ul"
+    },
+    {
+      "name": "Drug Dilution 1uM on 7",
+      "slot": "7",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Drug Dilution 10uM on 10",
+      "slot": "10",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Drug Stock 200uM on 11",
+      "slot": "11",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -3825,8 +3871,7 @@
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "Media+IL-2+OKT3+CD28"
+      ]
     },
     "wells": {
       "slot": 4,
@@ -3842,8 +3887,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_2": {
       "slot": 4,
@@ -3859,8 +3903,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_3": {
       "slot": 4,
@@ -3876,8 +3919,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_4": {
       "slot": 4,
@@ -3893,8 +3935,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_5": {
       "slot": 4,
@@ -3910,8 +3951,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_6": {
       "slot": 4,
@@ -3927,8 +3967,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_7": {
       "slot": 4,
@@ -3944,8 +3983,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_8": {
       "slot": 4,
@@ -3961,8 +3999,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_9": {
       "slot": 4,
@@ -3978,8 +4015,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_10": {
       "slot": 4,
@@ -3995,8 +4031,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "wells_11": {
       "slot": 4,
@@ -4012,15 +4047,13 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 4.1uM"
+      ]
     },
     "Liquid_12": {
       "slot": 5,
       "well": [
         "A1"
-      ],
-      "labware": "Cells"
+      ]
     },
     "otherplates_12": {
       "slot": 7,
@@ -4036,8 +4069,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_13": {
       "slot": 7,
@@ -4053,8 +4085,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_14": {
       "slot": 7,
@@ -4070,8 +4101,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_15": {
       "slot": 7,
@@ -4087,8 +4117,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_16": {
       "slot": 7,
@@ -4104,8 +4133,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_17": {
       "slot": 7,
@@ -4121,8 +4149,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_18": {
       "slot": 7,
@@ -4138,8 +4165,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_19": {
       "slot": 7,
@@ -4155,8 +4181,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_20": {
       "slot": 7,
@@ -4172,8 +4197,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_21": {
       "slot": 7,
@@ -4189,8 +4213,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates_22": {
       "slot": 7,
@@ -4206,8 +4229,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 7uM"
+      ]
     },
     "otherplates": {
       "slot": 10,
@@ -4223,8 +4245,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_2": {
       "slot": 10,
@@ -4240,8 +4261,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_3": {
       "slot": 10,
@@ -4257,8 +4277,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_4": {
       "slot": 10,
@@ -4274,8 +4293,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_5": {
       "slot": 10,
@@ -4291,8 +4309,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_6": {
       "slot": 10,
@@ -4308,8 +4325,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_7": {
       "slot": 10,
@@ -4325,8 +4341,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_8": {
       "slot": 10,
@@ -4342,8 +4357,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_9": {
       "slot": 10,
@@ -4359,8 +4373,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_10": {
       "slot": 10,
@@ -4376,8 +4389,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "otherplates_11": {
       "slot": 10,
@@ -4393,8 +4405,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "Drug Dilution 10uM"
+      ]
     },
     "Liquid_2": {
       "slot": 11,
@@ -4409,8 +4420,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_3": {
       "slot": 11,
@@ -4425,8 +4435,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_4": {
       "slot": 11,
@@ -4441,8 +4450,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_5": {
       "slot": 11,
@@ -4457,8 +4465,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_6": {
       "slot": 11,
@@ -4473,8 +4480,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_7": {
       "slot": 11,
@@ -4489,8 +4495,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_8": {
       "slot": 11,
@@ -4505,8 +4510,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_9": {
       "slot": 11,
@@ -4521,8 +4525,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_10": {
       "slot": 11,
@@ -4537,8 +4540,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     },
     "Liquid_11": {
       "slot": 11,
@@ -4553,8 +4555,7 @@
         "A9",
         "A10",
         "A11"
-      ],
-      "labware": "Drug Stock 200uM"
+      ]
     }
   }
 }

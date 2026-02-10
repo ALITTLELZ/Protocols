@@ -1,9 +1,50 @@
 {
   "description": "This protocol uses single-channel P20 and P300 pipettes to normalize DNA concentrations of up to 96 input samples based on user input (input DNA sample concentration, target concentration, target volume) provided by csv file upload (see example file below). Intermediate dilutions are prepared as needed. A downloadable output file is generated to record calculated fold dilution, volume of sample and water transferred, if a sample was processed (or skipped due to insufficient input DNA concentration), and if an intermediate dilution was required.\nLinks:\n* example input csv\n\nValues for CSV file input:\n sample_id\n dna_conc_initial (ng/ul)\n dna_conc_target (ng/ul) 5-40 ng/uL\n volume_target (ul) 30-100 uL\n\nAdditional Calculated Values in CSV file output:\n fold dilution\n sample_transfer (ul)\n water_transfer (ul)\n processed (0 - sample was skipped, 1 - sample was processed)\n* intermediate_dilution (0 - intermediate dilution not required, 1 - intermediate dilution required)",
   "tags": [
-    "04f310.ot2.apiv2.py",
     "Sample Prep",
     "Normalization"
+  ],
+  "labware": [
+    {
+      "name": "10-Tube Rack with Water Source Tube on 1",
+      "slot": "1",
+      "type": "lab_opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical"
+    },
+    {
+      "name": "ouput plate on 5",
+      "slot": "5",
+      "type": "lab_redefinedbiorad_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "intermediate plate on 8",
+      "slot": "8",
+      "type": "lab_redefinedbiorad_96_wellplate_200ul"
+    },
+    {
+      "name": "bleach reservoir on 9",
+      "slot": "9",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "input plate on 11",
+      "slot": "11",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -5941,15 +5982,13 @@
       "slot": 1,
       "well": [
         "A4"
-      ],
-      "labware": "10-Tube Rack with Water Source Tube"
+      ]
     },
     "Liquid_1": {
       "slot": 5,
       "well": [
-        "E2"
-      ],
-      "labware": "ouput plate"
+        "B10"
+      ]
     },
     "Liquid_2": {
       "slot": 11,
@@ -6043,8 +6082,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_3": {
       "slot": 11,
@@ -6138,8 +6176,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_4": {
       "slot": 11,
@@ -6233,8 +6270,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_5": {
       "slot": 11,
@@ -6328,8 +6364,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_6": {
       "slot": 11,
@@ -6423,8 +6458,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_7": {
       "slot": 11,
@@ -6518,8 +6552,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_8": {
       "slot": 11,
@@ -6613,8 +6646,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_9": {
       "slot": 11,
@@ -6708,8 +6740,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_10": {
       "slot": 11,
@@ -6803,8 +6834,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_11": {
       "slot": 11,
@@ -6898,8 +6928,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_12": {
       "slot": 11,
@@ -6993,8 +7022,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_13": {
       "slot": 11,
@@ -7088,8 +7116,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_14": {
       "slot": 11,
@@ -7183,8 +7210,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_15": {
       "slot": 11,
@@ -7278,8 +7304,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_16": {
       "slot": 11,
@@ -7373,8 +7398,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_17": {
       "slot": 11,
@@ -7468,8 +7492,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_18": {
       "slot": 11,
@@ -7563,8 +7586,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_19": {
       "slot": 11,
@@ -7658,8 +7680,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_20": {
       "slot": 11,
@@ -7753,8 +7774,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_21": {
       "slot": 11,
@@ -7848,8 +7868,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_22": {
       "slot": 11,
@@ -7943,8 +7962,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_23": {
       "slot": 11,
@@ -8038,8 +8056,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_24": {
       "slot": 11,
@@ -8133,8 +8150,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_25": {
       "slot": 11,
@@ -8228,8 +8244,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_26": {
       "slot": 11,
@@ -8323,8 +8338,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_27": {
       "slot": 11,
@@ -8418,8 +8432,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_28": {
       "slot": 11,
@@ -8513,8 +8526,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_29": {
       "slot": 11,
@@ -8608,8 +8620,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_30": {
       "slot": 11,
@@ -8703,8 +8714,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_31": {
       "slot": 11,
@@ -8798,8 +8808,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_32": {
       "slot": 11,
@@ -8893,8 +8902,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_33": {
       "slot": 11,
@@ -8988,8 +8996,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_34": {
       "slot": 11,
@@ -9083,8 +9090,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_35": {
       "slot": 11,
@@ -9178,8 +9184,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_36": {
       "slot": 11,
@@ -9273,8 +9278,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_37": {
       "slot": 11,
@@ -9368,8 +9372,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_38": {
       "slot": 11,
@@ -9463,8 +9466,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_39": {
       "slot": 11,
@@ -9558,8 +9560,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_40": {
       "slot": 11,
@@ -9653,8 +9654,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_41": {
       "slot": 11,
@@ -9748,8 +9748,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_42": {
       "slot": 11,
@@ -9843,8 +9842,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_43": {
       "slot": 11,
@@ -9938,8 +9936,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_44": {
       "slot": 11,
@@ -10033,8 +10030,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_45": {
       "slot": 11,
@@ -10128,8 +10124,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_46": {
       "slot": 11,
@@ -10223,8 +10218,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_47": {
       "slot": 11,
@@ -10318,8 +10312,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_48": {
       "slot": 11,
@@ -10413,8 +10406,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_49": {
       "slot": 11,
@@ -10508,8 +10500,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_50": {
       "slot": 11,
@@ -10603,8 +10594,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_51": {
       "slot": 11,
@@ -10698,8 +10688,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_52": {
       "slot": 11,
@@ -10793,8 +10782,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_53": {
       "slot": 11,
@@ -10888,8 +10876,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_54": {
       "slot": 11,
@@ -10983,8 +10970,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_55": {
       "slot": 11,
@@ -11078,8 +11064,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_56": {
       "slot": 11,
@@ -11173,8 +11158,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_57": {
       "slot": 11,
@@ -11268,8 +11252,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_58": {
       "slot": 11,
@@ -11363,8 +11346,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_59": {
       "slot": 11,
@@ -11458,8 +11440,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_60": {
       "slot": 11,
@@ -11553,8 +11534,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_61": {
       "slot": 11,
@@ -11648,8 +11628,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_62": {
       "slot": 11,
@@ -11743,8 +11722,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_63": {
       "slot": 11,
@@ -11838,8 +11816,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_64": {
       "slot": 11,
@@ -11933,8 +11910,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_65": {
       "slot": 11,
@@ -12028,8 +12004,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_66": {
       "slot": 11,
@@ -12123,8 +12098,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_67": {
       "slot": 11,
@@ -12218,8 +12192,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_68": {
       "slot": 11,
@@ -12313,8 +12286,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_69": {
       "slot": 11,
@@ -12408,8 +12380,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_70": {
       "slot": 11,
@@ -12503,8 +12474,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_71": {
       "slot": 11,
@@ -12598,8 +12568,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_72": {
       "slot": 11,
@@ -12693,8 +12662,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_73": {
       "slot": 11,
@@ -12788,8 +12756,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_74": {
       "slot": 11,
@@ -12883,8 +12850,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_75": {
       "slot": 11,
@@ -12978,8 +12944,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_76": {
       "slot": 11,
@@ -13073,8 +13038,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_77": {
       "slot": 11,
@@ -13168,8 +13132,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_78": {
       "slot": 11,
@@ -13263,8 +13226,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_79": {
       "slot": 11,
@@ -13358,8 +13320,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_80": {
       "slot": 11,
@@ -13453,8 +13414,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_81": {
       "slot": 11,
@@ -13548,8 +13508,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_82": {
       "slot": 11,
@@ -13643,8 +13602,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_83": {
       "slot": 11,
@@ -13738,8 +13696,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_84": {
       "slot": 11,
@@ -13833,8 +13790,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_85": {
       "slot": 11,
@@ -13928,8 +13884,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_86": {
       "slot": 11,
@@ -14023,8 +13978,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_87": {
       "slot": 11,
@@ -14118,8 +14072,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_88": {
       "slot": 11,
@@ -14213,8 +14166,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_89": {
       "slot": 11,
@@ -14308,8 +14260,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     },
     "Liquid_90": {
       "slot": 11,
@@ -14403,8 +14354,7 @@
         "E12",
         "F12",
         "G12"
-      ],
-      "labware": "input plate"
+      ]
     }
   }
 }

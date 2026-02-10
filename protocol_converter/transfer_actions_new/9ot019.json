@@ -1,8 +1,34 @@
 {
   "description": "This is a flexible protocol for making glycerol stocks of E. coli cultures for long-term storage in a -80C freezer. The protocol expects that you've grown the strains in liquid culture to an acceptable optical density, and prepared a sterile solution of 50% glycerol, 50% deionized water.\nThe protocol loads 500ul of liquid culture and 500ul of glycerol into a cryo tube, which you should then cap, label, and store in your -80C freezer. By default, 3 replicates of each strain are made. The number of samples and the number of replicates can be changed and the protocol will automatically calculate the number of cryo tubes you need. The protocol will throw an error there are too many samples to fit on the deck.\nIn our experience, this protocol starts to become worth using if you have more than ~20 total samples. Less than that and it's faster to hand-pipette.\nWatchouts:\n- Make sure the de-cap all of your cryo tubes and the 50ml conical glycerol tube before running. If your liquid cultures are in tubes, de-cap those too.\n- The protocol comments will display the final platemap of the cryo tubes. Make sure to label your tubes before taking them out or closing the window.",
   "tags": [
-    "9ot019.ot2.apiv2.py",
     "General Liquid Handling"
+  ],
+  "labware": [
+    {
+      "name": "Cryo 35 Tube Rack with Nunc 1.8 mL on 8",
+      "slot": "8",
+      "type": "lab_cryo_35_tuberack_1800ul"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 9",
+      "slot": "9",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 10",
+      "slot": "10",
+      "type": "lab_opentrons_6_tuberack_falcon_50ml_conical"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -92,23 +118,20 @@
     "flat_well_list": {
       "slot": 8,
       "well": [
-        "E3"
-      ],
-      "labware": "Cryo 35 Tube Rack with Nunc 1.8 mL"
+        "E2"
+      ]
     },
     "source_list": {
       "slot": 9,
       "well": [
-        "C1"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+        "A1"
+      ]
     },
     "Liquid_1": {
       "slot": 10,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 6 Tube Rack with Falcon 10 mL Conical"
+      ]
     }
   }
 }

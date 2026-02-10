@@ -1,9 +1,35 @@
 {
   "description": "With this 6 part workflow, the OT-2 will follow ArcBio Continuous DNA Workflow - Pre-PCR Instrument experimental protocol and Post-PCR Instrument experimental protocol to convert up to 96 input DNA samples into DNA libraries. This is Part 5 of 6: This OT-2 protocol uses the DNA Continuous Workflow, Post-PCR Instrument section of attached experimental protocol to perform post indexing steps.",
   "tags": [
-    "78d33c-part-5.ot2.apiv2.py",
     "NGS Library Prep",
     "Custom"
+  ],
+  "labware": [
+    {
+      "name": "Reagents on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_aluminumblock_generic_pcr_strip_200ul"
+    },
+    {
+      "name": "Sample Plate at 4 Degrees on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_eppendorftwin.tec96_96_aluminumblock_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -234,7 +260,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "postindexcleanup_enz_mx",
-        "targets": "Liquid_1",
+        "targets": "column",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
@@ -309,15 +335,13 @@
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "Reagents"
+      ]
     },
-    "Liquid_1": {
+    "column": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "Sample Plate at 4 Degrees on Temperature Module GEN2"
+        "A12"
+      ]
     }
   }
 }

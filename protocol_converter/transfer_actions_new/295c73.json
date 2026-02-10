@@ -1,9 +1,55 @@
 {
   "description": "With this protocol, your OT-2 can prepare up to 24 libraries Swift accel-amplicon-plus-egfr-pathway-panel.\n\n\nTo purchase consumables, labware, or pipettes, please visit our online store or contact our sales team at info@opentrons.com\n\nOpentrons OT-2\nOpentrons OT-2 Run App (Version 3.15.0 or later)\nSwift accel-amplicon-plus-egfr-pathway-panel\nOpentrons Thermocycler Module\nOpentrons Temperature Module with Aluminum Block Set\nOpentrons Magnetic Module\nOpentrons P20 Single-Channel Pipette or Opentrons P50 Single-Channel Pipette*\nOpentrons P300 Multi-Channel Pipette\nOpentrons Tips\nNEST 96-Well PCR Plate\nNEST 12-Well Reservoir, 15mL\nDNA samples resuspended in 10 uL Low EDTA TE.\n\n\nUsing the customizations fields, below set up your protocol.\n* Number of Samples: Specify the number of samples (choose from 1 up to 24) you'd like to run.\nNote: Pre-cool the temperature module to 4 degrees C and pre-heat the thermocycler block (98) and thermocycler lid (105) using settings in the OT app prior to running this protocol. The initial DNA sample plate (with 10 ul samples in column order A1-H1, A2-H2 etc.) is placed on deck slot 1. The aluminum block on slot 5 should be pre-chilled for the master mix and again for the indexing reaction mix, otherwise at room temperature. After automated setup on the 4 degree temperature module, the PCR plate is manually transferred from the temperature module to the pre-heated 98 degree thermocycler block. The OT-2 deck lights will go off to signal pauses occurring when reagents are needed on the OT-2 deck. The final 20µL elution will be transferred to a fresh output plate on the temperature module and held at 4 degrees.",
   "tags": [
-    "295c73.ot2.apiv2.py",
     "NGS Library Prep",
     "Accel-Amplicon Plus EGFR Pathway Panel"
+  ],
+  "labware": [
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 2 mL Snapcap on 5",
+      "slot": "5",
+      "type": "lab_opentrons_24_aluminumblock_nest_2ml_snapcap"
+    },
+    {
+      "name": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN1 on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2 on 9",
+      "slot": "9",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -2948,8 +2994,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 70.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
@@ -2969,8 +3015,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -2995,8 +3041,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 70.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
@@ -3098,7 +3144,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -3118,8 +3164,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 70.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
@@ -3139,8 +3185,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 94.0,
@@ -3160,8 +3206,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
-        "targets": "peg_nacl",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 70.0,
         "dis_vol": 60.0,
         "asp_flow_rate": 94.0,
@@ -3181,7 +3227,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "peg_nacl",
+        "sources": "waste",
         "targets": "peg_nacl",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
@@ -5435,31 +5481,27 @@
     "pcr_setups": {
       "slot": 1,
       "well": [
-        "E3"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "C1"
+      ]
     },
     "mag_samps_indx": {
       "slot": 2,
       "well": [
         "A3"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "peg_nacl": {
       "slot": 5,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 2 mL Snapcap"
+      ]
     },
     "Liquid_1": {
       "slot": 7,
       "well": [
         "B3",
-        "A9"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
+        "A8"
+      ]
     }
   }
 }

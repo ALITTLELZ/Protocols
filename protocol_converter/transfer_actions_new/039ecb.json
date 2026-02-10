@@ -1,9 +1,55 @@
 {
   "description": "This protocol forms an automated NGS library prep for the NEBNext® Ultra™ II FS DNA Library Prep Kit for Illumina.",
   "tags": [
-    "1_end_prep.ot2.apiv2.py",
     "NGS Library Prep",
     "NEBNext® Ultra™ II FS DNA Library Prep Kit for Illumina"
+  ],
+  "labware": [
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "PCR plate on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "reagent plate on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -2177,7 +2223,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 55.0,
         "dis_vol": 100.0,
@@ -2193,7 +2239,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -2244,7 +2290,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 55.0,
         "dis_vol": 100.0,
@@ -2260,7 +2306,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -2315,7 +2361,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 18.5,
         "dis_vol": 27.0,
@@ -2438,7 +2484,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "samples_m_mag",
+        "sources": "Liquid_3",
         "targets": "samples_m_mag",
         "asp_vol": 27.0,
         "dis_vol": 27.0,
@@ -2531,25 +2577,22 @@
     "Liquid_3": {
       "slot": 1,
       "well": [
-        "A1",
-        "A4"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
+        "A2",
+        "A5"
+      ]
     },
     "samples_m_mag": {
       "slot": 1,
       "well": [
-        "A1",
-        "A4"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
+        "A2",
+        "A5"
+      ]
     },
     "samples_m_eluton": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "PCR plate"
+        "A3"
+      ]
     },
     "Liquid_1": {
       "slot": 3,
@@ -2557,8 +2600,7 @@
         "A1",
         "C1",
         "D1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2"
+      ]
     },
     "user": {
       "slot": 3,
@@ -2566,8 +2608,7 @@
         "A1",
         "C1",
         "D1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2"
+      ]
     },
     "mm": {
       "slot": 3,
@@ -2575,32 +2616,28 @@
         "A1",
         "C1",
         "D1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN2"
+      ]
     },
     "vahts_beads": {
       "slot": 4,
       "well": [
         "A1",
         "A3"
-      ],
-      "labware": "reagent plate"
+      ]
     },
     "Liquid_2": {
       "slot": 7,
       "well": [
-        "C2",
-        "E5"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
+        "B3",
+        "G4"
+      ]
     },
     "samples_s_tc": {
       "slot": 7,
       "well": [
-        "C2",
-        "E5"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module"
+        "B3",
+        "G4"
+      ]
     }
   }
 }

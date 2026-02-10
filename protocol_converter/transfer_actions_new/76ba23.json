@@ -1,9 +1,60 @@
 {
   "description": "Part 1 of 5: Extraction and clean-up of cell-free DNA from 96 plasma or saliva patient specimens.\nLinks:\n Part 1: DNA Extraction\n Part 2: Bisulfite Conversion\n Part 3: PCR1\n Part 4: PCR2\n* Part 5: Pooling\nWith this protocol, your robot will use reagents from the Zymoresearch EZ DNA Methylation-Gold Kit Zymoresearch EZ DNA Methylation-Gold Kit to perform the custom steps (DNA extraction, Bisulfite Conversion, PCR1, PCR2, Pooling) detailed in the HKG SOP.HKG SOP.\nThis is part 1 of the protocol: DNA Extraction.\nThis step performs the extraction and bead-clean up of 96 patient samples (plasma or saliva) listed in the sample manifest and follows the HKG SOP described above. A current sample manifest can be uploaded and integrated into this protocol by using the \"Uploaded CSV Copy of Sample Manifest\" parameter below. The OT-2 will read the sample type and sample volume from the uploaded manifest and then set up and perform the experimental steps accordingly.\nAfter the steps carried out in this protocol (part 1), proceed with part 2: Bisulfite Conversion.",
   "tags": [
-    "76ba23.ot2.apiv2.py",
     "NGS Library Prep",
     "Zymoresearch: EZ DNA Methylation-Gold Kit"
+  ],
+  "labware": [
+    {
+      "name": "USA Scientific 96 Deep Well Plate 2.4 mL on 1",
+      "slot": "1",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "USA Scientific 96 Deep Well Plate 2.4 mL on 2",
+      "slot": "2",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "Agilent 1 Well Reservoir 290 mL on 3",
+      "slot": "3",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "USA Scientific 96 Deep Well Plate 2.4 mL on 5",
+      "slot": "5",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "USA Scientific 96 Deep Well Plate 2.4 mL on Magnetic Module GEN1 on 7",
+      "slot": "7",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 10",
+      "slot": "10",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Agilent 1 Well Reservoir 290 mL on 11",
+      "slot": "11",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -3811,8 +3862,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3837,8 +3888,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3863,8 +3914,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3889,8 +3940,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3915,8 +3966,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3941,8 +3992,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3967,8 +4018,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3993,8 +4044,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4019,8 +4070,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4045,8 +4096,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4071,8 +4122,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -4097,8 +4148,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4128,8 +4179,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4154,8 +4205,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4180,8 +4231,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4206,8 +4257,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4232,8 +4283,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4258,8 +4309,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4284,8 +4335,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4310,8 +4361,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4336,8 +4387,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4362,8 +4413,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4388,8 +4439,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -4414,8 +4465,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4445,8 +4496,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4471,8 +4522,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4497,8 +4548,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4523,8 +4574,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4549,8 +4600,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4575,8 +4626,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4601,8 +4652,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4627,8 +4678,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4653,8 +4704,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4679,8 +4730,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4705,8 +4756,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -4731,8 +4782,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4762,8 +4813,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4788,8 +4839,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4814,8 +4865,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4840,8 +4891,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4866,8 +4917,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4892,8 +4943,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4918,8 +4969,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4944,8 +4995,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4970,8 +5021,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4996,8 +5047,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5022,8 +5073,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -5048,8 +5099,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5079,8 +5130,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5105,8 +5156,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5131,8 +5182,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5157,8 +5208,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5183,8 +5234,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5209,8 +5260,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5235,8 +5286,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5261,8 +5312,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5287,8 +5338,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5313,8 +5364,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5339,8 +5390,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -5365,8 +5416,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5396,8 +5447,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5422,8 +5473,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5448,8 +5499,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5474,8 +5525,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5500,8 +5551,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5526,8 +5577,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5552,8 +5603,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5578,8 +5629,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5604,8 +5655,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5630,8 +5681,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5656,8 +5707,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -5687,8 +5738,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5718,8 +5769,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5744,8 +5795,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5770,8 +5821,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5796,8 +5847,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5822,8 +5873,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5848,8 +5899,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5874,8 +5925,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5900,8 +5951,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5926,8 +5977,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5952,8 +6003,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5978,8 +6029,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -6004,8 +6055,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6035,8 +6086,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6061,8 +6112,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6087,8 +6138,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6113,8 +6164,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6139,8 +6190,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6165,8 +6216,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6191,8 +6242,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6217,8 +6268,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6243,8 +6294,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6269,8 +6320,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6295,8 +6346,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -6321,8 +6372,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6352,8 +6403,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6378,8 +6429,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6404,8 +6455,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6430,8 +6481,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6456,8 +6507,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6482,8 +6533,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6508,8 +6559,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6534,8 +6585,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6560,8 +6611,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6586,8 +6637,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6612,8 +6663,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -6638,8 +6689,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6669,8 +6720,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6695,8 +6746,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6721,8 +6772,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6747,8 +6798,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6773,8 +6824,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6799,8 +6850,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6825,8 +6876,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6851,8 +6902,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6877,8 +6928,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6903,8 +6954,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6929,8 +6980,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -6955,8 +7006,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -6986,8 +7037,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7012,8 +7063,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7038,8 +7089,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7064,8 +7115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7090,8 +7141,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7116,8 +7167,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7142,8 +7193,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7168,8 +7219,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7194,8 +7245,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7220,8 +7271,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7246,8 +7297,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7272,8 +7323,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7303,8 +7354,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7329,8 +7380,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7355,8 +7406,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7381,8 +7432,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7407,8 +7458,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7433,8 +7484,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7459,8 +7510,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7485,8 +7536,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7511,8 +7562,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7537,8 +7588,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -7563,8 +7614,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7589,8 +7640,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7620,8 +7671,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7651,8 +7702,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7682,8 +7733,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7713,8 +7764,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7744,8 +7795,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7775,8 +7826,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7806,8 +7857,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7837,8 +7888,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7868,8 +7919,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7899,8 +7950,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7930,8 +7981,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -7982,7 +8033,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
+        "sources": "waste",
         "targets": "Liquid_1",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -7998,7 +8049,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
+        "sources": "waste",
         "targets": "Liquid_1",
         "asp_vol": 132.85714285714286,
         "dis_vol": 132.85714285714286,
@@ -8026,8 +8077,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8057,8 +8108,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8083,8 +8134,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8109,8 +8160,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8135,8 +8186,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8161,8 +8212,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8187,8 +8238,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8213,8 +8264,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8239,8 +8290,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8265,8 +8316,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8291,8 +8342,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8317,8 +8368,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8343,8 +8394,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8374,8 +8425,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8400,8 +8451,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8426,8 +8477,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8452,8 +8503,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8478,8 +8529,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8504,8 +8555,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8530,8 +8581,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8556,8 +8607,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8582,8 +8633,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8608,8 +8659,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8634,8 +8685,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8660,8 +8711,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8691,8 +8742,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8717,8 +8768,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8743,8 +8794,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8769,8 +8820,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8795,8 +8846,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8821,8 +8872,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8847,8 +8898,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8873,8 +8924,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8899,8 +8950,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8925,8 +8976,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8951,8 +9002,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8982,8 +9033,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9013,8 +9064,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9039,8 +9090,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9065,8 +9116,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9091,8 +9142,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9117,8 +9168,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9143,8 +9194,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9169,8 +9220,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9195,8 +9246,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9221,8 +9272,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9247,8 +9298,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9273,8 +9324,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9299,8 +9350,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9330,8 +9381,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9356,8 +9407,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9382,8 +9433,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9408,8 +9459,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9434,8 +9485,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9460,8 +9511,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9486,8 +9537,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9512,8 +9563,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9538,8 +9589,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9564,8 +9615,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9590,8 +9641,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9616,8 +9667,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9647,8 +9698,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9673,8 +9724,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9699,8 +9750,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9725,8 +9776,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9751,8 +9802,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9777,8 +9828,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9803,8 +9854,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9829,8 +9880,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9855,8 +9906,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9881,8 +9932,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9907,8 +9958,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9933,8 +9984,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9964,8 +10015,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9990,8 +10041,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10016,8 +10067,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10042,8 +10093,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10068,8 +10119,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10094,8 +10145,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10120,8 +10171,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10146,8 +10197,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10172,8 +10223,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10198,8 +10249,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10224,8 +10275,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -10250,8 +10301,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10281,8 +10332,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10307,8 +10358,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10333,8 +10384,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10359,8 +10410,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10385,8 +10436,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10411,8 +10462,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10437,8 +10488,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10463,8 +10514,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10489,8 +10540,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10515,8 +10566,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10541,8 +10592,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -10567,8 +10618,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10598,8 +10649,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10624,8 +10675,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10650,8 +10701,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10676,8 +10727,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10702,8 +10753,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10728,8 +10779,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10754,8 +10805,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10780,8 +10831,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10806,8 +10857,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10832,8 +10883,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10858,8 +10909,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -10884,8 +10935,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10915,8 +10966,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10941,8 +10992,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10967,8 +11018,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -10993,8 +11044,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11019,8 +11070,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11045,8 +11096,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11071,8 +11122,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11097,8 +11148,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11123,8 +11174,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11149,8 +11200,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11175,8 +11226,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11201,8 +11252,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11232,8 +11283,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11258,8 +11309,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11284,8 +11335,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11310,8 +11361,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11336,8 +11387,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11362,8 +11413,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11388,8 +11439,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11414,8 +11465,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11440,8 +11491,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11466,8 +11517,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11492,8 +11543,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11518,8 +11569,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11549,8 +11600,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11575,8 +11626,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11601,8 +11652,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11627,8 +11678,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11653,8 +11704,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11679,8 +11730,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11705,8 +11756,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11731,8 +11782,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11757,8 +11808,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11783,8 +11834,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -11809,8 +11860,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11835,8 +11886,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11866,8 +11917,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11897,8 +11948,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11928,8 +11979,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11959,8 +12010,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -11990,8 +12041,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12021,8 +12072,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12052,8 +12103,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12083,8 +12134,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12114,8 +12165,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12145,8 +12196,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12176,8 +12227,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -12789,7 +12840,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_14",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 133.33333333333334,
         "asp_flow_rate": 60.0,
@@ -12873,7 +12924,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
+        "sources": "waste",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -13348,7 +13399,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_14",
+        "targets": "waste",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -13489,8 +13540,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13520,8 +13571,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13546,8 +13597,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13572,8 +13623,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -13598,8 +13649,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13629,8 +13680,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13655,8 +13706,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13681,8 +13732,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -13707,8 +13758,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13738,8 +13789,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13764,8 +13815,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13790,8 +13841,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -13821,8 +13872,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13852,8 +13903,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13878,8 +13929,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13904,8 +13955,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -13930,8 +13981,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13961,8 +14012,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -13987,8 +14038,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14013,8 +14064,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14039,8 +14090,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14070,8 +14121,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14096,8 +14147,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14122,8 +14173,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14148,8 +14199,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14179,8 +14230,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14205,8 +14256,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14231,8 +14282,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14257,8 +14308,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14288,8 +14339,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14314,8 +14365,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14340,8 +14391,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14366,8 +14417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14397,8 +14448,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14423,8 +14474,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14449,8 +14500,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14475,8 +14526,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14506,8 +14557,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14532,8 +14583,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14558,8 +14609,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14584,8 +14635,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14615,8 +14666,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14641,8 +14692,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14667,8 +14718,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14693,8 +14744,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14724,8 +14775,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14750,8 +14801,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14776,8 +14827,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -14797,8 +14848,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -14813,8 +14864,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 132.85714285714286,
         "dis_vol": 132.85714285714286,
         "asp_flow_rate": 60.0,
@@ -15063,8 +15114,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15094,8 +15145,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15120,8 +15171,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15146,8 +15197,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15177,8 +15228,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15203,8 +15254,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15229,8 +15280,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15260,8 +15311,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15286,8 +15337,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15312,8 +15363,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15343,8 +15394,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15369,8 +15420,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15395,8 +15446,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15426,8 +15477,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15452,8 +15503,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15478,8 +15529,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15509,8 +15560,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15535,8 +15586,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15561,8 +15612,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15592,8 +15643,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15618,8 +15669,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15644,8 +15695,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15675,8 +15726,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15701,8 +15752,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15727,8 +15778,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15758,8 +15809,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15784,8 +15835,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15810,8 +15861,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15841,8 +15892,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15867,8 +15918,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15893,8 +15944,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15924,8 +15975,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -15950,8 +16001,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -15976,8 +16027,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16007,8 +16058,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16033,8 +16084,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_14",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 133.33333333333334,
         "dis_vol": 100.0,
         "asp_flow_rate": 60.0,
@@ -16106,8 +16157,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16132,8 +16183,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16158,8 +16209,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16184,8 +16235,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16244,8 +16295,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16270,8 +16321,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16296,8 +16347,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16322,8 +16373,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16382,8 +16433,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16408,8 +16459,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16434,8 +16485,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16460,8 +16511,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16520,8 +16571,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16546,8 +16597,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16572,8 +16623,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16598,8 +16649,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16658,8 +16709,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16684,8 +16735,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16710,8 +16761,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16736,8 +16787,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16796,8 +16847,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16822,8 +16873,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16848,8 +16899,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16874,8 +16925,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -16934,8 +16985,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16960,8 +17011,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -16986,8 +17037,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17012,8 +17063,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17072,8 +17123,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17098,8 +17149,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17124,8 +17175,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17150,8 +17201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17210,8 +17261,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17236,8 +17287,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17262,8 +17313,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17288,8 +17339,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17348,8 +17399,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17374,8 +17425,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17400,8 +17451,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17426,8 +17477,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17486,8 +17537,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17512,8 +17563,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17538,8 +17589,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17564,8 +17615,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17624,8 +17675,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17650,8 +17701,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17676,8 +17727,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17702,8 +17753,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -17963,8 +18014,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "Liquid_14",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -17994,8 +18045,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18020,8 +18071,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18046,8 +18097,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18072,8 +18123,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18103,8 +18154,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18129,8 +18180,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18155,8 +18206,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18181,8 +18232,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18212,8 +18263,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18238,8 +18289,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18264,8 +18315,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18290,8 +18341,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18321,8 +18372,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18347,8 +18398,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18373,8 +18424,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18399,8 +18450,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18430,8 +18481,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18456,8 +18507,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18482,8 +18533,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18508,8 +18559,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18539,8 +18590,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18565,8 +18616,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18591,8 +18642,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18617,8 +18668,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18648,8 +18699,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18674,8 +18725,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18700,8 +18751,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18726,8 +18777,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18757,8 +18808,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18783,8 +18834,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18809,8 +18860,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18835,8 +18886,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18866,8 +18917,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18892,8 +18943,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18918,8 +18969,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -18944,8 +18995,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -18975,8 +19026,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19001,8 +19052,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19027,8 +19078,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19053,8 +19104,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19084,8 +19135,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19110,8 +19161,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19136,8 +19187,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19162,8 +19213,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19193,8 +19244,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19219,8 +19270,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19245,8 +19296,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19305,8 +19356,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19331,8 +19382,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19357,8 +19408,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19383,8 +19434,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19443,8 +19494,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19469,8 +19520,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19495,8 +19546,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19521,8 +19572,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19581,8 +19632,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19607,8 +19658,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19633,8 +19684,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19659,8 +19710,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19719,8 +19770,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19745,8 +19796,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19771,8 +19822,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19797,8 +19848,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19857,8 +19908,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19883,8 +19934,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19909,8 +19960,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -19935,8 +19986,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -19995,8 +20046,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20021,8 +20072,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20047,8 +20098,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20073,8 +20124,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20133,8 +20184,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20159,8 +20210,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20185,8 +20236,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20211,8 +20262,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20271,8 +20322,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20297,8 +20348,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20323,8 +20374,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20349,8 +20400,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20409,8 +20460,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20435,8 +20486,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20461,8 +20512,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20487,8 +20538,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20552,8 +20603,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20578,8 +20629,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20604,8 +20655,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20630,8 +20681,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20690,8 +20741,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20716,8 +20767,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20742,8 +20793,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20768,8 +20819,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -20828,8 +20879,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20854,8 +20905,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20880,8 +20931,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -20906,8 +20957,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21162,8 +21213,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21193,8 +21244,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21219,8 +21270,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21245,8 +21296,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21271,8 +21322,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21302,8 +21353,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21328,8 +21379,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21354,8 +21405,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21380,8 +21431,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21411,8 +21462,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21437,8 +21488,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21463,8 +21514,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21489,8 +21540,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21520,8 +21571,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21546,8 +21597,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21572,8 +21623,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21598,8 +21649,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21629,8 +21680,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21655,8 +21706,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21681,8 +21732,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21707,8 +21758,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21738,8 +21789,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21764,8 +21815,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21790,8 +21841,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21816,8 +21867,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21847,8 +21898,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21873,8 +21924,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21899,8 +21950,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -21925,8 +21976,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21956,8 +22007,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -21982,8 +22033,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22008,8 +22059,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -22034,8 +22085,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22065,8 +22116,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22091,8 +22142,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22117,8 +22168,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -22148,8 +22199,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22179,8 +22230,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22205,8 +22256,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22231,8 +22282,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -22257,8 +22308,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22288,8 +22339,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22314,8 +22365,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22340,8 +22391,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -22366,8 +22417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22397,8 +22448,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22423,8 +22474,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -22449,8 +22500,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 102.5,
         "dis_vol": 110.0,
         "asp_flow_rate": 60.0,
@@ -22475,8 +22526,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22506,8 +22557,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22537,8 +22588,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22568,8 +22619,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22599,8 +22650,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22630,8 +22681,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22661,8 +22712,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22692,8 +22743,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22723,8 +22774,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22754,8 +22805,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22785,8 +22836,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22816,8 +22867,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 91.25,
         "dis_vol": 65.0,
         "asp_flow_rate": 60.0,
@@ -22856,8 +22907,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "water",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 160.33333333333334,
         "dis_vol": 23.0,
         "asp_flow_rate": 60.0,
@@ -23076,8 +23127,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "water",
-        "targets": "etoh",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 135.0,
         "dis_vol": 23.0,
         "asp_flow_rate": 60.0,
@@ -23163,7 +23214,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "etoh",
+        "sources": "waste",
         "targets": "Liquid_15",
         "asp_vol": 23.0,
         "dis_vol": 23.0,
@@ -23239,7 +23290,7 @@
     }
   ],
   "reagent": {
-    "water": {
+    "waste": {
       "slot": 1,
       "well": [
         "A1",
@@ -23254,8 +23305,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_3": {
       "slot": 1,
@@ -23272,8 +23322,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_4": {
       "slot": 1,
@@ -23290,8 +23339,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_5": {
       "slot": 1,
@@ -23308,8 +23356,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_6": {
       "slot": 1,
@@ -23326,8 +23373,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_7": {
       "slot": 1,
@@ -23344,8 +23390,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_8": {
       "slot": 1,
@@ -23362,8 +23407,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_9": {
       "slot": 1,
@@ -23380,8 +23424,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_10": {
       "slot": 1,
@@ -23398,8 +23441,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_11": {
       "slot": 1,
@@ -23416,8 +23458,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_12": {
       "slot": 1,
@@ -23434,8 +23475,7 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_13": {
       "slot": 1,
@@ -23452,36 +23492,25 @@
         "A10",
         "A11",
         "A12"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
-    },
-    "etoh": {
-      "slot": 3,
-      "well": [
-        "A1"
-      ],
-      "labware": "Agilent 1 Well Reservoir 290 mL"
+        "A12"
+      ]
     },
     "Liquid_2": {
       "slot": 5,
       "well": [
-        "A10"
-      ],
-      "labware": "USA Scientific 96 Deep Well Plate 2.4 mL"
+        "A11"
+      ]
     },
     "Liquid_15": {
       "slot": 10,
       "well": [
-        "A10"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "A12"
+      ]
     }
   }
 }

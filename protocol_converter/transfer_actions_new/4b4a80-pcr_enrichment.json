@@ -1,9 +1,55 @@
 {
   "description": "Part 4 of 4: Enrichment, barcoding, and post-PCR clean up of size-selected DNA fragments\nLinks:\n Part 1: Fragmentation\n Part 2: Adapter Ligation\n Part 3: Size Selection\n Part 4: PCR Enrichment\nWith this protocol, your robot can perform the NEBNext Ultra II FS DNA Library Prep Kit for Illumina E6177S/L protocol described by the NEBNext E6177S/L. NEB Instruction Manual for NEBNext E6177S/L.\nThis is part 4 of the protocol: PCR enrichment\nThis step amplifies and barcodes the size-selected output from part 3, followed by a post-PCR cleanup.\nThis protocol assumes up to 24 input DNA samples of > 100 ng and follows Section 2 of the NEB Instruction Manual.\nAfter the pcr enrichment and cleanup steps carried out in this protocol, store samples at -20 C.",
   "tags": [
-    "4b4a80-pcr_enrichment.ot2.apiv2.py",
     "NGS Library Prep",
     "NEBNext Ultra II FS DNA Library Prep Kit for Illumina E6177S/L"
+  ],
+  "labware": [
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1 on 2",
+      "slot": "2",
+      "type": "lab_opentrons_24_aluminumblock_nest_0.5ml_screwcap"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 5",
+      "slot": "5",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -545,8 +591,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "i5",
-        "targets": "i5",
+        "sources": "mixture",
+        "targets": "mixture",
         "asp_vol": 59.13793103448276,
         "dis_vol": 59.13793103448276,
         "asp_flow_rate": 92.85999999999999,
@@ -1512,8 +1558,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "i5",
-        "targets": "post_pcr_sample",
+        "sources": "mixture",
+        "targets": "post_pcr_sample_m",
         "asp_vol": 45.0,
         "dis_vol": 45.0,
         "asp_flow_rate": 92.85999999999996,
@@ -1655,7 +1701,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "post_pcr_sample",
+        "targets": "post_pcr_sample_m",
         "asp_vol": 90.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 75.0,
@@ -1676,7 +1722,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "post_pcr_sample",
+        "targets": "post_pcr_sample_m",
         "asp_vol": 90.0,
         "dis_vol": 180.0,
         "asp_flow_rate": 75.0,
@@ -1757,7 +1803,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "te",
-        "targets": "post_pcr_sample",
+        "targets": "post_pcr_sample_m",
         "asp_vol": 33.0,
         "dis_vol": 33.0,
         "asp_flow_rate": 94.0,
@@ -1797,7 +1843,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "post_pcr_sample",
+        "sources": "post_pcr_sample_m",
         "targets": "eluted_samples_m",
         "asp_vol": 33.0,
         "dis_vol": 33.0,
@@ -1827,39 +1873,34 @@
     "eluted_samples_m": {
       "slot": 1,
       "well": [
-        "A1"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt"
+        "A2"
+      ]
     },
-    "i5": {
+    "mixture": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1"
+        "A4"
+      ]
     },
-    "post_pcr_sample": {
+    "post_pcr_sample_m": {
       "slot": 4,
       "well": [
-        "C1"
-      ],
-      "labware": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN2"
+        "A1"
+      ]
     },
     "etoh": {
       "slot": 5,
       "well": [
         "A1",
         "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "te": {
       "slot": 5,
       "well": [
         "A1",
         "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     }
   }
 }

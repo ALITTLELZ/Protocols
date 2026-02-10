@@ -1,9 +1,60 @@
 {
   "description": "This protocol runs the BACGene protocol for up to 96 target samples for listeria and/or salmonella pathogens. Upon upload to the Opentrons App, the user will be prompted with the volumes and positions of all labware and liquids on the OT-2 deck. Lysis buffer will automatically be prepped with enzyme addition when needed before distribution to the lysis buffer plate.",
   "tags": [
-    "bacgene.ot2.apiv2.py",
     "Sample Prep",
     "Screening"
+  ],
+  "labware": [
+    {
+      "name": "20ul tiprack on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "200ul tiprack on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "20ul tiprack on 4",
+      "slot": "4",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "lysis buffer, C+, enzymes on 6",
+      "slot": "6",
+      "type": "lab_opentrons_goldstandarddx_17_tuberack_lysis"
+    },
+    {
+      "name": "sample plate on 7",
+      "slot": "7",
+      "type": "lab_kingfisher_96_tuberack_1100ul"
+    },
+    {
+      "name": "PCR plate on 8",
+      "slot": "8",
+      "type": "lab_bioplasticsbv_96_aluminumblock_100ul"
+    },
+    {
+      "name": "200ul tiprack on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "lysis plate on Temperature Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_bioplasticsbv_96_aluminumblock_200ul"
+    },
+    {
+      "name": "20ul tiprack on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1428,7 +1479,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_3",
         "targets": "Liquid_4",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -1454,7 +1505,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_4",
         "targets": "Liquid_5",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -1480,7 +1531,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_5",
         "targets": "Liquid_6",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -1506,7 +1557,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_6",
+        "sources": "Liquid_1",
         "targets": "Liquid_7",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -1532,7 +1583,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_7",
+        "sources": "Liquid_1",
         "targets": "Liquid_8",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -1606,84 +1657,76 @@
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "B2",
+        "D2",
         "A1",
         "E1"
-      ],
-      "labware": "lysis buffer, C+, enzymes"
+      ]
     },
     "Liquid_8": {
       "slot": 6,
       "well": [
-        "B2",
+        "D2",
         "A1",
         "E1"
-      ],
-      "labware": "lysis buffer, C+, enzymes"
+      ]
     },
     "Liquid_9": {
       "slot": 6,
       "well": [
-        "B2",
+        "D2",
         "A1",
         "E1"
-      ],
-      "labware": "lysis buffer, C+, enzymes"
+      ]
     },
     "Liquid_2": {
       "slot": 7,
       "well": [
-        "A2"
-      ],
-      "labware": "sample plate"
+        "A12"
+      ]
     },
     "Liquid_3": {
       "slot": 8,
       "well": [
-        "A6",
-        "A7",
+        "A4",
+        "A8",
+        "A9",
         "A10",
-        "A11",
         "A12",
         "G12"
-      ],
-      "labware": "PCR plate"
+      ]
     },
-    "Liquid_6": {
+    "Liquid_4": {
       "slot": 8,
       "well": [
-        "A6",
-        "A7",
+        "A4",
+        "A8",
+        "A9",
         "A10",
-        "A11",
         "A12",
         "G12"
-      ],
-      "labware": "PCR plate"
+      ]
     },
-    "Liquid_7": {
+    "Liquid_5": {
       "slot": 8,
       "well": [
-        "A6",
-        "A7",
+        "A4",
+        "A8",
+        "A9",
         "A10",
-        "A11",
         "A12",
         "G12"
-      ],
-      "labware": "PCR plate"
+      ]
     },
     "Liquid_10": {
       "slot": 8,
       "well": [
-        "A6",
-        "A7",
+        "A4",
+        "A8",
+        "A9",
         "A10",
-        "A11",
         "A12",
         "G12"
-      ],
-      "labware": "PCR plate"
+      ]
     }
   }
 }

@@ -1,9 +1,65 @@
 {
   "description": "Part 2 of 5: Cell-free DNA (output from step 1) is chemically treated to convert unmethylated cytosine (C to T) in order to reveal patterns of methylated cytosine by DNA sequencing (methylated cytosine is protected and remains unchanged). This bisulfite conversion is followed by bead-clean up, elution, and transfer of the eluate to a fresh PCR plate.\nLinks:\n Part 1: DNA Extraction\n Part 2: Bisulfite Conversion\n Part 3: PCR1\n Part 4: PCR2\n* Part 5: Pooling\nWith this protocol, your robot will use reagents from the Zymoresearch EZ DNA Methylation-Gold Kit Zymoresearch EZ DNA Methylation-Gold Kit to perform the custom steps (DNA extraction, Bisulfite Conversion, PCR1, PCR2, Pooling) detailed in the HKG SOP.HKG SOP.\nThis is part 2 of the protocol: Bisulfite Conversion.\nThis step performs the bisulfite conversion and bead-clean up steps using the output samples from step 1 (DNA extraction).\nAfter the steps carried out in this protocol (part 2), proceed with part 3: PCR1.",
   "tags": [
-    "76ba23-bisulfite_conversion.ot2.apiv2.py",
     "NGS Library Prep",
     "Zymoresearch: EZ DNA Methylation-Gold Kit"
+  ],
+  "labware": [
+    {
+      "name": "CF DNA on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "CT Rxn Plate on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Reagent Reservoir(CT conv,Beads,Water) on 3",
+      "slot": "3",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Wash Buffer on 5",
+      "slot": "5",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Collection Plate on Magnetic Module GEN1 on 7",
+      "slot": "7",
+      "type": "lab_usascientific_96_wellplate_2.4ml_deep"
+    },
+    {
+      "name": "Desulph Buffer on 8",
+      "slot": "8",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Eluate on 10",
+      "slot": "10",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Waste on 11",
+      "slot": "11",
+      "type": "lab_agilent_1_reservoir_290ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -963,8 +1019,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -999,8 +1055,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1035,8 +1091,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1071,8 +1127,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -1092,8 +1148,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1174,7 +1230,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_5",
         "targets": "Liquid_6",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -1210,8 +1266,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1246,8 +1302,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1282,8 +1338,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1318,8 +1374,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -1339,8 +1395,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_1",
+        "targets": "Liquid_1",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1421,7 +1477,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_5",
         "targets": "Liquid_7",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -1457,8 +1513,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1493,8 +1549,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1529,8 +1585,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1565,8 +1621,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -1586,8 +1642,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_5",
+        "targets": "Liquid_5",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1668,7 +1724,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_5",
         "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -1704,8 +1760,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1740,8 +1796,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1776,8 +1832,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1812,8 +1868,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -1833,8 +1889,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1915,7 +1971,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_8",
         "targets": "Liquid_9",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -1951,8 +2007,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -1987,8 +2043,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2023,8 +2079,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2059,8 +2115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -2080,8 +2136,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_8",
+        "targets": "Liquid_8",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2162,7 +2218,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_8",
         "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -2198,8 +2254,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2234,8 +2290,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2270,8 +2326,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2306,8 +2362,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -2327,8 +2383,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2409,7 +2465,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_10",
         "targets": "Liquid_11",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -2445,8 +2501,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2481,8 +2537,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2517,8 +2573,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2553,8 +2609,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -2574,8 +2630,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_10",
+        "targets": "Liquid_10",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2656,7 +2712,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_10",
         "targets": "Liquid_12",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -2692,8 +2748,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_12",
+        "targets": "Liquid_12",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2728,8 +2784,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_12",
+        "targets": "Liquid_12",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2764,8 +2820,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_12",
+        "targets": "Liquid_12",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2800,8 +2856,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_12",
+        "targets": "Liquid_12",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -2821,8 +2877,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_12",
+        "targets": "Liquid_12",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2903,7 +2959,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_12",
         "targets": "Liquid_13",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -2939,8 +2995,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_13",
+        "targets": "Liquid_13",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -2975,8 +3031,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_13",
+        "targets": "Liquid_13",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3011,8 +3067,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_13",
+        "targets": "Liquid_13",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3047,8 +3103,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_13",
+        "targets": "Liquid_13",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -3068,8 +3124,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "Liquid_13",
+        "targets": "Liquid_13",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3150,7 +3206,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "Liquid_13",
         "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -3186,8 +3242,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3222,8 +3278,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3258,8 +3314,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3294,8 +3350,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -3315,8 +3371,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3366,7 +3422,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "column",
         "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
@@ -3397,8 +3453,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3423,8 +3479,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3449,8 +3505,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3475,8 +3531,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3501,8 +3557,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -3527,8 +3583,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3558,8 +3614,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3584,8 +3640,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3610,8 +3666,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3636,8 +3692,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3662,8 +3718,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -3688,8 +3744,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3719,8 +3775,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3745,8 +3801,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3771,8 +3827,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3797,8 +3853,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3823,8 +3879,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -3849,8 +3905,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3880,8 +3936,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3906,8 +3962,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3932,8 +3988,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3958,8 +4014,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -3984,8 +4040,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4010,8 +4066,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4041,8 +4097,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4067,8 +4123,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4093,8 +4149,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4119,8 +4175,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4145,8 +4201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4171,8 +4227,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4202,8 +4258,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4228,8 +4284,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4254,8 +4310,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4280,8 +4336,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4306,8 +4362,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4332,8 +4388,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4363,8 +4419,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4389,8 +4445,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4415,8 +4471,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4441,8 +4497,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4467,8 +4523,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4493,8 +4549,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4524,8 +4580,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4550,8 +4606,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4576,8 +4632,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4602,8 +4658,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4628,8 +4684,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4654,8 +4710,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4685,8 +4741,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4711,8 +4767,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4737,8 +4793,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4763,8 +4819,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4789,8 +4845,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4815,8 +4871,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4846,8 +4902,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4872,8 +4928,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4898,8 +4954,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4924,8 +4980,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -4950,8 +5006,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -4976,8 +5032,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5007,8 +5063,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5033,8 +5089,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5059,8 +5115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5085,8 +5141,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5111,8 +5167,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -5137,8 +5193,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5168,8 +5224,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5194,8 +5250,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5220,8 +5276,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5246,8 +5302,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -5272,8 +5328,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 103.33333333333333,
         "dis_vol": 10.0,
         "asp_flow_rate": 60.0,
@@ -5346,7 +5402,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wash",
-        "targets": "beads_mm",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5371,8 +5427,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5397,8 +5453,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -5457,8 +5513,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5483,8 +5539,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5509,8 +5565,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -5569,8 +5625,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5595,8 +5651,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5621,8 +5677,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -5681,8 +5737,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5707,8 +5763,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5733,8 +5789,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -5793,8 +5849,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5819,8 +5875,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5845,8 +5901,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -5905,8 +5961,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5931,8 +5987,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -5957,8 +6013,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6017,8 +6073,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6043,8 +6099,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6069,8 +6125,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6129,8 +6185,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6155,8 +6211,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6181,8 +6237,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6241,8 +6297,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6267,8 +6323,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6293,8 +6349,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6353,8 +6409,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6379,8 +6435,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6405,8 +6461,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6465,8 +6521,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6491,8 +6547,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6517,8 +6573,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "waste",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -6577,8 +6633,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "waste",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6603,8 +6659,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -6629,8 +6685,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7145,8 +7201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7176,8 +7232,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7202,8 +7258,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7228,8 +7284,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7259,8 +7315,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7285,8 +7341,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7311,8 +7367,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7342,8 +7398,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7368,8 +7424,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7394,8 +7450,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7425,8 +7481,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7451,8 +7507,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7477,8 +7533,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7508,8 +7564,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7534,8 +7590,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7560,8 +7616,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7591,8 +7647,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7617,8 +7673,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7643,8 +7699,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7674,8 +7730,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7700,8 +7756,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7726,8 +7782,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7757,8 +7813,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7783,8 +7839,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7809,8 +7865,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7840,8 +7896,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7866,8 +7922,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7892,8 +7948,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7923,8 +7979,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -7949,8 +8005,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -7975,8 +8031,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -8006,8 +8062,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -8032,8 +8088,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -8058,8 +8114,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -8089,8 +8145,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -8115,8 +8171,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -8149,8 +8205,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 81.90666666666667,
@@ -8180,8 +8236,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8206,8 +8262,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8232,8 +8288,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8258,8 +8314,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8284,8 +8340,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8310,8 +8366,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8336,8 +8392,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8362,8 +8418,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8388,8 +8444,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8414,8 +8470,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8440,8 +8496,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8466,8 +8522,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8492,8 +8548,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8518,8 +8574,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8544,8 +8600,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8570,8 +8626,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8596,8 +8652,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8622,8 +8678,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8648,8 +8704,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8674,8 +8730,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8700,8 +8756,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -8726,8 +8782,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -8752,8 +8808,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9273,8 +9329,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9304,8 +9360,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9330,8 +9386,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9361,8 +9417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9387,8 +9443,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9418,8 +9474,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9444,8 +9500,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9475,8 +9531,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9501,8 +9557,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9532,8 +9588,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9558,8 +9614,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9589,8 +9645,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9615,8 +9671,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9646,8 +9702,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9672,8 +9728,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9703,8 +9759,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9729,8 +9785,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9760,8 +9816,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9786,8 +9842,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9817,8 +9873,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9843,8 +9899,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9874,8 +9930,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9900,8 +9956,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 150.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 60.0,
@@ -9931,8 +9987,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 116.66666666666667,
         "dis_vol": 50.0,
         "asp_flow_rate": 60.0,
@@ -9999,8 +10055,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10025,8 +10081,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10051,8 +10107,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10111,8 +10167,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10137,8 +10193,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10163,8 +10219,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10223,8 +10279,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10249,8 +10305,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10275,8 +10331,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10335,8 +10391,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10361,8 +10417,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10387,8 +10443,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10447,8 +10503,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10473,8 +10529,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10499,8 +10555,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10559,8 +10615,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10585,8 +10641,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10611,8 +10667,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10671,8 +10727,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10697,8 +10753,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10723,8 +10779,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10783,8 +10839,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10809,8 +10865,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10835,8 +10891,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -10895,8 +10951,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10921,8 +10977,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -10947,8 +11003,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11007,8 +11063,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11033,8 +11089,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11059,8 +11115,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11119,8 +11175,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11145,8 +11201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11171,8 +11227,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11236,8 +11292,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11262,8 +11318,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11288,8 +11344,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11799,8 +11855,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11830,8 +11886,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11856,8 +11912,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11882,8 +11938,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11913,8 +11969,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11939,8 +11995,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -11965,8 +12021,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -11996,8 +12052,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12022,8 +12078,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12048,8 +12104,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12079,8 +12135,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12105,8 +12161,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12131,8 +12187,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12162,8 +12218,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12188,8 +12244,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12214,8 +12270,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12245,8 +12301,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12271,8 +12327,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12297,8 +12353,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12328,8 +12384,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12354,8 +12410,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12380,8 +12436,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12411,8 +12467,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12437,8 +12493,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12463,8 +12519,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12494,8 +12550,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12520,8 +12576,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12546,8 +12602,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12577,8 +12633,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12603,8 +12659,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12629,8 +12685,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12660,8 +12716,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12686,8 +12742,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12717,8 +12773,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12748,8 +12804,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12774,8 +12830,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12842,8 +12898,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12868,8 +12924,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12894,8 +12950,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -12954,8 +13010,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -12980,8 +13036,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13006,8 +13062,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13066,8 +13122,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13092,8 +13148,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13118,8 +13174,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13178,8 +13234,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13204,8 +13260,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13230,8 +13286,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13290,8 +13346,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13316,8 +13372,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13342,8 +13398,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13402,8 +13458,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13428,8 +13484,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13454,8 +13510,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13514,8 +13570,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13540,8 +13596,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13566,8 +13622,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13626,8 +13682,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13652,8 +13708,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13678,8 +13734,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13738,8 +13794,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13764,8 +13820,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13790,8 +13846,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13850,8 +13906,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13876,8 +13932,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13902,8 +13958,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -13962,8 +14018,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -13988,8 +14044,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14014,8 +14070,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14074,8 +14130,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 75.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14100,8 +14156,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14126,8 +14182,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14642,8 +14698,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 100.0,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14673,8 +14729,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14699,8 +14755,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14725,8 +14781,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14756,8 +14812,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14782,8 +14838,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14808,8 +14864,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14839,8 +14895,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14865,8 +14921,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14891,8 +14947,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14922,8 +14978,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -14948,8 +15004,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -14974,8 +15030,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15005,8 +15061,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15031,8 +15087,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15057,8 +15113,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15088,8 +15144,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15114,8 +15170,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15140,8 +15196,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15171,8 +15227,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15197,8 +15253,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15223,8 +15279,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15254,8 +15310,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15280,8 +15336,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15306,8 +15362,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15337,8 +15393,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15363,8 +15419,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15389,8 +15445,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15420,8 +15476,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15446,8 +15502,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15472,8 +15528,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15503,8 +15559,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15529,8 +15585,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15555,8 +15611,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15586,8 +15642,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 112.5,
         "dis_vol": 150.0,
         "asp_flow_rate": 92.86,
@@ -15612,8 +15668,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 111.25,
         "dis_vol": 145.0,
         "asp_flow_rate": 92.86,
@@ -15662,8 +15718,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 108.33333333333333,
         "dis_vol": 25.0,
         "asp_flow_rate": 92.86,
@@ -15699,8 +15755,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
-        "targets": "beads_mm",
+        "sources": "column",
+        "targets": "column",
         "asp_vol": 25.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 92.86,
@@ -15780,7 +15836,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "beads_mm",
+        "sources": "column",
         "targets": "Liquid_14",
         "asp_vol": 25.0,
         "dis_vol": 25.0,
@@ -15855,31 +15911,125 @@
     "Liquid_2": {
       "slot": 1,
       "well": [
+        "A5"
+      ]
+    },
+    "column": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
         "A11"
-      ],
-      "labware": "CF DNA"
+      ]
+    },
+    "Liquid_10": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
+    },
+    "Liquid_1": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
+    },
+    "Liquid_5": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
     },
     "beads_mm": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "CT Rxn Plate"
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
+    },
+    "Liquid_8": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
+    },
+    "Liquid_12": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
+    },
+    "Liquid_13": {
+      "slot": 2,
+      "well": [
+        "A12",
+        "A8",
+        "A4",
+        "A3",
+        "A1",
+        "A7",
+        "A10",
+        "A11"
+      ]
     },
     "ct_conv": {
       "slot": 3,
       "well": [
         "A1",
         "A2"
-      ],
-      "labware": "Reagent Reservoir(CT conv,Beads,Water)"
+      ]
     },
     "Liquid_14": {
       "slot": 10,
       "well": [
-        "A10"
-      ],
-      "labware": "Eluate"
+        "A12"
+      ]
     }
   }
 }

@@ -1,8 +1,44 @@
 {
   "description": "This protocol will prepare and run a standard Endpoint-PCR with the opentrons Cycler Module (only tested with Gen1). It aims to provide sufficient flexibility in terms of sample and replicate numbers to avoid the need of multiple similar protocols.\nKey benefits of the protocol are:\n The master mixes will be prepared in 50 ml falcons and all reagents and samples can be provided in 1.5 ml tubes.\n Thus, no manual pipetting steps are involved.\n Up to 12 different template samples can be used with up to 3 different master mixes.\n Only the p300 and p20 pipettes are needed.\n* Needed volumes of the different reagents are calculated and shown in run tab.\nNotes:\n A no-template control (NTC) will be automatically added for each master mix.\n The first well of every master mix will always be in row A. If the sample number + NTC is not a multiple of 8, the remaining wells of the last column will be left empty to have an easier plate layout.\n* (e.g. You have 2 master mixes, 4 samples and 1 replicate each. The last well of master mix 1 will be E1 (NTC control). Master mix 2 will now be added to the wells A2 - E2, skipping the remaining wells of column 1. This is meant to make it less confusing down the road.)",
   "tags": [
-    "02pnzp.ot2.apiv2.py",
     "DNA/RNA"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Screwcap on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_screwcap"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 6",
+      "slot": "6",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Thermocycler Module on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Opentrons 10 Tube Rack with Falcon 4x50 mL, 6x15 mL Conical on 9",
+      "slot": "9",
+      "type": "lab_opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -40,7 +76,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 180.95000000000002,
         "dis_vol": 180.95000000000002,
@@ -127,7 +163,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 177.69230769230774,
         "dis_vol": 177.69230769230774,
@@ -155,7 +191,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 154.0,
         "dis_vol": 154.0,
@@ -237,7 +273,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 177.69230769230774,
         "dis_vol": 177.69230769230774,
@@ -265,7 +301,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 154.0,
         "dis_vol": 154.0,
@@ -351,7 +387,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "complete_MMs",
         "asp_vol": 30.800000000000004,
         "dis_vol": 30.800000000000004,
@@ -464,7 +500,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "Liquid_1",
         "asp_vol": 2.0,
         "dis_vol": 1.0,
@@ -538,7 +574,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "Liquid_1",
         "asp_vol": 2.0,
         "dis_vol": 1.0,
@@ -2065,7 +2101,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "primers_fw",
+        "sources": "primers_rev",
         "targets": "Liquid_1",
         "asp_vol": 2.0,
         "dis_vol": 1.0,
@@ -2234,49 +2270,43 @@
       "well": [
         "A1",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Screwcap on Temperature Module GEN2"
+      ]
     },
-    "primers_fw": {
+    "primers_rev": {
       "slot": 3,
       "well": [
         "A1",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "mgcl2": {
       "slot": 6,
       "well": [
-        "A1",
+        "B1",
         "D2",
-        "A4"
-      ],
-      "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
+        "A5"
+      ]
     },
     "sample_tubes": {
       "slot": 6,
       "well": [
-        "A1",
+        "B1",
         "D2",
-        "A4"
-      ],
-      "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
+        "A5"
+      ]
     },
     "Liquid_1": {
       "slot": 7,
       "well": [
-        "E7"
-      ],
-      "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Thermocycler Module"
+        "B9"
+      ]
     },
     "complete_MMs": {
       "slot": 9,
       "well": [
         "A3",
         "A4"
-      ],
-      "labware": "Opentrons 10 Tube Rack with Falcon 9x50 mL, 6x15 mL Conical"
+      ]
     }
   }
 }

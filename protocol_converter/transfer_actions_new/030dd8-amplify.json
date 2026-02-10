@@ -1,9 +1,45 @@
 {
   "description": "This protocol does stuff!",
   "tags": [
-    "amplify.ot2.apiv2.py",
     "Broad Category",
     "Specific Category"
+  ],
+  "labware": [
+    {
+      "name": "COV1 plate on 1",
+      "slot": "1",
+      "type": "lab_agilentwithnonskirted_96_wellplate_200ul"
+    },
+    {
+      "name": "cDNA plate on 2",
+      "slot": "2",
+      "type": "lab_agilentwithnonskirted_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "reagent plate on Temperature Module GEN2 on 4",
+      "slot": "4",
+      "type": "lab_quantgene_96_aluminumblock_200ul"
+    },
+    {
+      "name": "COV2 plate on 5",
+      "slot": "5",
+      "type": "lab_agilentwithnonskirted_96_wellplate_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -29,7 +65,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "s",
         "targets": "Liquid_1",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
@@ -98,7 +134,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mm",
-        "targets": "Liquid_3",
+        "targets": "Liquid_2",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 7.599999999999999,
@@ -113,8 +149,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "s",
+        "targets": "Liquid_2",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 7.599999999999999,
@@ -183,39 +219,34 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "COV1 plate"
+        "A5"
+      ]
     },
-    "Liquid_2": {
+    "s": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "cDNA plate"
+        "A12"
+      ]
     },
     "mm1": {
       "slot": 4,
       "well": [
-        "A4",
-        "A5"
-      ],
-      "labware": "reagent plate on Temperature Module GEN2"
+        "A3",
+        "A6"
+      ]
     },
     "mm": {
       "slot": 4,
       "well": [
-        "A4",
-        "A5"
-      ],
-      "labware": "reagent plate on Temperature Module GEN2"
+        "A3",
+        "A6"
+      ]
     },
-    "Liquid_3": {
+    "Liquid_2": {
       "slot": 5,
       "well": [
-        "A10"
-      ],
-      "labware": "COV2 plate"
+        "A11"
+      ]
     }
   }
 }

@@ -1,9 +1,70 @@
 {
   "description": "This protocol performs the Lexogen QuantSeq 3'mRNA FWD NGS library prep for up to 96 samples.\n\n\n\nNEST 0.1mL 96-well PCR plates, full skirt\nOpentrons 4-in-1 tuberack set with 4x6 insert holding NEST 1.5mL microcentrifuge tubes\nOpentrons magnetic module\nOpentrons temperature module with 4x6 aluminum block holding NEST 1.5mL microcentrifuge tubes\nOpentrons P20 GEN2 single-channel electronic pipette\nOpentrons P300 multi-channel electronic pipette\nOpentrons 10/20µl tipracks\nOpentrons 50/300µl tipracks\n\n\n\n4x6 tuberack (slot 2):\n tube A1: RS\n tube A2: SS1\n* tube A3: SS2\n4x6 aluminum block on temperature module (slot 7):\n tube A1: FS1\n tube A2: FS2/E1\n tube A3: PB\n tube A4: EB\n tube A5: PS\n tube A6: PCR/E3",
   "tags": [
-    "ngs_library_prep.ot2.apiv2.py",
     "NGS Library Prep",
     "Lexogen QuantSeq"
+  ],
+  "labware": [
+    {
+      "name": "final output plate (load empty) on 1",
+      "slot": "1",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "reagent tuberack with 1.5ml snapcap tubes on 2",
+      "slot": "2",
+      "type": "lab_opentrons_24_tuberack_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "reagent reservoir on 3",
+      "slot": "3",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "NEST 96 Well Plate 100 µL PCR Full Skirt on Magnetic Module GEN1 on 4",
+      "slot": "4",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "SP2 (load empty) on 5",
+      "slot": "5",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN1 on 7",
+      "slot": "7",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "index plate on 8",
+      "slot": "8",
+      "type": "lab_nest_96_wellplate_100ul_pcr_full_skirt"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 20 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_tiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -3273,7 +3334,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "fs2e1",
+        "sources": "fs1",
         "targets": "magsamples_s",
         "asp_vol": 7.5,
         "dis_vol": 7.5,
@@ -9142,7 +9203,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "ss1",
+        "sources": "ss2",
         "targets": "magsamples_s",
         "asp_vol": 6.666666666666667,
         "dis_vol": 6.666666666666667,
@@ -28388,86 +28449,76 @@
     "output": {
       "slot": 1,
       "well": [
-        "B2"
-      ],
-      "labware": "final output plate (load empty)"
+        "C1"
+      ]
     },
-    "ss1": {
+    "ss2": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "reagent tuberack with 1.5ml snapcap tubes"
+        "A3"
+      ]
     },
     "magsamples_s": {
       "slot": 3,
       "well": [
         "A1",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "Liquid_1": {
       "slot": 3,
       "well": [
         "A1",
         "A12"
-      ],
-      "labware": "reagent reservoir"
+      ]
     },
     "samples2_s": {
       "slot": 5,
       "well": [
-        "E2"
-      ],
-      "labware": "SP2 (load empty)"
+        "B10"
+      ]
     },
-    "fs2e1": {
+    "fs1": {
       "slot": 7,
       "well": [
-        "A2",
+        "A1",
         "A3",
         "A5",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN1"
+      ]
     },
     "pb": {
       "slot": 7,
       "well": [
-        "A2",
+        "A1",
         "A3",
         "A5",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN1"
+      ]
     },
     "ps": {
       "slot": 7,
       "well": [
-        "A2",
+        "A1",
         "A3",
         "A5",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN1"
+      ]
     },
     "pcre3": {
       "slot": 7,
       "well": [
-        "A2",
+        "A1",
         "A3",
         "A5",
         "A6"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on Temperature Module GEN1"
+      ]
     },
     "indexes": {
       "slot": 8,
       "well": [
-        "C11"
-      ],
-      "labware": "index plate"
+        "F9"
+      ]
     }
   }
 }

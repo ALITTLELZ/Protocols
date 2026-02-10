@@ -1,9 +1,45 @@
 {
   "description": "Note: This is an updated version (apiV1 to apiV2) of this protocol\nThis protocol is designed for running tests with the Arcis Blood Kit with Opentrons Multi-Channel Pipettes and a 12-channel trough. (further instructions about the protocol can be found here). With the Arcis Blood Kit, nucleic acid investigations can be performed easily and efficiently with the two included reagents. This protocol calls for the use of a P50-Multi and P300-Multi pipettes, as well as a 12-channel reservoir (USA Scientific), Corning 96-well, 360μL flat plate, and two Bioplastics 100μL plates.\n\n\n\nArcis Blood Kit\nOpentrons P50 Multi-Channel Pipette\nOpentrons P300 Multi-Channel Pipette\nOpentrons 50uL/300uL Tips\nUSA Scientific 12-Channel Reservoir\nCorning 96-Well Plate 360µL, Flat\nBioplastics 8-Tube Strip Mat, 100µL\nSamples\n\n\n\nSlot 1: Corning 360µL Plate, clean and empty\nSlot 2: Bioplastics Plate (in holder), clean and empty\nSlot 3: Bioplastics Plate (in holder), clean and empty\nSlot 4: 12-Channel Reservoir\n Channel 1: Reagent 1 (150µL per sample, 15mL for full plate)\n Channel 2: Reagent 2 (20µL per sample, 2mL for full plate)\n Channel 3: MasterMix (20µL per sample, 2mL for full plate)\n Channel 4: Sample (30µL per sample, 3mL for full plate)\nSlot 5: Opentrons Tips\nSlot 6: Opentrons Tips",
   "tags": [
-    "arcis-multi-test.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "Arcis Blood Kit"
+  ],
+  "labware": [
+    {
+      "name": "Corning Plate on 1",
+      "slot": "1",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Bioplastics Plate 1 on 2",
+      "slot": "2",
+      "type": "lab_bioplastics_96_wellplate_100ul"
+    },
+    {
+      "name": "Bioplastics Plate 2 on 3",
+      "slot": "3",
+      "type": "lab_bioplastics_96_wellplate_100ul"
+    },
+    {
+      "name": "Reservoir on 4",
+      "slot": "4",
+      "type": "lab_usascientific_12_reservoir_22ml"
+    },
+    {
+      "name": "Tips on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Tips on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -128,7 +164,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mm",
-        "targets": "bp2",
+        "targets": "Liquid_1",
         "asp_vol": 20.0,
         "dis_vol": 20.0,
         "asp_flow_rate": 25.0,
@@ -148,7 +184,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "bp1",
-        "targets": "bp2",
+        "targets": "Liquid_1",
         "asp_vol": 5.0,
         "dis_vol": 5.0,
         "asp_flow_rate": 25.0,
@@ -192,23 +228,20 @@
     "cp": {
       "slot": 1,
       "well": [
-        "A3"
-      ],
-      "labware": "Corning Plate"
+        "A5"
+      ]
     },
     "bp1": {
       "slot": 2,
       "well": [
-        "A2"
-      ],
-      "labware": "Bioplastics Plate 1"
+        "A4"
+      ]
     },
-    "bp2": {
+    "Liquid_1": {
       "slot": 3,
       "well": [
-        "A6"
-      ],
-      "labware": "Bioplastics Plate 2"
+        "A12"
+      ]
     },
     "reagent1": {
       "slot": 4,
@@ -217,8 +250,7 @@
         "A2",
         "A4",
         "A3"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "reagent2": {
       "slot": 4,
@@ -227,8 +259,7 @@
         "A2",
         "A4",
         "A3"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "sample": {
       "slot": 4,
@@ -237,8 +268,7 @@
         "A2",
         "A4",
         "A3"
-      ],
-      "labware": "Reservoir"
+      ]
     },
     "mm": {
       "slot": 4,
@@ -247,8 +277,7 @@
         "A2",
         "A4",
         "A3"
-      ],
-      "labware": "Reservoir"
+      ]
     }
   }
 }

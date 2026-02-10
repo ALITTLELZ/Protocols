@@ -1,9 +1,65 @@
 {
   "description": "This protocol uses a p300 multi-channel and p300 single-channel pipette to transfer up to 57 samples plus serial dilutions of IgG, IgM and IgE standards to 384-well ELISA plates.\nLinks:\n* plate layout and process steps\nThis protocol was developed to transfer up to 57 samples from eppendorf tubes in 24 tube racks to 96-well sample prep plates, then transfer and serially dilute IgG, IgM and IgE standards in a sample prep plate, followed by transfer of samples and serial dilutions to three 384-well ELISA plates. The sample arrangment for the tube racks, sample prep plates and ELISA plates is shown in the attached excel spreadsheet.",
   "tags": [
-    "39bbbb.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "24 Tube Rack on 1",
+      "slot": "1",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Sample Plate on 2",
+      "slot": "2",
+      "type": "lab_corning_96_wellplate_320ul"
+    },
+    {
+      "name": "ELISA Plate on 3",
+      "slot": "3",
+      "type": "lab_thermo_384_wellplate_50ul"
+    },
+    {
+      "name": "24 Tube Rack on 4",
+      "slot": "4",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Sample Plate on 5",
+      "slot": "5",
+      "type": "lab_corning_96_wellplate_320ul"
+    },
+    {
+      "name": "ELISA Plate on 6",
+      "slot": "6",
+      "type": "lab_thermo_384_wellplate_50ul"
+    },
+    {
+      "name": "24 Tube Rack on 7",
+      "slot": "7",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "ELISA Plate on 9",
+      "slot": "9",
+      "type": "lab_thermo_384_wellplate_50ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -2119,7 +2175,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
-        "targets": "Liquid_22",
+        "targets": "column",
         "asp_vol": 100.0,
         "dis_vol": 25.0,
         "asp_flow_rate": 94.0,
@@ -2136,357 +2192,25 @@
     "Liquid_1": {
       "slot": 1,
       "well": [
-        "D2"
-      ],
-      "labware": "24 Tube Rack"
+        "C1"
+      ]
     },
     "Liquid_2": {
       "slot": 2,
       "well": [
-        "D4",
-        "B8"
-      ],
-      "labware": "Sample Plate"
+        "H5",
+        "C7"
+      ]
     },
     "Liquid_4": {
       "slot": 2,
       "well": [
-        "D4",
-        "B8"
-      ],
-      "labware": "Sample Plate"
+        "H5",
+        "C7"
+      ]
     },
     "Liquid_6": {
       "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_7": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_8": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_9": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_10": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_11": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_12": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_13": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_14": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_15": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_16": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_17": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_18": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_19": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_20": {
-      "slot": 3,
-      "well": [
-        "A2",
-        "B1",
-        "A6",
-        "B6",
-        "A7",
-        "B9",
-        "A12",
-        "B12",
-        "A13",
-        "B13",
-        "A17",
-        "B18",
-        "A21",
-        "B21",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_3": {
-      "slot": 4,
-      "well": [
-        "D5"
-      ],
-      "labware": "24 Tube Rack"
-    },
-    "Liquid_5": {
-      "slot": 5,
-      "well": [
-        "E9"
-      ],
-      "labware": "Sample Plate"
-    },
-    "Liquid_21": {
-      "slot": 6,
       "well": [
         "A3",
         "B1",
@@ -2494,38 +2218,348 @@
         "B5",
         "A8",
         "B9",
-        "A11",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_7": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_8": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_9": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_10": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_11": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_12": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_13": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_14": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_15": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_16": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_17": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_18": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_19": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_20": {
+      "slot": 3,
+      "well": [
+        "A3",
+        "B1",
+        "A4",
+        "B5",
+        "A8",
+        "B9",
+        "A12",
+        "B11",
+        "A13",
+        "B13",
+        "A16",
+        "B16",
+        "A20",
+        "B19",
+        "A23"
+      ]
+    },
+    "Liquid_3": {
+      "slot": 4,
+      "well": [
+        "A1"
+      ]
+    },
+    "Liquid_5": {
+      "slot": 5,
+      "well": [
+        "B7"
+      ]
+    },
+    "Liquid_21": {
+      "slot": 6,
+      "well": [
+        "A1",
+        "B1",
+        "A5",
+        "B6",
+        "A8",
+        "B7",
+        "A12",
+        "B10",
+        "A13",
+        "B15",
+        "A18",
+        "B16",
+        "A19",
+        "B19",
+        "B24"
+      ]
+    },
+    "column": {
+      "slot": 9,
+      "well": [
+        "A3",
+        "B2",
+        "A4",
+        "B6",
+        "A9",
+        "B7",
+        "A10",
         "B12",
         "A14",
         "B13",
         "A17",
-        "B16",
-        "A19",
-        "B19",
-        "A24"
-      ],
-      "labware": "ELISA Plate"
-    },
-    "Liquid_22": {
-      "slot": 9,
-      "well": [
-        "A1",
-        "B3",
-        "A5",
-        "B4",
-        "A7",
-        "B7",
-        "A12",
-        "B11",
-        "A15",
-        "B15",
-        "A18",
         "B17",
-        "A19",
-        "B20",
-        "B23"
-      ],
-      "labware": "ELISA Plate"
+        "A21",
+        "B21",
+        "A24"
+      ]
     }
   }
 }

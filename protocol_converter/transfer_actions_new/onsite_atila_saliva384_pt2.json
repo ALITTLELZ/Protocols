@@ -1,9 +1,70 @@
 {
   "description": "This protocol transfer SRM and saliva sample to a 384 well plate with one mix repetition. 4 plates are loaded into one 384 well plate. If running less than 4 full plates, SRM will still be transferred to the last two wells in the 384 well plate (controls). NOTE: positive and negative controls are to be added manually after the protocol into the last two wells. See below for plate setup.\n\nExplanation of complex parameters below:\n Number of Samples: Specify the number of samples for each plate.\n Reaction plate: Specify whether using the non-skirted or half-skirted reaction plate on slot 9. Slot 8 should always use a non-skirted plate.\n* P20 Pipette Mount: Specify which mount (left or right) to host the P20 Single and Multi-Channel Pipettes.",
   "tags": [
-    "onsite_atila_saliva384_pt2.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "the SAMPLE PLATE on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_aluminumblock_120ul"
+    },
+    {
+      "name": "the SAMPLE PLATE on 2",
+      "slot": "2",
+      "type": "lab_biorad_96_aluminumblock_120ul"
+    },
+    {
+      "name": "the 384 PCR PLATE on 3",
+      "slot": "3",
+      "type": "lab_biorad_384_wellplate_50ul"
+    },
+    {
+      "name": "the SAMPLE PLATE on 4",
+      "slot": "4",
+      "type": "lab_biorad_96_aluminumblock_120ul"
+    },
+    {
+      "name": "the SAMPLE PLATE on 5",
+      "slot": "5",
+      "type": "lab_biorad_96_aluminumblock_120ul"
+    },
+    {
+      "name": "20uL TIPRACK on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "20uL TIPRACK on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "20uL TIPRACK on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "NEST 96 Deepwell Plate 2mL on 9",
+      "slot": "9",
+      "type": "lab_nest_96_wellplate_2ml_deep"
+    },
+    {
+      "name": "20uL TIPRACK on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "20uL TIPRACK on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -1425,62 +1486,54 @@
     "Liquid_3": {
       "slot": 1,
       "well": [
-        "A11",
-        "G12"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A5",
+        "C12"
+      ]
     },
     "Liquid_4": {
       "slot": 1,
       "well": [
-        "A11",
-        "G12"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A5",
+        "C12"
+      ]
     },
     "source_cols": {
       "slot": 2,
       "well": [
-        "A2",
-        "B12"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A8",
+        "A12"
+      ]
     },
     "Liquid_5": {
       "slot": 2,
       "well": [
-        "A2",
-        "B12"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A8",
+        "A12"
+      ]
     },
     "quadrant_by_col_2": {
       "slot": 3,
       "well": [
         "B1"
-      ],
-      "labware": "the 384 PCR PLATE"
+      ]
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "A5"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A3"
+      ]
     },
     "Liquid_2": {
       "slot": 5,
       "well": [
-        "A10"
-      ],
-      "labware": "the SAMPLE PLATE"
+        "A11"
+      ]
     },
     "srm": {
       "slot": 9,
       "well": [
         "A1"
-      ],
-      "labware": "NEST 96 Deepwell Plate 2mL"
+      ]
     }
   }
 }

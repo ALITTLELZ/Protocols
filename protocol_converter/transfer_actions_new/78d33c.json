@@ -1,9 +1,70 @@
 {
   "description": "With this 6 part workflow, the OT-2 will follow ArcBio Continuous DNA Workflow - Pre-PCR Instrument experimental protocol and Post-PCR Instrument experimental protocol to convert up to 96 input DNA samples into DNA libraries. This is Part 1 of 6: This OT-2 protocol uses the DNA Continuous Workflow, Pre-PCR Instrument section of attached experimental protocol to perform concentration and fragmentation.",
   "tags": [
-    "78d33c.ot2.apiv2.py",
     "NGS Library Prep",
     "Custom"
+  ],
+  "labware": [
+    {
+      "name": "Mag Plate on Magnetic Module GEN2 on 1",
+      "slot": "1",
+      "type": "lab_eppendorf_twintex_clickbio_adapter"
+    },
+    {
+      "name": "Reagents on 2",
+      "slot": "2",
+      "type": "lab_opentrons_96_aluminumblock_generic_pcr_strip_200ul"
+    },
+    {
+      "name": "Output plate at 4 Degrees C on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_eppendorf_twintec_on_opentrons_metal_block_033822"
+    },
+    {
+      "name": "Waste on 4",
+      "slot": "4",
+      "type": "lab_nest_1_reservoir_195ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "80 percent etoh on 7",
+      "slot": "7",
+      "type": "lab_nest_1_reservoir_195ml"
+    },
+    {
+      "name": "Reservoir on 8",
+      "slot": "8",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 11",
+      "slot": "11",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -332,8 +393,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "source",
-        "targets": "Liquid_1",
+        "sources": "Liquid_1",
+        "targets": "Liquid_2",
         "asp_vol": 126.0,
         "dis_vol": 126.0,
         "asp_flow_rate": 47.0,
@@ -478,7 +539,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_2",
         "targets": "waste",
         "asp_vol": 90.0,
         "dis_vol": 135.0,
@@ -557,7 +618,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "etoh",
-        "targets": "Liquid_1",
+        "targets": "Liquid_2",
         "asp_vol": 110.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -577,8 +638,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -593,8 +654,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -609,8 +670,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -625,8 +686,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -641,8 +702,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -657,8 +718,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -673,8 +734,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -689,8 +750,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -705,8 +766,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -721,8 +782,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -737,8 +798,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -758,7 +819,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_2",
         "targets": "waste",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
@@ -774,8 +835,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -795,8 +856,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -816,8 +877,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -837,8 +898,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -858,8 +919,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -879,8 +940,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -900,8 +961,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -921,8 +982,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -942,8 +1003,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -963,8 +1024,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -984,8 +1045,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1009,8 +1070,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 28.235294117647058,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1092,8 +1153,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1108,8 +1169,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1124,8 +1185,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1140,8 +1201,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1156,8 +1217,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1172,8 +1233,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1188,8 +1249,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1204,8 +1265,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1220,8 +1281,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1236,8 +1297,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1252,8 +1313,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 80.0,
         "dis_vol": 220.0,
         "asp_flow_rate": 94.0,
@@ -1273,8 +1334,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1289,8 +1350,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1310,8 +1371,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1331,8 +1392,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1352,8 +1413,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1373,8 +1434,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1394,8 +1455,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1415,8 +1476,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1436,8 +1497,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1457,8 +1518,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1478,8 +1539,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1499,8 +1560,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 67.5,
         "dis_vol": 250.0,
         "asp_flow_rate": 56.4,
@@ -1528,8 +1589,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 24.72,
         "dis_vol": 16.0,
         "asp_flow_rate": 92.272,
@@ -1875,8 +1936,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_1",
+        "sources": "Liquid_2",
+        "targets": "Liquid_2",
         "asp_vol": 16.0,
         "dis_vol": 16.0,
         "asp_flow_rate": 7.6,
@@ -2258,7 +2319,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "Liquid_2",
         "targets": "fragmentation_mm",
         "asp_vol": 14.0,
         "dis_vol": 14.0,
@@ -2342,27 +2403,24 @@
     }
   ],
   "reagent": {
-    "Liquid_1": {
+    "Liquid_2": {
       "slot": 1,
       "well": [
-        "A11"
-      ],
-      "labware": "Mag Plate on Magnetic Module GEN2"
+        "A5"
+      ]
     },
     "fragmentation_mm": {
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "Reagents"
+      ]
     },
-    "source": {
+    "Liquid_1": {
       "slot": 8,
       "well": [
-        "A2",
+        "A1",
         "A12"
-      ],
-      "labware": "Reservoir"
+      ]
     }
   }
 }

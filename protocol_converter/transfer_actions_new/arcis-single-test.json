@@ -1,9 +1,45 @@
 {
   "description": "Note: This is an updated version (apiV1 to apiV2) of this protocol\nThis protocol is designed for running tests with the Arcis Blood Kit (further instructions about the protocol can be found here). With the Arcis Blood Kit, nucleic acid investigations can be performed easily and efficiently with the two included reagents. This protocol calls for the use of a P50-Single and P300-Single pipettes, as well as Opentrons Tube Racks, Corning 96-well, 360μL flat plate, and two Bioplastics 100μL plates.\n\n\n\nArcis Blood Kit\nOpentrons P50 Single Channel Pipette\nOpentrons P300 Single Channel Pipette\nOpentrons 50uL/300uL Tips\nOpentrons 4-in-1 Tube Rack Set\nCorning 96-Well Plate 360µL, Flat\nBioplastics 8-Tube Strip Mat, 100µL\n1.5mL Eppendorf Safe-Lock Tube\n15mL Conical Tube\n50mL Conical Tube\nSamples\n\n\n\nSlot 1: Opentrons Tiprack\nSlot 2: Corning 360µL Plate, clean and empty\nSlot 3: Bioplastics Plate (in holder), clean and empty\nSlot 4: Bioplastics Plate (in holder), clean and empty\nSlot 5: Opentrons 24 Tube Rack with 1.5mL Eppendorf Tubes\n A1: Sample (1000µL)\n A2: PCR Mastermix (1500µL)\nSlot 6: Opentrons 10 Tube Rack with Conical Tubes\n A1: Reagent 2 (2000µL)\n A3: Reagent 1 (10000µL)",
   "tags": [
-    "arcis-single-test.ot2.apiv2.py",
     "Nucleic Acid Extraction & Purification",
     "Arcis Blood Kit"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons Tips on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Corning Plate on 2",
+      "slot": "2",
+      "type": "lab_corning_96_wellplate_360ul_flat"
+    },
+    {
+      "name": "Bioplastics Plate on 3",
+      "slot": "3",
+      "type": "lab_bioplastics_96_wellplate_100ul"
+    },
+    {
+      "name": "Bioplastics Plate on 4",
+      "slot": "4",
+      "type": "lab_bioplastics_96_wellplate_100ul"
+    },
+    {
+      "name": "1.5mL Tube Rack on 5",
+      "slot": "5",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "10 Tube Rack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_10_tuberack_falcon_4x50ml_6x15ml_conical"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -398,55 +434,48 @@
     "cpwells": {
       "slot": 2,
       "well": [
-        "A4"
-      ],
-      "labware": "Corning Plate"
+        "C5"
+      ]
     },
     "bp1wells": {
       "slot": 3,
       "well": [
         "B1"
-      ],
-      "labware": "Bioplastics Plate"
+      ]
     },
     "bp2wells": {
       "slot": 4,
       "well": [
-        "C1"
-      ],
-      "labware": "Bioplastics Plate"
+        "A1"
+      ]
     },
     "sample": {
       "slot": 5,
       "well": [
         "A1",
         "A2"
-      ],
-      "labware": "1.5mL Tube Rack"
+      ]
     },
     "mastermix": {
       "slot": 5,
       "well": [
         "A1",
         "A2"
-      ],
-      "labware": "1.5mL Tube Rack"
+      ]
     },
     "reagent1": {
       "slot": 6,
       "well": [
         "A3",
         "A1"
-      ],
-      "labware": "10 Tube Rack"
+      ]
     },
     "reagent2": {
       "slot": 6,
       "well": [
         "A3",
         "A1"
-      ],
-      "labware": "10 Tube Rack"
+      ]
     }
   }
 }

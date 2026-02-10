@@ -1,16 +1,57 @@
 {
   "description": "This protocol performs aliquoting of multiple buffers from different reservoirs into multiple 2 mL KingFisher deep well plates.",
   "tags": [
-    "5a3797-protocol-1.ot2.apiv2.py",
     "PCR",
     "PCR Prep"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "KingFisher 96 Deep Well Plate on 4",
+      "slot": "4",
+      "type": "lab_kingfisher_96_deepwell_plate_2ml"
+    },
+    {
+      "name": "KingFisher 96 Deep Well Plate on 5",
+      "slot": "5",
+      "type": "lab_kingfisher_96_deepwell_plate_2ml"
+    },
+    {
+      "name": "KingFisher 96 Deep Well Plate on 6",
+      "slot": "6",
+      "type": "lab_kingfisher_96_deepwell_plate_2ml"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 7",
+      "slot": "7",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 8",
+      "slot": "8",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 9",
+      "slot": "9",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "sources": "wash_1_well",
+        "targets": "Liquid_1",
         "asp_vol": 166.66666666666666,
         "dis_vol": 166.66666666666666,
         "asp_flow_rate": 94.0,
@@ -25,8 +66,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
-        "targets": "Liquid_4",
+        "sources": "wash_2_well",
+        "targets": "Liquid_2",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 94.0,
@@ -41,8 +82,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_5",
-        "targets": "Liquid_6",
+        "sources": "Liquid_3",
+        "targets": "Liquid_4",
         "asp_vol": 50.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -56,47 +97,41 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_1": {
       "slot": 4,
       "well": [
-        "A5"
-      ],
-      "labware": "KingFisher 96 Deep Well Plate"
+        "A3"
+      ]
     },
-    "Liquid_4": {
+    "Liquid_2": {
       "slot": 5,
       "well": [
-        "A10"
-      ],
-      "labware": "KingFisher 96 Deep Well Plate"
+        "A11"
+      ]
     },
-    "Liquid_6": {
+    "Liquid_4": {
       "slot": 6,
       "well": [
-        "A11"
-      ],
-      "labware": "KingFisher 96 Deep Well Plate"
+        "A5"
+      ]
     },
-    "Liquid_1": {
+    "wash_1_well": {
       "slot": 7,
       "well": [
-        "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A12"
+      ]
     },
-    "Liquid_3": {
+    "wash_2_well": {
       "slot": 8,
       "well": [
-        "A6"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+        "A12"
+      ]
     },
-    "Liquid_5": {
+    "Liquid_3": {
       "slot": 9,
       "well": [
         "A1"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     }
   }
 }

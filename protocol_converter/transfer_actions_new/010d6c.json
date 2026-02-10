@@ -1,9 +1,45 @@
 {
   "description": "This protocol performs a Ribrogreen assay - for detailed protocol steps, please see below. There is the option to perform duplicate/triplicate plating. The csv for sample input should include source slot, source well, destination well in the header.",
   "tags": [
-    "010d6c.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Corning 12 Reservoir 2000 µL on 2",
+      "slot": "2",
+      "type": "lab_corning_12_reservoir"
+    },
+    {
+      "name": "Pyramid 96 Well Plate 2000 µL on 4",
+      "slot": "4",
+      "type": "lab_pyramid_96_wellplate_2000ul"
+    },
+    {
+      "name": "Nunc 96 Well Plate 400 µL on 6",
+      "slot": "6",
+      "type": "lab_nunc_96_wellplate_400ul"
+    },
+    {
+      "name": "Opentrons 15 Tube Rack with eppendorf 5 mL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_15_tuberack_5000ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with NEST 2 mL Snapcap on 8",
+      "slot": "8",
+      "type": "lab_opentrons_24_tuberack_nest_2ml_snapcap"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -104,7 +140,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "diluent_buff_col",
-        "targets": "Liquid_1",
+        "targets": "wells",
         "asp_vol": 200.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 94.0,
@@ -132,7 +168,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source_well",
-        "targets": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vol": 200.0,
         "dis_vol": 50.0,
         "asp_flow_rate": 92.86,
@@ -301,7 +337,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "te",
+        "sources": "triton",
         "targets": "Liquid_1",
         "asp_vol": 300.0,
         "dis_vol": 50.0,
@@ -516,56 +552,49 @@
       "slot": 2,
       "well": [
         "A1",
-        "A5",
+        "A3",
         "A7"
-      ],
-      "labware": "Corning 12 Reservoir 2000 µL"
+      ]
     },
-    "te": {
+    "triton": {
       "slot": 2,
       "well": [
         "A1",
-        "A5",
+        "A3",
         "A7"
-      ],
-      "labware": "Corning 12 Reservoir 2000 µL"
+      ]
     },
     "dye": {
       "slot": 2,
       "well": [
         "A1",
-        "A5",
+        "A3",
         "A7"
-      ],
-      "labware": "Corning 12 Reservoir 2000 µL"
+      ]
     },
     "diluent_buff_col": {
       "slot": 4,
       "well": [
-        "C1"
-      ],
-      "labware": "Pyramid 96 Well Plate 2000 µL"
+        "H1"
+      ]
     },
     "Liquid_1": {
       "slot": 6,
       "well": [
-        "A1"
-      ],
-      "labware": "Nunc 96 Well Plate 400 µL"
+        "A11"
+      ]
     },
     "calibration_solution": {
       "slot": 7,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 15 Tube Rack with eppendorf 5 mL"
+      ]
     },
     "source_well": {
       "slot": 8,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 24 Tube Rack with NEST 2 mL Snapcap"
+      ]
     }
   }
 }

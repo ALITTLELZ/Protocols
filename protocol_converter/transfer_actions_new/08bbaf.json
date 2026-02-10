@@ -1,9 +1,35 @@
 {
   "description": "This protocol performs up to 8 11-point standard curve preparations in blood media from up to 8 different stocks.",
   "tags": [
-    "standard_prep.ot2.apiv2.py",
     "Sample Prep",
     "Standard Curve"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap on 1",
+      "slot": "1",
+      "type": "lab_opentrons_24_aluminumblock_nest_1.5ml_snapcap"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Temperature Module GEN2 on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -624,8 +650,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "sources",
-        "targets": "sources",
+        "sources": "destinations",
+        "targets": "destinations",
         "asp_vol": 36.45454545454545,
         "dis_vol": 66.0909090909091,
         "asp_flow_rate": 22.245681818181826,
@@ -705,12 +731,11 @@
     }
   ],
   "reagent": {
-    "sources": {
+    "destinations": {
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with NEST 1.5 mL Snapcap"
+      ]
     }
   }
 }

@@ -1,9 +1,50 @@
 {
   "description": "This protocol automates steps 3-10 of the Oxford Nanopore Rapid Barcoding Kit SQK-RBK110.96. Choose between 16-32 samples per run (> 24 samples requires two 4-in-1 tube racks)",
   "tags": [
-    "normalization.ot2.apiv2.py",
     "Library Prep",
     "Sequencing"
+  ],
+  "labware": [
+    {
+      "name": "Bio-Rad 96 Well Plate 200 µL PCR on 1",
+      "slot": "1",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "genomic dna on 2",
+      "slot": "2",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "20ul tiprack on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "normalization plate on 4",
+      "slot": "4",
+      "type": "lab_biorad_96_wellplate_200ul_pcr"
+    },
+    {
+      "name": "genomic dna on 5",
+      "slot": "5",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "1000ul tiprack on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 8",
+      "slot": "8",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -24,7 +65,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "all_templates",
+        "sources": "water",
         "targets": "reactions",
         "asp_vol": 4.5,
         "dis_vol": 9.0,
@@ -55,7 +96,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "all_templates",
+        "sources": "water",
         "targets": "reactions_2",
         "asp_vol": 4.5,
         "dis_vol": 9.0,
@@ -86,7 +127,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "all_templates",
+        "sources": "water",
         "targets": "reactions_3",
         "asp_vol": 4.5,
         "dis_vol": 9.0,
@@ -184,7 +225,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "barcodes",
-        "targets": "reactions",
+        "targets": "reactions_3",
         "asp_vol": 1.0,
         "dis_vol": 1.0,
         "asp_flow_rate": 7.56,
@@ -488,7 +529,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "reactions",
+        "sources": "reactions_3",
         "targets": "pool",
         "asp_vol": 15.0,
         "dis_vol": 20.0,
@@ -513,23 +554,20 @@
     "barcodes": {
       "slot": 1,
       "well": [
-        "A1"
-      ],
-      "labware": "Bio-Rad 96 Well Plate 200 µL PCR"
+        "C1"
+      ]
     },
-    "all_templates": {
+    "water": {
       "slot": 2,
       "well": [
         "A1"
-      ],
-      "labware": "genomic dna"
+      ]
     },
-    "reactions": {
+    "reactions_3": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "normalization plate"
+      ]
     },
     "pool": {
       "slot": 8,
@@ -537,8 +575,7 @@
         "A1",
         "B1",
         "C1"
-      ],
-      "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
+      ]
     }
   }
 }

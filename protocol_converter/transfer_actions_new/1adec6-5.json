@@ -1,9 +1,40 @@
 {
   "description": "Updated\nThis protocol has been updated based on feedback from the user.\n\nThis protocol is part five of a larger workflow. The entire workflow can be found below\nPart 1: Small Molecule Library Prep\nPart 2: Seed Cells\nPart 3: Transfer Small Molecules\nPart 4: Transfer Small Molecules - CSV Input\nPart 5: Custom Supernatant Removal\nPart 6: ProcartaPlex Protocol-1\nPart 7: ProcartaPlex Protocol-2\n\nIn this protocol, the P300 8-Channel Pipette (GEN2) transfers 220µL of supernatant from source plate containing cells to a destination plate. Once complete, the P300 8-Channel Pipette (GEN2) will transfer 100µL of Cell medium+10% PrestoBlue to the original source plate.\nExplanation of complex parameters below:\n P300-Multi Mount: Select which mount the P300-Multi Pipette is attached to.\n Aspirate from Well Bottom Height: Specify the height from the bottom of the well (in mm) that the pipette will aspirate supernatant (note: default height is 1mm from bottom).\n* Perform 2nd aliquot: Specify whether or not to perform a second aliquot (110µL transferred to plate in slot 5)",
   "tags": [
-    "1adec6-5.ot2.apiv2.py",
     "Proteins & Proteomics",
     "Assay"
+  ],
+  "labware": [
+    {
+      "name": "SPL Cell Culture Plate 96 Well Flat Bottom on 1",
+      "slot": "1",
+      "type": "lab_spl_96_wellplate_200ul_flat"
+    },
+    {
+      "name": "SPL Cell Culture Plate 96 Well Flat Bottom on 4",
+      "slot": "4",
+      "type": "lab_spl_96_wellplate_200ul_flat"
+    },
+    {
+      "name": "SPL Cell Culture Plate 96 Well Flat Bottom on 5",
+      "slot": "5",
+      "type": "lab_spl_96_wellplate_200ul_flat"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 6",
+      "slot": "6",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -280,7 +311,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pbs",
-        "targets": "srcWells_3",
+        "targets": "srcWells_5",
         "asp_vol": 60.0,
         "dis_vol": 120.0,
         "asp_flow_rate": 50.0,
@@ -294,12 +325,11 @@
     }
   ],
   "reagent": {
-    "srcWells_3": {
+    "srcWells_5": {
       "slot": 1,
       "well": [
         "A1"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells": {
       "slot": 4,
@@ -314,8 +344,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_2": {
       "slot": 4,
@@ -330,8 +359,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_3": {
       "slot": 4,
@@ -346,8 +374,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_4": {
       "slot": 4,
@@ -362,8 +389,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_5": {
       "slot": 4,
@@ -378,8 +404,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_6": {
       "slot": 4,
@@ -394,8 +419,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_7": {
       "slot": 4,
@@ -410,8 +434,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_8": {
       "slot": 4,
@@ -426,8 +449,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_9": {
       "slot": 4,
@@ -442,8 +464,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "destWells_10": {
       "slot": 4,
@@ -458,8 +479,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells": {
       "slot": 5,
@@ -474,8 +494,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_2": {
       "slot": 5,
@@ -490,8 +509,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_3": {
       "slot": 5,
@@ -506,8 +524,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_4": {
       "slot": 5,
@@ -522,8 +539,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_5": {
       "slot": 5,
@@ -538,8 +554,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_6": {
       "slot": 5,
@@ -554,8 +569,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_7": {
       "slot": 5,
@@ -570,8 +584,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_8": {
       "slot": 5,
@@ -586,8 +599,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_9": {
       "slot": 5,
@@ -602,8 +614,7 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "dest2Wells_10": {
       "slot": 5,
@@ -618,15 +629,13 @@
         "A8",
         "A9",
         "A10"
-      ],
-      "labware": "SPL Cell Culture Plate 96 Well Flat Bottom"
+      ]
     },
     "pbs": {
       "slot": 6,
       "well": [
         "A2"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     }
   }
 }

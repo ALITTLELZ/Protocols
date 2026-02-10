@@ -1,9 +1,55 @@
 {
   "description": "A start to finish protocol for preparation of archaeological bone samples for analysis by MALDI-TOF.\nCurrently configured for 12 or 24 samples, depending on the amount of eppendorf racks available.\nProtocol can be adjusted for non-destructive analysis, and for NaOH wash to remove humic acids.\nSamples are to be laid out left to right (A1 to A12), top to bottom (then B1 to B12).\nThe protocol is split into 5 main steps, with the first two being optional:\n\nHydrochloric acid demineralisation (optional)\nSodium hydroxide wash (optional)\nGelatine extraction\nTrypsin digestion\nPeptide extraction",
   "tags": [
-    "ZooMS_Protocol.ot2.apiv2.py",
     "Sample Prep",
     "Plate Filling"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Tip Rack 300 µL on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_tiprack_300ul"
+    },
+    {
+      "name": "NEST 96 Well Plate 200 µL Flat on 2",
+      "slot": "2",
+      "type": "lab_nest_96_wellplate_200ul_flat"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 3",
+      "slot": "3",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 5",
+      "slot": "5",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons 96 Tip Rack 1000 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_tiprack_1000ul"
+    },
+    {
+      "name": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap on 8",
+      "slot": "8",
+      "type": "lab_opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap"
+    },
+    {
+      "name": "Opentrons 6 Tube Rack with Falcon 50 mL Conical on 9",
+      "slot": "9",
+      "type": "lab_opentrons_6_tuberack_falcon_50ml_conical"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 11",
+      "slot": "11",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
   ],
   "workflow": [
     {
@@ -272,8 +318,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wells_in_use",
-        "targets": "wells_in_use",
+        "sources": "AmBic",
+        "targets": "AmBic",
         "asp_vol": 71.42857142857143,
         "dis_vol": 62.5,
         "asp_flow_rate": 271.42857142857144,
@@ -337,8 +383,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "wells_in_use",
-        "targets": "conditioning_wells",
+        "sources": "AmBic",
+        "targets": "washing_wells",
         "asp_vol": 600.0,
         "dis_vol": 300.0,
         "asp_flow_rate": 150.0,
@@ -365,7 +411,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "conditioning_wells",
+        "sources": "washing_wells",
         "targets": "Liquid_1",
         "asp_vol": 50.0,
         "dis_vol": 50.0,
@@ -427,7 +473,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "conditioning_wells",
+        "sources": "washing_wells",
         "targets": "Liquid_1",
         "asp_vol": 60.0,
         "dis_vol": 60.0,
@@ -477,7 +523,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "conditioning_wells",
+        "sources": "washing_wells",
         "targets": "Liquid_1",
         "asp_vol": 66.66666666666667,
         "dis_vol": 66.66666666666667,
@@ -487,28 +533,25 @@
     }
   ],
   "reagent": {
-    "conditioning_wells": {
+    "washing_wells": {
       "slot": 2,
       "well": [
-        "A2",
+        "B1",
         "C1"
-      ],
-      "labware": "NEST 96 Well Plate 200 µL Flat"
+      ]
     },
     "Liquid_1": {
       "slot": 2,
       "well": [
-        "A2",
+        "B1",
         "C1"
-      ],
-      "labware": "NEST 96 Well Plate 200 µL Flat"
+      ]
     },
-    "wells_in_use": {
+    "AmBic": {
       "slot": 8,
       "well": [
-        "A2"
-      ],
-      "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap"
+        "A1"
+      ]
     },
     "HCl": {
       "slot": 9,
@@ -516,8 +559,7 @@
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 6 Tube Rack with Falcon 9 mL Conical"
+      ]
     },
     "NaOH": {
       "slot": 9,
@@ -525,8 +567,7 @@
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 6 Tube Rack with Falcon 9 mL Conical"
+      ]
     }
   }
 }
