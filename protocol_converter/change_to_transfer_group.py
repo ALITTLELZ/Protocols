@@ -651,21 +651,15 @@ def generate_transfer_actions(protocol_name):
             if not phase['source_liquids'] or not phase['target_liquids']:
                 continue
             
-            # 使用数组格式的体积和流速（标准格式要求）
-            asp_vols = phase.get('asp_vols', [phase.get('asp_vol', 0)])
-            dis_vols = phase.get('dis_vols', [phase.get('dis_vol', 0)])
-            asp_flow_rates = phase.get('asp_flow_rates', [phase.get('asp_flow_rate', 0)])
-            dis_flow_rates = phase.get('dis_flow_rates', [phase.get('dis_flow_rate', 0)])
-            
             action = {
                 "action": "transfer_liquid",
                 "action_args": {
                     "sources": phase['source_liquids'][0] if len(phase['source_liquids']) == 1 else phase['source_liquids'],
                     "targets": phase['target_liquids'][0] if len(phase['target_liquids']) == 1 else phase['target_liquids'],
-                    "asp_vols": asp_vols,
-                    "dis_vols": dis_vols,
-                    "asp_flow_rates": asp_flow_rates,
-                    "dis_flow_rates": dis_flow_rates
+                    "asp_vol": phase.get('asp_vol', 0),
+                    "dis_vol": phase.get('dis_vol', 0),
+                    "asp_flow_rate": phase.get('asp_flow_rate', 0),
+                    "dis_flow_rate": phase.get('dis_flow_rate', 0)
                 }
             }
             
@@ -699,10 +693,10 @@ def print_transfer_actions(protocol_name):
         print(f"    \"action_args\": {{")
         print(f"      \"sources\": \"{action['action_args']['sources']}\",")
         print(f"      \"targets\": \"{action['action_args']['targets']}\",")
-        print(f"      \"asp_vols\": {action['action_args']['asp_vols']},")
-        print(f"      \"dis_vols\": {action['action_args']['dis_vols']},")
-        print(f"      \"asp_flow_rates\": {action['action_args']['asp_flow_rates']},")
-        print(f"      \"dis_flow_rates\": {action['action_args']['dis_flow_rates']}")
+        print(f"      \"asp_vol\": {action['action_args']['asp_vol']},")
+        print(f"      \"dis_vol\": {action['action_args']['dis_vol']},")
+        print(f"      \"asp_flow_rate\": {action['action_args']['asp_flow_rate']},")
+        print(f"      \"dis_flow_rate\": {action['action_args']['dis_flow_rate']}")
         print(f"    }}")
         print(f"  }}")
     
@@ -769,6 +763,30 @@ def export_transfer_actions(protocol_name, output_file=None):
                         "well": wells,
                     }
     
+    # 将标量 vol/flow_rate 展开为数组，长度 = 对应 reagent 的 well 数
+    for action in transfer_actions:
+        args = action.get("action_args", {})
+        src = args.get("sources", "")
+        tgt = args.get("targets", "")
+
+        # 源 reagent 的 well 数 → asp 数组长度
+        src_name = src if isinstance(src, str) else (src[0] if src else "")
+        src_well_count = len(reagents.get(src_name, {}).get("well", [])) or 1
+
+        # 目标 reagent 的 well 数 → dis 数组长度
+        tgt_name = tgt if isinstance(tgt, str) else (tgt[0] if tgt else "")
+        tgt_well_count = len(reagents.get(tgt_name, {}).get("well", [])) or 1
+
+        asp_vol = args.pop("asp_vol", 0)
+        dis_vol = args.pop("dis_vol", 0)
+        asp_flow_rate = args.pop("asp_flow_rate", 0)
+        dis_flow_rate = args.pop("dis_flow_rate", 0)
+
+        args["asp_vols"] = [asp_vol] * src_well_count
+        args["dis_vols"] = [dis_vol] * tgt_well_count
+        args["asp_flow_rates"] = [asp_flow_rate] * src_well_count
+        args["dis_flow_rates"] = [dis_flow_rate] * tgt_well_count
+
     # 加载 description 和 tags
     description, tags = load_protocol_metadata(protocol_name)
 
