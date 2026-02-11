@@ -58,23 +58,22 @@
   ],
   "workflow": [
     {
-      "action": "raw",
-      "text": "Starting Test Plate 1 on 3"
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pbs",
         "targets": "Liquid_1",
-        "asp_vol": 925.0,
-        "dis_vol": 220.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          970.0
+        ],
+        "dis_vols": [
+          210.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -82,36 +81,33 @@
       "action_args": {
         "sources": "Liquid_2",
         "targets": "Liquid_1",
-        "asp_vol": 100.0,
-        "dis_vol": 30.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.85999999999997,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E1"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          40.0,
+          30.0,
+          20.0,
+          40.0,
+          30.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
     },
@@ -120,15 +116,18 @@
       "action_args": {
         "sources": "te",
         "targets": "Liquid_3",
-        "asp_vol": 920.0,
-        "dis_vol": 64.0625,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.70000000000033,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "B1"
-        }
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -136,10 +135,18 @@
       "action_args": {
         "sources": "te_triton",
         "targets": "te_triton",
-        "asp_vol": 300.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "asp_vols": [
+          300.0
+        ],
+        "dis_vols": [
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -147,10 +154,18 @@
       "action_args": {
         "sources": "te_triton",
         "targets": "Liquid_4",
-        "asp_vol": 1000.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -158,673 +173,273 @@
       "action_args": {
         "sources": "te_triton",
         "targets": "te_triton",
-        "asp_vol": 600.0,
-        "dis_vol": 54.54545454545455,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          600.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Adding Sample to Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "te_triton",
         "targets": "Liquid_3",
-        "asp_vol": 900.0,
-        "dis_vol": 52.94117647058823,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          900.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Serial Dilution of mRNA in Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "te_triton",
-        "asp_vol": 210.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.85999999999997,
-        "dis_flow_rate": 92.85999999999994,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B2"
-          }
+        "targets": "Liquid_3",
+        "asp_vols": [
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0
+        ],
+        "dis_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E1",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E2",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E3",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E4",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E5",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E6",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E7",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E8",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_3",
-        "asp_vol": 140.625,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 115.59,
-        "dis_flow_rate": 158.9836363636363,
-        "tip_racks": [
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-            "well": "C1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C2"
-          }
+        "asp_vols": [
+          425.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          274.7,
+          274.7,
+          274.7,
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F1",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F2",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F3",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F4",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F5",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F6",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F7",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F8",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G1",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G2",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G3",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G4",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G5",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G6",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G7",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G8",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H1",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H2",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H3",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H4",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H5",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H6",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H7",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H8",
-        "labware": "Test Plate 1",
-        "slot": 3
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "raw",
-      "text": "Finished Test Plate 1 on 3. Pause the robot to remove it from the deck"
-    },
-    {
-      "action": "raw",
-      "text": "Resume to continue with remaining test plates."
-    },
-    {
-      "action": "raw",
-      "text": "Starting Test Plate 2 on 6"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_3",
-        "asp_vol": 100.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 92.85999999999996,
-        "dis_flow_rate": 92.85999999999996,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F2"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996
         ]
       }
     },
@@ -833,15 +448,18 @@
       "action_args": {
         "sources": "pbs",
         "targets": "Liquid_5",
-        "asp_vol": 925.0,
-        "dis_vol": 220.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "D1"
-        }
+        "asp_vols": [
+          970.0
+        ],
+        "dis_vols": [
+          210.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -849,36 +467,33 @@
       "action_args": {
         "sources": "Liquid_6",
         "targets": "Liquid_5",
-        "asp_vol": 100.0,
-        "dis_vol": 30.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.85999999999997,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C3"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          40.0,
+          30.0,
+          20.0,
+          40.0,
+          30.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
     },
@@ -887,15 +502,18 @@
       "action_args": {
         "sources": "te",
         "targets": "Liquid_7",
-        "asp_vol": 920.0,
-        "dis_vol": 64.0625,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.70000000000033,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "E1"
-        }
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -903,10 +521,18 @@
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_3",
-        "asp_vol": 300.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "asp_vols": [
+          300.0
+        ],
+        "dis_vols": [
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -914,10 +540,18 @@
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_8",
-        "asp_vol": 1000.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -925,673 +559,273 @@
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_3",
-        "asp_vol": 600.0,
-        "dis_vol": 54.54545454545455,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          600.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Adding Sample to Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
         "targets": "Liquid_7",
-        "asp_vol": 900.0,
-        "dis_vol": 52.94117647058823,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          900.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Serial Dilution of mRNA in Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_5",
         "targets": "Liquid_8",
-        "asp_vol": 210.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.85999999999997,
-        "dis_flow_rate": 92.85999999999994,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G3"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H3"
-          }
+        "asp_vols": [
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0
+        ],
+        "dis_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
     },
     {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E1",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E2",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E3",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E4",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E5",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E6",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E7",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E8",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "Liquid_7",
+        "targets": "Liquid_3",
+        "asp_vols": [
+          425.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          274.7,
+          274.7,
+          274.7,
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ]
+      }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 140.625,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 115.59,
-        "dis_flow_rate": 158.9836363636363,
-        "tip_racks": [
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-            "well": "F1"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A4"
-          }
-        ]
-      }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F1",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F2",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F3",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F4",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F5",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F6",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F7",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F8",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G1",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G2",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G3",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G4",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G5",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G6",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G7",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G8",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H1",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H2",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H3",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H4",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H5",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H6",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H7",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H8",
-        "labware": "Test Plate 2",
-        "slot": 6
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "raw",
-      "text": "Finished Test Plate 2 on 6. Pause the robot to remove it from the deck"
-    },
-    {
-      "action": "raw",
-      "text": "Resume to continue with remaining test plates."
-    },
-    {
-      "action": "raw",
-      "text": "Starting Test Plate 3 on 9"
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "Liquid_7",
-        "targets": "Liquid_7",
-        "asp_vol": 100.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 92.85999999999996,
-        "dis_flow_rate": 92.85999999999996,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D4"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996
         ]
       }
     },
@@ -1600,15 +834,18 @@
       "action_args": {
         "sources": "pbs",
         "targets": "Liquid_9",
-        "asp_vol": 925.0,
-        "dis_vol": 220.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "G1"
-        }
+        "asp_vols": [
+          970.0
+        ],
+        "dis_vols": [
+          210.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -1616,36 +853,33 @@
       "action_args": {
         "sources": "Liquid_10",
         "targets": "Liquid_9",
-        "asp_vol": 100.0,
-        "dis_vol": 30.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.85999999999997,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H4"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A5"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          40.0,
+          30.0,
+          20.0,
+          40.0,
+          30.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
     },
@@ -1654,15 +888,18 @@
       "action_args": {
         "sources": "te",
         "targets": "Liquid_11",
-        "asp_vol": 920.0,
-        "dis_vol": 64.0625,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.70000000000033,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "H1"
-        }
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -1670,10 +907,18 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 300.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "asp_vols": [
+          300.0
+        ],
+        "dis_vols": [
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -1681,10 +926,18 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_12",
-        "asp_vol": 1000.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -1692,673 +945,273 @@
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_7",
-        "asp_vol": 600.0,
-        "dis_vol": 54.54545454545455,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          600.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Adding Sample to Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_7",
         "targets": "Liquid_11",
-        "asp_vol": 900.0,
-        "dis_vol": 52.94117647058823,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          900.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Serial Dilution of mRNA in Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_9",
-        "targets": "Liquid_12",
-        "asp_vol": 210.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.85999999999997,
-        "dis_flow_rate": 92.85999999999994,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B5"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C5"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D5"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E5"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F5"
-          }
+        "targets": "Liquid_11",
+        "asp_vols": [
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0
+        ],
+        "dis_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E1",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E2",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E3",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E4",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E5",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E6",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E7",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E8",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_11",
-        "asp_vol": 140.625,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 115.59,
-        "dis_flow_rate": 158.9836363636363,
-        "tip_racks": [
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G5"
-          }
+        "asp_vols": [
+          425.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          274.7,
+          274.7,
+          274.7,
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F1",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F2",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F3",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F4",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F5",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F6",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F7",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F8",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G1",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G2",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G3",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G4",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G5",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G6",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G7",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G8",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H1",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H2",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H3",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H4",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H5",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H6",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H7",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H8",
-        "labware": "Test Plate 3",
-        "slot": 9
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "raw",
-      "text": "Finished Test Plate 3 on 9. Pause the robot to remove it from the deck"
-    },
-    {
-      "action": "raw",
-      "text": "Resume to continue with remaining test plates."
-    },
-    {
-      "action": "raw",
-      "text": "Starting Test Plate 4 on 5"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_11",
-        "asp_vol": 100.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 92.85999999999996,
-        "dis_flow_rate": 92.85999999999996,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H5"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B6"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996
         ]
       }
     },
@@ -2366,53 +1219,53 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "pbs",
-        "targets": "new",
-        "asp_vol": 925.0,
-        "dis_vol": 220.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "B2"
-        }
+        "targets": "chunk",
+        "asp_vols": [
+          970.0
+        ],
+        "dis_vols": [
+          210.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_13",
-        "targets": "new",
-        "asp_vol": 100.0,
-        "dis_vol": 30.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.85999999999997,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G6"
-          }
+        "targets": "chunk",
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          40.0,
+          30.0,
+          20.0,
+          40.0,
+          30.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
     },
@@ -2421,15 +1274,18 @@
       "action_args": {
         "sources": "te",
         "targets": "Liquid_14",
-        "asp_vol": 920.0,
-        "dis_vol": 64.0625,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.70000000000033,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-          "well": "C2"
-        }
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -2437,10 +1293,18 @@
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_11",
-        "asp_vol": 300.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.7
+        "asp_vols": [
+          300.0
+        ],
+        "dis_vols": [
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -2448,10 +1312,18 @@
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_15",
-        "asp_vol": 1000.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          1000.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
     },
     {
@@ -2459,805 +1331,404 @@
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_11",
-        "asp_vol": 600.0,
-        "dis_vol": 54.54545454545455,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
+        "asp_vols": [
+          600.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Adding Sample to Test Plate"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_11",
         "targets": "Liquid_14",
-        "asp_vol": 900.0,
-        "dis_vol": 52.94117647058823,
-        "asp_flow_rate": 274.7,
-        "dis_flow_rate": 274.69999999999993
-      }
-    },
-    {
-      "action": "raw",
-      "text": "Serial Dilution of mRNA in Test Plate"
-    },
-    {
-      "action": "transfer_liquid",
-      "action_args": {
-        "sources": "new",
-        "targets": "Liquid_11",
-        "asp_vol": 210.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.85999999999997,
-        "dis_flow_rate": 92.85999999999994,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H6"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "A7"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "B7"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "C7"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "D7"
-          }
+        "asp_vols": [
+          900.0
+        ],
+        "dis_vols": [
+          50.0
+        ],
+        "asp_flow_rates": [
+          274.7
+        ],
+        "dis_flow_rates": [
+          274.7
         ]
       }
     },
     {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E1",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E2",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E3",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E4",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E5",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E6",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E7",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "E8",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "chunk",
+        "targets": "Liquid_14",
+        "asp_vols": [
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0,
+          210.0
+        ],
+        "dis_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ]
+      }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_14",
         "targets": "Liquid_14",
-        "asp_vol": 140.625,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 115.59,
-        "dis_flow_rate": 158.9836363636363,
-        "tip_racks": [
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 1000 uL",
-            "well": "D2"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "E7"
-          }
+        "asp_vols": [
+          425.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          274.7,
+          274.7,
+          274.7,
+          274.7,
+          92.86,
+          92.86,
+          92.86,
+          92.86
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F1",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F2",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F3",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F4",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F5",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F6",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F7",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "F8",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G1",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G2",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G3",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G4",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G5",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G6",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G7",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "G8",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H1",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H2",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H3",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H4",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H5",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H6",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H7",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        100.0,
-        100.0
-      ],
-      "position": {
-        "well": "H8",
-        "labware": "Test Plate 4",
-        "slot": 5
-      },
-      "flow_rate": [
-        92.86,
-        92.86
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "raw",
-      "text": "Finished Test Plate 4 on 5. Pause the robot to remove it from the deck"
-    },
-    {
-      "action": "raw",
-      "text": "Resume to continue with remaining test plates."
-    },
-    {
-      "action": "raw",
-      "text": "Process complete for all test plates"
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_14",
         "targets": "Liquid_14",
-        "asp_vol": 100.0,
-        "dis_vol": 100.0,
-        "asp_flow_rate": 92.85999999999996,
-        "dis_flow_rate": 92.85999999999996,
-        "tip_racks": [
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "F7"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "G7"
-          },
-          {
-            "slot": 2,
-            "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-            "well": "H7"
-          }
+        "asp_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "dis_vols": [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ],
+        "asp_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.86,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996,
+          92.85999999999996
         ]
       }
     }
   ],
   "reagent": {
-    "te_triton": {
-      "slot": 3,
-      "well": [
-        "B6",
-        "H4"
-      ]
-    },
     "Liquid_3": {
       "slot": 3,
       "well": [
-        "B6",
-        "H4"
+        "A11"
       ]
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "A2",
-        "C3",
-        "E11",
-        "G10"
+        "A7",
+        "D3",
+        "E4",
+        "H2"
       ]
     },
     "Liquid_5": {
       "slot": 4,
       "well": [
-        "A2",
-        "C3",
-        "E11",
-        "G10"
+        "A7",
+        "D3",
+        "E4",
+        "H2"
       ]
     },
     "Liquid_9": {
       "slot": 4,
       "well": [
-        "A2",
-        "C3",
-        "E11",
-        "G10"
+        "A7",
+        "D3",
+        "E4",
+        "H2"
       ]
     },
-    "new": {
+    "chunk": {
       "slot": 4,
       "well": [
-        "A2",
-        "C3",
-        "E11",
-        "G10"
+        "A7",
+        "D3",
+        "E4",
+        "H2"
       ]
     },
     "Liquid_14": {
       "slot": 5,
       "well": [
-        "F12",
-        "B6"
-      ]
-    },
-    "Liquid_11": {
-      "slot": 5,
-      "well": [
-        "F12",
-        "B6"
-      ]
-    },
-    "Liquid_7": {
-      "slot": 6,
-      "well": [
-        "E6",
-        "B4"
+        "F3"
       ]
     },
     "Liquid_8": {
       "slot": 6,
       "well": [
-        "E6",
-        "B4"
+        "A10",
+        "F2",
+        "E1"
+      ]
+    },
+    "Liquid_7": {
+      "slot": 6,
+      "well": [
+        "A10",
+        "F2",
+        "E1"
       ]
     },
     "Liquid_2": {
       "slot": 7,
       "well": [
-        "A4",
+        "A1",
         "A6",
-        "B2",
+        "B3",
         "B6",
-        "C1",
+        "C3",
         "C6",
-        "D4",
+        "D5",
         "D6"
       ]
     },
     "Liquid_6": {
       "slot": 7,
       "well": [
-        "A4",
+        "A1",
         "A6",
-        "B2",
+        "B3",
         "B6",
-        "C1",
+        "C3",
         "C6",
-        "D4",
+        "D5",
         "D6"
       ]
     },
     "Liquid_10": {
       "slot": 7,
       "well": [
-        "A4",
+        "A1",
         "A6",
-        "B2",
+        "B3",
         "B6",
-        "C1",
+        "C3",
         "C6",
-        "D4",
+        "D5",
+        "D6"
+      ]
+    },
+    "Liquid_11": {
+      "slot": 7,
+      "well": [
+        "A1",
+        "A6",
+        "B3",
+        "B6",
+        "C3",
+        "C6",
+        "D5",
         "D6"
       ]
     },
     "Liquid_13": {
       "slot": 7,
       "well": [
-        "A4",
+        "A1",
         "A6",
-        "B2",
+        "B3",
         "B6",
-        "C1",
+        "C3",
         "C6",
-        "D4",
+        "D5",
         "D6"
       ]
     },
@@ -3275,13 +1746,6 @@
         "A3",
         "A1",
         "A2"
-      ]
-    },
-    "Liquid_12": {
-      "slot": 9,
-      "well": [
-        "E1",
-        "B7"
       ]
     }
   }

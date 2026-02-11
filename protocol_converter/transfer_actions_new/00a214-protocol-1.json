@@ -68,56 +68,85 @@
   ],
   "workflow": [
     {
-      "action": "raw",
-      "text": "Adding solution to plate 1..."
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "wells",
         "targets": "Liquid_1",
-        "asp_vol": 50.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 20.0,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "dis_vols": [
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0,
+          50.0
+        ],
+        "asp_flow_rates": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ],
+        "dis_flow_rates": [
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0,
+          20.0
+        ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        150.0,
-        150.0
-      ],
-      "position": {
-        "well": "A1",
-        "labware": "NEST 12 Well Reservoir 15 mL",
-        "slot": 10
-      },
-      "flow_rate": [
-        150.0,
-        300.0
-      ],
-      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "res_src",
         "targets": "wells",
-        "asp_vol": 140.0,
-        "dis_vol": 140.0,
-        "asp_flow_rate": 20.0,
-        "dis_flow_rate": 20.0,
-        "tip_racks": {
-          "slot": 1,
-          "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-          "well": "A2"
-        }
+        "asp_vols": [
+          140.0
+        ],
+        "dis_vols": [
+          140.0
+        ],
+        "asp_flow_rates": [
+          20.0
+        ],
+        "dis_flow_rates": [
+          20.0
+        ]
       }
     }
   ],
@@ -125,7 +154,7 @@
     "wells": {
       "slot": 2,
       "well": [
-        "A4"
+        "A1"
       ]
     },
     "res_src": {

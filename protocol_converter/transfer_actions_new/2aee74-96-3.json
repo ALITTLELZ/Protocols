@@ -68,31 +68,22 @@
   ],
   "workflow": [
     {
-      "action": "raw",
-      "text": "Prepare and prime a 96.96 Dynamic ArrayTM  Integrated Fluidic Circuit (IFC) according to the manufacturer’s instructions. Briefly,inject one control line fluid syringe into each accumulator on the  chip, and then prime the chip on the IFC Controller for approximately 20 minutes."
-    },
-    {
-      "action": "raw",
-      "text": "Thaw the Primer Plate, vortex and spin  briefly."
-    },
-    {
-      "action": "raw",
-      "text": "P20 multi transfer will begin at column  1 of tiprack on slot 6."
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "det_mix",
         "targets": "strip",
-        "asp_vol": 83.75,
-        "dis_vol": 95.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86,
-        "tip_racks": {
-          "slot": 10,
-          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          5.0
+        ],
+        "dis_vols": [
+          95.0
+        ],
+        "asp_flow_rates": [
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86
+        ]
       }
     },
     {
@@ -100,10 +91,18 @@
       "action_args": {
         "sources": "det_mix",
         "targets": "det_mix",
-        "asp_vol": 95.0,
-        "dis_vol": 50.0,
-        "asp_flow_rate": 92.86,
-        "dis_flow_rate": 92.86
+        "asp_vols": [
+          95.0
+        ],
+        "dis_vols": [
+          95.0
+        ],
+        "asp_flow_rates": [
+          92.86
+        ],
+        "dis_flow_rates": [
+          92.86
+        ]
       }
     },
     {
@@ -111,91 +110,80 @@
       "action_args": {
         "sources": "strip",
         "targets": "Liquid_1",
-        "asp_vol": 7.030769230769232,
-        "dis_vol": 7.200000000000002,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999,
-        "tip_racks": {
-          "slot": 4,
-          "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          5.0
+        ],
+        "dis_vols": [
+          7.2
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ]
       }
-    },
-    {
-      "action": "raw",
-      "text": "Seal the plate with an adhesive plastic film, vortex  and spin at 400 x g, 1 min at room temperature."
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_2",
         "targets": "Liquid_1",
-        "asp_vol": 2.8000000000000003,
-        "dis_vol": 2.8000000000000003,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999,
-        "tip_racks": [
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A3"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A4"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A5"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A6"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A7"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A8"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A9"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A10"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A11"
-          },
-          {
-            "slot": 7,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A12"
-          }
+        "asp_vols": [
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8
+        ],
+        "dis_vols": [
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8,
+          2.8
+        ],
+        "asp_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
         ]
       }
     },
@@ -204,71 +192,61 @@
       "action_args": {
         "sources": "Liquid_3",
         "targets": "primer_destinations",
-        "asp_vol": 7.0,
-        "dis_vol": 5.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999,
-        "tip_racks": [
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A3"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A4"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A5"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A6"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A7"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A8"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A9"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A10"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A11"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A12"
-          }
+        "asp_vols": [
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0
+        ],
+        "dis_vols": [
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "asp_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
         ]
       }
     },
@@ -277,71 +255,61 @@
       "action_args": {
         "sources": "Liquid_1",
         "targets": "sample_destinations",
-        "asp_vol": 7.0,
-        "dis_vol": 5.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999,
-        "tip_racks": [
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A3"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A4"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A5"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A6"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A7"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A8"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A9"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A10"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A11"
-          },
-          {
-            "slot": 11,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A12"
-          }
+        "asp_vols": [
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0,
+          7.0
+        ],
+        "dis_vols": [
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0,
+          5.0
+        ],
+        "asp_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6,
+          7.6
         ]
       }
     }
@@ -350,46 +318,46 @@
     "Liquid_3": {
       "slot": 1,
       "well": [
-        "A9"
+        "A4"
       ]
     },
     "primer_destinations": {
       "slot": 2,
       "well": [
-        "B6",
-        "B9"
+        "A1",
+        "A7"
       ]
     },
     "sample_destinations": {
       "slot": 2,
       "well": [
-        "B6",
-        "B9"
+        "A1",
+        "A7"
       ]
     },
     "Liquid_1": {
       "slot": 3,
       "well": [
-        "A8"
+        "A9"
       ]
     },
     "Liquid_2": {
       "slot": 5,
       "well": [
-        "A9"
+        "A10"
       ]
     },
     "strip": {
       "slot": 6,
       "well": [
-        "G7",
+        "C7",
         "H7"
       ]
     },
     "det_mix": {
       "slot": 6,
       "well": [
-        "G7",
+        "C7",
         "H7"
       ]
     }

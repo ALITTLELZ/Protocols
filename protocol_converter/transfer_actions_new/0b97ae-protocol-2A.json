@@ -43,73 +43,42 @@
   ],
   "workflow": [
     {
-      "action": "temperature",
-      "target": 4.0
-    },
-    {
-      "action": "temperature",
-      "target": 4.0
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "water",
         "targets": "col",
-        "asp_vol": 17.0,
-        "dis_vol": 17.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6,
-        "tip_racks": {
-          "slot": 3,
-          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          17.0
+        ],
+        "dis_vols": [
+          17.0
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        10.0,
-        10.0
-      ],
-      "position": {
-        "well": "A1",
-        "labware": "Diluted RNA plate on Temperature Module GEN2",
-        "slot": 7
-      },
-      "flow_rate": [
-        7.6,
-        7.6
-      ],
-      "mix_time": 5
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "mm",
         "targets": "col",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.6,
-        "dis_flow_rate": 7.6,
-        "tip_racks": {
-          "slot": 3,
-          "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-          "well": "A2"
-        }
+        "asp_vols": [
+          10.0
+        ],
+        "dis_vols": [
+          10.0
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ]
       }
-    },
-    {
-      "action": "temperature",
-      "state": "off"
-    },
-    {
-      "action": "temperature",
-      "state": "off"
-    },
-    {
-      "action": "raw",
-      "text": "Process Complete."
     }
   ],
   "reagent": {

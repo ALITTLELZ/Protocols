@@ -38,53 +38,55 @@
   ],
   "workflow": [
     {
-      "action": "temperature",
-      "target": 4.0
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "d",
-        "asp_vol": 101.5,
-        "dis_vol": 101.5,
-        "asp_flow_rate": 75.0,
-        "dis_flow_rate": 92.86,
-        "tip_racks": {
-          "slot": 6,
-          "type": "300ul tiprack",
-          "well": "A1"
-        }
+        "targets": "Liquid_2",
+        "asp_vols": [
+          100.0
+        ],
+        "dis_vols": [
+          100.0
+        ],
+        "asp_flow_rates": [
+          75.0
+        ],
+        "dis_flow_rates": [
+          92.86
+        ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "d",
-        "asp_vol": 5.0,
-        "dis_vol": 5.0,
-        "asp_flow_rate": 5.0,
-        "dis_flow_rate": 7.6,
-        "tip_racks": {
-          "slot": 3,
-          "type": "20ul tiprack",
-          "well": "A1"
-        }
+        "sources": "Liquid_3",
+        "targets": "Liquid_2",
+        "asp_vols": [
+          5.0
+        ],
+        "dis_vols": [
+          5.0
+        ],
+        "asp_flow_rates": [
+          5.0
+        ],
+        "dis_flow_rates": [
+          7.6
+        ]
       }
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_3": {
       "slot": 1,
       "well": [
         "A1"
       ]
     },
-    "d": {
+    "Liquid_2": {
       "slot": 2,
       "well": [
-        "D1"
+        "A1"
       ]
     },
     "Liquid_1": {

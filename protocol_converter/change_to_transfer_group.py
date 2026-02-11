@@ -283,7 +283,9 @@ def get_labware_data(protocol_name):
 
 def load_liquid_locations(protocol_name):
     """加载原始的liquid_locations映射"""
-    detailed_action_file = f"./detailed_action_json/{protocol_name}.json"
+    # 使用基于脚本所在目录的绝对路径
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    detailed_action_file = os.path.join(current_dir, "detailed_action_json", f"{protocol_name}.json")
     
     if not os.path.exists(detailed_action_file):
         print(f"  ⚠️  未找到 {detailed_action_file}，将使用自动生成的液体名称")
@@ -312,12 +314,95 @@ def load_liquid_locations(protocol_name):
         return {}
 
 
+def load_protocol_metadata(protocol_name):
+    """从 protoBuilds/{name}/ 读取 metadata.json 和 README.json，提取 description 和 tags。
+
+    tags 来源：
+      1. metadata.json -> files["OT 2 protocol"] 列表中的每个文件名
+      2. README.json   -> categories 字典的 key 及 value（list 中每个 str）
+
+    description 来源：
+      README.json -> description 字段（纯文本）
+
+    Returns:
+        (description: str, tags: list[str])
+    """
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    proto_build_dir = os.path.join(os.path.dirname(current_dir), "protoBuilds", protocol_name)
+
+    description = ""
+    tags = []
+
+    # --- 读取 README.json ---
+    readme_file = os.path.join(proto_build_dir, "README.json")
+    if os.path.exists(readme_file):
+        try:
+            with open(readme_file, "r", encoding="utf-8") as f:
+                readme = json.load(f)
+
+            # 提取 description
+            description = readme.get("description", "").strip()
+
+            # 提取 categories 的 key 和 value 作为 tags
+            categories = readme.get("categories", {})
+            if isinstance(categories, dict):
+                for cat_key, cat_values in categories.items():
+                    tags.append(cat_key)
+                    if isinstance(cat_values, list):
+                        tags.extend(str(v) for v in cat_values)
+        except Exception as e:
+            print(f"  ⚠️  读取 README.json 失败: {e}")
+
+    # 去重并保持顺序
+    seen = set()
+    unique_tags = []
+    for t in tags:
+        if t not in seen:
+            seen.add(t)
+            unique_tags.append(t)
+
+    return description, unique_tags
+
+
+def load_labware_from_protobuild(protocol_name):
+    """从 protoBuilds/{name}/{name}.ot2.apiv2.py.json 中直接读取 labware 数组。
+
+    返回:
+        labware 列表，每个元素包含 name, slot, type 等字段。
+        如果读取失败则返回空列表。
+    """
+    try:
+        labware_json = get_labware_data(protocol_name)
+        labware_list = labware_json.get("labware", [])
+        if not isinstance(labware_list, list):
+            return []
+        # 只保留有用字段: name, slot, type（type 加上 lab_ 前缀）
+        result = []
+        for lw in labware_list:
+            raw_type = lw.get("type", "").replace(".", "point").replace("-", "_")
+            prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
+            result.append({
+                "name": lw.get("name", ""),
+                "slot": lw.get("slot", ""),
+                "type": prefixed_type,
+            })
+        return result
+    except Exception as e:
+        print(f"  ⚠️  读取 labware 失败: {e}")
+        return []
+
+
 def process_protocol(protocol_name):
     """处理单个protocol，返回action_list和labware_data"""
     print(f"Processing {protocol_name}...")
     
     # 获取action_list - 寻找对应的steps文件
-    steps_dir = "./steps/"
+    # 使用基于脚本所在目录的绝对路径
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    steps_dir = os.path.join(current_dir, "steps")
+    
+    if not os.path.exists(steps_dir):
+        raise FileNotFoundError(f"Steps directory not found: {steps_dir}")
     
     # 先尝试找同名的steps文件
     steps_file = None
@@ -328,15 +413,16 @@ def process_protocol(protocol_name):
     ]
     
     for filename in possible_files:
-        if os.path.exists(os.path.join(steps_dir, filename)):
-            steps_file = os.path.join(steps_dir, filename)
+        file_path = os.path.join(steps_dir, filename)
+        if os.path.exists(file_path):
+            steps_file = file_path
             break
     
     # 如果找不到同名文件，使用第一个json文件
     if not steps_file:
         steps_files = [f for f in os.listdir(steps_dir) if f.endswith(".json")]
         if not steps_files:
-            raise FileNotFoundError("No steps json files found")
+            raise FileNotFoundError(f"No steps json files found in {steps_dir}")
         steps_file = os.path.join(steps_dir, steps_files[0])
         print(f"  Warning: 使用默认steps文件: {steps_files[0]}")
     else:
@@ -678,22 +764,36 @@ def export_transfer_actions(protocol_name, output_file=None):
                     # 获取该液体在这个labware中的wells
                     wells = labware['liquid_input_wells'] if labware['liquid_input_wells'] else []
                     
-                    # 处理labware名称：去掉slot后缀并将下划线替换为空格
-                    labware_name = labware['id'].replace(f"_on_{labware['slot_on_deck']}", "").replace("_", " ")
-                    
                     reagents[liquid] = {
                         "slot": labware['slot_on_deck'],
                         "well": wells,
-                        "labware": labware_name
                     }
     
+    # 加载 description 和 tags
+    description, tags = load_protocol_metadata(protocol_name)
+
+    # 加载 labware 信息（从 protoBuilds 的 JSON 中直接复制）
+    labware_list = load_labware_from_protobuild(protocol_name)
+
     output_data = {
+        "description": description,
+        "tags": tags,
+        "labware": labware_list,
         "workflow": transfer_actions,
         "reagent": reagents
     }
     
+    # 确保输出目录存在（使用基于脚本所在目录的绝对路径）
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    output_dir = os.path.join(current_dir, "transfer_actions")
+    os.makedirs(output_dir, exist_ok=True)
+    
     if output_file is None:
-        output_file = f"{protocol_name}_transfer_actions.json"
+        output_file = os.path.join(output_dir, f"{protocol_name}.json")
+    else:
+        # 如果提供了output_file，确保它在正确的目录下
+        if not os.path.dirname(output_file):
+            output_file = os.path.join(output_dir, output_file)
     
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
@@ -706,10 +806,17 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
     """批量生成所有协议的transfer actions"""
     import os
     
-    steps_dir = "./steps/"
+    # 使用基于脚本所在目录的绝对路径
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    steps_dir = os.path.join(current_dir, "steps")
+    
     if not os.path.exists(steps_dir):
-        print("❌ steps目录不存在")
+        print(f"❌ steps目录不存在: {steps_dir}")
         return
+    
+    # 确保输出目录是绝对路径
+    if not os.path.isabs(output_dir):
+        output_dir = os.path.join(current_dir, output_dir)
     
     # 创建输出目录
     os.makedirs(output_dir, exist_ok=True)
@@ -736,9 +843,20 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
             output_file = os.path.join(output_dir, f"{protocol}.json")
             export_data = export_transfer_actions(protocol, output_file)
             
-            # 计算液体种类数量
-            all_liquids = set([action['action_args']['sources'] for action in transfer_actions] + 
-                             [action['action_args']['targets'] for action in transfer_actions])
+            # 计算液体种类数量（安全处理 sources/targets 可能是 str 或 list）
+            all_liquids = set()
+            for action in transfer_actions:
+                if 'action_args' in action:
+                    sources = action['action_args'].get('sources', [])
+                    targets = action['action_args'].get('targets', [])
+                    if isinstance(sources, str):
+                        all_liquids.add(sources)
+                    elif isinstance(sources, list):
+                        all_liquids.update(sources)
+                    if isinstance(targets, str):
+                        all_liquids.add(targets)
+                    elif isinstance(targets, list):
+                        all_liquids.update(targets)
             
             results_summary.append({
                 "protocol": protocol,
@@ -753,8 +871,8 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
             print(f"  ❌ 失败: {e}")
             continue
     
-    # 生成总览文件
-    summary_file = os.path.join(output_dir, "batch_summary.json")
+    # 生成总览文件（放在输出目录的上一级，即 protocol_converter/ 下）
+    summary_file = os.path.join(os.path.dirname(output_dir), "batch_summary.json")
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump({
             "total_protocols": len(protocols),
@@ -772,12 +890,14 @@ if __name__ == "__main__":
     # 选择运行模式
     import sys
     
-    if len(sys.argv) > 1 and sys.argv[1] == "batch":
-        # 批量模式 - 支持自定义输出目录
-        output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions"
-        batch_generate_transfer_actions(output_dir)
-    else:
-        # 示例模式
-        protocol_name = "00c517-pt2"
+    if len(sys.argv) > 1 and sys.argv[1] == "single":
+        # 单文件模式 - 处理指定的单个协议
+        protocol_name = sys.argv[2] if len(sys.argv) > 2 else "00c517-pt2"
         print_transfer_actions(protocol_name)
         export_transfer_actions(protocol_name)
+    else:
+        # 默认批量模式 - 处理steps文件夹下的所有文件
+        output_dir = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] != "batch" else "transfer_actions"
+        if len(sys.argv) > 1 and sys.argv[1] == "batch":
+            output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions"
+        batch_generate_transfer_actions(output_dir)

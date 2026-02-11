@@ -48,104 +48,61 @@
   ],
   "workflow": [
     {
-      "action": "raw",
-      "text": "Adding OptiMEM to all sample wells..."
-    },
-    {
-      "action": "raw",
-      "text": "Adding sample to all sample wells..."
-    },
-    {
-      "action": "raw",
-      "text": "Adding viafect to all sample wells..."
-    },
-    {
-      "action": "mix",
-      "vol": [
-        20.0,
-        20.0
-      ],
-      "position": {
-        "well": "A1",
-        "labware": "Al Block with PCR strips for Mastermix",
-        "slot": 5
-      },
-      "flow_rate": [
-        7.6,
-        7.6
-      ],
-      "mix_time": 3
-    },
-    {
-      "action": "mix",
-      "vol": [
-        20.0,
-        20.0
-      ],
-      "position": {
-        "well": "A1",
-        "labware": "Al Block with PCR strips for Mastermix",
-        "slot": 5
-      },
-      "flow_rate": [
-        7.6,
-        7.6
-      ],
-      "mix_time": 3
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "optimem",
-        "targets": "well",
-        "asp_vol": 7.01,
-        "dis_vol": 7.01,
-        "asp_flow_rate": 4.162000000000001,
-        "dis_flow_rate": 4.162000000000001,
-        "tip_racks": [
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-            "well": "A2"
-          },
-          {
-            "slot": 1,
-            "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-            "well": "A3"
-          }
+        "sources": "viafect",
+        "targets": "mm_cols",
+        "asp_vols": [
+          5.3,
+          5.3
+        ],
+        "dis_vols": [
+          5.3,
+          5.3
+        ],
+        "asp_flow_rates": [
+          3.78,
+          3.78
+        ],
+        "dis_flow_rates": [
+          3.78,
+          3.78
         ]
       }
     },
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "well",
+        "sources": "mm_cols",
         "targets": "samp_cols",
-        "asp_vol": 10.0,
-        "dis_vol": 10.0,
-        "asp_flow_rate": 7.599999999999999,
-        "dis_flow_rate": 7.599999999999999
+        "asp_vols": [
+          10.0
+        ],
+        "dis_vols": [
+          10.0
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ]
       }
     }
   ],
   "reagent": {
-    "optimem": {
+    "viafect": {
       "slot": 5,
       "well": [
         "A12",
-        "G1"
+        "A1"
       ]
     },
-    "well": {
+    "mm_cols": {
       "slot": 5,
       "well": [
         "A12",
-        "G1"
+        "A1"
       ]
     },
     "samp_cols": {

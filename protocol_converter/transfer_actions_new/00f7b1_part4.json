@@ -53,63 +53,45 @@
   ],
   "workflow": [
     {
-      "action": "temperature",
-      "target": 4.0
-    },
-    {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "enzyme_mix",
         "targets": "samples",
-        "asp_vol": 6.0,
-        "dis_vol": 6.0,
-        "asp_flow_rate": 4.75,
-        "dis_flow_rate": 4.75,
-        "tip_racks": [
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A1"
-          },
-          {
-            "slot": 8,
-            "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-            "well": "A2"
-          }
+        "asp_vols": [
+          8.0,
+          4.0
+        ],
+        "dis_vols": [
+          8.0,
+          4.0
+        ],
+        "asp_flow_rates": [
+          7.6,
+          1.9
+        ],
+        "dis_flow_rates": [
+          7.6,
+          1.9
         ]
       }
-    },
-    {
-      "action": "mix",
-      "vol": [
-        70.0,
-        70.0
-      ],
-      "position": {
-        "well": "A1",
-        "labware": "Thermo Fisher 96 Well Plate 200 uL on Magnetic Module GEN2",
-        "slot": 1
-      },
-      "flow_rate": [
-        94.0,
-        94.0
-      ],
-      "mix_time": 6
     },
     {
       "action": "transfer_liquid",
       "action_args": {
         "sources": "nfw",
         "targets": "samples",
-        "asp_vol": 48.0,
-        "dis_vol": 48.0,
-        "asp_flow_rate": 94.0,
-        "dis_flow_rate": 94.0,
-        "tip_racks": {
-          "slot": 7,
-          "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-          "well": "A1"
-        }
+        "asp_vols": [
+          48.0
+        ],
+        "dis_vols": [
+          48.0
+        ],
+        "asp_flow_rates": [
+          94.0
+        ],
+        "dis_flow_rates": [
+          94.0
+        ]
       }
     }
   ],
