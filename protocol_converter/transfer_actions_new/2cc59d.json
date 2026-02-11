@@ -63,7 +63,7 @@
     {
       "name": "Opentrons Fixed Trash on 12",
       "slot": "12",
-      "type": "lab_opentrons_1_trash_1100ml_fixed"
+      "type": "PRCXI_trash"
     }
   ],
   "workflow": [
@@ -142,7 +142,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "sample_wells",
-        "targets": "Liquid_1",
+        "targets": "even_columns",
         "asp_vols": [
           120.0,
           120.0
@@ -164,8 +164,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "sources": "even_columns",
+        "targets": "Liquid_1",
         "asp_vols": [
           200.0,
           200.0
@@ -185,7 +185,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "Liquid_1",
         "targets": "waste",
         "asp_vols": [
           100.0
@@ -210,8 +210,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
-        "targets": "Liquid_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vols": [
           260.0
         ],
@@ -229,8 +229,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
-        "targets": "Liquid_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vols": [
           260.0
         ],
@@ -248,8 +248,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
-        "targets": "Liquid_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vols": [
           260.0
         ],
@@ -267,8 +267,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_3",
-        "targets": "Liquid_2",
+        "sources": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vols": [
           260.0
         ],
@@ -287,7 +287,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tmb",
-        "targets": "Liquid_2",
+        "targets": "Liquid_1",
         "asp_vols": [
           75.0,
           75.0,
@@ -310,24 +310,24 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "Liquid_1": {
       "slot": 1,
       "well": [
-        "A1"
+        "A6"
       ]
     },
     "sample_wells": {
       "slot": 2,
       "well": [
-        "A7",
-        "A2"
+        "A3",
+        "A4"
       ]
     },
-    "Liquid_1": {
+    "even_columns": {
       "slot": 2,
       "well": [
-        "A7",
-        "A2"
+        "A3",
+        "A4"
       ]
     },
     "sample_dilution_buff": {
@@ -360,10 +360,10 @@
     "patient_samples": {
       "slot": 8,
       "well": [
-        "A3"
+        "B4"
       ]
     },
-    "Liquid_3": {
+    "Liquid_2": {
       "slot": 11,
       "well": [
         "A1"

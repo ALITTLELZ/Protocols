@@ -43,7 +43,7 @@
     {
       "name": "Opentrons Fixed Trash on 12",
       "slot": "12",
-      "type": "lab_opentrons_1_trash_1100ml_fixed"
+      "type": "PRCXI_trash"
     }
   ],
   "workflow": [
@@ -96,7 +96,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "dil_adapter",
+        "sources": "samples",
         "targets": "samples",
         "asp_vols": [
           25.5,
@@ -119,7 +119,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "dil_adapter",
+        "sources": "samples",
         "targets": "samples",
         "asp_vols": [
           25.5,
@@ -166,7 +166,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples",
-        "targets": "dil_adapter",
+        "targets": "samples",
         "asp_vols": [
           3.0,
           3.0
@@ -189,7 +189,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "samples",
-        "targets": "dil_adapter",
+        "targets": "samples",
         "asp_vols": [
           3.0,
           3.0
@@ -233,18 +233,18 @@
     }
   ],
   "reagent": {
-    "dil_adapter": {
-      "slot": 1,
-      "well": [
-        "A1",
-        "A4"
-      ]
-    },
     "samples": {
       "slot": 1,
       "well": [
-        "A1",
-        "A4"
+        "A4",
+        "A1"
+      ]
+    },
+    "dil_adapter": {
+      "slot": 1,
+      "well": [
+        "A4",
+        "A1"
       ]
     }
   }

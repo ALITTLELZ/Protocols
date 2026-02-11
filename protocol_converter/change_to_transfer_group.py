@@ -380,7 +380,11 @@ def load_labware_from_protobuild(protocol_name):
         result = []
         for lw in labware_list:
             raw_type = lw.get("type", "").replace(".", "point").replace("-", "_")
-            prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
+            # trash 类型统一替换为 PRCXI_trash
+            if "trash" in raw_type.lower():
+                prefixed_type = "PRCXI_trash"
+            else:
+                prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
             result.append({
                 "name": lw.get("name", ""),
                 "slot": lw.get("slot", ""),

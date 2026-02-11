@@ -52,7 +52,7 @@
     {
       "name": "Opentrons Fixed Trash on 12",
       "slot": "12",
-      "type": "lab_opentrons_1_trash_1100ml_fixed"
+      "type": "PRCXI_trash"
     }
   ],
   "workflow": [
@@ -60,7 +60,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_1",
-        "targets": "Liquid_2",
+        "targets": "col",
         "asp_vols": [
           25.0
         ],
@@ -79,7 +79,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "beads",
-        "targets": "Liquid_2",
+        "targets": "col",
         "asp_vols": [
           20.0,
           20.0
@@ -99,7 +99,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "col",
         "targets": "trash",
         "asp_vols": [
           30.0
@@ -121,7 +121,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol",
-        "targets": "Liquid_2",
+        "targets": "col",
         "asp_vols": [
           200.0,
           200.0
@@ -141,7 +141,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "col",
         "targets": "trash",
         "asp_vols": [
           110.0
@@ -163,7 +163,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "ethanol",
-        "targets": "Liquid_2",
+        "targets": "col",
         "asp_vols": [
           200.0,
           200.0
@@ -183,7 +183,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "col",
         "targets": "trash",
         "asp_vols": [
           110.0
@@ -205,7 +205,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "tris",
-        "targets": "Liquid_2",
+        "targets": "col",
         "asp_vols": [
           52.5,
           52.5
@@ -225,8 +225,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
-        "targets": "Liquid_3",
+        "sources": "col",
+        "targets": "Liquid_2",
         "asp_vols": [
           50.0
         ],
@@ -243,10 +243,10 @@
     }
   ],
   "reagent": {
-    "Liquid_2": {
+    "col": {
       "slot": 1,
       "well": [
-        "A1"
+        "A3"
       ]
     },
     "trash": {
@@ -263,16 +263,16 @@
         "A1"
       ]
     },
-    "Liquid_3": {
+    "Liquid_2": {
       "slot": 3,
       "well": [
-        "A1"
+        "A2"
       ]
     },
     "Liquid_1": {
       "slot": 4,
       "well": [
-        "A2"
+        "A1"
       ]
     },
     "beads": {

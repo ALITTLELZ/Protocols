@@ -38,15 +38,15 @@
     {
       "name": "Opentrons Fixed Trash on 12",
       "slot": "12",
-      "type": "lab_opentrons_1_trash_1100ml_fixed"
+      "type": "PRCXI_trash"
     }
   ],
   "workflow": [
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
-        "targets": "tr2_wells",
+        "sources": "tr2_wells",
+        "targets": "tr2_wells_2",
         "asp_vols": [
           400.0,
           400.0
@@ -68,7 +68,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_1",
+        "sources": "tr2_wells",
         "targets": "dest_wells",
         "asp_vols": [
           105.0,
@@ -89,7 +89,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "tr2_wells",
+        "sources": "tr2_wells_2",
         "targets": "dest_wells_2",
         "asp_vols": [
           105.0,
@@ -136,25 +136,25 @@
         "A1"
       ]
     },
-    "Liquid_1": {
+    "tr2_wells": {
       "slot": 5,
       "well": [
         "A3",
-        "B1"
+        "A2"
       ]
     },
     "ft_srcs": {
       "slot": 5,
       "well": [
         "A3",
-        "B1"
+        "A2"
       ]
     },
-    "tr2_wells": {
+    "tr2_wells_2": {
       "slot": 6,
       "well": [
-        "A1",
-        "B5"
+        "B1",
+        "A5"
       ]
     }
   }

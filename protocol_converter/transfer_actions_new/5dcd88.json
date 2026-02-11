@@ -63,7 +63,7 @@
     {
       "name": "Opentrons Fixed Trash on 12",
       "slot": "12",
-      "type": "lab_opentrons_1_trash_1100ml_fixed"
+      "type": "PRCXI_trash"
     }
   ],
   "workflow": [
@@ -128,7 +128,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "end_prep_mmx",
-        "targets": "Liquid_2",
+        "targets": "end_prep_mmx",
         "asp_vols": [
           15.0
         ],
@@ -146,18 +146,22 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "Liquid_2",
+        "sources": "end_prep_mmx",
         "targets": "chunk",
         "asp_vols": [
           3.3
         ],
         "dis_vols": [
+          3.3,
+          3.3,
           3.3
         ],
         "asp_flow_rates": [
           7.6
         ],
         "dis_flow_rates": [
+          7.6,
+          7.6,
           7.6
         ]
       }
@@ -166,10 +170,8 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "barcode_mmx",
-        "targets": "barcode_mmx",
+        "targets": "chunk",
         "asp_vols": [
-          18.0,
-          18.0,
           18.0
         ],
         "dis_vols": [
@@ -178,8 +180,6 @@
           5.125
         ],
         "asp_flow_rates": [
-          7.6,
-          7.6,
           7.6
         ],
         "dis_flow_rates": [
@@ -193,7 +193,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "s_col",
-        "targets": "barcode_mmx",
+        "targets": "chunk",
         "asp_vols": [
           1.25
         ],
@@ -216,7 +216,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source",
-        "targets": "barcode_mmx",
+        "targets": "chunk",
         "asp_vols": [
           1.0
         ],
@@ -238,7 +238,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "barcode_mmx",
+        "sources": "chunk",
         "targets": "pool_col",
         "asp_vols": [
           2.5,
@@ -276,13 +276,13 @@
         "A1"
       ]
     },
-    "Liquid_2": {
+    "end_prep_mmx": {
       "slot": 3,
       "well": [
         "A1"
       ]
     },
-    "barcode_mmx": {
+    "chunk": {
       "slot": 4,
       "well": [
         "A1",
