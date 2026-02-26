@@ -31,102 +31,110 @@ def get_action_list(steps_file):
     """从steps JSON文件提取action list，包含体积和流速信息"""
     with open(steps_file, "r") as f:
         data = json.load(f)
-    
-    action_list = []
+
+    # 收集所有step中的dispense wells（所有transfer的目标都是相同的）
+    all_dispense_wells = set()
+    all_dispense_vols = []
+    all_dispense_flow_rates = []
+
+    # 按source well分组收集aspirate信息
+    source_to_vols = {}  # {(slot, well): [vol1, vol2, ...]}
+    source_to_flow_rates = {}  # {(slot, well): [flow_rate1, flow_rate2, ...]}
+    source_to_tip_racks = {}  # {(slot, well): set([slot1, slot2, ...])}
+
+    current_tip_rack_slot = None  # 当前使用的tip rack slot
+
     for phase_idx, phase in enumerate(data):
-        aspirate_wells = set()
-        dispense_wells = set()
-        aspirate_vols = []
-        dispense_vols = []
-        aspirate_flow_rates = []
-        dispense_flow_rates = []
-        
         for step in phase:
-            if step['action'] == "aspirate":
-                aspirate_wells.add((step['source']['slot'], step['source']['well']))
+            if step['action'] == "pick_tip":
+                # 记录当前pick的tip rack slot
+                current_tip_rack_slot = step['tip_rack']['slot']
+
+            elif step['action'] == "aspirate":
+                source_key = (step['source']['slot'], step['source']['well'])
+                if source_key not in source_to_vols:
+                    source_to_vols[source_key] = []
+                    source_to_flow_rates[source_key] = []
+                    source_to_tip_racks[source_key] = set()
+
+                # 记录使用的tip rack slot
+                if current_tip_rack_slot is not None:
+                    source_to_tip_racks[source_key].add(current_tip_rack_slot)
+
                 # 提取体积信息
                 if 'vol' in step:
-                    aspirate_vols.append(step['vol'])
+                    source_to_vols[source_key].append(step['vol'])
                 # 提取流速信息
                 if 'flow_rate' in step:
-                    aspirate_flow_rates.append(step['flow_rate'])
+                    source_to_flow_rates[source_key].append(step['flow_rate'])
+
             elif step['action'] == "dispense":
                 # 跳过 blow_out 操作（体积为 -1 或目标是 trash）
                 # blow_out 是排空枪头中的残留液体，不是真正的移液操作，不应该被识别为 dispense
                 vol = step.get('vol', 0)
                 target = step.get('target', {})
                 labware = target.get('labware', '').lower() if target else ''
-                
+
                 # 检查是否是 blow_out 操作（排空枪头）
                 is_blowout = (
                     vol == -1 or  # 体积为 -1 表示 blow_out（排空枪头）
                     'trash' in labware or  # 目标是 trash（通常用于排空枪头）
                     target.get('slot') == 12  # Opentrons Fixed Trash 通常在 slot 12
                 )
-                
+
                 if not is_blowout:
-                    dispense_wells.add((step['target']['slot'], step['target']['well']))
+                    all_dispense_wells.add((step['target']['slot'], step['target']['well']))
                     # 提取体积信息
                     if 'vol' in step:
-                        dispense_vols.append(step['vol'])
+                        all_dispense_vols.append(step['vol'])
                     # 提取流速信息
                     if 'flow_rate' in step:
-                        dispense_flow_rates.append(step['flow_rate'])
-        
-        # 计算平均体积（用于向后兼容）
-        avg_asp_vol = sum(aspirate_vols) / len(aspirate_vols) if aspirate_vols else 0
-        avg_dis_vol = sum(dispense_vols) / len(dispense_vols) if dispense_vols else 0
-        
-        # 计算平均流速（用于向后兼容）
-        avg_asp_flow_rate = sum(aspirate_flow_rates) / len(aspirate_flow_rates) if aspirate_flow_rates else 0
-        avg_dis_flow_rate = sum(dispense_flow_rates) / len(dispense_flow_rates) if dispense_flow_rates else 0
-        
-        # 生成数组格式的体积和流速（与sources数量一致）
-        aspirate_wells_list = list(aspirate_wells)
-        num_sources = len(aspirate_wells_list)
-        
-        # 为每个source生成体积和流速数组
-        # 如果数组长度不够，用平均值填充
+                        all_dispense_flow_rates.append(step['flow_rate'])
+
+    # 计算dispense的平均值
+    avg_dis_vol = sum(all_dispense_vols) / len(all_dispense_vols) if all_dispense_vols else 0
+    avg_dis_flow_rate = sum(all_dispense_flow_rates) / len(all_dispense_flow_rates) if all_dispense_flow_rates else 0
+
+    # 为每个source well生成一个action
+    action_list = []
+    for source_well, vols in source_to_vols.items():
+        flow_rates = source_to_flow_rates[source_well]
+        tip_rack_slots = source_to_tip_racks[source_well]
+
+        # 计算平均体积和流速（用于向后兼容）
+        avg_asp_vol = sum(vols) / len(vols) if vols else 0
+        avg_asp_flow_rate = sum(flow_rates) / len(flow_rates) if flow_rates else 0
+
+        # 生成tip_racks字符串（转换为tiprack_X格式）
+        tip_racks = f"tiprack_{sorted(tip_rack_slots)[0]}" if tip_rack_slots else ""
+
+        # 生成数组格式的体积和流速（单个source对应多个dispense）
+        num_targets = len(all_dispense_wells)
         asp_vols_array = []
         asp_flow_rates_array = []
         dis_vols_array = []
         dis_flow_rates_array = []
-        
-        for i in range(num_sources):
-            # 如果有对应的值，使用实际值；否则使用平均值
-            if i < len(aspirate_vols):
-                asp_vols_array.append(aspirate_vols[i])
-            else:
-                asp_vols_array.append(avg_asp_vol)
-            
-            if i < len(aspirate_flow_rates):
-                asp_flow_rates_array.append(aspirate_flow_rates[i])
-            else:
-                asp_flow_rates_array.append(avg_asp_flow_rate)
-            
+
+        for i in range(num_targets):
+            # aspirate的体积和流速：对于同一个source，所有dispense使用相同的
+            asp_vols_array.append(avg_asp_vol)
+            asp_flow_rates_array.append(avg_asp_flow_rate)
+
             # dispense的体积和流速：如果有对应的值就使用，否则使用平均值
-            # 注意：dispense的数量可能与aspirate不同，但通常应该相同
-            if i < len(dispense_vols):
-                dis_vols_array.append(dispense_vols[i])
+            if i < len(all_dispense_vols):
+                dis_vols_array.append(all_dispense_vols[i])
             else:
                 dis_vols_array.append(avg_dis_vol)
-            
-            if i < len(dispense_flow_rates):
-                dis_flow_rates_array.append(dispense_flow_rates[i])
+
+            if i < len(all_dispense_flow_rates):
+                dis_flow_rates_array.append(all_dispense_flow_rates[i])
             else:
                 dis_flow_rates_array.append(avg_dis_flow_rate)
-        
-        # 如果没有数据，至少生成一个元素
-        if not asp_vols_array:
-            asp_vols_array = [0]
-            asp_flow_rates_array = [0]
-            dis_vols_array = [0]
-            dis_flow_rates_array = [0]
-        
+
         action_list.append({
-            "phase": phase_idx,  # 这里使用正确的phase索引
-            "aspirate": aspirate_wells_list,
-            "dispense": list(dispense_wells),
+            "phase": len(action_list),  # 每个source对应一个phase索引
+            "aspirate": [source_well],  # 单个source well
+            "dispense": list(all_dispense_wells),  # 所有dispense wells
             "asp_vol": avg_asp_vol,  # 保留用于向后兼容
             "dis_vol": avg_dis_vol,  # 保留用于向后兼容
             "asp_flow_rate": avg_asp_flow_rate,  # 保留用于向后兼容
@@ -134,9 +142,10 @@ def get_action_list(steps_file):
             "asp_vols": asp_vols_array,  # 新增：数组格式
             "dis_vols": dis_vols_array,  # 新增：数组格式
             "asp_flow_rates": asp_flow_rates_array,  # 新增：数组格式
-            "dis_flow_rates": dis_flow_rates_array  # 新增：数组格式
+            "dis_flow_rates": dis_flow_rates_array,  # 新增：数组格式
+            "tip_racks": tip_racks  # 新增：使用的tip racks
         })
-    
+
     return action_list
 
 
@@ -195,8 +204,9 @@ def extract_labware_info_from_json(json_data: dict, total_slots: int) -> Tuple[l
         class_name = (lw.get("type") or "").strip()
         if not class_name:
             raise ValueError(f"Labware item missing 'type': {lw}")
-        # 清洗 class_name 中的点
+        # 清洗 class_name 中的点和特殊字符
         class_name = re.sub(r'\.', 'point', class_name)
+        class_name = re.sub(r'[µμ]', 'u', class_name)
 
         # 默认体积
         liquid_vol = 200.0
@@ -234,6 +244,8 @@ def extract_labware_info_from_json(json_data: dict, total_slots: int) -> Tuple[l
 
         # 生成新 id：把 "on X" 改成 "on {new_slot}"，再把空格换成下划线
         prcxi_id = (lw.get("name") or "").strip()
+        # 替换特殊字符
+        prcxi_id = re.sub(r'[µμ]', 'u', prcxi_id)
         if not prcxi_id:
             # 没有名字就用类型占位，防止空
             prcxi_id = f"{class_name} on {orig_slot_raw}"
@@ -283,12 +295,10 @@ def get_labware_data(protocol_name):
 
 def load_liquid_locations(protocol_name):
     """加载原始的liquid_locations映射"""
-    # 使用基于脚本所在目录的绝对路径
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    detailed_action_file = os.path.join(current_dir, "detailed_action_json", f"{protocol_name}.json")
+    detailed_action_file = f"./detailed_action_json/{protocol_name}.json"
     
     if not os.path.exists(detailed_action_file):
-        print(f"  ⚠️  未找到 {detailed_action_file}，将使用自动生成的液体名称")
+        print(f"  未找到 {detailed_action_file}，将使用自动生成的液体名称")
         return {}
     
     try:
@@ -306,94 +316,12 @@ def load_liquid_locations(protocol_name):
                     clean_name = re.sub(r'\[\d+\]$', '', var_name)
                     well_to_varname[(slot, well)] = clean_name
             
-            print(f"  ✅ 加载了 {len(well_to_varname)} 个原始试剂位置映射")
+            print(f"  加载了 {len(well_to_varname)} 个原始试剂位置映射")
             return well_to_varname
             
     except Exception as e:
-        print(f"  ⚠️  加载 liquid_locations 失败: {e}，将使用自动生成的液体名称")
+        print(f"  加载 liquid_locations 失败: {e}，将使用自动生成的液体名称")
         return {}
-
-
-def load_protocol_metadata(protocol_name):
-    """从 protoBuilds/{name}/ 读取 metadata.json 和 README.json，提取 description 和 tags。
-
-    tags 来源：
-      1. metadata.json -> files["OT 2 protocol"] 列表中的每个文件名
-      2. README.json   -> categories 字典的 key 及 value（list 中每个 str）
-
-    description 来源：
-      README.json -> description 字段（纯文本）
-
-    Returns:
-        (description: str, tags: list[str])
-    """
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    proto_build_dir = os.path.join(os.path.dirname(current_dir), "protoBuilds", protocol_name)
-
-    description = ""
-    tags = []
-
-    # --- 读取 README.json ---
-    readme_file = os.path.join(proto_build_dir, "README.json")
-    if os.path.exists(readme_file):
-        try:
-            with open(readme_file, "r", encoding="utf-8") as f:
-                readme = json.load(f)
-
-            # 提取 description
-            description = readme.get("description", "").strip()
-
-            # 提取 categories 的 key 和 value 作为 tags
-            categories = readme.get("categories", {})
-            if isinstance(categories, dict):
-                for cat_key, cat_values in categories.items():
-                    tags.append(cat_key)
-                    if isinstance(cat_values, list):
-                        tags.extend(str(v) for v in cat_values)
-        except Exception as e:
-            print(f"  ⚠️  读取 README.json 失败: {e}")
-
-    # 去重并保持顺序
-    seen = set()
-    unique_tags = []
-    for t in tags:
-        if t not in seen:
-            seen.add(t)
-            unique_tags.append(t)
-
-    return description, unique_tags
-
-
-def load_labware_from_protobuild(protocol_name):
-    """从 protoBuilds/{name}/{name}.ot2.apiv2.py.json 中直接读取 labware 数组。
-
-    返回:
-        labware 列表，每个元素包含 name, slot, type 等字段。
-        如果读取失败则返回空列表。
-    """
-    try:
-        labware_json = get_labware_data(protocol_name)
-        labware_list = labware_json.get("labware", [])
-        if not isinstance(labware_list, list):
-            return []
-        # 只保留有用字段: name, slot, type（type 加上 lab_ 前缀）
-        result = []
-        for lw in labware_list:
-            raw_type = lw.get("type", "").replace(".", "point").replace("-", "_")
-            # trash 类型统一替换为 PRCXI_trash
-            if "trash" in raw_type.lower():
-                prefixed_type = "PRCXI_trash"
-            else:
-                prefixed_type = f"lab_{raw_type}" if raw_type and not raw_type.startswith("lab_") else raw_type
-            result.append({
-                "name": lw.get("name", ""),
-                "slot": lw.get("slot", ""),
-                "type": prefixed_type,
-            })
-        return result
-    except Exception as e:
-        print(f"  ⚠️  读取 labware 失败: {e}")
-        return []
 
 
 def process_protocol(protocol_name):
@@ -401,12 +329,7 @@ def process_protocol(protocol_name):
     print(f"Processing {protocol_name}...")
     
     # 获取action_list - 寻找对应的steps文件
-    # 使用基于脚本所在目录的绝对路径
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    steps_dir = os.path.join(current_dir, "steps")
-    
-    if not os.path.exists(steps_dir):
-        raise FileNotFoundError(f"Steps directory not found: {steps_dir}")
+    steps_dir = "./steps/"
     
     # 先尝试找同名的steps文件
     steps_file = None
@@ -417,16 +340,15 @@ def process_protocol(protocol_name):
     ]
     
     for filename in possible_files:
-        file_path = os.path.join(steps_dir, filename)
-        if os.path.exists(file_path):
-            steps_file = file_path
+        if os.path.exists(os.path.join(steps_dir, filename)):
+            steps_file = os.path.join(steps_dir, filename)
             break
     
     # 如果找不到同名文件，使用第一个json文件
     if not steps_file:
         steps_files = [f for f in os.listdir(steps_dir) if f.endswith(".json")]
         if not steps_files:
-            raise FileNotFoundError(f"No steps json files found in {steps_dir}")
+            raise FileNotFoundError("No steps json files found")
         steps_file = os.path.join(steps_dir, steps_files[0])
         print(f"  Warning: 使用默认steps文件: {steps_files[0]}")
     else:
@@ -501,84 +423,59 @@ def set_liquid_info(results, well_to_varname=None):
         
         # 遍历每个phase
         for phase_idx, action in enumerate(action_list):
-            # 处理aspirate操作 - 同一phase中的所有aspirate孔位共享同一液体
+            # 处理aspirate操作 - 每个action只有一个source well
             if action["aspirate"]:
-                # 检查是否有已知的液体
-                existing_aspirate_liquid = None
-                for slot, well in action["aspirate"]:
-                    well_key = (slot, well)
-                    if well_key in well_to_liquid:
-                        existing_aspirate_liquid = well_to_liquid[well_key]
-                        break
-                
-                # 如果没有已知液体，创建新的
-                if existing_aspirate_liquid is None:
-                    # 使用第一个孔位来决定液体名称
-                    first_slot, first_well = action["aspirate"][0]
-                    aspirate_liquid_name = get_liquid_name_for_well(first_slot, first_well)
-                    print(f"  新源液体: {aspirate_liquid_name} (Phase {phase_idx} aspirate)")
-                else:
-                    aspirate_liquid_name = existing_aspirate_liquid
-                    print(f"  复用源液体: {aspirate_liquid_name} (Phase {phase_idx} aspirate)")
-                
-                # 为这个phase的所有aspirate孔位分配相同的液体
-                for slot, well in action["aspirate"]:
-                    well_key = (slot, well)
-                    well_to_liquid[well_key] = aspirate_liquid_name
-                
+                # 每个action只有一个source well，直接为其分配液体名称
+                slot, well = action["aspirate"][0]  # 只有一个well
+                well_key = (slot, well)
+                aspirate_liquid_name = get_liquid_name_for_well(slot, well)
+                well_to_liquid[well_key] = aspirate_liquid_name
                 action["source_liquids"] = [aspirate_liquid_name]
+                print(f"  源液体: {aspirate_liquid_name} ({slot}:{well})")
             else:
                 action["source_liquids"] = []
-            
-            # 处理dispense操作 - 同一phase中的所有dispense孔位共享同一液体
+
+            # 处理dispense操作 - 同一action中的所有dispense孔位共享同一液体
             if action["dispense"]:
-                # 检查是否有已知的液体
-                existing_dispense_liquid = None
+                # 为这个action的所有dispense孔位分配相同的target液体
+                # 使用一个固定的target名称，因为所有dispense都是到同一个地方
+                target_liquid_name = "samples"
+                if target_liquid_name not in used_liquid_names:
+                    used_liquid_names.add(target_liquid_name)
+
+                # 为这个action的所有dispense孔位分配相同的液体
                 for slot, well in action["dispense"]:
                     well_key = (slot, well)
-                    if well_key in well_to_liquid:
-                        existing_dispense_liquid = well_to_liquid[well_key]
-                        break
-                
-                # 如果没有已知液体，创建新的
-                if existing_dispense_liquid is None:
-                    # 使用第一个孔位来决定液体名称
-                    first_slot, first_well = action["dispense"][0]
-                    dispense_liquid_name = get_liquid_name_for_well(first_slot, first_well)
-                    print(f"  新目标液体: {dispense_liquid_name} (Phase {phase_idx} dispense)")
-                else:
-                    dispense_liquid_name = existing_dispense_liquid
-                    print(f"  复用目标液体: {dispense_liquid_name} (Phase {phase_idx} dispense)")
-                
-                # 为这个phase的所有dispense孔位分配相同的液体
-                for slot, well in action["dispense"]:
-                    well_key = (slot, well)
-                    well_to_liquid[well_key] = dispense_liquid_name
-                
-                action["target_liquids"] = [dispense_liquid_name]
+                    well_to_liquid[well_key] = target_liquid_name
+
+                action["target_liquids"] = [target_liquid_name]
+                print(f"  目标液体: {target_liquid_name} ({len(action['dispense'])} 个wells)")
             else:
                 action["target_liquids"] = []
         
         # 更新labware_info中的液体信息
         for labware in labware_info:
             slot = labware["slot_on_deck"]
-            
-            # 找到这个slot上所有有液体的孔位
-            slot_liquids = []
-            slot_wells = []
-            
+
+            # 为每个slot创建液体到wells的映射
+            liquid_to_wells = {}
+
             for (well_slot, well), liquid_name in well_to_liquid.items():
                 if well_slot == slot:
-                    if liquid_name not in slot_liquids:
-                        slot_liquids.append(liquid_name)
-                        slot_wells.append(well)
-            
+                    if liquid_name not in liquid_to_wells:
+                        liquid_to_wells[liquid_name] = []
+                    liquid_to_wells[liquid_name].append(well)
+
             # 更新labware的液体信息
-            labware["liquid_type"] = slot_liquids
-            labware["liquid_input_wells"] = slot_wells
-            
-            if slot_liquids:
-                print(f"  Labware {labware['id']}: {len(slot_liquids)} 种液体在 {slot_wells}")
+            labware["liquid_type"] = list(liquid_to_wells.keys())
+            # 对于多个液体的情况，我们需要展开所有wells
+            all_wells = []
+            for wells in liquid_to_wells.values():
+                all_wells.extend(wells)
+            labware["liquid_input_wells"] = all_wells
+
+            if labware["liquid_type"]:
+                print(f"  Labware {labware['id']}: {len(labware['liquid_type'])} 种液体在 {all_wells}")
         
         print(f"  {protocol_name}: 总共识别了 {len(used_liquid_names)} 种液体")
     
@@ -655,15 +552,22 @@ def generate_transfer_actions(protocol_name):
             if not phase['source_liquids'] or not phase['target_liquids']:
                 continue
             
+            # 使用数组格式的体积和流速（标准格式要求）
+            asp_vols = phase.get('asp_vols', [phase.get('asp_vol', 0)])
+            dis_vols = phase.get('dis_vols', [phase.get('dis_vol', 0)])
+            asp_flow_rates = phase.get('asp_flow_rates', [phase.get('asp_flow_rate', 0)])
+            dis_flow_rates = phase.get('dis_flow_rates', [phase.get('dis_flow_rate', 0)])
+            
             action = {
                 "action": "transfer_liquid",
                 "action_args": {
                     "sources": phase['source_liquids'][0] if len(phase['source_liquids']) == 1 else phase['source_liquids'],
                     "targets": phase['target_liquids'][0] if len(phase['target_liquids']) == 1 else phase['target_liquids'],
-                    "asp_vol": phase.get('asp_vol', 0),
-                    "dis_vol": phase.get('dis_vol', 0),
-                    "asp_flow_rate": phase.get('asp_flow_rate', 0),
-                    "dis_flow_rate": phase.get('dis_flow_rate', 0)
+                    "asp_vols": asp_vols,
+                    "dis_vols": dis_vols,
+                    "asp_flow_rates": asp_flow_rates,
+                    "dis_flow_rates": dis_flow_rates,
+                    "tip_racks": phase.get('tip_racks', [])
                 }
             }
             
@@ -672,7 +576,7 @@ def generate_transfer_actions(protocol_name):
         return transfer_actions, updated_labware_info
         
     except Exception as e:
-        print(f"❌ 生成 transfer actions 失败: {e}")
+        print(f"生成 transfer actions 失败: {e}")
         return [], []
 
 
@@ -685,10 +589,10 @@ def print_transfer_actions(protocol_name):
     transfer_actions, labware_info = generate_transfer_actions(protocol_name)
     
     if not transfer_actions:
-        print("❌ 没有有效的transfer actions")
+        print("没有有效的transfer actions")
         return
     
-    print(f"✅ 生成了 {len(transfer_actions)} 个有效actions:")
+    print(f"生成了 {len(transfer_actions)} 个有效actions:")
     
     for i, action in enumerate(transfer_actions, 1):
         print(f"\nAction {i}:")
@@ -697,10 +601,10 @@ def print_transfer_actions(protocol_name):
         print(f"    \"action_args\": {{")
         print(f"      \"sources\": \"{action['action_args']['sources']}\",")
         print(f"      \"targets\": \"{action['action_args']['targets']}\",")
-        print(f"      \"asp_vol\": {action['action_args']['asp_vol']},")
-        print(f"      \"dis_vol\": {action['action_args']['dis_vol']},")
-        print(f"      \"asp_flow_rate\": {action['action_args']['asp_flow_rate']},")
-        print(f"      \"dis_flow_rate\": {action['action_args']['dis_flow_rate']}")
+        print(f"      \"asp_vols\": {action['action_args']['asp_vols']},")
+        print(f"      \"dis_vols\": {action['action_args']['dis_vols']},")
+        print(f"      \"asp_flow_rates\": {action['action_args']['asp_flow_rates']},")
+        print(f"      \"dis_flow_rates\": {action['action_args']['dis_flow_rates']}")
         print(f"    }}")
         print(f"  }}")
     
@@ -711,31 +615,102 @@ def print_transfer_actions(protocol_name):
             for liquid in labware['liquid_type']:
                 if liquid not in liquid_summary:
                     liquid_summary[liquid] = []
-                liquid_summary[liquid].append(f"槽{labware['slot_on_deck']}")
+                liquid_summary[liquid].append(f"slot{labware['slot_on_deck']}")
     
     # 显示reagent信息
-    print(f"\n🧪 Reagent信息:")
-    reagents = {}
-    slot_to_labware = {}
+    print(f"\nReagent信息:")
+
+    # 从原始liquid_locations映射中获取准确的reagent信息
+    well_to_varname = load_liquid_locations(protocol_name)
+
+    # 构建liquid到well的映射
+    liquid_to_info = {}
+    for (slot, well), liquid_name in well_to_varname.items():
+        if liquid_name not in liquid_to_info:
+            liquid_to_info[liquid_name] = {
+                "slot": slot,
+                "wells": [well],  # 直接设置单个well
+                "labware": ""
+            }
+        else:
+            # 如果已经存在，添加到列表中
+            liquid_to_info[liquid_name]["wells"].append(well)
+
+    # 为每个labware设置labware类型（使用type而不是name）
+    # 获取protoBuilds中的原始JSON数据来获取type信息
+    slot_to_type = {}
+    try:
+        proto_json = get_labware_data(protocol_name)
+        if 'labware' in proto_json:
+            for labware in proto_json['labware']:
+                slot = int(labware.get('slot', 0))
+                labware_type = labware.get('type', '')
+                slot_to_type[slot] = labware_type
+    except Exception as e:
+        pass
+
+    # 为每个labware设置labware类型
     for labware in labware_info:
-        slot_to_labware[labware['slot_on_deck']] = labware
-    
-    for labware in labware_info:
-        if labware['liquid_type']:
-            for liquid in labware['liquid_type']:
-                if liquid not in reagents:
-                    wells = labware['liquid_input_wells'] if labware['liquid_input_wells'] else []
-                    reagents[liquid] = {
-                        "slot": labware['slot_on_deck'],
-                        "well": wells,
-                        "labware": labware['id'].replace(f"_on_{labware['slot_on_deck']}", "")
+        slot = labware['slot_on_deck']
+        for liquid_info in liquid_to_info.values():
+            if liquid_info["slot"] == slot:
+                # 使用type而不是name
+                liquid_info["labware"] = slot_to_type.get(slot, "")
+
+    # 处理transfer_actions中的liquids
+    for action in transfer_actions:
+        sources = action['action_args']['sources']
+        targets = action['action_args']['targets']
+
+        if isinstance(sources, str):
+            sources = [sources]
+        if isinstance(targets, str):
+            targets = [targets]
+
+        all_liquids = sources + targets
+
+        for liquid in all_liquids:
+            if liquid not in liquid_to_info and liquid == "samples":
+                # 对于samples，找到对应的wells
+                for labware in labware_info:
+                    if labware['liquid_type'] and "samples" in labware['liquid_type']:
+                        liquid_to_info[liquid] = {
+                            "slot": labware['slot_on_deck'],
+                            "wells": labware['liquid_input_wells'] if labware['liquid_input_wells'] else [],
+                            "labware": slot_to_type.get(labware['slot_on_deck'], "")
+                        }
+                        break
+
+    # 添加tiprack信息
+    try:
+        proto_json = get_labware_data(protocol_name)
+        if 'labware' in proto_json:
+            for labware in proto_json['labware']:
+                labware_type = labware.get('type', '').lower()
+                # 检查是否是tiprack
+                if 'tip' in labware_type and 'rack' in labware_type:
+                    slot = int(labware.get('slot', 0))
+                    labware_type_name = labware.get('type', '')
+
+                    # 生成tiprack key，根据slot命名，如 tiprack_1, tiprack_2 等
+                    tiprack_key = f"tiprack_{slot}"
+                    liquid_to_info[tiprack_key] = {
+                        "slot": slot,
+                        "labware": labware_type_name
                     }
-    
-    for liquid, info in reagents.items():
-        wells_str = ', '.join(info['well'][:3])  # 显示前3个wells
-        if len(info['well']) > 3:
-            wells_str += f" (+{len(info['well'])-3}个)"
-        print(f"  {liquid}: 槽{info['slot']} | {info['labware']} | wells: [{wells_str}]")
+    except Exception as e:
+        pass
+
+    # 显示所有reagent信息
+    for liquid, info in liquid_to_info.items():
+        if 'wells' in info:
+            wells_str = ', '.join(info['wells'][:3])  # 显示前3个wells
+            if len(info['wells']) > 3:
+                wells_str += f" (+{len(info['wells'])-3}个)"
+            print(f"  {liquid}: slot{info['slot']} | {info['labware']} | wells: [{wells_str}]")
+        else:
+            # 对于tiprack等没有wells信息的项目
+            print(f"  {liquid}: slot{info['slot']} | {info['labware']}")
 
 
 def export_transfer_actions(protocol_name, output_file=None):
@@ -743,7 +718,7 @@ def export_transfer_actions(protocol_name, output_file=None):
     transfer_actions, labware_info = generate_transfer_actions(protocol_name)
     
     if not transfer_actions:
-        print(f"❌ 协议 {protocol_name} 没有有效的transfer actions")
+        print(f"协议 {protocol_name} 没有有效的transfer actions")
         return
     
     # 生成reagent信息
@@ -754,73 +729,125 @@ def export_transfer_actions(protocol_name, output_file=None):
     for labware in labware_info:
         slot_to_labware[labware['slot_on_deck']] = labware
     
-    # 收集所有液体信息
+    # 从原始liquid_locations映射中获取准确的reagent信息
+    well_to_varname = load_liquid_locations(protocol_name)
+
+    # 构建liquid到well的映射
+    liquid_to_info = {}
+    for (slot, well), liquid_name in well_to_varname.items():
+        if liquid_name not in liquid_to_info:
+            liquid_to_info[liquid_name] = {
+                "slot": slot,
+                "wells": [well],  # 直接设置单个well
+                "labware": ""
+            }
+        else:
+            # 如果已经存在，添加到列表中
+            liquid_to_info[liquid_name]["wells"].append(well)
+
+    # 为每个labware设置labware类型（使用type而不是name）
+    # 获取protoBuilds中的原始JSON数据来获取type信息
+    slot_to_type = {}
+    try:
+        proto_json = get_labware_data(protocol_name)
+        if 'labware' in proto_json:
+            for labware in proto_json['labware']:
+                slot = int(labware.get('slot', 0))
+                labware_type = labware.get('type', '')
+                slot_to_type[slot] = labware_type
+    except Exception as e:
+        pass
+
+    # 为每个labware设置labware类型
     for labware in labware_info:
-        if labware['liquid_type']:
-            for i, liquid in enumerate(labware['liquid_type']):
-                if liquid not in reagents:
-                    # 获取该液体在这个labware中的wells
-                    wells = labware['liquid_input_wells'] if labware['liquid_input_wells'] else []
-                    
-                    reagents[liquid] = {
-                        "slot": labware['slot_on_deck'],
-                        "well": wells,
-                    }
-    
-    # 将标量 vol/flow_rate 展开为数组，长度 = 对应 reagent 的 well 数
+        slot = labware['slot_on_deck']
+        for liquid_info in liquid_to_info.values():
+            if liquid_info["slot"] == slot:
+                # 使用type而不是name
+                liquid_info["labware"] = slot_to_type.get(slot, "")
+
+    # 处理transfer_actions中的liquids
     for action in transfer_actions:
-        args = action.get("action_args", {})
-        src = args.get("sources", "")
-        tgt = args.get("targets", "")
+        sources = action['action_args']['sources']
+        targets = action['action_args']['targets']
 
-        # 源 reagent 的 well 数 → asp 数组长度
-        src_name = src if isinstance(src, str) else (src[0] if src else "")
-        src_well_count = len(reagents.get(src_name, {}).get("well", [])) or 1
+        if isinstance(sources, str):
+            sources = [sources]
+        if isinstance(targets, str):
+            targets = [targets]
 
-        # 目标 reagent 的 well 数 → dis 数组长度
-        tgt_name = tgt if isinstance(tgt, str) else (tgt[0] if tgt else "")
-        tgt_well_count = len(reagents.get(tgt_name, {}).get("well", [])) or 1
+        all_liquids = sources + targets
 
-        asp_vol = args.pop("asp_vol", 0)
-        dis_vol = args.pop("dis_vol", 0)
-        asp_flow_rate = args.pop("asp_flow_rate", 0)
-        dis_flow_rate = args.pop("dis_flow_rate", 0)
+        for liquid in all_liquids:
+            if liquid not in reagents and liquid in liquid_to_info:
+                info = liquid_to_info[liquid]
+                reagents[liquid] = {
+                    "slot": info["slot"],
+                    "well": info["wells"],
+                    "labware": info["labware"]
+                }
 
-        args["asp_vols"] = [asp_vol] * src_well_count
-        args["dis_vols"] = [dis_vol] * tgt_well_count
-        args["asp_flow_rates"] = [asp_flow_rate] * src_well_count
-        args["dis_flow_rates"] = [dis_flow_rate] * tgt_well_count
+    # 对于没有在原始映射中找到的liquids（比如"samples"），从labware_info中获取
+    for action in transfer_actions:
+        sources = action['action_args']['sources']
+        targets = action['action_args']['targets']
 
-    # 加载 description 和 tags
-    description, tags = load_protocol_metadata(protocol_name)
+        if isinstance(sources, str):
+            sources = [sources]
+        if isinstance(targets, str):
+            targets = [targets]
 
-    # 加载 labware 信息（从 protoBuilds 的 JSON 中直接复制）
-    labware_list = load_labware_from_protobuild(protocol_name)
+        all_liquids = sources + targets
+
+        for liquid in all_liquids:
+            if liquid not in reagents:
+                # 从labware_info中查找
+                for labware in labware_info:
+                    if labware['liquid_type'] and liquid in labware['liquid_type']:
+                        slot = labware['slot_on_deck']
+                        wells = labware['liquid_input_wells']
+                        labware_name = labware['id'].replace(f"_on_{slot}", "").replace("_", " ")
+
+                        reagents[liquid] = {
+                            "slot": slot,
+                            "well": wells,
+                            "labware": slot_to_type.get(slot, "")
+                        }
+                        break
+
+    # 添加tiprack信息
+    # 获取protoBuilds中的原始JSON数据
+    try:
+        proto_json = get_labware_data(protocol_name)
+        if 'labware' in proto_json:
+            for labware in proto_json['labware']:
+                labware_type = labware.get('type', '').lower()
+                # 检查是否是tiprack
+                if 'tip' in labware_type and 'rack' in labware_type:
+                    slot = int(labware.get('slot', 0))
+                    labware_type_name = labware.get('type', '')
+
+                    # 生成tiprack key，根据slot命名，如 tiprack_1, tiprack_2 等
+                    tiprack_key = f"tiprack_{slot}"
+                    reagents[tiprack_key] = {
+                        "slot": slot,
+                        "labware": labware_type_name
+                    }
+    except Exception as e:
+        print(f"  加载protoBuilds数据失败: {e}")
 
     output_data = {
-        "description": description,
-        "tags": tags,
-        "labware": labware_list,
         "workflow": transfer_actions,
         "reagent": reagents
     }
     
-    # 确保输出目录存在（使用基于脚本所在目录的绝对路径）
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    output_dir = os.path.join(current_dir, "transfer_actions")
-    os.makedirs(output_dir, exist_ok=True)
-    
     if output_file is None:
-        output_file = os.path.join(output_dir, f"{protocol_name}.json")
-    else:
-        # 如果提供了output_file，确保它在正确的目录下
-        if not os.path.dirname(output_file):
-            output_file = os.path.join(output_dir, output_file)
+        output_file = f"{protocol_name}_transfer_actions.json"
     
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
     
-    print(f"✅ Transfer actions已导出到: {output_file}")
+    print(f"Transfer actions已导出到: {output_file}")
     return output_data
 
 
@@ -828,17 +855,10 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
     """批量生成所有协议的transfer actions"""
     import os
     
-    # 使用基于脚本所在目录的绝对路径
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    steps_dir = os.path.join(current_dir, "steps")
-    
+    steps_dir = "./steps/"
     if not os.path.exists(steps_dir):
-        print(f"❌ steps目录不存在: {steps_dir}")
+        print("steps目录不存在")
         return
-    
-    # 确保输出目录是绝对路径
-    if not os.path.isabs(output_dir):
-        output_dir = os.path.join(current_dir, output_dir)
     
     # 创建输出目录
     os.makedirs(output_dir, exist_ok=True)
@@ -846,7 +866,7 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
     # 获取所有协议
     protocols = [f.replace('.json', '') for f in os.listdir(steps_dir) if f.endswith('.json')]
     
-    print(f"🔍 发现 {len(protocols)} 个协议")
+    print(f"发现 {len(protocols)} 个协议")
     
     success_count = 0
     results_summary = []
@@ -858,27 +878,16 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
             transfer_actions, labware_info = generate_transfer_actions(protocol)
             
             if not transfer_actions:
-                print(f"  ⚠️  跳过 - 没有有效actions")
+                print(f"  跳过 - 没有有效actions")
                 continue
             
             # 导出单个协议的actions，文件名就是方案名.json
             output_file = os.path.join(output_dir, f"{protocol}.json")
             export_data = export_transfer_actions(protocol, output_file)
             
-            # 计算液体种类数量（安全处理 sources/targets 可能是 str 或 list）
-            all_liquids = set()
-            for action in transfer_actions:
-                if 'action_args' in action:
-                    sources = action['action_args'].get('sources', [])
-                    targets = action['action_args'].get('targets', [])
-                    if isinstance(sources, str):
-                        all_liquids.add(sources)
-                    elif isinstance(sources, list):
-                        all_liquids.update(sources)
-                    if isinstance(targets, str):
-                        all_liquids.add(targets)
-                    elif isinstance(targets, list):
-                        all_liquids.update(targets)
+            # 计算液体种类数量
+            all_liquids = set([action['action_args']['sources'] for action in transfer_actions] + 
+                             [action['action_args']['targets'] for action in transfer_actions])
             
             results_summary.append({
                 "protocol": protocol,
@@ -887,14 +896,14 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
             })
             
             success_count += 1
-            print(f"  ✅ 成功 - {len(transfer_actions)} actions")
+            print(f"  成功 - {len(transfer_actions)} actions")
             
         except Exception as e:
-            print(f"  ❌ 失败: {e}")
+            print(f"  失败: {e}")
             continue
     
-    # 生成总览文件（放在输出目录的上一级，即 protocol_converter/ 下）
-    summary_file = os.path.join(os.path.dirname(output_dir), "batch_summary.json")
+    # 生成总览文件
+    summary_file = os.path.join(output_dir, "batch_summary.json")
     with open(summary_file, 'w', encoding='utf-8') as f:
         json.dump({
             "total_protocols": len(protocols),
@@ -902,24 +911,23 @@ def batch_generate_transfer_actions(output_dir="transfer_actions"):
             "results": results_summary
         }, f, indent=2, ensure_ascii=False)
     
-    print(f"\n🎉 批量处理完成!")
-    print(f"  ✅ 成功: {success_count}/{len(protocols)}")
-    print(f"  📁 输出目录: {output_dir}")
-    print(f"  📊 总览文件: {summary_file}")
+    print(f"\n批量处理完成!")
+    print(f"  成功: {success_count}/{len(protocols)}")
+    print(f"  输出目录: {output_dir}")
+    print(f"  总览文件: {summary_file}")
 
 
 if __name__ == "__main__":
     # 选择运行模式
     import sys
     
-    if len(sys.argv) > 1 and sys.argv[1] == "single":
-        # 单文件模式 - 处理指定的单个协议
-        protocol_name = sys.argv[2] if len(sys.argv) > 2 else "00c517-pt2"
-        print_transfer_actions(protocol_name)
-        export_transfer_actions(protocol_name)
+    if len(sys.argv) > 1 and sys.argv[1] == "batch":
+        # 批量模式 - 支持自定义输出目录
+        output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions"
+        batch_generate_transfer_actions(output_dir)
     else:
-        # 默认批量模式 - 处理steps文件夹下的所有文件
-        output_dir = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] != "batch" else "transfer_actions"
+        # 示例模式
+        output_dir = sys.argv[1] if len(sys.argv) > 1 and sys.argv[1] != "batch" else "transfer_actions_copy3"
         if len(sys.argv) > 1 and sys.argv[1] == "batch":
-            output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions"
+            output_dir = sys.argv[2] if len(sys.argv) > 2 else "transfer_actions_copy3"
         batch_generate_transfer_actions(output_dir)
