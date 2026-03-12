@@ -1,87 +1,57 @@
 [
     [
         {
-            "action": "raw",
-            "text": "Place the following labware on the deck: 3D-print tuberack containing"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
         },
         {
-            "action": "raw",
-            "text": "a PCR strip with TCEP/CAA on slot 1,"
+            "action": "aspirate",
+            "vol": 7.0,
+            "source": {
+                "well": "A1",
+                "labware": "3dprint_96_tuberack_200ul",
+                "slot": 1
+            },
+            "flow_rate": 7.6
         },
         {
-            "action": "raw",
-            "text": "sample plate (Agilent with square wells, 1400 ul) containing 50 ul sample"
+            "action": "dispense",
+            "vol": 7.0,
+            "target": {
+                "well": "A1",
+                "labware": "agilent_96_wellplate_1400ul",
+                "slot": 2
+            },
+            "flow_rate": 7.6
         },
         {
-            "action": "raw",
-            "text": "on slot 2, S-trap plate on slot 3, 12-well reservoir on slot 4,"
+            "action": "mix",
+            "vol": 20.0,
+            "position": {
+                "well": "A1",
+                "labware": "agilent_96_wellplate_1400ul",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "mix_time": 3
         },
         {
-            "action": "raw",
-            "text": "20 ul tip rack on slot 5 and 300 ul tiprack on slot 6."
-        },
-        {
-            "action": "raw",
-            "text": "Make sure the heater-shaker is on slot 10."
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ],
     [
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
-                "slot": 5
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 7.0,
-            "source": {
-                "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
-                "slot": 1
-            },
-            "flow_rate": 7.6
-        },
-        {
-            "action": "dispense",
-            "vol": 7.0,
-            "target": {
-                "well": "A1",
-                "labware": "Agilent 96 Well Plate 1400 uL",
-                "slot": 2
-            },
-            "flow_rate": 7.6
-        },
-        {
-            "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "Agilent 96 Well Plate 1400 uL",
-                "slot": 2
-            },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
-            "mix_time": 3
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
                 "well": "A2",
                 "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
@@ -92,7 +62,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -102,26 +72,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A2",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A2",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -131,7 +95,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -145,7 +111,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -155,26 +121,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A3",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A3",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -184,7 +144,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -198,7 +160,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -208,26 +170,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A4",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A4",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -237,7 +193,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -251,7 +209,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -261,26 +219,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A5",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A5",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -290,7 +242,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -304,7 +258,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -314,26 +268,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A6",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A6",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -343,7 +291,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -357,7 +307,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -367,26 +317,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A7",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A7",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -396,7 +340,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -410,7 +356,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -420,26 +366,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A8",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A8",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -449,7 +389,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -463,7 +405,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -473,26 +415,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A9",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A9",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -502,7 +438,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -516,7 +454,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -526,26 +464,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A10",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A10",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -555,7 +487,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -569,7 +503,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -579,26 +513,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A11",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A11",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -608,7 +536,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -622,7 +552,7 @@
             "vol": 7.0,
             "source": {
                 "well": "A1",
-                "labware": "3DPrint 96 Tube Rack with Nippon 0.2 mL",
+                "labware": "3dprint_96_tuberack_200ul",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -632,26 +562,20 @@
             "vol": 7.0,
             "target": {
                 "well": "A12",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A12",
-                "labware": "Agilent 96 Well Plate 1400 uL",
+                "labware": "agilent_96_wellplate_1400ul",
                 "slot": 2
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
@@ -661,35 +585,11 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Wrap plate with tin foil and transfer plate to heater-shaker"
-        },
-        {
-            "action": "raw",
-            "text": "at 95\u00b0C. Incubate for 10 min on heater-shaker."
-        },
-        {
-            "action": "raw",
-            "text": "TCEP/CAA can be removed from slot 1"
         },
         {
             "action": "delay",
             "minutes": 10,
             "seconds": 0.0
-        },
-        {
-            "action": "raw",
-            "text": "Put plate containing reduced and alkylated samples on ice for 1 min."
-        },
-        {
-            "action": "raw",
-            "text": "After cool-down process manually until protease digest."
-        },
-        {
-            "action": "raw",
-            "text": "Put S-Trap plate containing sample on slot 3."
         }
     ],
     [
@@ -697,7 +597,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -706,240 +606,240 @@
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A1",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A2",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A3",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A4",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A5",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A6",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A7",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A8",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A9",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A10",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A11",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 125.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 125.0,
             "target": {
                 "well": "A12",
-                "labware": "Protifi_S-trap 96 Well Plate 400 uL",
+                "labware": "protifistrap_96_wellplate_400ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",
@@ -948,42 +848,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Check that all protease solution is at the bottom of the S-trap columns."
-        },
-        {
-            "action": "raw",
-            "text": "If not, tap the S-trap plate until all solution is"
-        },
-        {
-            "action": "raw",
-            "text": "covering the S-trap material."
-        },
-        {
-            "action": "raw",
-            "text": "Incubate S-trap plate with cover"
-        },
-        {
-            "action": "raw",
-            "text": "(do not seal tightly!) in incubator at 37\u00b0C overnight."
-        },
-        {
-            "action": "raw",
-            "text": "Do not shake!"
-        },
-        {
-            "action": "raw",
-            "text": "Store leftover trypsin solution at -20\u00b0C. After digestion, perform elution"
-        },
-        {
-            "action": "raw",
-            "text": "with the TECAN Resolvex A200 or centrifuge."
-        },
-        {
-            "action": "raw",
-            "text": "Dry eluted peptides (in 96-well plate) with a vaccuum concentrator."
         }
     ]
 ]

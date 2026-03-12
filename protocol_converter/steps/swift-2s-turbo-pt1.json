@@ -1,94 +1,85 @@
 [
     [
         {
-            "action": "temperature",
-            "target": 4.0
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 14.0,
+            "source": {
+                "well": "A1",
+                "labware": "Opentrons 24-Well Aluminum Block",
+                "slot": 3
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
+        },
+        {
+            "action": "dispense",
+            "vol": 14.0,
+            "target": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "pose_z": "top(-12)"
+        },
+        {
+            "action": "mix",
+            "vol": 10.0,
+            "position": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
+        },
+        {
+            "action": "delay",
+            "minutes": 0,
+            "seconds": 0.5
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "pose_z": "top(-12)"
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ],
     [
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 5
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 14.0,
-            "source": {
-                "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
-                "slot": 3
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 14.0,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            }
-        },
-        {
-            "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
-        },
-        {
-            "action": "delay",
-            "minutes": 0,
-            "seconds": 0.5
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            }
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
                 "well": "B1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -97,47 +88,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -145,14 +132,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -161,12 +147,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "C1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -175,47 +163,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -223,14 +207,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -239,12 +222,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "D1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -253,47 +238,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -301,14 +282,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -317,12 +297,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "E1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -331,47 +313,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -379,14 +357,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -395,12 +372,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "F1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -409,47 +388,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -457,14 +432,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -473,12 +447,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "G1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -487,47 +463,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -535,14 +507,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -551,12 +522,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "H1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -565,47 +538,43 @@
             "vol": 14.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.2)"
         },
         {
             "action": "dispense",
             "vol": 14.0,
             "target": {
                 "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "delay",
@@ -613,14 +582,13 @@
             "seconds": 0.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -629,112 +597,44 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
-                "slot": 3
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 30.0,
-            "source": {
-                "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 30.0,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            }
-        },
-        {
-            "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "A1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
-                "slot": 1
-            }
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
+            "pose_z": "top"
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "B2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -743,57 +643,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "B1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -802,12 +696,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "C2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -816,57 +712,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "B1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "B1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "B1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "C1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "B1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -875,12 +765,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "D2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -889,57 +781,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "C1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "C1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "C1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "D1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "C1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -948,12 +834,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "E2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -962,57 +850,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "D1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "D1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "D1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "E1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "D1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -1021,12 +903,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "F2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -1035,57 +919,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "E1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "E1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "E1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "F1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "E1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -1094,12 +972,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "G2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -1108,57 +988,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "F1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "F1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "F1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "G1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "F1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -1167,12 +1041,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "H2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -1181,57 +1057,51 @@
             "vol": 30.0,
             "source": {
                 "well": "A2",
-                "labware": "Opentrons 24-Well Aluminum Block on Temperature Module GEN1",
+                "labware": "Opentrons 24-Well Aluminum Block",
                 "slot": 3
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
-                "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "G1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "G1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "well": "G1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "H1",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+            "action": "blow_out",
+            "at": {
+                "well": "G1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-7)"
         },
         {
             "action": "drop_tip",
@@ -1240,10 +1110,75 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
+        }
+    ],
+    [
+        {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A3",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
         },
         {
-            "action": "raw",
-            "text": "Add samples to the thermocycler for ligation.  Temp deck will remain on at 4C"
+            "action": "aspirate",
+            "vol": 30.0,
+            "source": {
+                "well": "A2",
+                "labware": "Opentrons 24-Well Aluminum Block",
+                "slot": 3
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "dispense",
+            "vol": 30.0,
+            "target": {
+                "well": "H1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top(-7)"
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "H1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "pose_z": "top(-7)"
+        },
+        {
+            "action": "mix",
+            "vol": 10.0,
+            "position": {
+                "well": "H1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "top(-13.5)"
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "H1",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
+                "slot": 1
+            },
+            "pose_z": "top(-7)"
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ]
 ]

@@ -1,79 +1,75 @@
 [
     [
         {
-            "action": "raw",
-            "text": "MOVING MASTERMIX TO PLATE"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 10
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 2.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 2
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "dispense",
+            "vol": 2.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "mix",
+            "vol": 7.0,
+            "position": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "mix_time": 3
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ],
     [
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
-                "slot": 10
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 2.0,
-            "source": {
-                "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
-                "slot": 2
-            },
-            "flow_rate": 7.6
-        },
-        {
-            "action": "dispense",
-            "vol": 2.0,
-            "target": {
-                "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
-                "slot": 1
-            },
-            "flow_rate": 7.6
-        },
-        {
-            "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
-                "slot": 1
-            },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
-            "mix_time": 3
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
-                "slot": 1
-            }
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -82,7 +78,7 @@
             "vol": 2.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
             "flow_rate": 7.6
@@ -92,35 +88,35 @@
             "vol": 2.0,
             "target": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             }
         },
@@ -131,12 +127,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -145,7 +143,7 @@
             "vol": 2.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
             "flow_rate": 7.6
@@ -155,35 +153,35 @@
             "vol": 2.0,
             "target": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A3",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             }
         },
@@ -194,12 +192,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -208,7 +208,7 @@
             "vol": 2.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
             "flow_rate": 7.6
@@ -218,35 +218,35 @@
             "vol": 2.0,
             "target": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A4",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             }
         },
@@ -257,12 +257,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -271,7 +273,7 @@
             "vol": 2.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
             "flow_rate": 7.6
@@ -281,35 +283,35 @@
             "vol": 2.0,
             "target": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A5",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             }
         },
@@ -320,12 +322,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A6",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -334,7 +338,7 @@
             "vol": 2.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
             "flow_rate": 7.6
@@ -344,35 +348,35 @@
             "vol": 2.0,
             "target": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A6",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             }
         },
@@ -383,26 +387,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "2ul of mastermix added to each sample. Incubate as described in Table 3 in"
-        },
-        {
-            "action": "raw",
-            "text": "section 8.1.4 of the protocol. Program NEB cDNA Synthesis on thermal"
-        },
-        {
-            "action": "raw",
-            "text": "cycler. After completed, return the sample plate to slot 1 of the deck and"
-        },
-        {
-            "action": "raw",
-            "text": "select \"Resume\" on the Opentrons app for Target enrichment."
-        },
-        {
-            "action": "raw",
-            "text": "ADDING POOL REAGENT TO SPLIT COLUMNS"
         }
     ],
     [
@@ -410,7 +394,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -419,7 +403,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -429,18 +413,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -449,7 +439,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -459,18 +449,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A3",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -479,7 +475,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -489,18 +485,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A5",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -509,7 +511,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -519,18 +521,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A7",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -539,7 +547,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -549,18 +557,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A9",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -569,7 +583,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -579,18 +593,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A11",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -601,12 +621,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A8",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -615,7 +637,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -625,18 +647,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -645,7 +673,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -655,18 +683,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A4",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -675,7 +709,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -685,18 +719,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A6",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -705,7 +745,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -715,18 +755,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A8",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A8",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A8",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -735,7 +781,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -745,18 +791,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A10",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A10",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A10",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -765,7 +817,7 @@
             "vol": 8.0,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
             "flow_rate": 7.6
@@ -775,18 +827,24 @@
             "vol": 8.0,
             "target": {
                 "well": "A12",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A12",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -797,10 +855,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "SPLITTING 4.5ul OF SAMPLE FOR POOLING"
         }
     ],
     [
@@ -808,7 +862,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A9",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -817,7 +871,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -827,18 +881,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -847,7 +907,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -857,18 +917,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -879,12 +945,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A10",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -893,7 +961,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -903,18 +971,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A3",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -923,7 +997,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -933,18 +1007,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A4",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -955,12 +1035,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A11",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -969,7 +1051,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -979,18 +1061,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A5",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -999,7 +1087,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1009,18 +1097,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A6",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1031,12 +1125,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A12",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 10
             }
         },
@@ -1045,7 +1141,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1055,18 +1151,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A7",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1075,7 +1177,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1085,18 +1187,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A8",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A8",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A8",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1107,12 +1215,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1121,7 +1231,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1131,18 +1241,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A9",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1151,7 +1267,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1161,18 +1277,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A10",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A10",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A10",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1183,12 +1305,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1197,7 +1321,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1207,18 +1331,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A11",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1227,7 +1357,7 @@
             "vol": 4.5,
             "source": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
             "flow_rate": 7.6
@@ -1237,18 +1367,24 @@
             "vol": 4.5,
             "target": {
                 "well": "A12",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A12",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1259,40 +1395,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "4.5ul of samples are split into the final plate on slot 4."
-        },
-        {
-            "action": "raw",
-            "text": "Incubate as described in Table 5 in section 8.2.3 of the protocol."
-        },
-        {
-            "action": "raw",
-            "text": "Program NEB Targeted Synthesis on thermal cycler."
-        },
-        {
-            "action": "raw",
-            "text": "After completed, return the plate to slot 4 of the deck and"
-        },
-        {
-            "action": "raw",
-            "text": "select \"Resume\" on the Opentrons app. Split columns will be combined to"
-        },
-        {
-            "action": "raw",
-            "text": "the left."
-        },
-        {
-            "action": "raw",
-            "text": "RECOMBINING SPLIT COLUMNS TO THE LEFT"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1301,7 +1411,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A2",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1311,35 +1421,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1350,12 +1460,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1364,7 +1476,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A4",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1374,35 +1486,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A3",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1413,12 +1525,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1427,7 +1541,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A6",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1437,35 +1551,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A5",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A5",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1476,12 +1590,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A6",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1490,7 +1606,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A8",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1500,35 +1616,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A7",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A7",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1539,12 +1655,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1553,7 +1671,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A10",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1563,35 +1681,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A9",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A9",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1602,12 +1720,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A8",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -1616,7 +1736,7 @@
             "vol": 12.5,
             "source": {
                 "well": "A12",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
@@ -1626,35 +1746,35 @@
             "vol": 12.5,
             "target": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
             "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": [
-                7.6,
-                7.6
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A11",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 4
+            }
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A11",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             }
         },
@@ -1665,10 +1785,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "done off deck. Part 2 on the OT-2 begins at section 8.4: Library Prep."
         }
     ]
 ]

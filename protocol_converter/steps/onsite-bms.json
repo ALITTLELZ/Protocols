@@ -1,16 +1,10 @@
 [
     [
         {
-            "action": "temperature",
-            "target": 4.0
-        }
-    ],
-    [
-        {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "GEB 96 Tip Rack 1000 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -19,20 +13,22 @@
             "vol": 1000.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 6 Tube Rack with Falcon 50 mL Conical",
+                "labware": "opentrons_6_tuberack_falcon_50ml_conical",
                 "slot": 4
             },
-            "flow_rate": 274.7
+            "flow_rate": 7.6,
+            "pose_z": "bottom(919.9003927146753)"
         },
         {
             "action": "dispense",
             "vol": 1000.0,
             "target": {
                 "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
+                "labware": "thermofisher_40_tuberack_2000ul",
                 "slot": 1
             },
-            "flow_rate": 274.7
+            "flow_rate": 7.6,
+            "pose_z": "top(-1)"
         },
         {
             "action": "delay",
@@ -40,26 +36,13 @@
             "seconds": 2.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
-                "slot": 1
-            }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 100.0,
-            "source": {
-                "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
+                "labware": "thermofisher_40_tuberack_2000ul",
                 "slot": 1
             },
-            "flow_rate": 274.7
+            "pose_z": "top(-1)"
         },
         {
             "action": "drop_tip",
@@ -68,7 +51,9 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
@@ -82,49 +67,42 @@
             "vol": 20.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 96 Well Plate 200 uL Flat",
+                "labware": "nest_96_wellplate_200ul_flat",
                 "slot": 2
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 20.0,
             "target": {
                 "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
+                "labware": "thermofisher_40_tuberack_2000ul",
                 "slot": 1
             },
-            "flow_rate": 7.56
-        }
-    ],
-    [
-        {
-            "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
-                "slot": 1
-            },
-            "flow_rate": [
-                15.12,
-                15.12
-            ],
-            "mix_time": 2
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "mix",
+            "vol": 20.0,
+            "position": {
                 "well": "A1",
-                "labware": "Thermofisher 40 Tube Rack with Thermofisher  2 mL on Temperature Module GEN2",
+                "labware": "thermofisher_40_tuberack_2000ul",
                 "slot": 1
-            }
+            },
+            "flow_rate": 7.6,
+            "mix_time": 2,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "thermofisher_40_tuberack_2000ul",
+                "slot": 1
+            },
+            "pose_z": "bottom(5)"
         },
         {
             "action": "drop_tip",

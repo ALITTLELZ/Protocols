@@ -1,34 +1,22 @@
 [
     [
         {
-            "action": "magnet",
-            "state": "disengage"
-        }
-    ],
-    [
-        {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
         {
             "action": "mix",
-            "vol": [
-                100.0,
-                100.0
-            ],
+            "vol": 100.0,
             "position": {
                 "well": "A1",
                 "labware": "REAGENT PLATE",
                 "slot": 4
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -39,44 +27,46 @@
                 "labware": "REAGENT PLATE",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 100.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                160.0,
-                160.0
-            ],
+            "vol": 160.0,
             "position": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 15
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
-            }
+            },
+            "pose_z": "top"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -90,12 +80,6 @@
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -108,7 +92,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -117,42 +101,29 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 20.0,
-            "source": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 11
-            },
-            "flow_rate": 94.0
         },
         {
             "action": "drop_tip",
@@ -161,12 +132,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -175,55 +148,53 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
         },
         {
             "action": "delay",
             "minutes": 0,
             "seconds": 30.0
-        }
-    ],
-    [
+        },
         {
             "action": "aspirate",
-            "vol": 300.0,
+            "vol": 20.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
-            "vol": 300.0,
+            "vol": 20.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             }
         },
@@ -241,7 +212,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -250,55 +221,53 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
         },
         {
             "action": "delay",
             "minutes": 0,
             "seconds": 30.0
-        }
-    ],
-    [
+        },
         {
             "action": "aspirate",
-            "vol": 300.0,
+            "vol": 20.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
-            "vol": 300.0,
+            "vol": 20.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             }
         },
@@ -309,12 +278,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -323,61 +294,21 @@
             "vol": 50.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 11
             },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "delay",
-            "minutes": 2,
-            "seconds": 0.0
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A6",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 7
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 50.0,
-            "source": {
-                "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
-                "slot": 10
-            },
-            "flow_rate": 47.0
-        },
-        {
-            "action": "dispense",
-            "vol": 50.0,
-            "target": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 11
-            },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",
@@ -395,8 +326,46 @@
     ],
     [
         {
-            "action": "magnet",
-            "state": "disengage"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A6",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 7
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 50.0,
+            "source": {
+                "well": "A1",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 50.0,
+            "target": {
+                "well": "A12",
+                "labware": "nest_12_reservoir_15ml",
+                "slot": 11
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
+        },
+        {
+            "action": "delay",
+            "minutes": 2,
+            "seconds": 0.0
         }
     ],
     [
@@ -404,7 +373,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -416,27 +385,28 @@
                 "labware": "REAGENT PLATE",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 41.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "aspirate",
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -448,10 +418,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -463,10 +434,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -478,10 +450,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -493,10 +466,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -508,10 +482,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -523,10 +498,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -538,10 +514,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -553,10 +530,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -568,10 +546,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -583,10 +562,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -598,10 +578,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -613,10 +594,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -628,10 +610,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -643,10 +626,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -658,10 +642,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -673,10 +658,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -688,10 +674,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -703,10 +690,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -718,10 +706,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -733,10 +722,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -748,10 +738,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -763,10 +754,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -778,10 +770,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -793,10 +786,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -808,10 +802,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -823,10 +818,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -838,10 +834,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -853,10 +850,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -868,10 +866,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -884,24 +883,22 @@
             "seconds": 5.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
-                "slot": 10
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 20.0,
-            "source": {
-                "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "pose_z": "top(-5)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "pose_z": "top(-5)"
         },
         {
             "action": "drop_tip",
@@ -915,12 +912,14 @@
             "action": "delay",
             "minutes": 2,
             "seconds": 0.0
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A8",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -929,10 +928,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -944,10 +944,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -959,10 +960,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -974,10 +976,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -989,10 +992,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1004,10 +1008,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1019,10 +1024,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1034,10 +1040,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1049,10 +1056,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1064,10 +1072,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1079,10 +1088,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1094,10 +1104,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1109,10 +1120,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1124,10 +1136,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1139,10 +1152,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1154,10 +1168,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1169,10 +1184,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1184,10 +1200,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1199,10 +1216,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1214,10 +1232,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1229,10 +1248,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1244,10 +1264,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1259,10 +1280,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1274,10 +1296,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1289,10 +1312,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1304,10 +1328,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1319,10 +1344,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1334,10 +1360,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1349,10 +1376,11 @@
             "vol": 25.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1364,10 +1392,11 @@
             "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -1380,24 +1409,22 @@
             "seconds": 5.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
-                "slot": 10
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 20.0,
-            "source": {
-                "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "pose_z": "top(-5)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "pose_z": "top(-5)"
         },
         {
             "action": "drop_tip",
@@ -1408,19 +1435,17 @@
             }
         },
         {
-            "action": "magnet",
-            "state": "engage"
-        },
-        {
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A9",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -1429,42 +1454,48 @@
             "vol": 40.0,
             "source": {
                 "well": "A1",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 47.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 40.0,
             "target": {
                 "well": "A2",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A2",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
-                "slot": 10
-            }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 20.0,
-            "source": {
-                "well": "A2",
-                "labware": "SAMPLE PLATE on Magnetic Module GEN1",
+                "labware": "SAMPLE PLATE",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "pose_z": "top(-5)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A2",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "pose_z": "top(-5)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A2",
+                "labware": "SAMPLE PLATE",
+                "slot": 10
+            },
+            "pose_z": "top(-5)"
         },
         {
             "action": "drop_tip",

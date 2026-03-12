@@ -4,7 +4,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -13,10 +13,10 @@
             "vol": 4.0,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -31,7 +31,7 @@
                 "labware": "genomic dna",
                 "slot": 2
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -46,7 +46,7 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -67,7 +67,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "B1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -76,10 +76,10 @@
             "vol": 2.75,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -94,7 +94,7 @@
                 "labware": "genomic dna",
                 "slot": 2
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -109,7 +109,7 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -130,7 +130,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "C1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -139,10 +139,10 @@
             "vol": 4.454545454545454,
             "source": {
                 "well": "A1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -157,7 +157,7 @@
                 "labware": "genomic dna",
                 "slot": 2
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -172,7 +172,7 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
@@ -193,7 +193,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "D1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -202,10 +202,11 @@
             "vol": 1.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -220,24 +221,20 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "A1",
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": [
-                7.56,
-                7.56
-            ],
-            "mix_time": 5
+            "flow_rate": 7.6,
+            "mix_time": 5,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -245,14 +242,13 @@
             "seconds": 2.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
                 "labware": "normalization plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -261,12 +257,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "E1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -275,10 +273,11 @@
             "vol": 1.0,
             "source": {
                 "well": "B1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -293,24 +292,20 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "B1",
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": [
-                7.56,
-                7.56
-            ],
-            "mix_time": 5
+            "flow_rate": 7.6,
+            "mix_time": 5,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -318,14 +313,13 @@
             "seconds": 2.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "B1",
                 "labware": "normalization plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -334,12 +328,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "F1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -348,10 +344,11 @@
             "vol": 1.0,
             "source": {
                 "well": "C1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "delay",
@@ -366,24 +363,20 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "mix",
-            "vol": [
-                7.0,
-                7.0
-            ],
+            "vol": 7.0,
             "position": {
                 "well": "C1",
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": [
-                7.56,
-                7.56
-            ],
-            "mix_time": 5
+            "flow_rate": 7.6,
+            "mix_time": 5,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -391,14 +384,13 @@
             "seconds": 2.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "C1",
                 "labware": "normalization plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -414,7 +406,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "G1",
-                "type": "20ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 3
             }
         },
@@ -426,7 +418,8 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
         },
         {
             "action": "delay",
@@ -441,22 +434,8 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
-        },
-        {
-            "action": "delay",
-            "minutes": 0,
-            "seconds": 2.0
-        },
-        {
-            "action": "dispense",
-            "vol": 20.0,
-            "target": {
-                "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
-                "slot": 8
-            },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
         },
         {
             "action": "delay",
@@ -471,7 +450,8 @@
                 "labware": "normalization plate",
                 "slot": 4
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
         },
         {
             "action": "delay",
@@ -480,13 +460,14 @@
         },
         {
             "action": "dispense",
-            "vol": 10.0,
+            "vol": 30.0,
             "target": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 7.56
+            "flow_rate": 7.6,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -500,30 +481,26 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "1000ul tiprack",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
         {
             "action": "mix",
-            "vol": [
-                27.0,
-                27.0
-            ],
+            "vol": 27.0,
             "position": {
                 "well": "B1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
@@ -531,10 +508,11 @@
             "vol": 30.0,
             "source": {
                 "well": "B1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 274.7
+            "flow_rate": 7.6,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -546,10 +524,11 @@
             "vol": 30.0,
             "target": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": 274.7
+            "flow_rate": 7.6,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "delay",
@@ -557,21 +536,26 @@
             "seconds": 2.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -579,21 +563,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -601,21 +590,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -623,21 +617,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -645,21 +644,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -667,21 +671,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -689,21 +698,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -711,21 +725,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -733,21 +752,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",
@@ -755,21 +779,26 @@
             "seconds": 30.0
         },
         {
-            "action": "mix",
-            "vol": [
-                45.0,
-                45.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
                 "well": "C1",
-                "labware": "Opentrons 24 Tube Rack with Eppendorf 1.5 mL Safe-Lock Snapcap",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
                 "slot": 8
             },
-            "flow_rate": [
-                274.7,
-                274.7
-            ],
-            "mix_time": 1
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "C1",
+                "labware": "opentrons_24_tuberack_eppendorf_1.5ml_safelock_snapcap",
+                "slot": 8
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(15)"
         },
         {
             "action": "delay",

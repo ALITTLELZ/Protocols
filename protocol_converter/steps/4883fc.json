@@ -4,149 +4,9 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 2
             }
-        },
-        {
-            "action": "aspirate",
-            "vol": 30.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 30.0,
-            "target": {
-                "well": "A1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 30.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 30.0,
-            "target": {
-                "well": "A1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 33.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 33.0,
-            "target": {
-                "well": "B1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 40.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 40.0,
-            "target": {
-                "well": "C1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 40.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 40.0,
-            "target": {
-                "well": "C1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 45.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 45.0,
-            "target": {
-                "well": "D1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 45.0,
-            "source": {
-                "well": "A1",
-                "labware": "diluent (channel 1)",
-                "slot": 9
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 45.0,
-            "target": {
-                "well": "D1",
-                "labware": "end plate",
-                "slot": 6
-            },
-            "flow_rate": 50.0
         },
         {
             "action": "drop_tip",
@@ -162,7 +22,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "B1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 2
             }
         },
@@ -174,7 +34,7 @@
                 "labware": "source plate",
                 "slot": 5
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -184,34 +44,36 @@
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
                 "labware": "end plate",
                 "slot": 6
-            }
+            },
+            "pose_z": "top(-1)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "end plate",
+                "slot": 6
+            },
+            "pose_z": "top(-1)"
         },
         {
             "action": "drop_tip",
@@ -220,98 +82,65 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "C1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 2
             }
         },
         {
             "action": "aspirate",
-            "vol": 33.5,
+            "vol": 67.0,
             "source": {
                 "well": "C1",
                 "labware": "source plate",
                 "slot": 5
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 33.5,
+            "vol": 67.0,
             "target": {
                 "well": "B1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "B1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "aspirate",
-            "vol": 33.5,
-            "source": {
-                "well": "C1",
-                "labware": "source plate",
-                "slot": 5
-            },
-            "flow_rate": 25.0
-        },
-        {
-            "action": "dispense",
-            "vol": 33.5,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "B1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": 50.0
+            "pose_z": "top(-1)"
         },
         {
-            "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
-            "position": {
+            "action": "touch_tip",
+            "location": {
                 "well": "B1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
-            "mix_time": 3
-        },
-        {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
-                "well": "B1",
-                "labware": "end plate",
-                "slot": 6
-            }
+            "pose_z": "top(-1)"
         },
         {
             "action": "drop_tip",
@@ -320,12 +149,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "D1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 2
             }
         },
@@ -337,7 +168,7 @@
                 "labware": "source plate",
                 "slot": 5
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -347,34 +178,36 @@
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "C1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "C1",
                 "labware": "end plate",
                 "slot": 6
-            }
+            },
+            "pose_z": "top(-1)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "C1",
+                "labware": "end plate",
+                "slot": 6
+            },
+            "pose_z": "top(-1)"
         },
         {
             "action": "drop_tip",
@@ -383,12 +216,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "E1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 2
             }
         },
@@ -400,7 +235,7 @@
                 "labware": "source plate",
                 "slot": 5
             },
-            "flow_rate": 25.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -410,34 +245,36 @@
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "D1",
                 "labware": "end plate",
                 "slot": 6
             },
-            "flow_rate": [
-                25.0,
-                50.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "D1",
                 "labware": "end plate",
                 "slot": 6
-            }
+            },
+            "pose_z": "top(-1)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "D1",
+                "labware": "end plate",
+                "slot": 6
+            },
+            "pose_z": "top(-1)"
         },
         {
             "action": "drop_tip",

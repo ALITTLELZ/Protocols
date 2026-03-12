@@ -27,124 +27,318 @@ def _parse_capacity_ul(name: str) -> Optional[float]:
     # 兼容 'ul' / 'u l' / 'µl' / 'μl'
     return val
 
+def _apply_pose_z_volumes(aspirate_list: List[Tuple[float, Optional[str]]]) -> Tuple[Optional[float], float, Optional[float]]:
+    """
+    根据相邻 aspirate 的 pose_z 分配体积参数。
+    aspirate_list: [(vol, pose_z), ...]，pose_z 为 "top"、"bottom" 或 None。
+    返回 (blow_out_air_volume_before, asp_vol, blow_out_air_volume)。
+    - 2 个相邻 aspirate：(top, bottom) -> 第一个=blow_out_air_volume_before，第二个=asp_vols
+    - 2 个相邻 aspirate：(bottom, top) -> 第一个=asp_vols，第二个=blow_out_air_volume
+    - 3 个相邻 aspirate：第一个=blow_out_air_volume_before，第二个=asp_vols，第三个=blow_out_air_volume
+    - 其他情况：仅 asp_vol = 各体积之和（或第一个体积），无 blow 参数
+    """
+    if not aspirate_list:
+        return None, 0.0, None
+    n = len(aspirate_list)
+    if n == 1:
+        return None, aspirate_list[0][0], None
+    if n == 2:
+        v1, p1 = aspirate_list[0]
+        v2, p2 = aspirate_list[1]
+        if p1 == "top" and p2 == "bottom":
+            return v1, v2, None
+        if p1 == "bottom" and p2 == "top":
+            return None, v1, v2
+        # 无法按 pose_z 区分，回退：第二个作为 asp_vol，第一个作为 blow_before（兼容旧逻辑）
+        return v1, v2, None
+    if n >= 3:
+        v1, _ = aspirate_list[0]
+        v2, _ = aspirate_list[1]
+        v3, _ = aspirate_list[2]
+        return v1, v2, v3
+    return None, sum(a[0] for a in aspirate_list), None
+
+
+def _parse_pose_z_height(pose_z: Optional[str], top_plus_ten: bool = False) -> Optional[float]:
+    """从 pose_z 字符串中提取液面高度，如 bottom(1) -> 1.0。"""
+    if not pose_z:
+        return None
+    pose_z_str = str(pose_z)
+    m = re.search(r'\(([-+]?\d+(?:\.\d+)?)\)', pose_z_str)
+    if not m:
+        return None
+    try:
+        v = float(m.group(1))
+        # 仅在 dispense 的 top(z) 场景启用：liquid_height = z + 10
+        if top_plus_ten and pose_z_str.startswith("top"):
+            return v + 10.0
+        return v
+    except Exception:
+        return None
+
+
+def _extract_mix_info(step: Dict[str, Any]) -> Dict[str, Optional[float]]:
+    """提取 mix 参数。"""
+    return {
+        "mix_times": step.get("mix_time"),
+        "mix_vol": step.get("vol"),
+        "mix_rate": step.get("flow_rate"),
+        "mix_liquid_height": _parse_pose_z_height(step.get("pose_z")),
+    }
+
+
+def _delay_to_seconds(step: Dict[str, Any]) -> float:
+    """将 delay step 统一换算成秒。"""
+    minutes = step.get("minutes", 0) or 0
+    seconds = step.get("seconds", 0) or 0
+    try:
+        return float(minutes) * 60.0 + float(seconds)
+    except Exception:
+        return 0.0
+
+
+def _merge_mix_stage(stages: List[Optional[str]]) -> Optional[str]:
+    has_before = any(s in ("before", "both") for s in stages if s)
+    has_after = any(s in ("after", "both") for s in stages if s)
+    if has_before and has_after:
+        return "both"
+    if has_before:
+        return "before"
+    if has_after:
+        return "after"
+    return None
+
+
+def _min_or_none(values: List[Any]) -> Optional[float]:
+    vals = []
+    for v in values:
+        if v is None:
+            continue
+        try:
+            vals.append(float(v))
+        except Exception:
+            continue
+    return min(vals) if vals else None
+
+
 def get_action_list(steps_file):
-    """从steps JSON文件提取action list，包含体积和流速信息"""
+    """从steps JSON文件提取action list，包含体积和流速信息。
+    按顺序读取相邻 aspirate，根据 pose_z 分配：
+    - 2个相邻：(top,bottom)->blow_out_air_volume_before+asp_vols；(bottom,top)->asp_vols+blow_out_air_volume
+    - 3个相邻：blow_out_air_volume_before + asp_vols + blow_out_air_volume
+    按phase分组，每个phase单独生成action，不跨phase合并。"""
     with open(steps_file, "r") as f:
         data = json.load(f)
 
-    # 收集所有step中的dispense wells（所有transfer的目标都是相同的）
-    all_dispense_wells = set()
-    all_dispense_vols = []
-    all_dispense_flow_rates = []
+    # 按顺序解析：收集 (source, target, aspirate_block, dispense_info, is_split)
+    # is_split: 1asp+多disp 拆分出的单独 transfer，需单独成 action
+    transfers: List[Tuple] = []
+    current_tip_rack_slot = None
 
-    # 按source well分组收集aspirate信息
-    source_to_vols = {}  # {(slot, well): [vol1, vol2, ...]}
-    source_to_flow_rates = {}  # {(slot, well): [flow_rate1, flow_rate2, ...]}
-    source_to_tip_racks = {}  # {(slot, well): set([slot1, slot2, ...])}
-
-    current_tip_rack_slot = None  # 当前使用的tip rack slot
-
-    for phase_idx, phase in enumerate(data):
-        for step in phase:
+    for phase in data:
+        i = 0
+        while i < len(phase):
+            step = phase[i]
             if step['action'] == "pick_tip":
-                # 记录当前pick的tip rack slot
                 current_tip_rack_slot = step['tip_rack']['slot']
+                i += 1
+                continue
+            if step['action'] == "aspirate":
+                # 收集连续同源的 aspirate
+                asp_block: List[Tuple[float, Optional[str]]] = []
+                src_key = None
+                j = i
+                while j < len(phase) and phase[j]['action'] == "aspirate":
+                    s = phase[j]
+                    sk = (s['source']['slot'], s['source']['well'])
+                    if src_key is not None and sk != src_key:
+                        break
+                    src_key = sk
+                    vol = s.get('vol', 0)
+                    pose_z = s.get('pose_z')
+                    asp_block.append((vol, pose_z))
+                    j += 1
 
-            elif step['action'] == "aspirate":
-                source_key = (step['source']['slot'], step['source']['well'])
-                if source_key not in source_to_vols:
-                    source_to_vols[source_key] = []
-                    source_to_flow_rates[source_key] = []
-                    source_to_tip_racks[source_key] = set()
+                # 收集该 aspirate 之后的所有连续 dispense（直到遇到下一个 aspirate/pick_tip）
+                dispenses: List[Tuple[Tuple, float, float, Optional[float], float]] = []
+                before_mix = None
+                after_mixes: List[Dict[str, Optional[float]]] = []
+                has_touch_tip = False
+                aspirate_delay_seconds = 0.0
 
-                # 记录使用的tip rack slot
-                if current_tip_rack_slot is not None:
-                    source_to_tip_racks[source_key].add(current_tip_rack_slot)
+                # 查找 aspirate 之前最近的 mix（遇到关键液体动作则停止）
+                b = i - 1
+                while b >= 0:
+                    prev = phase[b]
+                    a = prev.get('action')
+                    if a == "mix":
+                        before_mix = _extract_mix_info(prev)
+                        break
+                    if a in ("aspirate", "dispense", "pick_tip", "drop_tip"):
+                        break
+                    b -= 1
 
-                # 提取体积信息
-                if 'vol' in step:
-                    source_to_vols[source_key].append(step['vol'])
-                # 提取流速信息
-                if 'flow_rate' in step:
-                    source_to_flow_rates[source_key].append(step['flow_rate'])
+                k = j
+                # aspirate 后紧邻 delay（分钟已换算秒）
+                while k < len(phase) and phase[k].get('action') == "delay":
+                    if k == 0 or phase[k - 1].get('action') != "drop_tip":
+                        aspirate_delay_seconds += _delay_to_seconds(phase[k])
+                    k += 1
+                seen_valid_dispense = False
+                while k < len(phase):
+                    st = phase[k]
+                    if st['action'] == "aspirate" or st['action'] == "pick_tip":
+                        break
+                    if st['action'] == "dispense":
+                        vol_d = st.get('vol', 0)
+                        tgt = st.get('target', {})
+                        lab = (tgt.get('labware') or "").lower()
+                        if vol_d != -1 and "trash" not in lab and tgt.get('slot') != 12:
+                            tgt_key = (tgt['slot'], tgt['well'])
+                            liquid_height = _parse_pose_z_height(st.get('pose_z'), top_plus_ten=True)
+                            # dispense 后紧邻 delay，drop_tip 后的 delay 不计入
+                            delay_seconds = 0.0
+                            d = k + 1
+                            while d < len(phase) and phase[d].get('action') == "delay":
+                                if phase[d - 1].get('action') != "drop_tip":
+                                    delay_seconds += _delay_to_seconds(phase[d])
+                                d += 1
+                            if delay_seconds <= 0 and aspirate_delay_seconds > 0:
+                                delay_seconds = aspirate_delay_seconds
+                            dispenses.append((tgt_key, vol_d, st.get('flow_rate', 7.6), liquid_height, delay_seconds))
+                            seen_valid_dispense = True
+                            k = d
+                            continue
+                    elif st['action'] == "mix" and seen_valid_dispense:
+                        after_mixes.append(_extract_mix_info(st))
+                    elif st['action'] == "touch_tip":
+                        has_touch_tip = True
+                    k += 1
 
-            elif step['action'] == "dispense":
-                # 跳过 blow_out 操作（体积为 -1 或目标是 trash）
-                # blow_out 是排空枪头中的残留液体，不是真正的移液操作，不应该被识别为 dispense
-                vol = step.get('vol', 0)
-                target = step.get('target', {})
-                labware = target.get('labware', '').lower() if target else ''
+                after_mix = None
+                if after_mixes:
+                    # 多个 after mix，逐参数取最小
+                    after_mix = {
+                        "mix_times": _min_or_none([m.get("mix_times") for m in after_mixes]),
+                        "mix_vol": _min_or_none([m.get("mix_vol") for m in after_mixes]),
+                        "mix_rate": _min_or_none([m.get("mix_rate") for m in after_mixes]),
+                        "mix_liquid_height": _min_or_none([m.get("mix_liquid_height") for m in after_mixes]),
+                    }
 
-                # 检查是否是 blow_out 操作（排空枪头）
-                is_blowout = (
-                    vol == -1 or  # 体积为 -1 表示 blow_out（排空枪头）
-                    'trash' in labware or  # 目标是 trash（通常用于排空枪头）
-                    target.get('slot') == 12  # Opentrons Fixed Trash 通常在 slot 12
-                )
+                # 若 1 个 aspirate + 多个 dispense，且 asp_vol >= sum(disp_vols)，拆成多个 1:1 transfer
+                asp_total = sum(a[0] for a in asp_block)
+                if len(asp_block) == 1 and len(dispenses) >= 2 and asp_total >= sum(d[1] for d in dispenses):
+                    for tgt_key, vol_d, dis_fr, liq_h, delay_seconds in dispenses:
+                        single_asp = [(vol_d, asp_block[0][1])]
+                        transfers.append((src_key, tgt_key, single_asp, vol_d, dis_fr, current_tip_rack_slot, True, before_mix, after_mix, liq_h, has_touch_tip, delay_seconds))
+                elif dispenses:
+                    tgt_key, vol_d, dis_fr, liq_h, delay_seconds = dispenses[0]
+                    transfers.append((src_key, tgt_key, asp_block, vol_d, dis_fr, current_tip_rack_slot, False, before_mix, after_mix, liq_h, has_touch_tip, delay_seconds))
 
-                if not is_blowout:
-                    all_dispense_wells.add((step['target']['slot'], step['target']['well']))
-                    # 提取体积信息
-                    if 'vol' in step:
-                        all_dispense_vols.append(step['vol'])
-                    # 提取流速信息
-                    if 'flow_rate' in step:
-                        all_dispense_flow_rates.append(step['flow_rate'])
+                i = j
+                continue
+            i += 1
 
-    # 计算dispense的平均值
-    avg_dis_vol = sum(all_dispense_vols) / len(all_dispense_vols) if all_dispense_vols else 0
-    avg_dis_flow_rate = sum(all_dispense_flow_rates) / len(all_dispense_flow_rates) if all_dispense_flow_rates else 0
+    # 按 source 分组，构建 action_list。is_split 时用 (src,tgt) 作 key，使每个 transfer 单独成 action
+    source_to_transfers: Dict[Tuple, List] = {}
+    for t in transfers:
+        src, tgt, asp_block, dis_vol, dis_fr, tip_slot, is_split, before_mix, after_mix, liquid_height, touch_tip, delay_seconds = t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8], t[9], t[10], t[11]
+        key = (src, tgt) if is_split else src
+        if key not in source_to_transfers:
+            source_to_transfers[key] = []
+        source_to_transfers[key].append((tgt, asp_block, dis_vol, dis_fr, tip_slot, before_mix, after_mix, liquid_height, touch_tip, delay_seconds))
 
-    # 为每个source well生成一个action
     action_list = []
-    for source_well, vols in source_to_vols.items():
-        flow_rates = source_to_flow_rates[source_well]
-        tip_rack_slots = source_to_tip_racks[source_well]
+    for key, tlist in source_to_transfers.items():
+        source_well = key[0] if len(key) == 2 and isinstance(key[1], (tuple, list)) else key
+        tip_slots = {t[4] for t in tlist if t[4] is not None}
+        tip_racks = f"tiprack_{sorted(tip_slots)[0]}" if tip_slots else ""
 
-        # 计算平均体积和流速（用于向后兼容）
-        avg_asp_vol = sum(vols) / len(vols) if vols else 0
-        avg_asp_flow_rate = sum(flow_rates) / len(flow_rates) if flow_rates else 0
-
-        # 生成tip_racks字符串（转换为tiprack_X格式）
-        tip_racks = f"tiprack_{sorted(tip_rack_slots)[0]}" if tip_rack_slots else ""
-
-        # 生成数组格式的体积和流速（单个source对应多个dispense）
-        num_targets = len(all_dispense_wells)
         asp_vols_array = []
-        asp_flow_rates_array = []
         dis_vols_array = []
+        asp_flow_rates_array = []
         dis_flow_rates_array = []
+        blow_before_array: List[Optional[float]] = []
+        blow_after_array: List[Optional[float]] = []
+        liquid_height_array: List[Optional[float]] = []
+        delays_array: List[float] = []
+        mix_stages: List[Optional[str]] = []
+        mix_times_vals: List[Any] = []
+        mix_vol_vals: List[Any] = []
+        mix_rate_vals: List[Any] = []
+        mix_height_vals: List[Any] = []
+        touch_tip_flags: List[bool] = []
 
-        for i in range(num_targets):
-            # aspirate的体积和流速：对于同一个source，所有dispense使用相同的
-            asp_vols_array.append(avg_asp_vol)
-            asp_flow_rates_array.append(avg_asp_flow_rate)
+        for tgt, asp_block, dis_vol, dis_fr, _, before_mix, after_mix, liquid_height, touch_tip, delay_seconds in tlist:
+            blow_before, asp_vol, blow_after = _apply_pose_z_volumes(asp_block)
+            asp_vols_array.append(asp_vol)
+            # dis_vols = 原 dispense 体积 - blow_out_air_volume_before
+            adj_dis = dis_vol - (blow_before or 0)
+            dis_vols_array.append(max(0, adj_dis))
+            asp_flow_rates_array.append(dis_fr)
+            dis_flow_rates_array.append(dis_fr)
+            blow_before_array.append(blow_before)
+            blow_after_array.append(blow_after)
+            liquid_height_array.append(liquid_height)
+            touch_tip_flags.append(bool(touch_tip))
+            delays_array.append(float(delay_seconds or 0.0))
 
-            # dispense的体积和流速：如果有对应的值就使用，否则使用平均值
-            if i < len(all_dispense_vols):
-                dis_vols_array.append(all_dispense_vols[i])
-            else:
-                dis_vols_array.append(avg_dis_vol)
+            has_before = before_mix is not None
+            has_after = after_mix is not None
+            stage = "both" if (has_before and has_after) else ("before" if has_before else ("after" if has_after else None))
+            mix_stages.append(stage)
+            for mix_info in (before_mix, after_mix):
+                if not mix_info:
+                    continue
+                mix_times_vals.append(mix_info.get("mix_times"))
+                mix_vol_vals.append(mix_info.get("mix_vol"))
+                mix_rate_vals.append(mix_info.get("mix_rate"))
+                mix_height_vals.append(mix_info.get("mix_liquid_height"))
 
-            if i < len(all_dispense_flow_rates):
-                dis_flow_rates_array.append(all_dispense_flow_rates[i])
-            else:
-                dis_flow_rates_array.append(avg_dis_flow_rate)
+        avg_asp = sum(asp_vols_array) / len(asp_vols_array) if asp_vols_array else 0
+        avg_dis = sum(dis_vols_array) / len(dis_vols_array) if dis_vols_array else 0
+        avg_asp_fr = sum(asp_flow_rates_array) / len(asp_flow_rates_array) if asp_flow_rates_array else 7.6
+        avg_dis_fr = sum(dis_flow_rates_array) / len(dis_flow_rates_array) if dis_flow_rates_array else 7.6
 
-        action_list.append({
-            "phase": len(action_list),  # 每个source对应一个phase索引
-            "aspirate": [source_well],  # 单个source well
-            "dispense": list(all_dispense_wells),  # 所有dispense wells
-            "asp_vol": avg_asp_vol,  # 保留用于向后兼容
-            "dis_vol": avg_dis_vol,  # 保留用于向后兼容
-            "asp_flow_rate": avg_asp_flow_rate,  # 保留用于向后兼容
-            "dis_flow_rate": avg_dis_flow_rate,  # 保留用于向后兼容
-            "asp_vols": asp_vols_array,  # 新增：数组格式
-            "dis_vols": dis_vols_array,  # 新增：数组格式
-            "asp_flow_rates": asp_flow_rates_array,  # 新增：数组格式
-            "dis_flow_rates": dis_flow_rates_array,  # 新增：数组格式
-            "tip_racks": tip_racks  # 新增：使用的tip racks
-        })
+        act: Dict[str, Any] = {
+            "phase": len(action_list),
+            "aspirate": [source_well],
+            "dispense": [t[0] for t in tlist],
+            "asp_vol": avg_asp,
+            "dis_vol": avg_dis,
+            "asp_flow_rate": avg_asp_fr,
+            "dis_flow_rate": avg_dis_fr,
+            "asp_vols": asp_vols_array,
+            "dis_vols": dis_vols_array,
+            "asp_flow_rates": asp_flow_rates_array,
+            "dis_flow_rates": dis_flow_rates_array,
+            "tip_racks": tip_racks,
+        }
+        if any(blow_before_array):
+            act["blow_out_air_volume_before"] = [v or 0 for v in blow_before_array]
+        if any(blow_after_array):
+            act["blow_out_air_volume"] = [v or 0 for v in blow_after_array]
+        act["liquid_height"] = [0 if v is None else v for v in liquid_height_array]
+        if any(float(v or 0) > 0 for v in delays_array):
+            act["delays"] = delays_array
+        if any(touch_tip_flags):
+            act["touch_tip"] = True
+        mix_stage = _merge_mix_stage(mix_stages)
+        if mix_stage:
+            act["mix_stage"] = mix_stage
+            mix_times = _min_or_none(mix_times_vals)
+            mix_vol = _min_or_none(mix_vol_vals)
+            mix_rate = _min_or_none(mix_rate_vals)
+            mix_height = _min_or_none(mix_height_vals)
+            if mix_times is not None:
+                act["mix_times"] = int(mix_times)
+            if mix_vol is not None:
+                act["mix_vol"] = mix_vol
+            if mix_rate is not None:
+                act["mix_rate"] = mix_rate
+            if mix_height is not None:
+                act["mix_liquid_height"] = mix_height
+        action_list.append(act)
 
     return action_list
 
@@ -557,27 +751,329 @@ def generate_transfer_actions(protocol_name):
             dis_vols = phase.get('dis_vols', [phase.get('dis_vol', 0)])
             asp_flow_rates = phase.get('asp_flow_rates', [phase.get('asp_flow_rate', 0)])
             dis_flow_rates = phase.get('dis_flow_rates', [phase.get('dis_flow_rate', 0)])
-            
+
+            action_args = {
+                "sources": phase['source_liquids'][0] if len(phase['source_liquids']) == 1 else phase['source_liquids'],
+                "targets": phase['target_liquids'][0] if len(phase['target_liquids']) == 1 else phase['target_liquids'],
+                "asp_vols": asp_vols,
+                "dis_vols": dis_vols,
+                "asp_flow_rates": asp_flow_rates,
+                "dis_flow_rates": dis_flow_rates,
+                "tip_racks": phase.get('tip_racks', [])
+            }
+            if phase.get('blow_out_air_volume_before'):
+                action_args['blow_out_air_volume_before'] = phase['blow_out_air_volume_before']
+            if phase.get('blow_out_air_volume'):
+                action_args['blow_out_air_volume'] = phase['blow_out_air_volume']
+            if phase.get('liquid_height'):
+                action_args['liquid_height'] = phase['liquid_height']
+            if phase.get('delays') and any(float(v or 0) > 0 for v in phase['delays']):
+                action_args['delays'] = phase['delays']
+            if phase.get('touch_tip'):
+                action_args['touch_tip'] = True
+            if phase.get('mix_stage'):
+                action_args['mix_stage'] = phase['mix_stage']
+                if phase.get('mix_times') is not None:
+                    action_args['mix_times'] = phase['mix_times']
+                if phase.get('mix_vol') is not None:
+                    action_args['mix_vol'] = phase['mix_vol']
+                if phase.get('mix_rate') is not None:
+                    action_args['mix_rate'] = phase['mix_rate']
+                if phase.get('mix_liquid_height') is not None:
+                    action_args['mix_liquid_height'] = phase['mix_liquid_height']
+
+            # 用于 simplify/merge 的 well 信息
+            src_slot, src_well = phase['aspirate'][0] if phase['aspirate'] else (None, None)
+            dispense_list = phase.get('dispense', [])
+            tgt_slot = dispense_list[0][0] if dispense_list else None
+            tgt_wells = [d[1] for d in dispense_list]
+
             action = {
                 "action": "transfer_liquid",
-                "action_args": {
-                    "sources": phase['source_liquids'][0] if len(phase['source_liquids']) == 1 else phase['source_liquids'],
-                    "targets": phase['target_liquids'][0] if len(phase['target_liquids']) == 1 else phase['target_liquids'],
-                    "asp_vols": asp_vols,
-                    "dis_vols": dis_vols,
-                    "asp_flow_rates": asp_flow_rates,
-                    "dis_flow_rates": dis_flow_rates,
-                    "tip_racks": phase.get('tip_racks', [])
-                }
+                "action_args": action_args,
+                "_source_slot": src_slot,
+                "_source_wells": [src_well] if src_well else [],
+                "_target_slot": tgt_slot,
+                "_target_wells": tgt_wells
             }
-            
+
             transfer_actions.append(action)
+
+        # 1. 简化：若多个1:1 transfer的source都是同一孔位，合并为1:N（如 l1[C1]->96个target）
+        transfer_actions = _simplify_transfer_actions(transfer_actions)
+        # 2. 合并：仅当slot相同、source相同、target相同时才合并
+        transfer_actions = _merge_transfer_actions(transfer_actions)
         
         return transfer_actions, updated_labware_info
         
     except Exception as e:
         print(f"生成 transfer actions 失败: {e}")
         return [], []
+
+
+def _simplify_transfer_actions(transfer_actions):
+    """
+    简化：若多个1:1 transfer的source都是同一孔位，合并为1:N（如 l1[C1]->96个target）。
+    这样 l1[C1]->A1, l1[C1]->B1, ... 会合并成 l1[C1]->[A1,B1,...,96孔]
+    """
+    if len(transfer_actions) <= 1:
+        return transfer_actions
+
+    # 按 (source_slot, source_well, target_slot) 分组，只处理1:1的actions
+    groups = {}
+    non_simplifiable = []
+    for action in transfer_actions:
+        src_wells = action.get('_source_wells', [])
+        tgt_wells = action.get('_target_wells', [])
+        if len(src_wells) != 1 or len(tgt_wells) != 1:
+            non_simplifiable.append(action)
+            continue
+        src_slot = action.get('_source_slot')
+        tgt_slot = action.get('_target_slot')
+        if src_slot is None or tgt_slot is None:
+            non_simplifiable.append(action)
+            continue
+        key = (src_slot, src_wells[0], tgt_slot)
+        if key not in groups:
+            groups[key] = []
+        groups[key].append(action)
+
+    simplified = list(non_simplifiable)
+    for key, actions in groups.items():
+        if len(actions) <= 1:
+            simplified.extend(actions)
+            continue
+        # 合并为 1:N
+        first = actions[0]
+        args = first['action_args'].copy()
+        args['asp_vols'] = []
+        args['dis_vols'] = []
+        args['asp_flow_rates'] = []
+        args['dis_flow_rates'] = []
+        if 'blow_out_air_volume' in first['action_args']:
+            args['blow_out_air_volume'] = []
+        if 'blow_out_air_volume_before' in first['action_args']:
+            args['blow_out_air_volume_before'] = []
+        if 'liquid_height' in first['action_args']:
+            args['liquid_height'] = []
+        args['delays'] = []
+        has_nonzero_delay = False
+        touch_tip_flags = []
+        if first['action_args'].get('touch_tip'):
+            touch_tip_flags.append(True)
+        mix_stages = []
+        mix_times_vals = []
+        mix_vol_vals = []
+        mix_rate_vals = []
+        mix_height_vals = []
+
+        source_wells = [first['_source_wells'][0]]
+        target_wells = []
+        for a in actions:
+            target_wells.append(a['_target_wells'][0])
+            args['asp_vols'].append(a['action_args']['asp_vols'][0])
+            args['dis_vols'].append(a['action_args']['dis_vols'][0])
+            args['asp_flow_rates'].append(a['action_args'].get('asp_flow_rates', [7.6])[0])
+            args['dis_flow_rates'].append(a['action_args'].get('dis_flow_rates', [7.6])[0])
+            if 'blow_out_air_volume' in a['action_args']:
+                args['blow_out_air_volume'].append(a['action_args']['blow_out_air_volume'][0])
+            if 'blow_out_air_volume_before' in a['action_args']:
+                args['blow_out_air_volume_before'].append(a['action_args']['blow_out_air_volume_before'][0])
+            if 'liquid_height' in a['action_args']:
+                args['liquid_height'].append(a['action_args']['liquid_height'][0])
+            delay_val = 0.0
+            if 'delays' in a['action_args'] and a['action_args']['delays']:
+                delay_val = float(a['action_args']['delays'][0] or 0.0)
+            args['delays'].append(delay_val)
+            if delay_val > 0:
+                has_nonzero_delay = True
+            if a['action_args'].get('touch_tip'):
+                touch_tip_flags.append(True)
+            if a['action_args'].get('mix_stage'):
+                mix_stages.append(a['action_args'].get('mix_stage'))
+                mix_times_vals.append(a['action_args'].get('mix_times'))
+                mix_vol_vals.append(a['action_args'].get('mix_vol'))
+                mix_rate_vals.append(a['action_args'].get('mix_rate'))
+                mix_height_vals.append(a['action_args'].get('mix_liquid_height'))
+
+        first_src = first['action_args']['sources']
+        base_name = re.sub(r'_\d+$', '', first_src) if isinstance(first_src, str) else re.sub(r'_\d+$', '', first_src[0])
+        first_tgt = first['action_args']['targets']
+        tgt_base = re.sub(r'_\d+$', '', first_tgt) if isinstance(first_tgt, str) else re.sub(r'_\d+$', '', first_tgt[0])
+        args['sources'] = base_name
+        args['targets'] = tgt_base
+        if not has_nonzero_delay:
+            args.pop('delays', None)
+        if any(touch_tip_flags):
+            args['touch_tip'] = True
+        merged_mix_stage = _merge_mix_stage(mix_stages)
+        if merged_mix_stage:
+            args['mix_stage'] = merged_mix_stage
+            m_times = _min_or_none(mix_times_vals)
+            m_vol = _min_or_none(mix_vol_vals)
+            m_rate = _min_or_none(mix_rate_vals)
+            m_height = _min_or_none(mix_height_vals)
+            if m_times is not None:
+                args['mix_times'] = int(m_times)
+            if m_vol is not None:
+                args['mix_vol'] = m_vol
+            if m_rate is not None:
+                args['mix_rate'] = m_rate
+            if m_height is not None:
+                args['mix_liquid_height'] = m_height
+
+        simplified.append({
+            "action": "transfer_liquid",
+            "action_args": args,
+            "_source_slot": first['_source_slot'],
+            "_source_wells": source_wells,
+            "_target_slot": first['_target_slot'],
+            "_target_wells": target_wells
+        })
+
+    return simplified
+
+
+def _merge_transfer_actions(transfer_actions):
+    """合并条件：source个数==target个数，且source的slot相同、target的slot相同时才合并"""
+    if len(transfer_actions) <= 1:
+        return transfer_actions
+
+    groups = {}
+    skip_actions = []
+    for action in transfer_actions:
+        src_slot = action.get('_source_slot')
+        tgt_slot = action.get('_target_slot')
+        if src_slot is None or tgt_slot is None:
+            skip_actions.append(action)
+            continue
+        # 按 (source_slot, target_slot) 分组
+        key = (src_slot, tgt_slot)
+        if key not in groups:
+            groups[key] = []
+        groups[key].append(action)
+
+    merged = []
+    for key, actions in groups.items():
+        # 仅合并 source数量==target数量 的actions（1对1映射）
+        mergeable = [a for a in actions if len(a.get('_source_wells', [])) == len(a.get('_target_wells', []))]
+        non_mergeable = [a for a in actions if len(a.get('_source_wells', [])) != len(a.get('_target_wells', []))]
+
+        for a in non_mergeable:
+            merged.append(a)
+
+        if len(mergeable) <= 1:
+            merged.extend(mergeable)
+            continue
+
+        first = mergeable[0]
+        args = first['action_args'].copy()
+        target_wells = list(first.get('_target_wells', []))
+        source_wells = list(first.get('_source_wells', []))
+        first_src = first['action_args']['sources']
+        base_name = re.sub(r'_\d+$', '', first_src) if isinstance(first_src, str) else re.sub(r'_\d+$', '', first_src[0])
+
+        args['asp_vols'] = list(first['action_args']['asp_vols'])
+        args['dis_vols'] = list(first['action_args']['dis_vols'])
+        args['asp_flow_rates'] = list(first['action_args'].get('asp_flow_rates', []))
+        args['dis_flow_rates'] = list(first['action_args'].get('dis_flow_rates', []))
+        if 'blow_out_air_volume' in first['action_args']:
+            args['blow_out_air_volume'] = list(first['action_args']['blow_out_air_volume'])
+        if 'blow_out_air_volume_before' in first['action_args']:
+            args['blow_out_air_volume_before'] = list(first['action_args']['blow_out_air_volume_before'])
+        if 'liquid_height' in first['action_args']:
+            args['liquid_height'] = list(first['action_args']['liquid_height'])
+        args['delays'] = []
+        has_nonzero_delay = False
+        first_delays = first['action_args'].get('delays')
+        if first_delays:
+            norm_first_delays = [float(v or 0.0) for v in first_delays]
+        else:
+            norm_first_delays = [0.0] * len(first['action_args'].get('dis_vols', []))
+        args['delays'].extend(norm_first_delays)
+        if any(v > 0 for v in norm_first_delays):
+            has_nonzero_delay = True
+        touch_tip_flags = []
+        if first['action_args'].get('touch_tip'):
+            touch_tip_flags.append(True)
+        mix_stages = []
+        mix_times_vals = []
+        mix_vol_vals = []
+        mix_rate_vals = []
+        mix_height_vals = []
+        if first['action_args'].get('mix_stage'):
+            mix_stages.append(first['action_args'].get('mix_stage'))
+            mix_times_vals.append(first['action_args'].get('mix_times'))
+            mix_vol_vals.append(first['action_args'].get('mix_vol'))
+            mix_rate_vals.append(first['action_args'].get('mix_rate'))
+            mix_height_vals.append(first['action_args'].get('mix_liquid_height'))
+
+        for a in mergeable[1:]:
+            target_wells.extend(a.get('_target_wells', []))
+            source_wells.extend(a.get('_source_wells', []))
+            args['asp_vols'].extend(a['action_args']['asp_vols'])
+            args['dis_vols'].extend(a['action_args']['dis_vols'])
+            args['asp_flow_rates'].extend(a['action_args'].get('asp_flow_rates', []))
+            args['dis_flow_rates'].extend(a['action_args'].get('dis_flow_rates', []))
+            if 'blow_out_air_volume' in a['action_args']:
+                args['blow_out_air_volume'].extend(a['action_args']['blow_out_air_volume'])
+            if 'blow_out_air_volume_before' in a['action_args']:
+                args['blow_out_air_volume_before'].extend(a['action_args']['blow_out_air_volume_before'])
+            if 'liquid_height' in a['action_args']:
+                args['liquid_height'].extend(a['action_args']['liquid_height'])
+            cur_delays = a['action_args'].get('delays')
+            if cur_delays:
+                norm_cur_delays = [float(v or 0.0) for v in cur_delays]
+            else:
+                norm_cur_delays = [0.0] * len(a['action_args'].get('dis_vols', []))
+            args['delays'].extend(norm_cur_delays)
+            if any(v > 0 for v in norm_cur_delays):
+                has_nonzero_delay = True
+            if a['action_args'].get('touch_tip'):
+                touch_tip_flags.append(True)
+            if a['action_args'].get('mix_stage'):
+                mix_stages.append(a['action_args'].get('mix_stage'))
+                mix_times_vals.append(a['action_args'].get('mix_times'))
+                mix_vol_vals.append(a['action_args'].get('mix_vol'))
+                mix_rate_vals.append(a['action_args'].get('mix_rate'))
+                mix_height_vals.append(a['action_args'].get('mix_liquid_height'))
+
+        first_tgt = first['action_args']['targets']
+        tgt_base = re.sub(r'_\d+$', '', first_tgt) if isinstance(first_tgt, str) else re.sub(r'_\d+$', '', first_tgt[0])
+        args['sources'] = base_name
+        args['targets'] = tgt_base
+        if not has_nonzero_delay:
+            args.pop('delays', None)
+        if any(touch_tip_flags):
+            args['touch_tip'] = True
+        merged_mix_stage = _merge_mix_stage(mix_stages)
+        if merged_mix_stage:
+            args['mix_stage'] = merged_mix_stage
+            m_times = _min_or_none(mix_times_vals)
+            m_vol = _min_or_none(mix_vol_vals)
+            m_rate = _min_or_none(mix_rate_vals)
+            m_height = _min_or_none(mix_height_vals)
+            if m_times is not None:
+                args['mix_times'] = int(m_times)
+            if m_vol is not None:
+                args['mix_vol'] = m_vol
+            if m_rate is not None:
+                args['mix_rate'] = m_rate
+            if m_height is not None:
+                args['mix_liquid_height'] = m_height
+
+        merged_action = {
+            "action": "transfer_liquid",
+            "action_args": args,
+            "_source_slot": first.get('_source_slot'),
+            "_source_wells": source_wells,
+            "_target_slot": first.get('_target_slot'),
+            "_target_wells": target_wells
+        }
+        merged.append(merged_action)
+
+    merged.extend(skip_actions)
+    return merged
 
 
 def print_transfer_actions(protocol_name):
@@ -766,48 +1262,109 @@ def export_transfer_actions(protocol_name, output_file=None):
                 # 使用type而不是name
                 liquid_info["labware"] = slot_to_type.get(slot, "")
 
-    # 处理transfer_actions中的liquids
+    def _next_unique_key(base_name, counter_map):
+        """为同名液体生成不与现有reagent冲突的新key。"""
+        counter_map[base_name] = counter_map.get(base_name, 1) + 1
+        new_key = f"{base_name}_{counter_map[base_name]}"
+        while new_key in reagents:
+            counter_map[base_name] += 1
+            new_key = f"{base_name}_{counter_map[base_name]}"
+        return new_key
+
+    def _normalize_reagent_wells(wells):
+        """reagent显示层：若全部是同一well，则合并为单个well。"""
+        if not wells:
+            return wells
+        return [wells[0]] if len(set(wells)) == 1 else wells
+
+    # 处理transfer_actions中的liquids：source液体使用action的source_wells，同液体不同wells分开写
+    liquid_well_to_key = {}  # (liquid_base, slot, tuple(wells)) -> reagent_key
+    liquid_key_counter = {}
+
     for action in transfer_actions:
         sources = action['action_args']['sources']
         targets = action['action_args']['targets']
+        source_slot = action.get('_source_slot')
+        source_wells = action.get('_source_wells', [])
 
         if isinstance(sources, str):
             sources = [sources]
         if isinstance(targets, str):
             targets = [targets]
 
-        all_liquids = sources + targets
-
-        for liquid in all_liquids:
-            if liquid not in reagents and liquid in liquid_to_info:
+        for liquid in sources:
+            if source_slot is not None and source_wells:
+                well_key = (liquid, source_slot, tuple(sorted(source_wells)))
+                if well_key not in liquid_well_to_key:
+                    if liquid not in reagents:
+                        liquid_well_to_key[well_key] = liquid
+                        reagents[liquid] = {
+                            "slot": source_slot,
+                            "well": _normalize_reagent_wells(source_wells),
+                            "labware": slot_to_type.get(source_slot, ""),
+                            "object": "source"
+                        }
+                    else:
+                        new_key = _next_unique_key(liquid, liquid_key_counter)
+                        liquid_well_to_key[well_key] = new_key
+                        action['action_args']['sources'] = new_key
+                        reagents[new_key] = {
+                            "slot": source_slot,
+                            "well": _normalize_reagent_wells(source_wells),
+                            "labware": slot_to_type.get(source_slot, ""),
+                            "object": "source"
+                        }
+                else:
+                    action['action_args']['sources'] = liquid_well_to_key[well_key]
+            elif liquid not in reagents and liquid in liquid_to_info:
                 info = liquid_to_info[liquid]
                 reagents[liquid] = {
                     "slot": info["slot"],
                     "well": info["wells"],
-                    "labware": info["labware"]
+                    "labware": info["labware"],
+                    "object": "source"
                 }
 
-    # 对于没有在原始映射中找到的liquids（比如"samples"），从labware_info中获取
+    # 对于target液体（如"samples"），使用action的target_wells，同液体不同wells分开写
+    target_well_to_key = {}
+    target_key_counter = {}
     for action in transfer_actions:
-        sources = action['action_args']['sources']
         targets = action['action_args']['targets']
+        target_slot = action.get('_target_slot')
+        target_wells = action.get('_target_wells', [])
 
-        if isinstance(sources, str):
-            sources = [sources]
         if isinstance(targets, str):
             targets = [targets]
 
-        all_liquids = sources + targets
-
-        for liquid in all_liquids:
-            if liquid not in reagents:
-                # 从labware_info中查找
+        for liquid in targets:
+            if target_slot is not None and target_wells:
+                well_key = (liquid, target_slot, tuple(sorted(target_wells)))
+                if well_key not in target_well_to_key:
+                    if liquid not in reagents:
+                        target_well_to_key[well_key] = liquid
+                        reagents[liquid] = {
+                            "slot": target_slot,
+                            "well": _normalize_reagent_wells(target_wells),
+                            "labware": slot_to_type.get(target_slot, ""),
+                            "object": "target"
+                        }
+                    else:
+                        new_key = _next_unique_key(liquid, target_key_counter)
+                        target_well_to_key[well_key] = new_key
+                        action['action_args']['targets'] = new_key
+                        reagents[new_key] = {
+                            "slot": target_slot,
+                            "well": _normalize_reagent_wells(target_wells),
+                            "labware": slot_to_type.get(target_slot, ""),
+                            "object": "target"
+                        }
+                else:
+                    action['action_args']['targets'] = target_well_to_key[well_key]
+            elif liquid not in reagents:
                 for labware in labware_info:
                     if labware['liquid_type'] and liquid in labware['liquid_type']:
                         slot = labware['slot_on_deck']
                         wells = labware['liquid_input_wells']
-                        labware_name = labware['id'].replace(f"_on_{slot}", "").replace("_", " ")
-
                         reagents[liquid] = {
                             "slot": slot,
                             "well": wells,
@@ -815,32 +1372,58 @@ def export_transfer_actions(protocol_name, output_file=None):
                         }
                         break
 
-    # 添加tiprack信息
-    # 获取protoBuilds中的原始JSON数据
+    # 添加 tiprack 和 trash 信息（从 protoBuilds 获取）
     try:
         proto_json = get_labware_data(protocol_name)
         if 'labware' in proto_json:
             for labware in proto_json['labware']:
                 labware_type = labware.get('type', '').lower()
-                # 检查是否是tiprack
+                # 检查是否是 tiprack
                 if 'tip' in labware_type and 'rack' in labware_type:
                     slot = int(labware.get('slot', 0))
                     labware_type_name = labware.get('type', '')
-
-                    # 生成tiprack key，根据slot命名，如 tiprack_1, tiprack_2 等
                     tiprack_key = f"tiprack_{slot}"
                     reagents[tiprack_key] = {
                         "slot": slot,
-                        "labware": labware_type_name
+                        "labware": labware_type_name,
+                        "object": "tiprack"
                     }
+                # 检查是否是 trash（Opentrons Fixed Trash）
+                elif 'trash' in labware_type or ('trash' in (labware.get('name') or '').lower()):
+                    slot = int(labware.get('slot', 12))
+                    reagents["trash"] = {
+                        "slot": slot,
+                        "labware": labware.get('type', 'opentrons_1_trash_1100ml_fixed'),
+                        "object": "trash"
+                    }
+        # 若 protoBuilds 中未找到 trash，添加默认 trash（slot 12）
+        if "trash" not in reagents:
+            reagents["trash"] = {
+                "slot": 12,
+                "labware": "opentrons_1_trash_1100ml_fixed",
+                "object": "trash"
+            }
     except Exception as e:
         print(f"  加载protoBuilds数据失败: {e}")
+        # 即使失败也添加默认 trash
+        reagents["trash"] = {
+            "slot": 12,
+            "labware": "opentrons_1_trash_1100ml_fixed",
+            "object": "trash"
+        }
+
+    # 移除内部字段，不输出到JSON
+    for action in transfer_actions:
+        action.pop('_source_slot', None)
+        action.pop('_source_wells', None)
+        action.pop('_target_slot', None)
+        action.pop('_target_wells', None)
 
     output_data = {
         "workflow": transfer_actions,
         "reagent": reagents
     }
-    
+
     if output_file is None:
         output_file = f"{protocol_name}_transfer_actions.json"
     

@@ -4,7 +4,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -13,30 +13,30 @@
             "vol": 60.0,
             "source": {
                 "well": "A3",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 10.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 60.0,
             "target": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 300.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-4)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-4)"
         },
         {
             "action": "drop_tip",
@@ -52,83 +52,81 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
         {
             "action": "mix",
-            "vol": [
-                60.0,
-                60.0
-            ],
+            "vol": 60.0,
             "position": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": [
-                75.0,
-                300.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
+        }
+    ],
+    [
+        {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A3",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 6
+            }
         },
         {
             "action": "aspirate",
             "vol": 32.5,
             "source": {
                 "well": "A1",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 10.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 32.5,
             "target": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 10.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "mix",
-            "vol": [
-                60.0,
-                60.0
-            ],
+            "vol": 60.0,
             "position": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": [
-                50.0,
-                50.0
-            ],
-            "mix_time": 10
+            "flow_rate": 7.6,
+            "mix_time": 10,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top(-13.5)"
         },
         {
             "action": "drop_tip",
@@ -137,23 +135,11 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 5 minutes."
         },
         {
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -165,8 +151,8 @@
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A3",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "well": "A4",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -175,125 +161,21 @@
             "vol": 82.5,
             "source": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(2)"
         },
         {
             "action": "dispense",
             "vol": 82.5,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        }
-    ],
-    [
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A4",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 6
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 5.0,
-            "source": {
-                "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 180.0,
-            "source": {
-                "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 10.0,
-            "source": {
-                "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "dispense",
-            "vol": 200.0,
-            "target": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "delay",
-            "minutes": 0,
-            "seconds": 15.0
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 5.0,
-            "source": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 190.0,
-            "source": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 5.0,
-            "source": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "dispense",
-            "vol": 210.0,
-            "target": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",
@@ -309,7 +191,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -318,40 +200,32 @@
             "vol": 5.0,
             "source": {
                 "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top"
         },
         {
             "action": "aspirate",
             "vol": 180.0,
             "source": {
                 "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 10.0,
-            "source": {
-                "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 200.0,
+            "vol": 195.0,
             "target": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
         },
         {
             "action": "delay",
@@ -361,44 +235,44 @@
     ],
     [
         {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A6",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 6
+            }
+        },
+        {
             "action": "aspirate",
             "vol": 5.0,
             "source": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top"
         },
         {
             "action": "aspirate",
             "vol": 190.0,
             "source": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 5.0,
-            "source": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1.5)"
         },
         {
             "action": "dispense",
-            "vol": 210.0,
+            "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",
@@ -413,8 +287,105 @@
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A6",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "well": "A7",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 6
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 5.0,
+            "source": {
+                "well": "A4",
+                "labware": "nest_12_reservoir_15ml",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top"
+        },
+        {
+            "action": "aspirate",
+            "vol": 180.0,
+            "source": {
+                "well": "A4",
+                "labware": "nest_12_reservoir_15ml",
+                "slot": 2
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "dispense",
+            "vol": 195.0,
+            "target": {
+                "well": "A3",
+                "labware": "NEST 96-Well Plate",
+                "slot": 4
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
+        },
+        {
+            "action": "delay",
+            "minutes": 0,
+            "seconds": 15.0
+        }
+    ],
+    [
+        {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A8",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 6
+            }
+        },
+        {
+            "action": "aspirate",
+            "vol": 5.0,
+            "source": {
+                "well": "A3",
+                "labware": "NEST 96-Well Plate",
+                "slot": 4
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top"
+        },
+        {
+            "action": "aspirate",
+            "vol": 190.0,
+            "source": {
+                "well": "A3",
+                "labware": "NEST 96-Well Plate",
+                "slot": 4
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1.5)"
+        },
+        {
+            "action": "dispense",
+            "vol": 200.0,
+            "target": {
+                "well": "A12",
+                "labware": "nest_12_reservoir_15ml",
+                "slot": 2
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
+        }
+    ],
+    [
+        {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A9",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -423,20 +394,11 @@
             "vol": 30.0,
             "source": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 5.0,
-            "source": {
-                "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
-                "slot": 4
-            },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(0.5)"
         },
         {
             "action": "drop_tip",
@@ -450,16 +412,14 @@
             "action": "delay",
             "minutes": 2,
             "seconds": 0.0
-        },
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A7",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "well": "A10",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -468,59 +428,51 @@
             "vol": 22.0,
             "source": {
                 "well": "A6",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 22.0,
             "target": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
-            }
-        }
-    ],
-    [
+            },
+            "pose_z": "top"
+        },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": [
-                50.0,
-                50.0
-            ],
-            "mix_time": 10
+            "flow_rate": 7.6,
+            "mix_time": 10,
+            "pose_z": "top(-13.5)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -529,23 +481,11 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes,  then engaging Magnetic Module."
         },
         {
             "action": "delay",
             "minutes": 2,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -557,8 +497,8 @@
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A8",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
+                "well": "A11",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -567,30 +507,30 @@
             "vol": 20.0,
             "source": {
                 "well": "A3",
-                "labware": "NEST 96-Well Plate on Magnetic Module GEN1",
+                "labware": "NEST 96-Well Plate",
                 "slot": 4
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 22.0,
+            "vol": 20.0,
             "target": {
                 "well": "A6",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
             },
-            "flow_rate": 50.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-12)"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A6",
-                "labware": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 uL",
+                "labware": "opentrons_96_aluminumblock_nest_wellplate_100ul",
                 "slot": 1
-            }
+            },
+            "pose_z": "top(-12)"
         },
         {
             "action": "drop_tip",
@@ -599,16 +539,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
-        {
-            "action": "raw",
-            "text": "Clean up complete. Store samples in 4C or -20C for  long term storage."
         }
     ]
 ]

@@ -1,16 +1,10 @@
 [
     [
         {
-            "action": "temperature",
-            "target": 4.0
-        }
-    ],
-    [
-        {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -19,36 +13,30 @@
             "vol": 50.0,
             "source": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Temperature Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                75.0,
-                75.0
-            ],
+            "vol": 75.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Temperature Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 3
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 6
         },
         {
@@ -58,58 +46,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Seal plate with Microseal 'B' adhesive seal."
-        },
-        {
-            "action": "raw",
-            "text": "Incubate as follows."
-        },
-        {
-            "action": "raw",
-            "text": "[LS] Place on the thermal cycler and run the mRNA Denaturation program."
-        },
-        {
-            "action": "raw",
-            "text": "Each well contains 100 \u03bcl."
-        },
-        {
-            "action": "raw",
-            "text": "Incubate for 5 minutes on bench."
-        },
-        {
-            "action": "raw",
-            "text": "[LS] Centrifuge at 280 \u00d7 g for 1 minute. Remove adhesive seal."
-        },
-        {
-            "action": "raw",
-            "text": "Place plate back on magnetic module on OT-2."
-        },
-        {
-            "action": "raw",
-            "text": "and select \"Resume\" on the Opentrons app."
-        },
-        {
-            "action": "raw",
-            "text": "The protocol will incubate for 5 minutes then proceed in the protocol"
-        },
-        {
-            "action": "raw",
-            "text": "to engage magnet. Plate should NOT be on the temperature module any longer."
-        }
-    ],
-    [
-        {
-            "action": "temperature",
-            "target": 25.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -122,7 +58,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -131,10 +67,11 @@
             "vol": 100.0,
             "source": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 9.4
+            "flow_rate": 7.6,
+            "pose_z": "bottom"
         },
         {
             "action": "delay",
@@ -146,32 +83,18 @@
             "vol": 100.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 50.0,
-            "source": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 94.0
         },
         {
             "action": "drop_tip",
@@ -180,16 +103,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -198,38 +119,30 @@
             "vol": 200.0,
             "source": {
                 "well": "A2",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 94.0
-        }
-    ],
-    [
+            "flow_rate": 7.6
+        },
         {
             "action": "mix",
-            "vol": [
-                75.0,
-                75.0
-            ],
+            "vol": 75.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 6
         },
         {
@@ -239,12 +152,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -257,7 +164,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -266,10 +173,11 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 9.4
+            "flow_rate": 7.6,
+            "pose_z": "bottom"
         },
         {
             "action": "delay",
@@ -281,32 +189,18 @@
             "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 50.0,
-            "source": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 94.0
         },
         {
             "action": "drop_tip",
@@ -315,16 +209,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -333,38 +225,30 @@
             "vol": 50.0,
             "source": {
                 "well": "A8",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 94.0
-        }
-    ],
-    [
+            "flow_rate": 7.6
+        },
         {
             "action": "mix",
-            "vol": [
-                75.0,
-                75.0
-            ],
+            "vol": 75.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 6
         },
         {
@@ -374,40 +258,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Seal plate with Microseal 'B' adhesive seal."
-        },
-        {
-            "action": "raw",
-            "text": "[LS] Centrifuge at 280 \u00d7 g for 1 minute."
-        },
-        {
-            "action": "raw",
-            "text": "Incubate as follows."
-        },
-        {
-            "action": "raw",
-            "text": "[LS] Place on the thermal cycler and run the mRNA Elution 1 program."
-        },
-        {
-            "action": "raw",
-            "text": "Each well contains 50 \u03bcl."
-        },
-        {
-            "action": "raw",
-            "text": "Remove adhesive seal."
-        },
-        {
-            "action": "raw",
-            "text": "Place plate back on magnetic module for BBB addition."
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A6",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -416,36 +274,30 @@
             "vol": 50.0,
             "source": {
                 "well": "A9",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                75.0,
-                75.0
-            ],
+            "vol": 75.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 6
         },
         {
@@ -455,24 +307,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Seal the RBP plate with a Microseal 'B' adhesive seal before running"
-        },
-        {
-            "action": "raw",
-            "text": "the mRNA denaturation program."
-        },
-        {
-            "action": "raw",
-            "text": "Place plate back on magnetic module."
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -485,7 +319,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -494,10 +328,11 @@
             "vol": 100.0,
             "source": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 9.4
+            "flow_rate": 7.6,
+            "pose_z": "bottom"
         },
         {
             "action": "delay",
@@ -509,32 +344,18 @@
             "vol": 100.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 50.0,
-            "source": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 94.0
         },
         {
             "action": "drop_tip",
@@ -543,16 +364,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A8",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -561,38 +380,30 @@
             "vol": 200.0,
             "source": {
                 "well": "A3",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 94.0
-        }
-    ],
-    [
+            "flow_rate": 7.6
+        },
         {
             "action": "mix",
-            "vol": [
-                75.0,
-                75.0
-            ],
+            "vol": 75.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 6
         },
         {
@@ -602,12 +413,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -620,7 +425,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A9",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -629,10 +434,11 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 9.4
+            "flow_rate": 7.6,
+            "pose_z": "bottom"
         },
         {
             "action": "delay",
@@ -644,32 +450,18 @@
             "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 2
             }
-        }
-    ],
-    [
-        {
-            "action": "aspirate",
-            "vol": 50.0,
-            "source": {
-                "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
-                "slot": 2
-            },
-            "flow_rate": 94.0
         },
         {
             "action": "drop_tip",
@@ -678,16 +470,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A10",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -696,49 +486,49 @@
             "vol": 20.0,
             "source": {
                 "well": "A10",
-                "labware": "Froggabio 96 Well Plate 300 uL",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 20.0,
             "target": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": 94.0
-        }
-    ],
-    [
+            "flow_rate": 7.6
+        },
         {
             "action": "mix",
-            "vol": [
-                20.0,
-                20.0
-            ],
+            "vol": 20.0,
             "position": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 3
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Froggabio 96 Well Plate 300 uL on Magnetic Module GEN2",
+                "labware": "froggabio_96_wellplate_300ul",
                 "slot": 10
-            }
+            },
+            "pose_z": "top(-3)"
+        },
+        {
+            "action": "touch_tip",
+            "location": {
+                "well": "A1",
+                "labware": "froggabio_96_wellplate_300ul",
+                "slot": 10
+            },
+            "pose_z": "top(-3)"
         },
         {
             "action": "drop_tip",
@@ -747,26 +537,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
-        {
-            "action": "raw",
-            "text": "Seal plate with Microseal 'B' adhesive seal."
-        },
-        {
-            "action": "raw",
-            "text": "[LS] Centrifuge at 280 \u00d7 g for 1 minute."
-        },
-        {
-            "action": "raw",
-            "text": "Place on the thermal cycler and run the Elution 2 - Frag - Prime program."
-        },
-        {
-            "action": "raw",
-            "text": "Each well contains 19.5 \u03bcl."
-        },
-        {
-            "action": "raw",
-            "text": "Remove adhesive seal."
         }
     ]
 ]

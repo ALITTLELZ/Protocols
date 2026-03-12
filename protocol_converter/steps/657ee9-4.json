@@ -4,26 +4,21 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
         {
             "action": "mix",
-            "vol": [
-                40.0,
-                40.0
-            ],
+            "vol": 40.0,
             "position": {
                 "well": "A1",
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
-            "mix_time": 3
+            "flow_rate": 7.6,
+            "mix_time": 3,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "aspirate",
@@ -33,108 +28,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 45.0,
             "target": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                60.0,
-                60.0
-            ],
+            "vol": 60.0,
             "position": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
-            "mix_time": 5
-        },
-        {
-            "action": "delay",
-            "minutes": 0,
-            "seconds": 1.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-                "slot": 5
-            }
-        },
-        {
-            "action": "mix",
-            "vol": [
-                40.0,
-                40.0
-            ],
-            "position": {
-                "well": "A1",
-                "labware": "12-Well Reservoir with Reagents",
-                "slot": 2
-            },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
-            "mix_time": 3
-        },
-        {
-            "action": "aspirate",
-            "vol": 45.0,
-            "source": {
-                "well": "A1",
-                "labware": "12-Well Reservoir with Reagents",
-                "slot": 2
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "dispense",
-            "vol": 45.0,
-            "target": {
-                "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
-                "slot": 1
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "mix",
-            "vol": [
-                60.0,
-                60.0
-            ],
-            "position": {
-                "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
-                "slot": 1
-            },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -153,25 +68,74 @@
     ],
     [
         {
-            "action": "raw",
-            "text": "Incubating for 5 minutes"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A2",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
+        },
+        {
+            "action": "mix",
+            "vol": 40.0,
+            "position": {
+                "well": "A1",
+                "labware": "12-Well Reservoir with Reagents",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "mix_time": 3,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 45.0,
+            "source": {
+                "well": "A1",
+                "labware": "12-Well Reservoir with Reagents",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 45.0,
+            "target": {
+                "well": "A10",
+                "labware": "Sample Plate on MagDeck",
+                "slot": 1
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "mix",
+            "vol": 60.0,
+            "position": {
+                "well": "A10",
+                "labware": "Sample Plate on MagDeck",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "mix_time": 5
+        },
+        {
+            "action": "delay",
+            "minutes": 0,
+            "seconds": 1.0
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         },
         {
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
@@ -184,7 +148,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -193,10 +157,10 @@
             "vol": 75.0,
             "source": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 15.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -206,43 +170,8 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-                "slot": 5
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 75.0,
-            "source": {
-                "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
-                "slot": 1
-            },
-            "flow_rate": 15.0
-        },
-        {
-            "action": "dispense",
-            "vol": 75.0,
-            "target": {
-                "well": "A11",
-                "labware": "12-Well Reservoir with Reagents",
-                "slot": 2
-            },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -255,12 +184,41 @@
     ],
     [
         {
-            "action": "magnet",
-            "state": "disengage"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A4",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
         },
         {
-            "action": "raw",
-            "text": "Performing EtOH Wash 1"
+            "action": "aspirate",
+            "vol": 75.0,
+            "source": {
+                "well": "A10",
+                "labware": "Sample Plate on MagDeck",
+                "slot": 1
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "dispense",
+            "vol": 75.0,
+            "target": {
+                "well": "A11",
+                "labware": "12-Well Reservoir with Reagents",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ],
     [
@@ -268,7 +226,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -280,33 +238,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(12.880741646855041)"
         },
         {
             "action": "dispense",
             "vol": 150.0,
             "target": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                100.0,
-                100.0
-            ],
+            "vol": 100.0,
             "position": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -315,12 +268,10 @@
             "seconds": 1.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             }
         },
@@ -331,12 +282,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A6",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -348,33 +301,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(8.822357561349122)"
         },
         {
             "action": "dispense",
             "vol": 150.0,
             "target": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                100.0,
-                100.0
-            ],
+            "vol": 100.0,
             "position": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -383,12 +331,10 @@
             "seconds": 1.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             }
         },
@@ -399,18 +345,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
@@ -423,7 +357,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -432,10 +366,10 @@
             "vol": 150.0,
             "source": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 15.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -445,43 +379,8 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A8",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-                "slot": 5
-            }
-        },
-        {
-            "action": "aspirate",
-            "vol": 150.0,
-            "source": {
-                "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
-                "slot": 1
-            },
-            "flow_rate": 15.0
-        },
-        {
-            "action": "dispense",
-            "vol": 150.0,
-            "target": {
-                "well": "A11",
-                "labware": "12-Well Reservoir with Reagents",
-                "slot": 2
-            },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -494,12 +393,41 @@
     ],
     [
         {
-            "action": "magnet",
-            "state": "disengage"
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A8",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 5
+            }
         },
         {
-            "action": "raw",
-            "text": "Performing EtOH Wash 2"
+            "action": "aspirate",
+            "vol": 150.0,
+            "source": {
+                "well": "A10",
+                "labware": "Sample Plate on MagDeck",
+                "slot": 1
+            },
+            "flow_rate": 7.6
+        },
+        {
+            "action": "dispense",
+            "vol": 150.0,
+            "target": {
+                "well": "A11",
+                "labware": "12-Well Reservoir with Reagents",
+                "slot": 2
+            },
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ],
     [
@@ -507,7 +435,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A9",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -519,33 +447,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(4.7639734758432)"
         },
         {
             "action": "dispense",
             "vol": 150.0,
             "target": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                100.0,
-                100.0
-            ],
+            "vol": 100.0,
             "position": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -554,12 +477,10 @@
             "seconds": 1.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             }
         },
@@ -570,12 +491,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A10",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -587,33 +510,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 150.0,
             "target": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                100.0,
-                100.0
-            ],
+            "vol": 100.0,
             "position": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -622,12 +540,10 @@
             "seconds": 1.0
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             }
         },
@@ -638,18 +554,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
@@ -662,7 +566,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A11",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -671,10 +575,10 @@
             "vol": 150.0,
             "source": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 15.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -684,7 +588,8 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -693,12 +598,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A12",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 5
             }
         },
@@ -707,10 +614,10 @@
             "vol": 150.0,
             "source": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 15.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -720,7 +627,8 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top(-2)"
         },
         {
             "action": "drop_tip",
@@ -729,18 +637,6 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "disengage"
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
@@ -753,7 +649,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -765,33 +661,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 25.0,
             "position": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -806,12 +697,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -823,33 +716,28 @@
                 "labware": "12-Well Reservoir with Reagents",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 50.0,
             "target": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
+            "vol": 25.0,
             "position": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 5
         },
         {
@@ -864,29 +752,11 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
             "minutes": 2,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
-        }
-    ],
-    [
-        {
-            "action": "raw",
-            "text": "Incubating for 2 minutes"
         },
         {
             "action": "delay",
@@ -899,7 +769,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -908,10 +778,10 @@
             "vol": 50.0,
             "source": {
                 "well": "A3",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 30.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -921,7 +791,7 @@
                 "labware": "Elution Plate",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",
@@ -930,12 +800,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -944,10 +816,10 @@
             "vol": 50.0,
             "source": {
                 "well": "A10",
-                "labware": "Sample Plate on MagDeck on Magnetic Module GEN2",
+                "labware": "Sample Plate on MagDeck",
                 "slot": 1
             },
-            "flow_rate": 30.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
@@ -957,7 +829,7 @@
                 "labware": "Elution Plate",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "drop_tip",

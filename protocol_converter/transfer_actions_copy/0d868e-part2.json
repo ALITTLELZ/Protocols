@@ -1,4 +1,61 @@
 {
+  "description": "This protocol performs sections 3 to 8 of the Ilumina TruSeq Stranded mRNA SOP (Synthesize First Strand cDNA to the end of Cleanup Ligated Fragments). Pauses are included in the protocol for user intervention. Pauses will include details from the SOP for the user to follow for manual steps - the user may see these details in the Opentrons App during the pause. In the event of tip depletion, the protocol will automatically pause prompting the user to refill tips. Magnetic engagement height should be determined and adjusted accordingly, since the plate on the magnetic module is not in the labware library. If reagents take more than one column in the reagent plate (beads for example), then the reagent volume in each well should be per sample, otherwise, reagent liquid volume should be per protocol if reagent takes one column.",
+  "tags": [
+    "NGS Library Prep",
+    "Generic"
+  ],
+  "labware": [
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on 1",
+      "slot": "1",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with NEST 2 mL Snapcap on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_opentrons_24_aluminumblock_nest_2ml_snapcap"
+    },
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on 4",
+      "slot": "4",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 20 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_20ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
+  ],
   "workflow": [
     {
       "action": "magnet",
@@ -361,12 +418,12 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "superscriptII",
         "targets": "Liquid_2",
         "asp_vol": 6.0,
         "dis_vol": 6.0,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
         "tip_racks": [
           {
             "slot": 5,
@@ -727,7 +784,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "Liquid_3",
         "asp_vol": 27.5,
         "dis_vol": 5.0,
@@ -924,12 +981,12 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "Liquid_3",
         "asp_vol": 7.608695652173913,
         "dis_vol": 7.608695652173913,
-        "asp_flow_rate": 7.56,
-        "dis_flow_rate": 7.56,
+        "asp_flow_rate": 7.560000000000001,
+        "dis_flow_rate": 7.560000000000001,
         "tip_racks": [
           {
             "slot": 5,
@@ -1127,7 +1184,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 92.0,
         "dis_vol": 92.0,
         "asp_flow_rate": 9.4,
@@ -1142,7 +1199,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "Liquid_3",
         "asp_vol": 125.0,
         "dis_vol": 200.0,
@@ -1173,7 +1230,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 9.4,
@@ -1188,7 +1245,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "Liquid_3",
         "asp_vol": 125.0,
         "dis_vol": 200.0,
@@ -1219,7 +1276,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "Liquid_3",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 9.4,
@@ -1254,7 +1311,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "Liquid_3",
         "asp_vol": 51.25,
         "dis_vol": 52.5,
@@ -1392,7 +1449,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "old_samples",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 92.0,
         "dis_vol": 92.0,
         "asp_flow_rate": 9.4,
@@ -1407,7 +1464,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "old_samples",
         "asp_vol": 125.0,
         "dis_vol": 200.0,
@@ -1438,7 +1495,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "old_samples",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 9.4,
@@ -1453,7 +1510,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "old_samples",
         "asp_vol": 125.0,
         "dis_vol": 200.0,
@@ -1484,7 +1541,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "old_samples",
-        "targets": "rsb",
+        "targets": "waste",
         "asp_vol": 200.0,
         "dis_vol": 200.0,
         "asp_flow_rate": 9.4,
@@ -1519,7 +1576,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "rsb",
+        "sources": "waste",
         "targets": "old_samples",
         "asp_vol": 36.25,
         "dis_vol": 22.5,
@@ -1592,8 +1649,7 @@
         "A1",
         "A12",
         "A11"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
     "ampur_beads": {
       "slot": 1,
@@ -1601,24 +1657,28 @@
         "A1",
         "A12",
         "A11"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
-    "rsb": {
+    "waste": {
       "slot": 1,
       "well": [
         "A1",
         "A12",
         "A11"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
+    },
+    "superscriptII": {
+      "slot": 3,
+      "well": [
+        "A1",
+        "B1"
+      ]
     },
     "samples": {
       "slot": 4,
       "well": [
         "A1"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
     "Liquid_1": {
       "slot": 10,
@@ -1627,8 +1687,7 @@
         "A2",
         "A3",
         "A4"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2"
+      ]
     },
     "Liquid_2": {
       "slot": 10,
@@ -1637,8 +1696,7 @@
         "A2",
         "A3",
         "A4"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2"
+      ]
     },
     "Liquid_3": {
       "slot": 10,
@@ -1647,8 +1705,7 @@
         "A2",
         "A3",
         "A4"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2"
+      ]
     },
     "old_samples": {
       "slot": 10,
@@ -1657,8 +1714,7 @@
         "A2",
         "A3",
         "A4"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2"
+      ]
     }
   }
 }

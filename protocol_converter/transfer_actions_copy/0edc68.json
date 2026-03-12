@@ -1,4 +1,46 @@
 {
+  "description": "This protocol performs a custom VHH protein purification assay.",
+  "tags": [
+    "Proteins & Proteomics",
+    "Purification"
+  ],
+  "labware": [
+    {
+      "name": "Opentrons 96 Deep Well Adapter with NEST Deep Well Plate 2 mL Plate on Heater-Shaker Module GEN1 on 1",
+      "slot": "1",
+      "type": "lab_opentrons_96_deep_well_adapter_nest_wellplate_2ml_deep"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 3",
+      "slot": "3",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 5",
+      "slot": "5",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 6",
+      "slot": "6",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2 on 7",
+      "slot": "7",
+      "type": "lab_opentrons_24_aluminumblock_generic_2ml_screwcap"
+    },
+    {
+      "name": "Opentrons 96 Well Aluminum Block with NEST Well Plate 100 µL on Magnetic Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_opentrons_96_aluminumblock_nest_wellplate_100ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
+  ],
   "workflow": [
     {
       "action": "magnet",
@@ -110,7 +152,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "magstrep_beads",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -194,7 +236,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_1",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -479,7 +521,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "vhh_lib_cultures",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 200.0,
         "dis_vol": 90.0,
         "asp_flow_rate": 50.0,
@@ -563,7 +605,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "supernatant_dest",
         "asp_vol": 90.0,
         "dis_vol": 90.0,
@@ -848,7 +890,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "vhh_lib_cultures",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 200.0,
         "dis_vol": 90.0,
         "asp_flow_rate": 50.0,
@@ -932,7 +974,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "supernatant_dest",
         "asp_vol": 90.0,
         "dis_vol": 90.0,
@@ -1854,7 +1896,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "source",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 70.0,
         "dis_vol": 70.0,
         "asp_flow_rate": 50.0,
@@ -1965,7 +2007,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_2",
         "asp_vol": 60.0,
         "dis_vol": 60.0,
@@ -2317,7 +2359,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -2408,7 +2450,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "supernatant_dest",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -2756,7 +2798,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -2847,7 +2889,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "supernatant_dest",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -2935,7 +2977,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -2974,7 +3016,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_3",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -3274,7 +3316,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "vhh_lib_cultures",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -3385,8 +3427,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
-        "targets": "bsa_biotin_dests",
+        "sources": "g1_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 10.0,
@@ -3674,7 +3716,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_4",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -3773,7 +3815,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -3824,7 +3866,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_5",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -3907,7 +3949,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -3958,7 +4000,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "dest",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -3994,7 +4036,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -4218,7 +4260,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "tb_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -4270,8 +4312,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
-        "targets": "bsa_biotin_dests",
+        "sources": "g1_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 10.0,
@@ -4570,7 +4612,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "vhh_lib_cultures",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -4681,8 +4723,8 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
-        "targets": "bsa_biotin_dests",
+        "sources": "g1_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 10.0,
@@ -4970,7 +5012,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_4",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -5069,7 +5111,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -5120,7 +5162,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "Liquid_5",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -5203,7 +5245,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -5254,7 +5296,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "dest",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -5290,7 +5332,7 @@
       "action": "transfer_liquid",
       "action_args": {
         "sources": "buffer_w",
-        "targets": "bsa_biotin_dests",
+        "targets": "g1_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
         "asp_flow_rate": 50.0,
@@ -5505,7 +5547,7 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bsa_biotin_dests",
+        "sources": "g1_dests",
         "targets": "tb_dests",
         "asp_vol": 100.0,
         "dis_vol": 100.0,
@@ -5536,17 +5578,15 @@
       "slot": 1,
       "well": [
         "A1",
-        "A2"
-      ],
-      "labware": "Opentrons 96 Deep Well Adapter with NEST Deep Well Plate 2 mL Plate on Heater-Shaker Module GEN1"
+        "A3"
+      ]
     },
     "tb_dests": {
       "slot": 1,
       "well": [
         "A1",
-        "A2"
-      ],
-      "labware": "Opentrons 96 Deep Well Adapter with NEST Deep Well Plate 2 mL Plate on Heater-Shaker Module GEN1"
+        "A3"
+      ]
     },
     "supernatant_dest": {
       "slot": 3,
@@ -5555,8 +5595,7 @@
         "A1",
         "A11",
         "A3"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "buffer_w": {
       "slot": 3,
@@ -5565,18 +5604,16 @@
         "A1",
         "A11",
         "A3"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
-    "bsa_biotin_dests": {
+    "g1_dests": {
       "slot": 3,
       "well": [
         "A12",
         "A1",
         "A11",
         "A3"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "terrific_broth": {
       "slot": 3,
@@ -5585,99 +5622,91 @@
         "A1",
         "A11",
         "A3"
-      ],
-      "labware": "NEST 12 Well Reservoir 15 mL"
+      ]
     },
     "magstrep_beads": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "Liquid_1": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "source": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "Liquid_2": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "Liquid_4": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "Liquid_5": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     },
     "dest": {
       "slot": 7,
       "well": [
-        "A5",
+        "A6",
         "A4",
         "C6",
-        "B4",
+        "C4",
         "A1",
         "A2",
         "A3"
-      ],
-      "labware": "Opentrons 24 Well Aluminum Block with Generic 2 mL Screwcap on Temperature Module GEN2"
+      ]
     }
   }
 }

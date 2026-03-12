@@ -1,10 +1,6 @@
 [
     [
         {
-            "action": "magnet",
-            "state": "engage"
-        },
-        {
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
@@ -15,7 +11,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -24,30 +20,30 @@
             "vol": 22.5,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 22.5,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -60,42 +56,22 @@
     ],
     [
         {
-            "action": "magnet",
-            "state": "disengage"
-        },
-        {
-            "action": "raw",
-            "text": "populated Plate A. Ensure Plate B is on the deck populated with magnetic"
-        },
-        {
-            "action": "raw",
-            "text": "beads. If needed, empty trash."
-        }
-    ],
-    [
-        {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A2",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
         {
             "action": "mix",
-            "vol": [
-                200.0,
-                200.0
-            ],
+            "vol": 200.0,
             "position": {
                 "well": "A8",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 20
         },
         {
@@ -105,12 +81,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A3",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -119,47 +97,40 @@
             "vol": 42.5,
             "source": {
                 "well": "A8",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 42.5,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                50.0,
-                50.0
-            ],
+            "vol": 50.0,
             "position": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 2
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -173,12 +144,6 @@
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -191,7 +156,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A4",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -200,47 +165,41 @@
             "vol": 62.5,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 62.5,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "mix",
-            "vol": [
-                55.0,
-                55.0
-            ],
+            "vol": 55.0,
             "position": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 3
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -254,22 +213,6 @@
             "action": "delay",
             "minutes": 5,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "disengage"
-        },
-        {
-            "action": "raw",
-            "text": "populated Plate B. If needed, empty trash."
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -282,7 +225,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A5",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -291,30 +234,30 @@
             "vol": 65.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 65.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -335,7 +278,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A6",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -344,20 +287,21 @@
             "vol": 200.0,
             "source": {
                 "well": "A5",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top"
         },
         {
             "action": "delay",
@@ -365,14 +309,13 @@
             "seconds": 1.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -393,7 +336,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -402,37 +345,37 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
             "location": {
                 "well": "A1",
-                "labware": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
-                "slot": 11
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
             }
         }
     ],
@@ -441,7 +384,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A7",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -450,20 +393,21 @@
             "vol": 200.0,
             "source": {
                 "well": "A5",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top"
         },
         {
             "action": "delay",
@@ -471,14 +415,13 @@
             "seconds": 1.5
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -499,7 +442,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 11
             }
         },
@@ -508,30 +451,30 @@
             "vol": 200.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 200.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -540,12 +483,14 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A1",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 20 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 6
             }
         },
@@ -554,30 +499,30 @@
             "vol": 20.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 7.6
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 20.0,
             "target": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
             "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A12",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -598,7 +543,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A8",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -607,30 +552,30 @@
             "vol": 32.0,
             "source": {
                 "well": "A4",
-                "labware": "NEST 12 Well Reservoir 15 mL",
+                "labware": "nest_12_reservoir_15ml",
                 "slot": 5
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 200.0,
+            "vol": 32.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "top"
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -639,41 +584,289 @@
                 "labware": "Opentrons Fixed Trash",
                 "slot": 12
             }
-        },
+        }
+    ],
+    [
         {
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A9",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
         {
-            "action": "mix",
-            "vol": [
-                25.0,
-                25.0
-            ],
-            "position": {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
-            "mix_time": 12
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
+            "vol": 25.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
-            }
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "aspirate",
+            "vol": 25.0,
+            "source": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
+        },
+        {
+            "action": "dispense",
+            "vol": 25.0,
+            "target": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "flow_rate": 7.6,
+            "pose_z": "bottom(5)"
+        },
+        {
+            "action": "blow_out",
+            "at": {
+                "well": "A1",
+                "labware": "biorad_96_wellplate_200ul_pcr",
+                "slot": 1
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",
@@ -687,12 +880,6 @@
             "action": "delay",
             "minutes": 2,
             "seconds": 0.0
-        }
-    ],
-    [
-        {
-            "action": "magnet",
-            "state": "engage"
         },
         {
             "action": "delay",
@@ -705,7 +892,7 @@
             "action": "pick_tip",
             "tip_rack": {
                 "well": "A10",
-                "type": "Opentrons OT-2 96 Filter Tip Rack 200 uL",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
                 "slot": 7
             }
         },
@@ -714,30 +901,30 @@
             "vol": 30.0,
             "source": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR on Magnetic Module GEN2",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6,
+            "pose_z": "bottom(1)"
         },
         {
             "action": "dispense",
             "vol": 30.0,
             "target": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
-            "action": "dispense",
-            "vol": -1,
-            "flow_rate": 100,
-            "target": {
+            "action": "blow_out",
+            "at": {
                 "well": "A1",
-                "labware": "Bio-Rad 96 Well Plate 200 uL PCR",
+                "labware": "biorad_96_wellplate_200ul_pcr",
                 "slot": 4
-            }
+            },
+            "pose_z": "top"
         },
         {
             "action": "drop_tip",

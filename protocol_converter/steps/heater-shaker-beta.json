@@ -1,174 +1,49 @@
 [
     [
         {
-            "action": "raw",
-            "text": "Unlatching labware on Heater-Shaker"
-        },
-        {
-            "action": "raw",
-            "text": "latch status idle_open"
-        },
-        {
-            "action": "raw",
-            "text": "Latching labware on Heater-Shaker"
-        },
-        {
-            "action": "raw",
-            "text": "latch status idle_closed"
-        }
-    ],
-    [
-        {
-            "action": "heater_shaker",
-            "target_temperature": 42.0,
-            "wait_for_temp": false,
-            "shake_speed": null,
-            "duration_minutes": null,
-            "deactivate_heater": false,
-            "deactivate_shaker": false
-        },
-        {
-            "action": "raw",
-            "text": "Heater Shaker current temperature 42"
-        },
-        {
-            "action": "raw",
-            "text": "Selected source wells [A1 of source on 3]"
-        },
-        {
-            "action": "raw",
-            "text": "Selected heater shaker wells [A1 of Heater Shaker Plate on Heater-Shaker Module GEN1 on 1, A7 of Heater Shaker Plate on Heater-Shaker Module GEN1 on 1]"
-        },
-        {
-            "action": "raw",
-            "text": "Selected destination wells [A1 of destination on 6, A2 of destination on 6]"
-        },
-        {
-            "action": "raw",
-            "text": "Heater Shaker current temperature 42"
-        }
-    ],
-    [
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A1",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 11
-            }
-        },
-        {
             "action": "aspirate",
-            "vol": 100.0,
+            "vol": 1.0,
             "source": {
                 "well": "A1",
-                "labware": "source",
-                "slot": 3
+                "labware": "generic_96",
+                "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 100.0,
+            "vol": 1.0,
             "target": {
                 "well": "A1",
-                "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1",
+                "labware": "generic_96",
                 "slot": 1
             },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 100.0,
-            "source": {
-                "well": "A1",
-                "labware": "source",
-                "slot": 3
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "dispense",
-            "vol": 100.0,
-            "target": {
-                "well": "A7",
-                "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1",
-                "slot": 1
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "raw",
-            "text": "Heater Shaker current temperature 42"
-        },
-        {
-            "action": "heater_shaker",
-            "target_temperature": null,
-            "wait_for_temp": true,
-            "shake_speed": null,
-            "duration_minutes": null,
-            "deactivate_heater": false,
-            "deactivate_shaker": false
-        },
-        {
-            "action": "raw",
-            "text": "Heater Shaker current temperature 42"
-        },
-        {
-            "action": "raw",
-            "text": "current speed 0"
-        },
-        {
-            "action": "heater_shaker",
-            "target_temperature": null,
-            "wait_for_temp": false,
-            "shake_speed": 1500.0,
-            "duration_minutes": null,
-            "deactivate_heater": false,
-            "deactivate_shaker": false
+            "flow_rate": 7.6
         },
         {
             "action": "delay",
             "minutes": 0,
             "seconds": 1.0
-        },
-        {
-            "action": "raw",
-            "text": "current speed 1500"
         }
     ],
     [
         {
             "action": "pick_tip",
             "tip_rack": {
-                "well": "A2",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 11
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 20 uL",
+                "slot": 3
             }
         },
         {
             "action": "mix",
-            "vol": [
-                10.0,
-                10.0
-            ],
+            "vol": 10.0,
             "position": {
-                "well": "A1",
-                "labware": "destination",
-                "slot": 6
+                "well": "0",
+                "labware": "generic_96",
+                "slot": 1
             },
-            "flow_rate": [
-                94.0,
-                94.0
-            ],
+            "flow_rate": 7.6,
             "mix_time": 10
         },
         {
@@ -180,94 +55,24 @@
             }
         },
         {
-            "action": "heater_shaker",
-            "target_temperature": null,
-            "wait_for_temp": false,
-            "shake_speed": null,
-            "duration_minutes": null,
-            "deactivate_heater": false,
-            "deactivate_shaker": true
-        },
-        {
-            "action": "raw",
-            "text": "current speed 0"
-        },
-        {
-            "action": "pick_tip",
-            "tip_rack": {
-                "well": "A3",
-                "type": "Opentrons OT-2 96 Tip Rack 300 uL",
-                "slot": 11
-            }
-        },
-        {
             "action": "aspirate",
-            "vol": 80.0,
+            "vol": 1.0,
             "source": {
                 "well": "A1",
-                "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1",
+                "labware": "generic_96",
                 "slot": 1
             },
-            "flow_rate": 94.0
+            "flow_rate": 7.6
         },
         {
             "action": "dispense",
-            "vol": 80.0,
+            "vol": 1.0,
             "target": {
                 "well": "A1",
-                "labware": "destination",
-                "slot": 6
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "aspirate",
-            "vol": 80.0,
-            "source": {
-                "well": "A7",
-                "labware": "Heater Shaker Plate on Heater-Shaker Module GEN1",
+                "labware": "generic_96",
                 "slot": 1
             },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "dispense",
-            "vol": 80.0,
-            "target": {
-                "well": "A2",
-                "labware": "destination",
-                "slot": 6
-            },
-            "flow_rate": 94.0
-        },
-        {
-            "action": "drop_tip",
-            "location": {
-                "well": "A1",
-                "labware": "Opentrons Fixed Trash",
-                "slot": 12
-            }
-        },
-        {
-            "action": "heater_shaker",
-            "target_temperature": null,
-            "wait_for_temp": false,
-            "shake_speed": null,
-            "duration_minutes": null,
-            "deactivate_heater": true,
-            "deactivate_shaker": false
-        },
-        {
-            "action": "raw",
-            "text": "Unlatching labware on Heater-Shaker"
-        },
-        {
-            "action": "raw",
-            "text": "latch status idle_open"
-        },
-        {
-            "action": "raw",
-            "text": "Process Complete."
+            "flow_rate": 7.6
         }
     ]
 ]

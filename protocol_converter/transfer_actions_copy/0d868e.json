@@ -1,4 +1,51 @@
 {
+  "description": "This protocol performs sections 1 & 2 of the Ilumina TruSeq Stranded mRNA SOP (Purify mRNA to the end of Fragment mRNA). Pauses are included in the protocol for user intervention. Pauses will include details from the SOP for the user to follow for manual steps - the user may see these details in the Opentrons App during the pause. In the event of tip depletion, the protocol will automatically pause prompting the user to refill tips. Magnetic engagement height should be determined and adjusted accordingly, since the plate on the magnetic module is not in the labware library. If reagents take more than one column in the reagent plate (BWB for example), then the reagent volume in each well should be per sample, otherwise, reagent liquid volume should be per protocol if reagent takes one column.",
+  "tags": [
+    "NGS Library Prep",
+    "Generic"
+  ],
+  "labware": [
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on 1",
+      "slot": "1",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "NEST 12 Well Reservoir 15 mL on 2",
+      "slot": "2",
+      "type": "lab_nest_12_reservoir_15ml"
+    },
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on Temperature Module GEN2 on 3",
+      "slot": "3",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 7",
+      "slot": "7",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 8",
+      "slot": "8",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Opentrons 96 Filter Tip Rack 200 µL on 9",
+      "slot": "9",
+      "type": "lab_opentrons_96_filtertiprack_200ul"
+    },
+    {
+      "name": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2 on 10",
+      "slot": "10",
+      "type": "lab_froggabio_96_wellplate_300ul"
+    },
+    {
+      "name": "Opentrons Fixed Trash on 12",
+      "slot": "12",
+      "type": "lab_opentrons_1_trash_1100ml_fixed"
+    }
+  ],
   "workflow": [
     {
       "action": "temperature",
@@ -450,8 +497,7 @@
         "A1",
         "A2",
         "A9"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
     "waste": {
       "slot": 1,
@@ -459,8 +505,7 @@
         "A1",
         "A2",
         "A9"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
     "bbb": {
       "slot": 1,
@@ -468,22 +513,19 @@
         "A1",
         "A2",
         "A9"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL"
+      ]
     },
     "Liquid_1": {
       "slot": 3,
       "well": [
         "A1"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Temperature Module GEN2"
+      ]
     },
     "samples": {
       "slot": 10,
       "well": [
         "A1"
-      ],
-      "labware": "Froggabio 96 Well Plate 300 µL on Magnetic Module GEN2"
+      ]
     }
   }
 }
