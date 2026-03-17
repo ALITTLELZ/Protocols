@@ -239,18 +239,19 @@ def get_action_list(steps_file):
                 continue
             i += 1
 
-    # 按 source 分组，构建 action_list。is_split 时用 (src,tgt) 作 key，使每个 transfer 单独成 action
+    # 按 (source, target_slot) 分组，构建 action_list。
+    # is_split 时用 (src, tgt) 作 key；否则用 (src, tgt_slot) 避免不同目标 slot 混在一起
     source_to_transfers: Dict[Tuple, List] = {}
     for t in transfers:
         src, tgt, asp_block, dis_vol, dis_fr, tip_slot, is_split, before_mix, after_mix, liquid_height, touch_tip, delay_seconds = t[0], t[1], t[2], t[3], t[4], t[5], t[6], t[7], t[8], t[9], t[10], t[11]
-        key = (src, tgt) if is_split else src
+        key = (src, tgt) if is_split else (src, tgt[0])
         if key not in source_to_transfers:
             source_to_transfers[key] = []
         source_to_transfers[key].append((tgt, asp_block, dis_vol, dis_fr, tip_slot, before_mix, after_mix, liquid_height, touch_tip, delay_seconds))
 
     action_list = []
     for key, tlist in source_to_transfers.items():
-        source_well = key[0] if len(key) == 2 and isinstance(key[1], (tuple, list)) else key
+        source_well = key[0]
         tip_slots = {t[4] for t in tlist if t[4] is not None}
         tip_racks = f"tiprack_{sorted(tip_slots)[0]}" if tip_slots else ""
 

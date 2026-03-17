@@ -475,6 +475,9 @@ class MockPipette:
     def pick_up_tip(self, well=None, **kwargs):
         if well is None:
             well = self._get_next_tip()
+            if well is None:
+                self.reset_tipracks()
+                well = self._get_next_tip()
         self._has_tip = True
         self._current_volume = 0.0
         if well is not None:
@@ -484,7 +487,8 @@ class MockPipette:
                 well.has_tip = False
             self._recorder.record_pick_tip(tip_well, "Opentrons OT-2 96 Tip Rack 20 uL", lab._slot)
         else:
-            self._recorder.record_pick_tip("A1", "Opentrons OT-2 96 Tip Rack 20 uL", 3)
+            fallback_slot = self._tip_racks[0]._slot if self._tip_racks else 1
+            self._recorder.record_pick_tip("A1", "Opentrons OT-2 96 Tip Rack 20 uL", fallback_slot)
 
     def drop_tip(self, well=None, **kwargs):
         self._has_tip = False
