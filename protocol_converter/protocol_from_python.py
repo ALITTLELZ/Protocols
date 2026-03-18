@@ -28,6 +28,16 @@ _24_WELLPLATE_ORDER = [f"{r}{c}" for c in range(1, 7) for r in "ABCD"]
 # 24 孔 tube rack: 4 行 x 6 列 (A1-D6)
 _24_TUBE_ORDER = [f"{r}{c}" for c in range(1, 7) for r in "ABCD"]
 
+# OT-2 固定废液槽的标准 load_name（用于从 opentrons_shared_data 加载真实定义）
+_TRASH_LOAD_NAME = "opentrons_1_trash_1100ml_fixed"
+
+
+def _make_trash_labware(protocol_dir: "Path") -> "MockLabware":
+    """从 opentrons_shared_data 加载真实 trash 定义，构建 slot 12 的 MockLabware。"""
+    defn = load_labware_def(protocol_dir, _TRASH_LOAD_NAME)
+    order = _flatten_ordering(defn["ordering"]) if defn and "ordering" in defn else ["A1"]
+    return MockLabware(12, None, _TRASH_LOAD_NAME, order, defn=defn)
+
 
 class NumericString(str):
     """字符串数字，同时兼容与 int 比较。"""
@@ -52,6 +62,12 @@ class ValueProxy:
 
     def __iter__(self):
         yield self.value
+
+    def __getitem__(self, key):
+        return [self.value][key]
+
+    def __len__(self):
+        return 1
 
     def __repr__(self):
         return repr(self.value)
@@ -127,6 +143,7 @@ class ValueProxy:
         return self._bin(other, lambda a, b: b % a)
 
 
+
 def _get_well_order(load_name: str) -> List[str]:
     """根据 load_name 返回 well 顺序"""
     n = load_name.lower()
@@ -145,16 +162,36 @@ def _get_well_order(load_name: str) -> List[str]:
 
 
 def load_labware_def(protocol_dir: Path, load_name: str) -> Optional[Dict]:
-    """从 protocol 的 labware 目录加载定义"""
+    """从 protocol 的 labware 目录或 opentrons_shared_data 加载定义"""
+    # 1. 优先从 protocol 自带的自定义 labware 目录匹配
     labware_dir = protocol_dir / "labware"
-    if not labware_dir.exists():
-        return None
-    # 尝试匹配文件名
-    base = load_name.replace(" ", "_").replace("-", "_")
-    for f in labware_dir.glob("*.json"):
-        if base in f.stem.lower() or f.stem.lower() in base:
-            with open(f, "r", encoding="utf-8") as fp:
-                return json.load(fp)
+    if labware_dir.exists():
+        base = load_name.replace(" ", "_").replace("-", "_")
+        for f in labware_dir.glob("*.json"):
+            if base in f.stem.lower() or f.stem.lower() in base:
+                with open(f, "r", encoding="utf-8") as fp:
+                    return json.load(fp)
+
+    # 2. 从 opentrons_shared_data 读取标准 Opentrons 耗材定义
+    try:
+        import importlib.util
+        spec = importlib.util.find_spec("opentrons_shared_data")
+        if spec and spec.origin:
+            shared_data = Path(spec.origin).parent / "data" / "labware" / "definitions" / "2"
+            # 优先最新版本（版本号越大越新）
+            defn_dir = shared_data / load_name
+            if defn_dir.is_dir():
+                versions = sorted(
+                    (f for f in defn_dir.glob("*.json")),
+                    key=lambda f: int(f.stem) if f.stem.isdigit() else 0,
+                    reverse=True,
+                )
+                if versions:
+                    with open(versions[0], "r", encoding="utf-8") as fp:
+                        return json.load(fp)
+    except Exception:
+        pass
+
     return None
 
 
@@ -174,8 +211,16 @@ def _flatten_ordering(ordering: Any) -> List[str]:
 class MockWell:
     """模拟 Well，携带 parent labware 信息"""
 
-    def __init__(self, name: str, labware: "MockLabware"):
-        self._name = name
+    def __init__(self, name, labware: "MockLabware" = None):
+        # name 可能是 _impl 对象（当协议用 super().__init__(well._impl) 时）
+        if isinstance(name, str):
+            self._name = name
+        elif hasattr(name, '_name'):
+            self._name = name._name
+        elif hasattr(name, 'well_name'):
+            self._name = name.well_name
+        else:
+            self._name = "A1"
         self._labware = labware
         self.liq_vol = 0.0  # 部分协议会设置此属性
 
@@ -193,11 +238,13 @@ class MockWell:
         return f"{position}({z_text})"
 
     def top(self, z=0):
+        _pt = type("Point", (), {"x": 0, "y": 0, "z": 0})()
         loc = type("Loc", (), {
             "_well": self,
             "_name": self._name,
             "_labware": self._labware,
             "_pose_z": self._format_pose_z("top", z),
+            "point": _pt,
             "move": lambda s, p=None: s,
             "top": lambda s, dz=0: self.top(dz),
             "bottom": lambda s, dz=0: self.bottom(dz),
@@ -205,11 +252,13 @@ class MockWell:
         return loc
 
     def bottom(self, z=0):
+        _pt = type("Point", (), {"x": 0, "y": 0, "z": 0})()
         loc = type("Loc", (), {
             "_well": self,
             "_name": self._name,
             "_labware": self._labware,
             "_pose_z": self._format_pose_z("bottom", z),
+            "point": _pt,
             "move": lambda s, p=None: s,
             "top": lambda s, dz=0: self.top(dz),
             "bottom": lambda s, dz=0: self.bottom(dz),
@@ -219,27 +268,49 @@ class MockWell:
     def move(self, point=None):
         return self  # wick() 中 well.bottom().move(Point(...)) 用
 
+    def _well_defn(self):
+        # 当协议通过 WellH(Well) 子类调用 super().__init__(well._impl) 时，
+        # _labware=None 但 self.well 指向原始 MockWell，从那里读取定义
+        orig = getattr(self, 'well', None)
+        if orig is not None and orig is not self and hasattr(orig, '_labware') and orig._labware:
+            return orig._labware._defn.get("wells", {}).get(orig._name, {})
+        if self._labware:
+            return self._labware._defn.get("wells", {}).get(self._name, {})
+        return {}
+
     @property
     def diameter(self):
-        return 6.86  # 典型 96 孔
+        d = self._well_defn().get("diameter")
+        return float(d) if d is not None else None
 
     @property
     def width(self):
-        return 6.86
+        v = self._well_defn().get("xDimension")
+        return float(v) if v is not None else 6.86
 
     @property
     def length(self):
-        return 6.86
+        v = self._well_defn().get("yDimension")
+        return float(v) if v is not None else 6.86
 
     def center(self):
         return self  # 供 move_to 等使用
 
     @property
     def geometry(self):
-        return type("Geo", (), {"depth": 10, "height": 10, "width": 6.86, "x": 0, "y": 0, "_depth": 10, "_width": 6.86, "_diameter": 6.86})()
+        d = self.depth
+        w = self.width
+        dia = self.diameter or w
+        mv = self.max_volume
+        return type("Geo", (), {"depth": d, "height": d, "width": w, "x": 0, "y": 0, "_depth": d, "_width": w, "_diameter": dia, "max_volume": mv})()
 
     @property
     def max_volume(self):
+        # 从 labware 定义 JSON 的 wells[name].totalLiquidVolume 读取
+        if self._labware:
+            well_defn = self._labware._defn.get("wells", {}).get(self._name, {})
+            if "totalLiquidVolume" in well_defn:
+                return float(well_defn["totalLiquidVolume"])
         return 200.0
 
     @property
@@ -271,7 +342,8 @@ class MockWell:
 
     @property
     def depth(self):
-        return 10.0
+        v = self._well_defn().get("depth")
+        return float(v) if v is not None else 10.0
 
     @property
     def _impl(self):
@@ -281,12 +353,21 @@ class MockWell:
 class MockLabware:
     """模拟 Labware"""
 
-    def __init__(self, slot: int, label: str, load_name: str, well_order: List[str]):
+    def __init__(self, slot: int, label: str, load_name: str, well_order: List[str], defn: Dict = None):
         self._slot = int(slot) if isinstance(slot, str) else slot
         self._label = label
         self._load_name = load_name
+        self._defn = defn or {}
         self._wells = [MockWell(w, self) for w in well_order]
         self._wells_by_name = {w._name: w for w in self._wells}
+
+    @property
+    def display_name(self) -> str:
+        """优先用 Python label，其次用 labware 定义里的 displayName，最后用 load_name"""
+        if self._label and self._label != self._load_name:
+            return self._label
+        dn = self._defn.get("metadata", {}).get("displayName")
+        return dn if dn else self._label
 
     def wells_by_name(self):
         return self._wells_by_name
@@ -301,7 +382,7 @@ class MockLabware:
             rows[r].append(w)
         return [rows[r] for r in "ABCDEFGHIJKLMNOP"[: len(rows)]]
 
-    def columns(self):
+    def columns(self, *args):
         # 按列分组，96 孔: A1-H1, A2-H2, ...
         cols = {}
         for w in self._wells:
@@ -311,7 +392,16 @@ class MockLabware:
             cols[c].append(w)
         for c in cols:
             cols[c].sort(key=lambda w: w._name)
-        return [cols[c] for c in sorted(cols.keys())]
+        all_cols = [cols[c] for c in sorted(cols.keys())]
+        # 支持 columns(n) 形式——返回第 n 列（0-indexed）
+        if args:
+            idx = int(args[0])
+            return all_cols[idx] if 0 <= idx < len(all_cols) else []
+        return all_cols
+
+    def well(self, key):
+        """单个 well 访问，等同于 wells_by_name()[key]"""
+        return self._wells_by_name.get(str(key))
 
     def wells(self, *keys):
         if keys:
@@ -343,13 +433,27 @@ class MockLabware:
             rows[r].append(w)
         return rows
 
-    def next_tip(self, channels=1):
+    @property
+    def highest_z(self):
+        if self._defn:
+            z = self._defn.get("dimensions", {}).get("zDimension")
+            if z is not None:
+                return float(z)
+        return 200.0
+
+    def next_tip(self, channels=1, starting_tip=None):
         if channels == 8:
             for col in self.columns():
                 if col and all(getattr(w, "has_tip", True) for w in col):
                     return col[0]
             return None
+        started = starting_tip is None
         for well in self._wells:
+            if not started:
+                if well is starting_tip:
+                    started = True
+                else:
+                    continue
             if getattr(well, "has_tip", True):
                 return well
         return None
@@ -375,6 +479,7 @@ class MockPipette:
         self._mount = mount
         self._default_speed = 400.0
         self._starting_tip = None
+        self._last_tip_picked_up_from = None
 
     @property
     def current_volume(self):
@@ -423,7 +528,7 @@ class MockPipette:
 
     @property
     def trash_container(self):
-        return MockLabware(12, "Opentrons Fixed Trash", "trash", ["A1"])
+        return _make_trash_labware(Path(__file__).parent)
 
     @property
     def name(self):
@@ -485,17 +590,18 @@ class MockPipette:
             tip_well = well._name
             if hasattr(well, "has_tip"):
                 well.has_tip = False
-            self._recorder.record_pick_tip(tip_well, "Opentrons OT-2 96 Tip Rack 20 uL", lab._slot)
+            self._recorder.record_pick_tip(tip_well, lab.display_name, lab._slot)
         else:
             fallback_slot = self._tip_racks[0]._slot if self._tip_racks else 1
-            self._recorder.record_pick_tip("A1", "Opentrons OT-2 96 Tip Rack 20 uL", fallback_slot)
+            fallback_name = self._tip_racks[0].display_name if self._tip_racks else ""
+            self._recorder.record_pick_tip("A1", fallback_name, fallback_slot)
 
     def drop_tip(self, well=None, **kwargs):
         self._has_tip = False
         self._current_volume = 0.0
         if well is not None:
             lab = well._labware
-            self._recorder.record_drop_tip(well._name, lab._label, lab._slot)
+            self._recorder.record_drop_tip(well._name, lab.display_name, lab._slot)
         else:
             self._recorder.record_drop_tip("A1", "Opentrons Fixed Trash", 12)
 
@@ -504,37 +610,43 @@ class MockPipette:
             well.has_tip = True
         self.drop_tip(well)
 
-    def aspirate(self, volume, well=None, **kwargs):
+    def aspirate(self, volume, well=None, rate=1.0, **kwargs):
         self._current_volume += float(volume)
         target = well or self._last_location
         if target is not None and hasattr(target, "_name") and hasattr(target, "_labware"):
             lab = target._labware
+            if lab is None:
+                return
             pose_z = getattr(target, "_pose_z", None)
             self._last_location = target
-            self._recorder.record_aspirate(float(volume), target._name, lab._label, lab._slot, pose_z=pose_z)
+            self._recorder.record_aspirate(float(volume), target._name, lab.display_name, lab._slot, pose_z=pose_z)
 
-    def dispense(self, volume=None, well=None, **kwargs):
+    def dispense(self, volume=None, well=None, rate=1.0, **kwargs):
         req_vol = float(volume) if volume is not None else self._current_volume
         vol = min(req_vol, self._current_volume)
         self._current_volume -= vol
         target = well or self._last_location
         if target is not None and hasattr(target, "_name") and hasattr(target, "_labware"):
             lab = target._labware
+            if lab is None:
+                return
             pose_z = getattr(target, "_pose_z", None)
             self._last_location = target
             if vol == -1 or vol < 0:
-                self._recorder.record_dispense(-1, target._name, lab._label, lab._slot, is_blowout=True, pose_z=pose_z)
+                self._recorder.record_dispense(-1, target._name, lab.display_name, lab._slot, is_blowout=True, pose_z=pose_z)
             else:
-                self._recorder.record_dispense(vol, target._name, lab._label, lab._slot, pose_z=pose_z)
+                self._recorder.record_dispense(vol, target._name, lab.display_name, lab._slot, pose_z=pose_z)
 
-    def blow_out(self, well=None):
+    def blow_out(self, well=None, location=None):
         self._current_volume = 0
-        target = well or self._last_location
+        target = well or location or self._last_location
         if target is not None:
-            lab = target._labware
+            lab = getattr(target, "_labware", None)
+            if lab is None:
+                return
             pose_z = getattr(target, "_pose_z", None)
             self._last_location = target
-            self._recorder.record_blow_out(target._name, lab._label, lab._slot, pose_z=pose_z)
+            self._recorder.record_blow_out(target._name, lab.display_name, lab._slot, pose_z=pose_z)
         else:
             self._recorder.record_blow_out("A1", "Opentrons Fixed Trash", 12)
 
@@ -544,15 +656,17 @@ class MockPipette:
     def touch_tip(self, well=None, **kwargs):
         target = well or self._last_location
         if target is not None:
-            lab = target._labware
+            lab = getattr(target, "_labware", None)
+            if lab is None:
+                return
             pose_z = getattr(target, "_pose_z", None)
             self._last_location = target
-            self._recorder.record_touch_tip(target._name, lab._label, lab._slot, pose_z=pose_z)
+            self._recorder.record_touch_tip(target._name, lab.display_name, lab._slot, pose_z=pose_z)
         else:
             self._recorder.record_touch_tip()
 
     def transfer(self, volume, source, dest, **kwargs):
-        """transfer(vol, src, dst) 或 transfer(vol, [s1,s2], [d1,d2])"""
+        """transfer(vol, src, dst) 或 transfer(vol, [s1,s2], [d1,d2])，vol 可为列表"""
         src_list = [source] if hasattr(source, "_name") else list(source)
         dst_list = [dest] if hasattr(dest, "_name") else list(dest)
         mix_before = kwargs.get("mix_before")
@@ -565,16 +679,23 @@ class MockPipette:
         auto_pick_once = new_tip == "once"
         auto_pick_always = new_tip == "always"
 
+        # volume 可以是单值或与 src/dst 等长的列表
+        n = max(len(src_list), len(dst_list))
+        if isinstance(volume, (list, tuple)):
+            vol_list = list(volume)
+        else:
+            vol_list = [volume] * n
+
         if auto_pick_once and not self.has_tip:
             self.pick_up_tip()
 
-        for s, d in zip(src_list, dst_list):
+        for s, d, v in zip(src_list, dst_list, vol_list):
             if auto_pick_always and not self.has_tip:
                 self.pick_up_tip()
             if mix_before:
                 self.mix(mix_before[0], mix_before[1], s)
-            self.aspirate(volume, s)
-            self.dispense(volume, d)
+            self.aspirate(v, s)
+            self.dispense(v, d)
             if mix_after:
                 self.mix(mix_after[0], mix_after[1], d)
             if touch_tip:
@@ -593,11 +714,22 @@ class MockPipette:
             self.drop_tip()
 
     def distribute(self, volume, source, dest, **kwargs):
+        new_tip = kwargs.get("new_tip", "always")
         src = (list(source)[0] if list(source) else None) if not hasattr(source, "_name") else source
-        for d in dest:
+        dest_list = list(dest) if not (hasattr(dest, "_name") or hasattr(dest, "_labware")) else [dest]
+        n = len(dest_list)
+        if isinstance(volume, (list, tuple)):
+            vol_list = [float(v) for v in volume]
+        else:
+            vol_list = [float(volume)] * n
+        if new_tip == "always" and not self.has_tip:
+            self.pick_up_tip()
+        for d, v in zip(dest_list, vol_list):
             if src:
-                self.aspirate(volume, src)
-            self.dispense(volume, d)
+                self.aspirate(v, src)
+            self.dispense(v, d)
+        if new_tip == "always" and self.has_tip:
+            self.drop_tip()
 
     def _normalize_wells(self, wells):
         if wells is None:
@@ -609,10 +741,12 @@ class MockPipette:
     def mix(self, repetitions, volume, well=None, *args, **kwargs):
         target = well or self._last_location
         if target is not None:
-            lab = target._labware
+            lab = getattr(target, "_labware", None)
+            if lab is None:
+                return
             pose_z = getattr(target, "_pose_z", None)
             self._last_location = target
-            self._recorder.record_mix(repetitions, volume, target._name, lab._label, lab._slot, pose_z=pose_z)
+            self._recorder.record_mix(repetitions, volume, target._name, lab.display_name, lab._slot, pose_z=pose_z)
 
     def move_to(self, *args, **kwargs):
         if args:
@@ -627,15 +761,25 @@ class MockPipette:
 
     def consolidate(self, volume, source, dest, **kwargs):
         """多源合并到单目标"""
-        vol = float(volume)
         sources = list(source) if hasattr(source, "__iter__") and not hasattr(source, "_name") else [source]
-        for s in sources:
-            self.aspirate(vol, s)
-        self.dispense(vol * len(sources), dest)
+        if isinstance(volume, (list, tuple)):
+            vol_list = [float(v) for v in volume]
+        else:
+            vol_list = [float(volume)] * len(sources)
+        total = 0.0
+        for s, v in zip(sources, vol_list):
+            self.aspirate(v, s)
+            total += v
+        self.dispense(total, dest)
 
     @property
     def type(self):
         return self._name
+
+    @property
+    def _implementation(self):
+        mount = self._mount
+        return type("PipImpl", (), {"get_mount": lambda s: mount})()
 
     @property
     def channels(self):
@@ -752,7 +896,7 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
         return ValueProxy(result[0]) if len(result) == 1 else result
 
     loaded_labwares = {
-        12: MockLabware(12, "Opentrons Fixed Trash", "trash", ["A1"])
+        12: _make_trash_labware(protocol_dir)
     }
     loaded_modules = []
 
@@ -770,7 +914,7 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
             order = _flatten_ordering(defn["ordering"])
         else:
             order = _get_well_order(load_name_str)
-        lab = MockLabware(slot, label or load_name, load_name, order)
+        lab = MockLabware(slot, label or load_name, load_name, order, defn=defn)
         loaded_labwares[slot] = lab
         return lab
 
@@ -780,6 +924,12 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
 
         def __getitem__(self, slot):
             return self._labwares.get(slot)
+
+        def __delitem__(self, slot):
+            self._labwares.pop(slot, None)
+
+        def __setitem__(self, slot, val):
+            self._labwares[slot] = val
 
         def position_for(self, slot):
             slot_num = int(slot) if isinstance(slot, str) and slot.isdigit() else slot
@@ -870,11 +1020,79 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
                 def close_labware_latch(self):
                     pass
 
+                def open_labware_latch(self):
+                    pass
+
+                @property
+                def labware_latch_status(self):
+                    return "idle_closed"
+
                 def set_lid_temperature(self, t=None, celsius=None, **kw):
                     pass
 
                 def execute_profile(self, steps=None, repetitions=1, **kw):
                     pass
+
+                def set_and_wait_for_temperature(self, celsius=None, **kw):
+                    pass
+
+                def set_and_wait_for_shake_speed(self, rpm=None, **kw):
+                    pass
+
+                def deactivate_shaker(self):
+                    pass
+
+                def deactivate_heater(self):
+                    pass
+
+                def wait_for_temperature(self, celsius=None, **kw):
+                    pass
+
+                def start_set_temperature(self, celsius=None, **kw):
+                    pass
+
+                def await_temperature(self, celsius=None, **kw):
+                    pass
+
+                def set_target_block_temperature(self, celsius=None, **kw):
+                    pass
+
+                def set_target_lid_temperature(self, celsius=None, **kw):
+                    pass
+
+                def set_target_temperature(self, celsius=None, **kw):
+                    pass
+
+                def wait_for_block_temperature(self, **kw):
+                    pass
+
+                def wait_for_lid_temperature(self, **kw):
+                    pass
+
+                @property
+                def current_temperature(self):
+                    return 25.0
+
+                @property
+                def target_temperature(self):
+                    return 25.0
+
+                @property
+                def temperature(self):
+                    return 25.0
+
+                @property
+                def current_speed(self):
+                    return 0
+
+                @property
+                def target_speed(self):
+                    return 0
+
+                def __getattr__(self, name):
+                    if name.startswith('_'):
+                        raise AttributeError(name)
+                    return lambda *a, **k: None
 
             mod = MockModule(mod_loc)
             loaded_modules.append(mod)
@@ -912,10 +1130,33 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
             return []
 
         @property
+        def _implementation(self):
+            """ctx._implementation._hw_manager 用法的兼容支持"""
+            return self
+
+        @property
         def _hw_manager(self):
+            class _DummyInstrument:
+                """吸收 _attached_instruments[mount].update_config_item / config.xxx"""
+                class _Config:
+                    pick_up_current = 0.1
+                    pick_up_distance = 10.0
+                    def __getattr__(self, name):
+                        return 0.0
+                config = _Config()
+                def update_config_item(self, key, val):
+                    pass
+                def __getattr__(self, name):
+                    return lambda *a, **k: None
+
+            class _AttachedInstruments(dict):
+                def __missing__(self, key):
+                    return _DummyInstrument()
+
             hardware = type("Hardware", (), {
                 "is_simulator": True,
                 "set_lights": lambda s, rails=None, button=None, **kw: None,
+                "_attached_instruments": _AttachedInstruments(),
             })()
             return type("HwManager", (), {"hardware": hardware})()
 
@@ -927,7 +1168,7 @@ def build_mock_ctx(protocol_dir: Path, fields: List[Dict], recorder: ProtocolRec
 
         @property
         def fixed_trash(self):
-            return MockLabware(12, "Opentrons Fixed Trash", "trash", ["A1"])
+            return loaded_labwares.get(12) or _make_trash_labware(protocol_dir)
 
     return MockContext(), get_values
 

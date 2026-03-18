@@ -1376,27 +1376,42 @@ def export_transfer_actions(protocol_name, output_file=None):
     # 添加 tiprack 和 trash 信息（从 protoBuilds 获取）
     try:
         proto_json = get_labware_data(protocol_name)
+        slot_to_labware_type: Dict[int, str] = {}
         if 'labware' in proto_json:
             for labware in proto_json['labware']:
                 labware_type = labware.get('type', '').lower()
+                labware_slot = int(labware.get('slot', 0))
+                slot_to_labware_type[labware_slot] = labware.get('type', '')
                 # 检查是否是 tiprack
                 if 'tip' in labware_type and 'rack' in labware_type:
-                    slot = int(labware.get('slot', 0))
-                    labware_type_name = labware.get('type', '')
-                    tiprack_key = f"tiprack_{slot}"
+                    tiprack_key = f"tiprack_{labware_slot}"
                     reagents[tiprack_key] = {
-                        "slot": slot,
-                        "labware": labware_type_name,
+                        "slot": labware_slot,
+                        "labware": labware.get('type', ''),
                         "object": "tiprack"
                     }
                 # 检查是否是 trash（Opentrons Fixed Trash）
                 elif 'trash' in labware_type or ('trash' in (labware.get('name') or '').lower()):
-                    slot = int(labware.get('slot', 12))
                     reagents["trash"] = {
-                        "slot": slot,
+                        "slot": labware_slot,
                         "labware": labware.get('type', 'opentrons_1_trash_1100ml_fixed'),
                         "object": "trash"
                     }
+        # 补全 workflow 中引用但 reagent 中缺失的 tiprack（如非标准命名的 SPE 板被当做 tip 使用）
+        for action in transfer_actions:
+            tr = action.get('action_args', {}).get('tip_racks', '')
+            if isinstance(tr, str) and tr.startswith('tiprack_'):
+                try:
+                    tip_slot = int(tr.split('_', 1)[1])
+                    tip_key = f"tiprack_{tip_slot}"
+                    if tip_key not in reagents and tip_slot in slot_to_labware_type:
+                        reagents[tip_key] = {
+                            "slot": tip_slot,
+                            "labware": slot_to_labware_type[tip_slot],
+                            "object": "tiprack"
+                        }
+                except (ValueError, IndexError):
+                    pass
         # 若 protoBuilds 中未找到 trash，添加默认 trash（slot 12）
         if "trash" not in reagents:
             reagents["trash"] = {

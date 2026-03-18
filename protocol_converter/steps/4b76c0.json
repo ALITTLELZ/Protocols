@@ -1,12 +1,20 @@
 [
     [
         {
+            "action": "pick_tip",
+            "tip_rack": {
+                "well": "A1",
+                "type": "Opentrons OT-2 96 Tip Rack 10 µL",
+                "slot": 3
+            }
+        },
+        {
             "action": "aspirate",
             "vol": 1.0,
             "source": {
                 "well": "A1",
-                "labware": "axygen_96_wellplate",
-                "slot": 2
+                "labware": "NEST 12 Well Reservoir 15 mL",
+                "slot": 1
             },
             "flow_rate": 7.6
         },
@@ -18,7 +26,16 @@
                 "labware": "axygen_96_wellplate",
                 "slot": 2
             },
-            "flow_rate": 7.6
+            "flow_rate": 7.6,
+            "pose_z": "top"
+        },
+        {
+            "action": "drop_tip",
+            "location": {
+                "well": "A1",
+                "labware": "Opentrons Fixed Trash",
+                "slot": 12
+            }
         }
     ]
 ]
