@@ -6,24 +6,19 @@
         "sources": "NORM1",
         "targets": "samples",
         "asp_vols": [
-          5.0,
-          1.0
+          5.0
         ],
         "dis_vols": [
-          5.0,
-          1.0
+          5.0
         ],
         "asp_flow_rates": [
-          7.6,
           7.6
         ],
         "dis_flow_rates": [
-          7.6,
           7.6
         ],
         "tip_racks": "tiprack_4",
         "liquid_height": [
-          1.0,
           1.0
         ],
         "mix_stage": "after",
@@ -55,14 +50,41 @@
           1.0
         ]
       }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "NORM2",
+        "targets": "samples_2",
+        "asp_vols": [
+          1.0
+        ],
+        "dis_vols": [
+          1.0
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ],
+        "tip_racks": "tiprack_5",
+        "liquid_height": [
+          1.0
+        ],
+        "mix_stage": "after",
+        "mix_times": 1,
+        "mix_vol": 10.0,
+        "mix_rate": 7.6,
+        "mix_liquid_height": 1.0
+      }
     }
   ],
   "reagent": {
     "NORM1": {
       "slot": 3,
       "well": [
-        "A1",
-        "A2"
+        "A1"
       ],
       "labware": "opentrons_96_aluminumblock_biorad_wellplate_200ul",
       "object": "source"
@@ -75,11 +97,18 @@
       "labware": "nest_96_wellplate_100ul_pcr_full_skirt",
       "object": "source"
     },
+    "NORM2": {
+      "slot": 3,
+      "well": [
+        "A2"
+      ],
+      "labware": "opentrons_96_aluminumblock_biorad_wellplate_200ul",
+      "object": "source"
+    },
     "samples": {
       "slot": 7,
       "well": [
-        "A1",
-        "A12"
+        "A1"
       ],
       "labware": "nest_96_wellplate_100ul_pcr_full_skirt",
       "object": "target"

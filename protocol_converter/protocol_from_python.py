@@ -651,7 +651,10 @@ class MockPipette:
             self._recorder.record_blow_out("A1", "Opentrons Fixed Trash", 12)
 
     def air_gap(self, volume=0, *args, **kwargs):
-        self._current_volume += float(volume)
+        vol = float(volume)
+        self._current_volume += vol
+        if vol > 0:
+            self._recorder.record_air_gap(vol)
 
     def touch_tip(self, well=None, **kwargs):
         target = well or self._last_location
@@ -760,17 +763,44 @@ class MockPipette:
         pass
 
     def consolidate(self, volume, source, dest, **kwargs):
-        """多源合并到单目标"""
+        """多源合并到单目标；默认 new_tip='once'，自动管理 pick_up/drop_tip"""
+        new_tip = kwargs.get("new_tip", "once")
+        blow_out = kwargs.get("blow_out", False)
+        blowout_location = kwargs.get("blowout_location")
+        mix_before = kwargs.get("mix_before")
+        mix_after = kwargs.get("mix_after")
+
         sources = list(source) if hasattr(source, "__iter__") and not hasattr(source, "_name") else [source]
         if isinstance(volume, (list, tuple)):
             vol_list = [float(v) for v in volume]
         else:
             vol_list = [float(volume)] * len(sources)
+
+        if new_tip in ("once", "always") and not self.has_tip:
+            self.pick_up_tip()
+
         total = 0.0
         for s, v in zip(sources, vol_list):
+            if mix_before:
+                self.mix(mix_before[0], mix_before[1], s)
             self.aspirate(v, s)
             total += v
+
         self.dispense(total, dest)
+
+        if mix_after:
+            self.mix(mix_after[0], mix_after[1], dest)
+
+        if blow_out:
+            if blowout_location == "source well":
+                self.blow_out(sources[-1] if sources else None)
+            elif blowout_location == "trash":
+                self.blow_out()
+            else:
+                self.blow_out(dest)
+
+        if new_tip in ("once", "always") and self.has_tip:
+            self.drop_tip()
 
     @property
     def type(self):
@@ -856,6 +886,12 @@ class ProtocolRecorder:
         if pose_z:
             act["pose_z"] = pose_z
         self.actions.append(act)
+
+    def record_air_gap(self, vol: float):
+        self.actions.append({
+            "action": "air_gap",
+            "vol": vol
+        })
 
     def record_drop_tip(self, well: str, labware: str, slot: int):
         self.actions.append({

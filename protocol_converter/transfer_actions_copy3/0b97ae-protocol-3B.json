@@ -174,35 +174,19 @@
         "asp_vols": [
           1.5,
           1.5,
-          20.0,
-          200.0,
-          20.0,
-          200.0,
           2.0
         ],
         "dis_vols": [
           11.25,
           13.25,
-          30.0,
-          200.0,
-          30.0,
-          200.0,
           2.0
         ],
         "asp_flow_rates": [
           7.6,
           7.6,
-          7.6,
-          7.6,
-          7.6,
-          7.6,
           7.6
         ],
         "dis_flow_rates": [
-          7.6,
-          7.6,
-          7.6,
-          7.6,
           7.6,
           7.6,
           7.6
@@ -211,29 +195,12 @@
         "blow_out_air_volume_before": [
           0,
           0,
-          0,
-          0,
-          0,
-          0,
           10.0
         ],
         "liquid_height": [
           0,
           0,
-          0,
-          0,
-          0,
-          0,
           0
-        ],
-        "delays": [
-          0.0,
-          0.0,
-          30.0,
-          0.0,
-          30.0,
-          0.0,
-          0.0
         ]
       }
     },
@@ -268,19 +235,22 @@
     {
       "action": "transfer_liquid",
       "action_args": {
-        "sources": "bb",
+        "sources": "samples",
         "targets": "samples_7",
         "asp_vols": [
-          19.5,
-          210.0,
-          210.0
+          20.0,
+          200.0,
+          20.0,
+          200.0
         ],
         "dis_vols": [
-          19.5,
+          30.0,
           200.0,
+          30.0,
           200.0
         ],
         "asp_flow_rates": [
+          7.6,
           7.6,
           7.6,
           7.6
@@ -288,18 +258,22 @@
         "dis_flow_rates": [
           7.6,
           7.6,
+          7.6,
           7.6
         ],
-        "tip_racks": "tiprack_3",
+        "tip_racks": "tiprack_8",
         "liquid_height": [
+          0,
           0,
           0,
           0
         ],
-        "mix_stage": "both",
-        "mix_times": 1,
-        "mix_vol": 17.0,
-        "mix_rate": 7.6
+        "delays": [
+          30.0,
+          0.0,
+          30.0,
+          0.0
+        ]
       }
     },
     {
@@ -354,6 +328,65 @@
     {
       "action": "transfer_liquid",
       "action_args": {
+        "sources": "bb",
+        "targets": "samples_8",
+        "asp_vols": [
+          19.5
+        ],
+        "dis_vols": [
+          19.5
+        ],
+        "asp_flow_rates": [
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6
+        ],
+        "tip_racks": "tiprack_3",
+        "liquid_height": [
+          0
+        ],
+        "mix_stage": "after",
+        "mix_times": 3,
+        "mix_vol": 17.0,
+        "mix_rate": 7.6
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
+        "sources": "etoh",
+        "targets": "samples_6",
+        "asp_vols": [
+          210.0,
+          210.0
+        ],
+        "dis_vols": [
+          200.0,
+          200.0
+        ],
+        "asp_flow_rates": [
+          7.6,
+          7.6
+        ],
+        "dis_flow_rates": [
+          7.6,
+          7.6
+        ],
+        "tip_racks": "tiprack_8",
+        "liquid_height": [
+          0,
+          0
+        ],
+        "mix_stage": "before",
+        "mix_times": 1,
+        "mix_vol": 150.0,
+        "mix_rate": 7.6
+      }
+    },
+    {
+      "action": "transfer_liquid",
+      "action_args": {
         "sources": "samples",
         "targets": "samples_9",
         "asp_vols": [
@@ -400,16 +433,6 @@
       "labware": "perkinelmer_12_reservoir_21000ul",
       "object": "source"
     },
-    "bb": {
-      "slot": 2,
-      "well": [
-        "A2",
-        "A3",
-        "A4"
-      ],
-      "labware": "perkinelmer_12_reservoir_21000ul",
-      "object": "source"
-    },
     "samples_start": {
       "slot": 7,
       "well": [
@@ -424,6 +447,23 @@
         "A1"
       ],
       "labware": "biorad_96_wellplate_200ul_pcr",
+      "object": "source"
+    },
+    "bb": {
+      "slot": 2,
+      "well": [
+        "A2"
+      ],
+      "labware": "perkinelmer_12_reservoir_21000ul",
+      "object": "source"
+    },
+    "etoh": {
+      "slot": 2,
+      "well": [
+        "A3",
+        "A4"
+      ],
+      "labware": "perkinelmer_12_reservoir_21000ul",
       "object": "source"
     },
     "samples_3": {
@@ -447,10 +487,6 @@
       "well": [
         "A10",
         "A10",
-        "A3",
-        "A11",
-        "A4",
-        "A11",
         "A11"
       ],
       "labware": "perkinelmer_12_reservoir_21000ul",
@@ -465,11 +501,14 @@
       "object": "target"
     },
     "samples_7": {
-      "slot": 4,
+      "slot": 2,
       "well": [
-        "A1"
+        "A3",
+        "A11",
+        "A4",
+        "A11"
       ],
-      "labware": "nest_96_wellplate_2ml_deep",
+      "labware": "perkinelmer_12_reservoir_21000ul",
       "object": "target"
     },
     "samples_8": {
